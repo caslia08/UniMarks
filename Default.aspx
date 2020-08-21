@@ -1,11 +1,24 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="WebApplication3._Default" %>
 
-<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <asp:Content ContentPlaceHolderID="Custom_styles_placeholder" runat="server"> 
+        <style>
+
+        </style>
+    </asp:Content>
+
+   <asp:Content ContentPlaceHolderID="mainHeading" runat="server">
+       This is a main heading
+    </asp:Content>
+
+    <asp:Content ID="Content1" ContentPlaceHolderID="Login_LogoutButton" runat="server">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Register </button>
+    </asp:Content>
+    <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="jumbotron">
         <h1>Welcome! </h1>
         <p class="lead">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas</p>
-        <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Login &raquo;</a></p>
+        <p><a href="Account/Login.aspx" class="btn btn-primary btn-lg">Login &raquo;</a></p>
     </div>
 
     <div class="row">
