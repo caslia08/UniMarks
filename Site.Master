@@ -58,6 +58,7 @@
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/About">About</a></li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/Contact">Contact</a></li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/StudentDashboard.aspx">Registed Modules</a></li>
+						<li class="nav-item"><a class="nav-link" runat="server" href="~/ModuleDetails.aspx">Registed Modules</a></li>
                     </ul>
                     <form class="form-inline my-2 my-lg-0">
                         <asp:ContentPlaceHolder ID="Login_LogoutButton" runat="server"></asp:ContentPlaceHolder>
