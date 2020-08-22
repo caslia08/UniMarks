@@ -107,7 +107,7 @@
     <div id="links-to-stats-grid-container">
         <div class="grid-button-container">
             <h5>Click button below to view the modules assessments</h5>
-               <a href"#" class="btn btn-outline-primary btn-lg btn-rounded-border" role="button">Module statistics</a>
+               <a href"#" class="btn btn-outline-primary btn-lg btn-rounded-border" role="button">Module Assessments</a>
         </div>
         <div class="grid-button-container">
             <h5>Click button below to view the modules statistical information</h5>
