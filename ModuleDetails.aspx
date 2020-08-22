@@ -41,6 +41,11 @@
 		#centerHeading{
 			  text-align: center;			 
 		}
+		#rcorners2 {
+		  border-radius: 25px;
+		  border: 2px solid #2f7e91;
+		  padding: 20px;
+		}
 
     </style>
 </asp:Content>
@@ -49,7 +54,15 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="mainHeading" runat="server">
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="MainContent" runat="server">
-	<div class="jumbotron">
-        <h2 id ="centerHeading">Welome, First Name</h2>
+	<div class="jumbotron", id ="rcorners2">
+        <h2 id ="centerHeading">BDSM MODULE NAME</h2>
     </div>
+	<div>
+		<label for="fname">First name:</label><br>
+		<input type="text" id="fname" name="fname" value="John"><br>
+		<label for="lname">Last name:</label><br>
+		<input type="text" id="lname" name="lname" value="Doe"><br><br>
+		<input type="submit" value="Submit">
+	</div>
+
 </asp:Content>
