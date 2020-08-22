@@ -13,6 +13,42 @@ namespace WebApplication3 {
     public partial class SiteMaster {
         
         /// <summary>
+        /// pageTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder pageTitle;
+        
+        /// <summary>
+        /// Custom_styles_placeholder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder Custom_styles_placeholder;
+        
+        /// <summary>
+        /// Login_LogoutButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder Login_LogoutButton;
+        
+        /// <summary>
+        /// mainHeading control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder mainHeading;
+        
+        /// <summary>
         /// MainContent control.
         /// </summary>
         /// <remarks>
