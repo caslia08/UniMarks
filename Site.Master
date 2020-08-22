@@ -13,7 +13,7 @@
     </asp:PlaceHolder>
     <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
- 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
     <asp:ContentPlaceHolder ID="Custom_styles_placeholder" runat="server">
  
     </asp:ContentPlaceHolder>

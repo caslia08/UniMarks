@@ -2,7 +2,7 @@
  
 <asp:Content ContentPlaceHolderID="Custom_styles_placeholder" runat="server"> 
     <style>
-        #dashboard-grid-container{
+        .grid-container{
             display: grid;
             grid-gap: 50px;
             grid-template-columns: 1fr 1fr 1fr;
@@ -48,13 +48,15 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="jumbotron">
-        <h2>Welome, First Name</h2>
-        <p>
-            Black i saw beyonces tizzles and my pizzle went crizzle you son of a bizzle sit amizzle, da bomb adipiscing elit. Its fo rizzle break it down velizzle, fo shizzle my nizzle volutpat, suscipizzle yo mamma, gravida vel, arcu. Pellentesque for sure bling bling. Sizzle erizzle.
-        </p>
+        <div class="container">
+            <h2>Welome, First Name</h2>
+            <p>
+                Black i saw beyonces tizzles and my pizzle went crizzle you son of a bizzle sit amizzle, da bomb adipiscing elit. Its fo rizzle break it down velizzle, fo shizzle my nizzle volutpat, suscipizzle yo mamma, gravida vel, arcu. Pellentesque for sure bling bling. Sizzle erizzle.
+            </p>
+        </div>
     </div>
     
-    <div id="dashboard-grid-container">
+    <div class="grid-container">
         <div class ="module-grid-item">
             <div class="grid-heading">
                 <h4>WRR301-Project</h4>
