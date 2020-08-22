@@ -188,6 +188,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Account\Web.config" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="ModuleAssessments.aspx" />
     <Content Include="ModuleHomePage.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -359,6 +360,23 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+<<<<<<< Updated upstream
+=======
+    <Compile Include="ModuleAssessments.aspx.cs">
+      <DependentUpon>ModuleAssessments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModuleAssessments.aspx.designer.cs">
+      <DependentUpon>ModuleAssessments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleDetails.aspx.cs">
+      <DependentUpon>ModuleDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModuleDetails.aspx.designer.cs">
+      <DependentUpon>ModuleDetails.aspx</DependentUpon>
+    </Compile>
+>>>>>>> Stashed changes
     <Compile Include="ModuleHomePage.aspx.cs">
       <DependentUpon>ModuleHomePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
