@@ -167,6 +167,7 @@
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="AddAssessment.aspx" />
+    <Content Include="AddMarks.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -175,6 +176,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\CustomStyles.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="dataTables.js" />
     <Content Include="Default.aspx" />
     <Content Include="EditAssessment.aspx" />
     <Content Include="EditLecturerInformation.aspx" />
@@ -341,6 +343,13 @@
     </Compile>
     <Compile Include="AddAssessment.aspx.designer.cs">
       <DependentUpon>AddAssessment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddMarks.aspx.cs">
+      <DependentUpon>AddMarks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddMarks.aspx.designer.cs">
+      <DependentUpon>AddMarks.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
