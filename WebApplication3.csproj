@@ -195,6 +195,7 @@
     <Content Include="MarkDetails.aspx" />
     <Content Include="ModuleAssessments.aspx" />
     <Content Include="ModuleHomePage.aspx" />
+    <Content Include="ModuleStatistics.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -413,6 +414,13 @@
     </Compile>
     <Compile Include="ModuleHomePage.aspx.designer.cs">
       <DependentUpon>ModuleHomePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleStatistics.aspx.cs">
+      <DependentUpon>ModuleStatistics.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModuleStatistics.aspx.designer.cs">
+      <DependentUpon>ModuleStatistics.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">

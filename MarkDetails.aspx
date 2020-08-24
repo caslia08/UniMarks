@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Custom_styles_placeholder" runat="server">
     <style>
-        .bold-element{
+        .blue-element{
             color:rgb(39, 128, 227) ;
         }
     </style>
@@ -24,19 +24,19 @@
         <table class="table table-hover">
             <tbody>
                 <tr>
-                    <td class="bold-element">Your mark</td>
+                    <td class="blue-element">Your mark</td>
                     <td>79%</td>
                 </tr>
                 <tr>
-                    <td class="bold-element">Minimum mark</td>
+                    <td class="blue-element">Minimum mark</td>
                     <td>39%</td>
                 </tr>
                 <tr>
-                    <td class="bold-element">Maximum mark</td>
+                    <td class="blue-element">Maximum mark</td>
                     <td>99%</td>
                 </tr>
                 <tr>
-                    <td class="bold-element">Average mark</td>
+                    <td class="blue-element">Average mark</td>
                     <td>60%</td>
                 </tr>
             </tbody>
