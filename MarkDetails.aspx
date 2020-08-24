@@ -49,7 +49,7 @@
                 <option disabled selected>Chose a chart to display</option>
                 <option>Bar</option>
                 <option>Pie</option>
-                <option>Line</option>
+                <option>Area</option>
             </select>
         </div>
         <canvas id="my-Bar-Chart" width="250" height="100" style="display: none"></canvas>

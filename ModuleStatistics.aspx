@@ -46,15 +46,37 @@
         <hr />
         <br />
         <h3>Your module progress</h3>
+          <div class="form-group">
+            <label for="chart-to-show">Select graph:</label>
+            <select class="form-control" id="chart-to-show">
+                <option>Line</option>
+                <option>Bar</option>
+            </select>
+        </div>
         <h4>Click on legend text to filter chart</h4>
         <canvas id="my-Line-Chart" width="250" height="100"></canvas>
-        
+        <canvas id="my-Bar-Chart" width="250" height="100" style="display:none"></canvas>
     </div>
+
+     <script>
+        $(document).ready(function () {
+            $('#chart-to-show').on('change', function() {
+                if (this.value == 'Bar') {
+                    $('#my-Bar-Chart').show();
+                    $('#my-Line-Chart').hide();
+                }
+                else {
+                    $('#my-Bar-Chart').hide();
+                    $('#my-Line-Chart').show();
+                }
+            });
+        });
+    </script>
 
     <script>
         let myLineChart = document.getElementById('my-Line-Chart').getContext('2d');
 
-        let averageCharts = new Chart(myLineChart, {
+        let averageLineCharts = new Chart(myLineChart, {
             type: 'line',
             data: {
                 labels: ['Tutorial test 1', 'Class quiz 1', 'Semester test 1', 'Tutorial test 2', 'Tutorial test 3'],
@@ -93,14 +115,61 @@
                     text: 'Assessment marks',
                     fontSize: 25
                 },
-
                 scales: {
                     ticks: {
                         beginAtZero: true
                     }
                 }
             }
+        });
 
+        let myBarChart = document.getElementById('my-Bar-Chart').getContext('2d');
+
+        let averageBarCharts = new Chart(myBarChart, {
+            type: 'bar',
+            data: {
+                labels: ['Tutorial test 1', 'Class quiz 1', 'Semester test 1', 'Tutorial test 2', 'Tutorial test 3'],
+                datasets: [{
+                    data: [50, 69, 88, 79, 64],
+                    label: 'Your marks',
+                    backgroundColor: 'rgba(0, 125, 255, 0.6)',
+                    fill: false
+                },
+                {
+                    data: [55, 50, 85, 64, 77],
+                    label: 'Class average marks (2020)',
+                    backgroundColor: 'rgba(204, 0, 0, 0.6)',
+                    fill: false
+                },
+                {
+                    data: [60, 55, 87, 65, 78],
+                    label: 'Class average marks (2019)',
+                    backgroundColor: 'rgba(255, 255, 0, 0.6)',
+                    fill: false
+                },
+                {
+                    data: [62, 65, 90, 45, 38],
+                    label: 'Class average marks (2018)',
+                    backgroundColor: 'rgba(0, 255, 0, 0.6)',
+                    fill: false
+                }]
+            },
+            options: {
+                legend: {
+                    display: true,
+                    position: 'right'
+                },
+                title: {
+                    display: true,
+                    text: 'Assessment marks',
+                    fontSize: 25
+                },
+                scales: {
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }
+            }
         });
     </script>
 </asp:Content>
