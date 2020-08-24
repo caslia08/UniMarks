@@ -31,7 +31,7 @@
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="MainContent" runat="server">
 	<div class="jumbotron">
-    <h2>Module Information</h2>
+    <h2>Lecturer Information</h2>
             <hr />
             <br />
     <form>
@@ -73,11 +73,23 @@
             </div>
 						
 			<div class="form-group">
+                <label for="AssType">FACULTY</label>
+                <select class="form-control" id="AssType">
+					<option>FACULTY OF SCIENCE</option>
+                    <option>FACULTY OF HUMANITIES</option>
+                    <option>FACULTY OF BUSINESS AND ECONOMIC SCIENCES</option>
+                    <option>FACULTY OF EDUCATION</option>
+                    <option>FACULTY OF ENGINEERING, THE BUILT ENVIRONMENT AND TECHNOLOGY </option>
+					<option>FACULTY OF HEALTH SCIENCES</option>
+					<option>FACULTY OF LAW</option>
+                </select>
+            </div>
+						
+			<div class="form-group">
                 <label for="AssDesc">Module assesment</label>
                 <label for="AssDesc">Table of students -- @NOTE will complete when alias commits her addmarks page. I need dem styles lolzz</label>
             </div>
-
-
+			
 			<asp:GridView ID="GridView1" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal">
 				<FooterStyle BackColor="#CCCC99" ForeColor="Black" />
 				<HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
@@ -88,8 +100,7 @@
 				<SortedDescendingCellStyle BackColor="#E5E5E5" />
 				<SortedDescendingHeaderStyle BackColor="#242121" />
 			</asp:GridView>
-
-
+			
 			<br />
             <hr />
             <br />
