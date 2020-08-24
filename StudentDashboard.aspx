@@ -44,7 +44,7 @@
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Login_LogoutButton" runat="server">
-    <button class="btn btn-secondary my-2 my-sm-0" type="submit">logout</button>
+    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Logout</button>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="jumbotron">

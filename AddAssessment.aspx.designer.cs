@@ -11,7 +11,7 @@ namespace WebApplication3
 {
 
 
-    public partial class ModuleDetails
+    public partial class AddAssessment
     {
     }
 }

@@ -68,9 +68,9 @@
                 </div>
             </nav>
             <div id="breadCrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item active">Home</li>
-                </ol>
+                <asp:ContentPlaceHolder ID="BreadCrumbs" runat="server">
+
+                </asp:ContentPlaceHolder>            
             </div>
         
             <div id="heading">

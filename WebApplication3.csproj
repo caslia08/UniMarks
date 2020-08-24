@@ -166,6 +166,7 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="AddAssessment.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -175,6 +176,9 @@
     <Content Include="Content\CustomStyles.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
+    <Content Include="EditAssessment.aspx" />
+    <Content Include="EditLecturerInformation.aspx" />
+    <Content Include="EditModuleDetials.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -191,7 +195,6 @@
     <Content Include="MarkDetails.aspx" />
     <Content Include="ModuleAssessments.aspx" />
     <Content Include="ModuleHomePage.aspx" />
-    <Content Include="ModuleDetails.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -333,6 +336,13 @@
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AddAssessment.aspx.cs">
+      <DependentUpon>AddAssessment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddAssessment.aspx.designer.cs">
+      <DependentUpon>AddAssessment.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -358,6 +368,27 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EditAssessment.aspx.cs">
+      <DependentUpon>EditAssessment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditAssessment.aspx.designer.cs">
+      <DependentUpon>EditAssessment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditLecturerInformation.aspx.cs">
+      <DependentUpon>EditLecturerInformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditLecturerInformation.aspx.designer.cs">
+      <DependentUpon>EditLecturerInformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditModuleDetials.aspx.cs">
+      <DependentUpon>EditModuleDetials.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditModuleDetials.aspx.designer.cs">
+      <DependentUpon>EditModuleDetials.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -375,13 +406,6 @@
     </Compile>
     <Compile Include="ModuleAssessments.aspx.designer.cs">
       <DependentUpon>ModuleAssessments.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ModuleDetails.aspx.cs">
-      <DependentUpon>ModuleDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ModuleDetails.aspx.designer.cs">
-      <DependentUpon>ModuleDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="ModuleHomePage.aspx.cs">
       <DependentUpon>ModuleHomePage.aspx</DependentUpon>
