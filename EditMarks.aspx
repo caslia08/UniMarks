@@ -1,7 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AddMarks.aspx.cs" Inherits="WebApplication3.AddMarks" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EditMarks.aspx.cs" Inherits="WebApplication3.EditMarks" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="pageTitle" runat="server">
-    Add Marks
+    Edit Marks
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Custom_styles_placeholder" runat="server">
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
@@ -15,12 +15,12 @@
         <li class="breadcrumb-item"><a href="#">DashBoard</a></li>
         <li class="breadcrumb-item"><a href="#">MAPV311</a></li>
         <li class="breadcrumb-item active">View Assessments</li>
-        <li class="breadcrumb-item active">Add Marks</li>
+        <li class="breadcrumb-item active">Edit Marks</li>
     </ol>
 </asp:Content>
 
 <asp:Content ID="Content5" ContentPlaceHolderID="mainHeading" runat="server">
-    Add Marks
+    Edit Marks
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="MainContent" runat="server">
     <div class="jumbotron">
@@ -71,67 +71,80 @@
                         <td>214563269</td>
                         <td>John</td>
                         <td>Doe</td>
-                        <td contenteditable="True">Enter Mark</td>
+                        <td contenteditable="True">23</td>
                     </tr>
 
                     <tr class="table-secondary">
                         <td>215632489</td>
                         <td>Jane</td>
                         <td>Doe</td>
-                        <td contenteditable="True">Enter Mark</td>
+                        <td contenteditable="True">40</td>
                     </tr>
-                    <tr class="table-secondary">
+                    <tr class="table-danger">
                         <td>219563248</td>
                         <td>Jean</td>
                         <td>Dough</td>
-                        <td contenteditable="True">Enter Mark</td>
+                        <td contenteditable="True" class="text-danger"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>Enter Mark</td>
                     </tr>
 
                     <tr class="table-secondary">
                         <td>217563245</td>
                         <td>Jeans</td>
                         <td>Though</td>
-                        <td contenteditable="True">Enter Mark</td>
+                        <td contenteditable="True">35</td>
                     </tr>
 
                     <tr class="table-secondary">
                         <td>215659822</td>
                         <td>Another</td>
                         <td>Name</td>
-                        <td contenteditable="True">Enter Mark</td>
+                        <td contenteditable="True">20</td>
                     </tr>
                     <tr class="table-secondary">
                         <td>214563269</td>
                         <td>John</td>
                         <td>Doe</td>
-                        <td contenteditable="True">Enter Mark</td>
+                        <td contenteditable="True">15</td>
+                    </tr>
+
+                    <tr class="table-secondary">
+                        <td>214563269</td>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td contenteditable="True">23</td>
                     </tr>
 
                     <tr class="table-secondary">
                         <td>215632489</td>
                         <td>Jane</td>
                         <td>Doe</td>
-                        <td contenteditable="True">Enter Mark</td>
+                        <td contenteditable="True">40</td>
                     </tr>
                     <tr class="table-secondary">
                         <td>219563248</td>
                         <td>Jean</td>
                         <td>Dough</td>
-                        <td contenteditable="True">Enter Mark</td>
+                        <td contenteditable="True">27</td>
                     </tr>
 
                     <tr class="table-secondary">
                         <td>217563245</td>
                         <td>Jeans</td>
                         <td>Though</td>
-                        <td contenteditable="True">Enter Mark</td>
+                        <td contenteditable="True">35</td>
                     </tr>
 
                     <tr class="table-secondary">
                         <td>215659822</td>
                         <td>Another</td>
                         <td>Name</td>
-                        <td contenteditable="True">Enter Mark</td>
+                        <td contenteditable="True">20</td>
+                    </tr>
+                    <tr class="table-secondary">
+                        <td>214563269</td>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td contenteditable="True">36</td>
                     </tr>
   
                 </tbody>
@@ -140,7 +153,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-auto mr-auto">
-                    <button type="submit" class="btn btn-outline-primary btn-lg">Submit</button>
+                    <button type="submit" class="btn btn-outline-primary btn-lg">Save Changes</button>
             <button type="button" class="btn btn-outline-danger btn-lg">Cancel</button>
                 </div>
                 <div class="col-auto">
