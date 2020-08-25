@@ -1,21 +1,12 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EditLecturerInformation.aspx.cs" Inherits="WebApplication3.EditLecturerInformation" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EditStudentInformation.aspx.cs" Inherits="WebApplication3.EditStudentInformation" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="pageTitle" runat="server">
-	Edit Lecturer Information
+	Edit Student Information
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Custom_styles_placeholder" runat="server">
 	<style>
-        /*add styles here later*/
-    </style>
-	<script language="Javascript">
-      function isNumberKey(evt)
-      {
-         var charCode = (evt.which) ? evt.which : evt.keyCode;
-         if (charCode > 31 && (charCode < 48 || charCode > 57))
-            return false;    
-         return true;
-      }
-	</script>
+		/*add styles here later*/
+	</style>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Login_LogoutButton" runat="server">
 	<button class="btn btn-secondary my-2 my-sm-0" type="submit">Logout</button>
@@ -23,16 +14,16 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="BreadCrumbs" runat="server">
 	<ol class="breadcrumb">
 		<li class="breadcrumb-item"><a href="#">DashBoard</a></li>
-		<li class="breadcrumb-item"><a href="#">LECTURER_NAME</a></li>
-		<li class="breadcrumb-item active">Edit Lecturer Information</li>
+		<li class="breadcrumb-item"><a href="#">STUDENT_NAME</a></li>
+		<li class="breadcrumb-item active">Edit Student Information</li>
 	</ol>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="mainHeading" runat="server">
-	Edit Lecturer Information
+	Edit Student Information
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="MainContent" runat="server">
 	<div class="jumbotron">
-		<h2>Lecturer Information</h2>
+		<h2>Student Information</h2>
 		<hr />
 		<br />
 		<form>
@@ -50,7 +41,7 @@
 				</div>
 
 				<div class="form-group has-danger">
-					<label class="form-control-label" for="AssNameDanger">Staff Number</label>
+					<label class="form-control-label" for="AssNameDanger">Student Number</label>
 					<input type="text" onkeypress="return isNumberKey(event)" class="form-control is-invalid" id="inputInvalidStaffNumber">
 					<div class="invalid-feedback">Staff number is required</div>
 				</div>
@@ -74,8 +65,23 @@
 				</div>
 
 				<div class="form-group">
+					<label for="AssDate">Date Registered</label>
+					<input type="datetime-local" class="form-control" id="AssDate">
+				</div>
+
+				<div class="form-group">
+					<label for="AssType">Year Of Study</label>
+					<select class="form-control" id="YearOfStudy">
+						<option>1.</option>
+						<option>2.</option>
+						<option>3.</option>
+						<option>4.</option>
+					</select>
+				</div>
+
+				<div class="form-group">
 					<label for="AssType">FACULTY</label>
-					<select class="form-control" id="AssType">
+					<select class="form-control" id="Faculty">
 						<option>FACULTY OF SCIENCE</option>
 						<option>FACULTY OF HUMANITIES</option>
 						<option>FACULTY OF BUSINESS AND ECONOMIC SCIENCES</option>
@@ -86,21 +92,55 @@
 					</select>
 				</div>
 
-				<div class="form-group">
-					<label for="AssDesc">Module assesment</label>
-					<label for="AssDesc">Table of students -- @NOTE will complete when alias commits her addmarks page. I need dem styles lolzz</label>
+				<div class="jumbotron">
+					<h2>Registered Modules</h2>
+					<hr />
+					<br />
+
+					<table class="table table-hover custome-table-props marks-table">
+						<thead>
+							<tr>
+								<th>Module Code</th>
+								<th>Module Name</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>00000000000000000</td>
+								<td>NAME</td>
+								<td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">View module</a></td>
+							</tr>
+							<tr>
+								<td>00000000000000000</td>
+								<td>NAME</td>
+								<td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">View module</a></td>
+							</tr>
+							<tr>
+								<td>00000000000000000</td>
+								<td>NAME</td>
+								<td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">View module</a></td>
+							</tr>
+							<tr>
+								<td>00000000000000000</td>
+								<td>NAME</td>
+								<td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">View module</a></td>
+							</tr>
+						</tbody>
+					</table>
+					<link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
+					<script src="https://code.jquery.com/jquery-3.5.1.jss"></script>
+					<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+					<script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+
+					<script>
+						$(document).ready(function () {
+							$('.marks-table').DataTable();
+						});
+					</script>
 				</div>
 
-				<asp:GridView ID="GridView1" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal">
-					<FooterStyle BackColor="#CCCC99" ForeColor="Black" />
-					<HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
-					<PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
-					<SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
-					<SortedAscendingCellStyle BackColor="#F7F7F7" />
-					<SortedAscendingHeaderStyle BackColor="#4B4B4B" />
-					<SortedDescendingCellStyle BackColor="#E5E5E5" />
-					<SortedDescendingHeaderStyle BackColor="#242121" />
-				</asp:GridView>
+
 
 				<br />
 				<hr />
@@ -110,5 +150,4 @@
 			</fieldset>
 		</form>
 	</div>
-
 </asp:Content>

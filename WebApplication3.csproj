@@ -178,7 +178,8 @@
     <Content Include="Default.aspx" />
     <Content Include="EditAssessment.aspx" />
     <Content Include="EditLecturerInformation.aspx" />
-    <Content Include="EditModuleDetials.aspx" />
+    <Content Include="EditModuleDetails.aspx" />
+    <Content Include="EditStudentInformation.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -226,6 +227,7 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
     <Content Include="StudentDashboard.aspx" />
+    <Content Include="StudentHomePage.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -383,12 +385,19 @@
     <Compile Include="EditLecturerInformation.aspx.designer.cs">
       <DependentUpon>EditLecturerInformation.aspx</DependentUpon>
     </Compile>
-    <Compile Include="EditModuleDetials.aspx.cs">
-      <DependentUpon>EditModuleDetials.aspx</DependentUpon>
+    <Compile Include="EditModuleDetails.aspx.cs">
+      <DependentUpon>EditModuleDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="EditModuleDetials.aspx.designer.cs">
-      <DependentUpon>EditModuleDetials.aspx</DependentUpon>
+    <Compile Include="EditModuleDetails.aspx.designer.cs">
+      <DependentUpon>EditModuleDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditStudentInformation.aspx.cs">
+      <DependentUpon>EditStudentInformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditStudentInformation.aspx.designer.cs">
+      <DependentUpon>EditStudentInformation.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -444,6 +453,13 @@
     </Compile>
     <Compile Include="StudentDashboard.aspx.designer.cs">
       <DependentUpon>StudentDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentHomePage.aspx.cs">
+      <DependentUpon>StudentHomePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentHomePage.aspx.designer.cs">
+      <DependentUpon>StudentHomePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
