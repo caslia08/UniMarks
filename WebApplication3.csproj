@@ -167,7 +167,7 @@
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="AddAssessment.aspx" />
-    <Content Include="AddMarks.aspx" />
+    <Content Include="AdminHomePage.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -176,11 +176,12 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\CustomStyles.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="dataTables.js" />
     <Content Include="Default.aspx" />
+    <Content Include="EditAdminInformation.aspx" />
     <Content Include="EditAssessment.aspx" />
     <Content Include="EditLecturerInformation.aspx" />
-    <Content Include="EditMarks.aspx" />
+    <Content Include="EditModuleDetails.aspx" />
+    <Content Include="EditStudentInformation.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -346,12 +347,12 @@
     <Compile Include="AddAssessment.aspx.designer.cs">
       <DependentUpon>AddAssessment.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AddMarks.aspx.cs">
-      <DependentUpon>AddMarks.aspx</DependentUpon>
+    <Compile Include="AdminHomePage.aspx.cs">
+      <DependentUpon>AdminHomePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AddMarks.aspx.designer.cs">
-      <DependentUpon>AddMarks.aspx</DependentUpon>
+    <Compile Include="AdminHomePage.aspx.designer.cs">
+      <DependentUpon>AdminHomePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
@@ -378,6 +379,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EditAdminInformation.aspx.cs">
+      <DependentUpon>EditAdminInformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditAdminInformation.aspx.designer.cs">
+      <DependentUpon>EditAdminInformation.aspx</DependentUpon>
+    </Compile>
     <Compile Include="EditAssessment.aspx.cs">
       <DependentUpon>EditAssessment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -392,12 +400,19 @@
     <Compile Include="EditLecturerInformation.aspx.designer.cs">
       <DependentUpon>EditLecturerInformation.aspx</DependentUpon>
     </Compile>
-    <Compile Include="EditMarks.aspx.cs">
-      <DependentUpon>EditMarks.aspx</DependentUpon>
+    <Compile Include="EditModuleDetails.aspx.cs">
+      <DependentUpon>EditModuleDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="EditMarks.aspx.designer.cs">
-      <DependentUpon>EditMarks.aspx</DependentUpon>
+    <Compile Include="EditModuleDetails.aspx.designer.cs">
+      <DependentUpon>EditModuleDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditStudentInformation.aspx.cs">
+      <DependentUpon>EditStudentInformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditStudentInformation.aspx.designer.cs">
+      <DependentUpon>EditStudentInformation.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
