@@ -29,7 +29,7 @@
         <hr />
         <br />
  
-        <table class="table table-hover custome-table-props" >
+        <table class="table table-hover custome-table-props marks-table" >
             <thead>
                 <tr>
                     <th>Assessment description</th>
@@ -65,5 +65,16 @@
                 </tr>
             </tbody>
         </table>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
+          <script src="https://code.jquery.com/jquery-3.5.1.jss"></script>
+        <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+       
+        <script>
+            $(document).ready(function () {
+                $('.marks-table').DataTable();
+            });
+        </script>
     </div>
+  
 </asp:Content>
