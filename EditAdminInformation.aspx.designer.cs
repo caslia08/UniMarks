@@ -10,6 +10,6 @@
 namespace WebApplication3 {
     
     
-    public partial class EditLecturerInformation {
+    public partial class EditAdminInformation {
     }
 }
