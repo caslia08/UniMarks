@@ -76,7 +76,7 @@
 						<tbody>
 							<tr>
 								<td>00000000000000</td>
-								<td>LORD JASSON </td>
+								<td>LORD JASSON </td> <%--Was here--%>
 
 								<td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">View Studnet</a></td>
 							</tr>
@@ -144,7 +144,7 @@
 
 					<script>
 						$(document).ready(function () {
-							$('.module-ass').DataTable();
+							$('.module-ass').DataTable(); /*Nice*/
 						});
 					</script>
 				</div>
