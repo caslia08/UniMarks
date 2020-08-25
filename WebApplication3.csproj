@@ -181,7 +181,6 @@
     <Content Include="EditAssessment.aspx" />
     <Content Include="EditLecturerInformation.aspx" />
     <Content Include="EditMarks.aspx" />
-    <Content Include="EditModuleDetials.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -399,13 +398,6 @@
     </Compile>
     <Compile Include="EditMarks.aspx.designer.cs">
       <DependentUpon>EditMarks.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="EditModuleDetials.aspx.cs">
-      <DependentUpon>EditModuleDetials.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="EditModuleDetials.aspx.designer.cs">
-      <DependentUpon>EditModuleDetials.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
