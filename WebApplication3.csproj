@@ -167,6 +167,7 @@
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="AddAssessment.aspx" />
+    <Content Include="LecturerHomePage.aspx" />
     <Content Include="AdminHomePage.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -180,6 +181,7 @@
     <Content Include="EditAdminInformation.aspx" />
     <Content Include="EditAssessment.aspx" />
     <Content Include="EditLecturerInformation.aspx" />
+    <Content Include="AddModule.aspx" />
     <Content Include="EditModuleDetails.aspx" />
     <Content Include="EditStudentInformation.aspx" />
     <Content Include="favicon.ico" />
@@ -347,6 +349,13 @@
     <Compile Include="AddAssessment.aspx.designer.cs">
       <DependentUpon>AddAssessment.aspx</DependentUpon>
     </Compile>
+    <Compile Include="LecturerHomePage.aspx.cs">
+      <DependentUpon>LecturerHomePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LecturerHomePage.aspx.designer.cs">
+      <DependentUpon>LecturerHomePage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AdminHomePage.aspx.cs">
       <DependentUpon>AdminHomePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -399,6 +408,13 @@
     </Compile>
     <Compile Include="EditLecturerInformation.aspx.designer.cs">
       <DependentUpon>EditLecturerInformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddModule.aspx.cs">
+      <DependentUpon>AddModule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddModule.aspx.designer.cs">
+      <DependentUpon>AddModule.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditModuleDetails.aspx.cs">
       <DependentUpon>EditModuleDetails.aspx</DependentUpon>
