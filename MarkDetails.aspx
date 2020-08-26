@@ -16,20 +16,50 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="Login_LogoutButton" runat="server">
    <button class="btn btn-secondary my-2 my-sm-0" type="submit">logout</button>
 </asp:Content>
+<asp:Content ID="Content6" ContentPlaceHolderID="BreadCrumbs" runat="server">
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a href="#">DashBoard</a></li>
+        <li class="breadcrumb-item"><a href="#">Module home</a></li>
+        <li class="breadcrumb-item"><a href="#">Module assessments</a></li>
+	</ol>
+</asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="mainHeading" runat="server">
     Assessment name, Mark statistics
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="MainContent" runat="server">
     <div class="jumbotron">
         <h2>Some subheading</h2>
-        <button type="button" class="btn btn-outline-primary btn-lg btn-rounded-border" data-toggle="modal" data-target="#myModal"> <i class="material-icons">flag</i>Flag mark</button>
+        <hr />
+        <br />
+        <h4>Aggregate functions</h4>
+        <table class="table table-hover">
+            <tbody>
+                <tr>
+                    <td class="blue-element">Your mark</td>
+                    <td>79%</td>
+                </tr>
+                <tr>
+                    <td class="blue-element">Minimum mark</td>
+                    <td>39%</td>
+                </tr>
+                <tr>
+                    <td class="blue-element">Maximum mark</td>
+                    <td>99%</td>
+                </tr>
+                <tr>
+                    <td class="blue-element">Average mark</td>
+                    <td>60%</td>
+                </tr>
+            </tbody>
+        </table>
+
+          <button type="button" class="btn btn-outline-primary btn-lg btn-rounded-border" data-toggle="modal" data-target="#myModal"> <i class="material-icons">flag</i>Flag mark</button>
         <!-- How much styling scripts does on one website??? -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
         <div id="myModal" class="modal fade" role="dialog">
             <div class="modal-dialog modal-lg">
-
                 <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header">
@@ -61,29 +91,7 @@
 
             </div>
         </div>
-        <hr />
-        <br />
-        <h4>Aggregate functions</h4>
-        <table class="table table-hover">
-            <tbody>
-                <tr>
-                    <td class="blue-element">Your mark</td>
-                    <td>79%</td>
-                </tr>
-                <tr>
-                    <td class="blue-element">Minimum mark</td>
-                    <td>39%</td>
-                </tr>
-                <tr>
-                    <td class="blue-element">Maximum mark</td>
-                    <td>99%</td>
-                </tr>
-                <tr>
-                    <td class="blue-element">Average mark</td>
-                    <td>60%</td>
-                </tr>
-            </tbody>
-        </table>
+
         <br />
         <h3>View your peers progress</h3>
         <div class="form-group">
