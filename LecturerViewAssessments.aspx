@@ -42,7 +42,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="NavListElements" runat="server">
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Login_LogoutButton" runat="server">
-        <button class="btn btn-secondary my-2 my-sm-0" type="submit">logout</button>
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Logout</button>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="BreadCrumbs" runat="server">
     <ol class="breadcrumb">
@@ -71,6 +71,9 @@
                     <th>Venue</th>
                     <th>Weightage</th>
                     <th></th>
+                    <th></th>
+                    <th></th>
+
                 </tr>
             </thead>
             <tbody>
@@ -81,47 +84,68 @@
                     <td>Documentation</td>
                     <td>Submit Via Moodle</td>
                     <td>To be determined</td>
-                    <td><a href"#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">Edit Assessment</a></td>
+                    <td>
+                        <button type="button" class="btn btn-outline-primary btn-sm btn-rounded-border" disabled>Edit Assessment</button></td>
+                    <td>
+                        <button type="button" class="btn btn-outline-primary btn-sm btn-rounded-border" disabled>Add Marks</button></td>
+                    <td>
+                        <button type="button" class="btn btn-outline-primary btn-sm btn-rounded-border" >Edit Marks</button></td>
+
                 </tr>
-                   <tr>
+                <tr>
                     <td>Semester Test 1</td>
                     <td>Closed book test based on work covered from week 1 to 4</td>
                     <td>2020/03/28</td>
                     <td>Semester Test</td>
                     <td>09_0205</td>
-                    <td> 35%</td>
-                    <td><a href"#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">Edit Assessment</a></td>
+                    <td>35%</td>
+                   <td>
+                        <button type="button" class="btn btn-outline-primary btn-sm btn-rounded-border" >Edit Assessment</button></td>
+                    <td>
+                        <button type="button" class="btn btn-outline-primary btn-sm btn-rounded-border" disabled>Add Marks</button></td>
+                    <td>
+                        <button type="button" class="btn btn-outline-primary btn-sm btn-rounded-border" >Edit Marks</button></td>
                 </tr>
-                   <tr>
-                   <td>Semester Test 2</td>
+                <tr>
+                    <td>Semester Test 2</td>
                     <td>Closed book test based on work covered from week 5 to 9</td>
                     <td>2020/05/10</td>
                     <td>Semester Test</td>
                     <td>09_0205</td>
-                    <td> 25%</td>
-                    <td><a href"#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">Edit Assessment</a></td>
+                    <td>25%</td>
+                   <td>
+                        <button type="button" class="btn btn-outline-primary btn-sm btn-rounded-border" >Edit Assessment</button></td>
+                    <td>
+                        <button type="button" class="btn btn-outline-primary btn-sm btn-rounded-border" disabled>Add Marks</button></td>
+                    <td>
+                        <button type="button" class="btn btn-outline-primary btn-sm btn-rounded-border" >Edit Marks</button></td>
                 </tr>
-                   <tr>
+                <tr>
                     <td>Research Assignment</td>
                     <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque cursus neque est, eu elementum leo aliquet et. Pellentesque tempus metus vehicula blandit ultrices.</td>
                     <td>2020/09/10</td>
                     <td>Assignment</td>
                     <td>Submit via Moodle</td>
-                    <td> 10%</td>
-                    <td><a href"#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">Edit Assessment</a></td>
+                    <td>10%</td>
+                   <td>
+                        <button type="button" class="btn btn-outline-primary btn-sm btn-rounded-border" >Edit Assessment</button></td>
+                    <td>
+                        <button type="button" class="btn btn-outline-primary btn-sm btn-rounded-border" disabled>Add Marks</button></td>
+                    <td>
+                        <button type="button" class="btn btn-outline-primary btn-sm btn-rounded-border" disabled>Edit Marks</button></td>
                 </tr>
             </tbody>
         </table>
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
-          <script src="https://code.jquery.com/jquery-3.5.1.jss"></script>
-        <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-        <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
-       
-        <script>
-            $(document).ready(function () {
-                $('.marks-table').DataTable();
+      <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
+      <script src="https://code.jquery.com/jquery-3.5.1.jss"></script>
+      <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+      <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+
+      <script>
+          $(document).ready(function () {
+              $('.marks-table').DataTable();
             });
-        </script>
+      </script>
       <br />
       <hr />
       <br />

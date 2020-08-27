@@ -27,8 +27,18 @@
         <hr />
         <br />
 
-            
-        <table class="table table-hover custome-table-props marks-table" >
+            <form class="form-inline my-2 my-lg-0">
+                <label for="exampleSelect1">Filter  </label>
+                <select class="form-control my-2 my-sm-0" id="exampleSelect1">
+                    <option>Select Option</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </form>
+            <br />
+            <table class="table table-hover custome-table-props marks-table">
             <thead>
                 <tr>
                     <th>Student Number</th>
