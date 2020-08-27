@@ -20,6 +20,12 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="Login_LogoutButton" runat="server">
       <button class="btn btn-secondary my-2 my-sm-0" type="submit">logout</button>
 </asp:Content>
+<asp:Content ID="Content6" ContentPlaceHolderID="BreadCrumbs" runat="server">
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a href="#">DashBoard</a></li>
+        <li class="breadcrumb-item"><a href="#">Module home page</a></li>
+	</ol>
+</asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="mainHeading" runat="server">
     WRR301-Project, Assessments
 </asp:Content>

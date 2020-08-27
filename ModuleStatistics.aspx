@@ -13,6 +13,10 @@
     <button class="btn btn-secondary my-2 my-sm-0" type="submit">logout</button>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="BreadCrumbs" runat="server">
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a href="#">DashBoard</a></li>
+        <li class="breadcrumb-item"><a href="#">Module home</a></li>
+	</ol>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="mainHeading" runat="server">
     Module statistics
