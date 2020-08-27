@@ -196,6 +196,8 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Account\Web.config" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="LecturerHomePage.aspx" />
+    <Content Include="LecturerModuleStatistics.aspx" />
     <Content Include="MarkDetails.aspx" />
     <Content Include="ModuleAssessments.aspx" />
     <Content Include="ModuleHomePage.aspx" />
@@ -424,6 +426,20 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="LecturerHomePage.aspx.cs">
+      <DependentUpon>LecturerHomePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LecturerHomePage.aspx.designer.cs">
+      <DependentUpon>LecturerHomePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LecturerModuleStatistics.aspx.cs">
+      <DependentUpon>LecturerModuleStatistics.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LecturerModuleStatistics.aspx.designer.cs">
+      <DependentUpon>LecturerModuleStatistics.aspx</DependentUpon>
     </Compile>
     <Compile Include="MarkDetails.aspx.cs">
       <DependentUpon>MarkDetails.aspx</DependentUpon>

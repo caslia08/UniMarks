@@ -9,7 +9,7 @@
     <title><asp:ContentPlaceHolder ID="pageTitle" runat="server"></asp:ContentPlaceHolder></title>
 
     <asp:PlaceHolder runat="server">
-        <%: Scripts.Render("~/bundles/modernizr") %>
+<%--       <%: Scripts.Render("~/bundles/modernizr") %>--%>
     </asp:PlaceHolder>
     <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
@@ -62,8 +62,8 @@
                             <a class="nav-link" runat="server" href="~/">Home</a></li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/About">About</a></li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/Contact">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/StudentDashboard.aspx">Registed Modules</a></li>
-						<li class="nav-item"><a class="nav-link" runat="server" href="~/ModuleDetails.aspx">Registed Modules</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/StudentDashboard.aspx">Registered Modules</a></li>
+						<li class="nav-item"><a class="nav-link" runat="server" href="~/ModuleDetails.aspx">Registered Modules</a></li>
                     </ul>
                     <form class="form-inline my-2 my-lg-0">
                         <asp:ContentPlaceHolder ID="Login_LogoutButton" runat="server"></asp:ContentPlaceHolder>
@@ -99,5 +99,6 @@
         </footer>
       
 </form>
+    <asp:ContentPlaceHolder ID="Scripts" runat="server"></asp:ContentPlaceHolder>
 </body>
 </html>
