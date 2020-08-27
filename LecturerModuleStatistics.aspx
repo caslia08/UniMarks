@@ -7,6 +7,40 @@
         .blue-element {
             color: rgb(39, 128, 227);
         }
+        .lecturer-details-grid-container {
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-gap: 40px;
+		}
+
+		.material-icons.md-68 {
+			font-size: 68px;
+		}
+
+		.grid-icon {
+			place-self: center;
+		}
+
+		#links-to-stats-grid-container {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			grid-gap: 20px;
+		}
+
+		.grid-button-container {
+			border-radius: 7px;
+			padding: 20px;
+			background-color: rgb(233,236,239);
+			border: solid;
+			border-width: 1px;
+			border-color: darkgrey;
+			text-align: center;
+		}
+
+		.btn-rounded-border {
+			border-radius: 8px;
+			margin-top: 10px;
+		}
     </style>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Login_LogoutButton" runat="server">
@@ -57,56 +91,21 @@
         <canvas id="my-Bar-Chart" width="250" height="100" style="display:none"></canvas>
         <br />
         <hr />
-        <h2>Student List </h2>
-        <hr />
+        <br />
+       <div id="container">
+           <div class="row justify-content-around">
+		<div class="grid-button-container col-4">
+			<a href="LecturerStudentView.aspx" class="btn btn-outline-primary btn-lg btn-rounded-border" role="button">View Student List</a>
+		</div>
+		<div class="grid-button-container col-4">
+			<a href="EditAdminInformation.aspx" class="btn btn-outline-primary btn-lg btn-rounded-border" role="button">View Assessments</a>
+		</div>
+               </div>
+		
+	</div>
+        
         <br />
  
-        <table class="table table-hover custome-table-props marks-table" >
-            <thead>
-                <tr>
-                    <th>Student Number</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>215632236</td>
-                    <td>Jane</td>
-                    <td>Doe</td>
-                    <td><a href"#" class="btn btn-outline-primary btn-sm" role="button">View Profile</a></td>
-                </tr>
-                   <tr>
-                    <td>217965324</td>
-                    <td>John</td>
-                    <td>Doe</td>
-                    <td><a href"#" class="btn btn-outline-primary btn-sm" role="button">View Profile</a></td>
-                </tr>
-                   <tr>
-                    <td>214563323</td>
-                    <td>Mark</td>
-                    <td>Webber</td>
-                    <td><a href"#" class="btn btn-outline-primary btn-sm" role="button">View Profile</a></td>
-                </tr>
-                   <tr>
-                    <td>214563258</td>
-                    <td>Jonathan</td>
-                    <td>Strauss</td>
-                    <td><a href"#" class="btn btn-outline-primary btn-sm" role="button">View Profile</a></td>
-                </tr>
-            </tbody>
-        </table>
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
-          <script src="https://code.jquery.com/jquery-3.5.1.jss"></script>
-        <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-        <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
-       
-        <script>
-            $(document).ready(function () {
-                $('.marks-table').DataTable();
-            });
-        </script>
     </div>
 
      <script>
