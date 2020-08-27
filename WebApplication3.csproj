@@ -197,6 +197,7 @@
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="LecturerHomePage.aspx" />
     <Content Include="LecturerModuleStatistics.aspx" />
+    <Content Include="LecturerStudentView.aspx" />
     <Content Include="MarkDetails.aspx" />
     <Content Include="ModuleAssessments.aspx" />
     <Content Include="ModuleHomePage.aspx" />
@@ -432,6 +433,13 @@
     </Compile>
     <Compile Include="LecturerModuleStatistics.aspx.designer.cs">
       <DependentUpon>LecturerModuleStatistics.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LecturerStudentView.aspx.cs">
+      <DependentUpon>LecturerStudentView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LecturerStudentView.aspx.designer.cs">
+      <DependentUpon>LecturerStudentView.aspx</DependentUpon>
     </Compile>
     <Compile Include="MarkDetails.aspx.cs">
       <DependentUpon>MarkDetails.aspx</DependentUpon>
