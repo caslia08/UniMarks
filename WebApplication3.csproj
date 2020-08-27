@@ -180,6 +180,7 @@
     <Content Include="EditAdminInformation.aspx" />
     <Content Include="EditAssessment.aspx" />
     <Content Include="EditLecturerInformation.aspx" />
+    <Content Include="AddModule.aspx" />
     <Content Include="EditModuleDetails.aspx" />
     <Content Include="EditStudentInformation.aspx" />
     <Content Include="favicon.ico" />
@@ -404,6 +405,13 @@
     </Compile>
     <Compile Include="EditLecturerInformation.aspx.designer.cs">
       <DependentUpon>EditLecturerInformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddModule.aspx.cs">
+      <DependentUpon>AddModule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddModule.aspx.designer.cs">
+      <DependentUpon>AddModule.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditModuleDetails.aspx.cs">
       <DependentUpon>EditModuleDetails.aspx</DependentUpon>
