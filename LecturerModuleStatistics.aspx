@@ -88,21 +88,21 @@
         </div>
         <h4>Click on legend text to filter chart</h4>
         <canvas id="my-Line-Chart" width="250" height="100"></canvas>
-        <canvas id="my-Bar-Chart" width="250" height="100" style="display:none"></canvas>
+        <canvas id="my-Bar-Chart" width="250" height="100" style="display: none"></canvas>
         <br />
         <hr />
         <br />
-       <div id="container">
-           <div class="row justify-content-around">
-		<div class="grid-button-container col-4">
-			<a href="LecturerStudentView.aspx" class="btn btn-outline-primary btn-lg btn-rounded-border" role="button">View Student List</a>
-		</div>
-		<div class="grid-button-container col-4">
-			<a href="EditAdminInformation.aspx" class="btn btn-outline-primary btn-lg btn-rounded-border" role="button">View Assessments</a>
-		</div>
-               </div>
-		
-	</div>
+        <div id="container">
+            <div class="row justify-content-around">
+                <div class="grid-button-container col-4">
+                    <a href="LecturerStudentView.aspx" class="btn btn-outline-primary btn-lg btn-rounded-border" role="button">View Student List</a>
+                </div>
+                <div class="grid-button-container col-4">
+                    <a href="EditAdminInformation.aspx" class="btn btn-outline-primary btn-lg btn-rounded-border" role="button">View Assessments</a>
+                </div>
+            </div>
+
+        </div>
         
         <br />
  

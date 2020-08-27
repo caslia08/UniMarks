@@ -199,6 +199,7 @@
     <Content Include="LecturerModuleStatistics.aspx" />
     <Content Include="LecturerStudentProgress.aspx" />
     <Content Include="LecturerStudentView.aspx" />
+    <Content Include="LecturerViewAssessments.aspx" />
     <Content Include="MarkDetails.aspx" />
     <Content Include="ModuleAssessments.aspx" />
     <Content Include="ModuleHomePage.aspx" />
@@ -448,6 +449,13 @@
     </Compile>
     <Compile Include="LecturerStudentView.aspx.designer.cs">
       <DependentUpon>LecturerStudentView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LecturerViewAssessments.aspx.cs">
+      <DependentUpon>LecturerViewAssessments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LecturerViewAssessments.aspx.designer.cs">
+      <DependentUpon>LecturerViewAssessments.aspx</DependentUpon>
     </Compile>
     <Compile Include="MarkDetails.aspx.cs">
       <DependentUpon>MarkDetails.aspx</DependentUpon>

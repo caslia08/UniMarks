@@ -1,30 +1,62 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ModuleAssessments.aspx.cs" Inherits="WebApplication3.ModuleAssessments" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="LecturerViewAssessments.aspx.cs" Inherits="WebApplication3.LecturerViewAssessments" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="pageTitle" runat="server">
-    Module Assessments
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Custom_styles_placeholder" runat="server">
     <style>
-        .btn-rounded-border {
-            border-radius: 8px;
-        }
-        .custome-table-props{
-            background-color: white;
-            margin: 10px;
-        }
-        .no-mark{
-            color: grey;
-            font-size:small;
-        }
+          .lecturer-details-grid-container {
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-gap: 40px;
+		}
+
+		.material-icons.md-68 {
+			font-size: 68px;
+		}
+
+		.grid-icon {
+			place-self: center;
+		}
+
+		#links-to-stats-grid-container {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			grid-gap: 20px;
+		}
+
+		.grid-button-container {
+			border-radius: 7px;
+			padding: 20px;
+			background-color: rgb(233,236,239);
+			border: solid;
+			border-width: 1px;
+			border-color: darkgrey;
+			text-align: center;
+		}
+
+		.btn-rounded-border {
+			border-radius: 8px;
+			margin-top: 10px;
+		}
     </style>
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="Login_LogoutButton" runat="server">
-      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Logout</button>
+<asp:Content ID="Content3" ContentPlaceHolderID="NavListElements" runat="server">
 </asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="mainHeading" runat="server">
-    WRR301-Project, Assessments
+<asp:Content ID="Content4" ContentPlaceHolderID="Login_LogoutButton" runat="server">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">logout</button>
 </asp:Content>
-<asp:Content ID="Content5" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="jumbotron">
+<asp:Content ID="Content5" ContentPlaceHolderID="BreadCrumbs" runat="server">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">DashBoard</a></li>
+        <li class="breadcrumb-item"><a href="#">MAPV311</a></li>
+        <li class="breadcrumb-item"><a href="#">Module Statistics</a></li>
+        <li class="breadcrumb-item active">Assessments</li>
+    </ol>
+</asp:Content>
+<asp:Content ID="Content6" ContentPlaceHolderID="mainHeading" runat="server">
+      
+</asp:Content>
+<asp:Content ID="Content7" ContentPlaceHolderID="MainContent" runat="server">
+  <div class="jumbotron">
         <h2>Module Assessments</h2>
         <hr />
         <br />
@@ -49,7 +81,7 @@
                     <td>Documentation</td>
                     <td>Submit Via Moodle</td>
                     <td>To be determined</td>
-                    <td><a href"#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">View mark</a></td>
+                    <td><a href"#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">Edit Assessment</a></td>
                 </tr>
                    <tr>
                     <td>Semester Test 1</td>
@@ -58,7 +90,7 @@
                     <td>Semester Test</td>
                     <td>09_0205</td>
                     <td> 35%</td>
-                    <td><a href"#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">View mark</a></td>
+                    <td><a href"#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">Edit Assessment</a></td>
                 </tr>
                    <tr>
                    <td>Semester Test 2</td>
@@ -67,7 +99,7 @@
                     <td>Semester Test</td>
                     <td>09_0205</td>
                     <td> 25%</td>
-                    <td><a href"#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">View mark</a></td>
+                    <td><a href"#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">Edit Assessment</a></td>
                 </tr>
                    <tr>
                     <td>Research Assignment</td>
@@ -76,7 +108,7 @@
                     <td>Assignment</td>
                     <td>Submit via Moodle</td>
                     <td> 10%</td>
-                    <td class="no-mark">Not available</td>
+                    <td><a href"#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">Edit Assessment</a></td>
                 </tr>
             </tbody>
         </table>
@@ -90,6 +122,18 @@
                 $('.marks-table').DataTable();
             });
         </script>
+      <br />
+      <hr />
+      <br />
+       <div id="container">
+            <div class="row justify-content-center">
+                <div class="grid-button-container col-4">
+                    <a href="LecturerStudentView.aspx" class="btn btn-outline-primary btn-lg btn-rounded-border" role="button">Add Assessment</a>
+                </div>
+            </div>
+
+        </div>
     </div>
-  
+</asp:Content>
+<asp:Content ID="Content8" ContentPlaceHolderID="Scripts" runat="server">
 </asp:Content>
