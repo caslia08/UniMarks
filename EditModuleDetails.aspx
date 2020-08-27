@@ -5,8 +5,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="Custom_styles_placeholder" runat="server">
     <style>
     	.btn-rounded-border {
-    		border-radius: 8px;
-    	}
+			border-radius: 8px;
+			margin-top: 10px;
+		}
 
     	.custome-table-props {
     		background-color: white;
@@ -78,19 +79,19 @@
 								<td>00000000000000</td>
 								<td>LORD JASSON </td> <%--Was here--%>
 
-								<td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">View Studnet</a></td>
+								<td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">View Student</a></td>
 							</tr>
 							<tr>
 								<td>00000000000000</td>
 								<td>Basson </td>
 
-								<td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">View Studnet</a></td>
+								<td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">View Student</a></td>
 							</tr>
 							<tr>
 								<td>00000000000000</td>
 								<td>Porter </td>
 
-								<td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">View Studnet</a></td>
+								<td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">View Student</a></td>
 						</tbody>
 					</table>
 					<link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
@@ -122,19 +123,19 @@
 								<td>MMMMMM </td>
 								<td>Namedadadada </td>
 
-								<td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">View Assesment</a></td>
+								<td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">View Assessment</a></td>
 							</tr>
 							<tr>
 								<td>MMMMMM </td>
 								<td>Name </td>
 
-								<td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">View Assesment</a></td>
+								<td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">View Assessment</a></td>
 							</tr>
 							<tr>
 								<td>MMMMMM </td>
 								<td>Name </td>
 
-								<td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">View Assesment</a></td>
+								<td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">View Assessment</a></td>
 						</tbody>
 					</table>
 					<link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
@@ -153,8 +154,8 @@
 				<br />
 				<hr />
 				<br />
-				<button type="submit" class="btn btn-outline-primary btn-lg">Save Changes</button>
-				<button type="button" class="btn btn-outline-danger btn-lg">Cancel</button>
+				<button type="submit" class="btn btn-outline-primary btn-lg btn-rounded-border">Save Changes</button>
+				<button type="button" class="btn btn-outline-danger btn-lg btn-rounded-border">Cancel</button>
 			</fieldset>
 		</form>
 	</div>

@@ -4,6 +4,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Custom_styles_placeholder" runat="server">
 		<style>
+	  .btn-rounded-border {
+			border-radius: 8px;
+			margin-top: 10px;
+		}
         /*add styles here later*/
     </style>
 </asp:Content>
@@ -79,8 +83,8 @@
 				<br />
 				<hr />
 				<br />
-				<button type="submit" class="btn btn-outline-primary btn-lg">Save Changes</button>
-				<button type="button" class="btn btn-outline-danger btn-lg">Cancel</button>
+				<button type="submit" class="btn btn-outline-primary btn-lg btn-rounded-border">Save Changes</button>
+				<button type="button" class="btn btn-outline-danger btn-lg btn-rounded-border">Cancel</button>
 			</fieldset>
 		</form>
 	</div>

@@ -73,11 +73,11 @@
 						</tr>
 						<tr>
 							<td>Full name:</td>
-							<td>Commander Shepard</td>
+							<td>Chris Shepard</td>
 						</tr>
 						<tr>
 							<td>Email address:</td>
-							<td>INeedAJob@IhateWebProgramming.ac.za</td>
+							<td>Chris.Shepard@mandela.ac.za</td>
 						</tr>
 						<tr>
 							<td>Id number:</td>
@@ -121,4 +121,5 @@
 			<a href="EditAdminInformation.aspx" class="btn btn-outline-primary btn-lg btn-rounded-border" role="button">Edit Your Profile</a>
 		</div>
 	</div>
+	<br />
 </asp:Content>

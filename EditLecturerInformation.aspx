@@ -6,6 +6,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="Custom_styles_placeholder" runat="server">
 	<style>
         /*add styles here later*/
+			.btn-rounded-border {
+			border-radius: 8px;
+			margin-top: 10px;
+		}
     </style>
 	<script language="Javascript">
       function isNumberKey(evt)
@@ -138,8 +142,8 @@
 				<br />
 				<hr />
 				<br />
-				<button type="submit" class="btn btn-outline-primary btn-lg">Save Changes</button>
-				<button type="button" class="btn btn-outline-danger btn-lg">Cancel</button>
+				<button type="submit" class="btn btn-outline-primary btn-lg btn-rounded-border">Save Changes</button>
+				<button type="button" class="btn btn-outline-danger btn-lg btn-rounded-border">Cancel</button>
 			</fieldset>
 		</form>
 	</div>

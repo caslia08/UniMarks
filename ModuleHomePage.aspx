@@ -34,7 +34,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Login_LogoutButton" runat="server">
-      <button class="btn btn-secondary my-2 my-sm-0" type="submit">logout</button>
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Logout</button>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="mainHeading" runat="server">
     WRR301, Project
@@ -72,7 +72,7 @@
                         </tr>
                           <tr>
                             <td>Office number:</td>
-                            <td>?</td>
+                            <td>041 504 2080</td>
                         </tr>
                     </table>
                 </div>
@@ -107,11 +107,12 @@
     <div id="links-to-stats-grid-container">
         <div class="grid-button-container">
             <h5>Click button below to view the modules assessments</h5>
-               <a href"#" class="btn btn-outline-primary btn-lg btn-rounded-border" role="button">Module statistics</a>
+               <a href"#" class="btn btn-outline-primary btn-lg btn-rounded-border" role="button">Module Assessments</a>
         </div>
         <div class="grid-button-container">
             <h5>Click button below to view the modules statistical information</h5>
-            <a href"#" class="btn btn-outline-primary btn-lg btn-rounded-border" role="button">Module statistics</a>
+            <a href"#" class="btn btn-outline-primary btn-lg btn-rounded-border" role="button">Module Statistics</a>
         </div>
     </div>
+    <br />
 </asp:Content>

@@ -10,20 +10,22 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Login_LogoutButton" runat="server">
-    <button class="btn btn-secondary my-2 my-sm-0" type="submit">logout</button>
+    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Logout</button>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="BreadCrumbs" runat="server">
 	<ol class="breadcrumb">
 		<li class="breadcrumb-item"><a href="#">DashBoard</a></li>
         <li class="breadcrumb-item"><a href="#">Module home</a></li>
+                <li class="breadcrumb-item active">Module Statistics</li>
+
 	</ol>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="mainHeading" runat="server">
-    Module statistics
+    Module Statistics
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="MainContent" runat="server">
     <div class="jumbotron">
-        <h2>Some subheading</h2>
+        <h2>Mark Breakdown</h2>
         <hr />
         <br />
 

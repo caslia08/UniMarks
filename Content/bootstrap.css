@@ -2946,6 +2946,10 @@ fieldset:disabled a.btn {
     pointer-events: none;
 }
 
+.btn-rounded-border {
+    border-radius: 8px;
+}
+
 .btn-primary {
     color: #fff;
     background-color: #2780e3;
