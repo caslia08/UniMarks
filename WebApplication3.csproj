@@ -167,7 +167,6 @@
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="AddAssessment.aspx" />
-    <Content Include="LecturerHomePage.aspx" />
     <Content Include="AdminHomePage.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -348,13 +347,6 @@
     </Compile>
     <Compile Include="AddAssessment.aspx.designer.cs">
       <DependentUpon>AddAssessment.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="LecturerHomePage.aspx.cs">
-      <DependentUpon>LecturerHomePage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="LecturerHomePage.aspx.designer.cs">
-      <DependentUpon>LecturerHomePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminHomePage.aspx.cs">
       <DependentUpon>AdminHomePage.aspx</DependentUpon>
