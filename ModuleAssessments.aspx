@@ -32,35 +32,50 @@
         <table class="table table-hover custome-table-props marks-table" >
             <thead>
                 <tr>
-                    <th>Assessment description</th>
-                    <th>Type of assessment</th>
-                    <th>Assessment date</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                    <th>Assessment Type</th>
+                    <th>Venue</th>
+                    <th>Weightage</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Elaborations document - Provide initial UI design for proposed system</td>
-                    <td>Documentation</td>
+                    <td>Elaborations document</td>
+                    <td>Provide initial UI design for proposed system</td> 
                     <td>2020/08/28</td>
+                    <td>Documentation</td>
+                    <td>Submit Via Moodle</td>
+                    <td>To be determined</td>
                     <td><a href"#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">View mark</a></td>
                 </tr>
                    <tr>
-                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel suscipit ante, quis tincidunt elit.</td>
-                    <td>Quiz</td>
+                    <td>Semester Test 1</td>
+                    <td>Closed book test based on work covered from week 1 to 4</td>
                     <td>2020/03/28</td>
+                    <td>Semester Test</td>
+                    <td>09_0205</td>
+                    <td> 35%</td>
                     <td><a href"#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">View mark</a></td>
                 </tr>
                    <tr>
-                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. quis tincidunt elit.</td>
-                    <td>Tutorial test</td>
-                    <td>2020/05/07</td>
+                   <td>Semester Test 2</td>
+                    <td>Closed book test based on work covered from week 5 to 9</td>
+                    <td>2020/05/10</td>
+                    <td>Semester Test</td>
+                    <td>09_0205</td>
+                    <td> 25%</td>
                     <td><a href"#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">View mark</a></td>
                 </tr>
                    <tr>
-                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel suscipit ante, quis tincidunt elit.</td>
-                    <td>Tutorial test</td>
-                    <td>2020/10/28</td>
+                    <td>Research Assignment</td>
+                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque cursus neque est, eu elementum leo aliquet et. Pellentesque tempus metus vehicula blandit ultrices.</td>
+                    <td>2020/09/10</td>
+                    <td>Assignment</td>
+                    <td>Submit via Moodle</td>
+                    <td> 10%</td>
                     <td class="no-mark">Not available</td>
                 </tr>
             </tbody>
