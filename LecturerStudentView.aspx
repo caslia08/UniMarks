@@ -52,25 +52,25 @@
                     <td>215632236</td>
                     <td>Jane</td>
                     <td>Doe</td>
-                    <td><a href"#" class="btn btn-outline-primary btn-sm" role="button">View Profile</a></td>
+                    <td><a href"#" class="btn btn-outline-primary btn-sm" role="button">View Progress</a></td>
                 </tr>
                    <tr>
                     <td>217965324</td>
                     <td>John</td>
                     <td>Doe</td>
-                    <td><a href"#" class="btn btn-outline-primary btn-sm" role="button">View Profile</a></td>
+                    <td><a href"#" class="btn btn-outline-primary btn-sm" role="button">View Progress</a></td>
                 </tr>
                    <tr>
                     <td>214563323</td>
                     <td>Mark</td>
                     <td>Webber</td>
-                    <td><a href"#" class="btn btn-outline-primary btn-sm" role="button">View Profile</a></td>
+                    <td><a href"#" class="btn btn-outline-primary btn-sm" role="button">View Progress</a></td>
                 </tr>
                    <tr>
                     <td>214563258</td>
                     <td>Jonathan</td>
                     <td>Strauss</td>
-                    <td><a href"#" class="btn btn-outline-primary btn-sm" role="button">View Profile</a></td>
+                    <td><a href"#" class="btn btn-outline-primary btn-sm" role="button">View Progress</a></td>
                 </tr>
             </tbody>
         </table>
