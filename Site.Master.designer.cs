@@ -33,6 +33,15 @@ namespace WebApplication3
         protected global::System.Web.UI.WebControls.ContentPlaceHolder Custom_styles_placeholder;
 
         /// <summary>
+        /// NavListElements control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder NavListElements;
+
+        /// <summary>
         /// Login_LogoutButton control.
         /// </summary>
         /// <remarks>

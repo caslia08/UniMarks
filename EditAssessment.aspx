@@ -42,7 +42,7 @@
 
               <div class="form-group">
                 <label for="AssDate">Date</label>
-                <input type="datetime-local" class="form-control" id="AssDate">
+                <input type="date" class="form-control" id="AssDate">
               </div>
 
              <div class="form-group">
