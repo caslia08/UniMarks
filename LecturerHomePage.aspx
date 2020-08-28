@@ -165,4 +165,5 @@
              <img src="Image/Math_logo.png" alt="module-image" class="module-img" />
          </div>
      </div>
+	<br />
 </asp:Content>
