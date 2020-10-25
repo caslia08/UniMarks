@@ -7,10 +7,21 @@
         .blue-element{
             color:rgb(39, 128, 227) ;
         }
+        .btn-rounded-border {
+			border-radius: 8px;
+			margin-top: 10px;
+		}
     </style>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Login_LogoutButton" runat="server">
    <button class="btn btn-secondary my-2 my-sm-0" type="submit">logout</button>
+</asp:Content>
+<asp:Content ID="Content6" ContentPlaceHolderID="BreadCrumbs" runat="server">
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a href="#">DashBoard</a></li>
+        <li class="breadcrumb-item"><a href="#">Module home</a></li>
+        <li class="breadcrumb-item"><a href="#">Module assessments</a></li>
+	</ol>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="mainHeading" runat="server">
     Assessment name, Mark statistics
@@ -41,6 +52,46 @@
                 </tr>
             </tbody>
         </table>
+
+          <button type="button" class="btn btn-outline-primary btn-lg btn-rounded-border" data-toggle="modal" data-target="#myModal"> <i class="material-icons">flag</i>Flag mark</button>
+        <!-- How much styling scripts does on one website??? -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Flag mark</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="AssType">Reason for flag</label>
+                            <select class="form-control" id="AssType">
+                                <option disabled selected>Select a reason for flagging</option>
+                                <option>Incorrect mark captured on system</option>
+                                <option>Incorrect tallying of mark</option>
+                                <option>Disagree with mark obtained</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="AssDesc">Elaboration on selection</label>
+                            <textarea class="form-control" id="AssDesc" rows="4"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-primary " data-dismiss="modal">Submit</button>
+                        <button type="button" class="btn btn-outline-danger " data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
         <br />
         <h3>View your peers progress</h3>
         <div class="form-group">
@@ -58,6 +109,7 @@
     </div>
     <script>
         $(document).ready(function () {
+
             $('#chart-to-show').on('change', function() {
                 if (this.value == 'Bar') {
                     $('#my-Bar-Chart').show();

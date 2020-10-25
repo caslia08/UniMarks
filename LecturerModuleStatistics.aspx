@@ -1,55 +1,84 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ModuleStatistics.aspx.cs" Inherits="WebApplication3.ModuleStatistics" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="LecturerModuleStatistics.aspx.cs" Inherits="WebApplication3.LecturerModuleStatistics" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="pageTitle" runat="server">
-    Module statistics
+    Module Statistics
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Custom_styles_placeholder" runat="server">
     <style>
         .blue-element {
             color: rgb(39, 128, 227);
         }
+        .lecturer-details-grid-container {
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-gap: 40px;
+		}
+
+		.material-icons.md-68 {
+			font-size: 68px;
+		}
+
+		.grid-icon {
+			place-self: center;
+		}
+
+		#links-to-stats-grid-container {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			grid-gap: 20px;
+		}
+
+		.grid-button-container {
+			border-radius: 7px;
+			padding: 20px;
+			background-color: rgb(233,236,239);
+			border: solid;
+			border-width: 1px;
+			border-color: darkgrey;
+			text-align: center;
+		}
+
+		.btn-rounded-border {
+			border-radius: 8px;
+			margin-top: 10px;
+		}
     </style>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Login_LogoutButton" runat="server">
-    <button class="btn btn-secondary my-2 my-sm-0" type="submit">logout</button>
+    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Logout</button>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="BreadCrumbs" runat="server">
-	<ol class="breadcrumb">
-		<li class="breadcrumb-item"><a href="#">DashBoard</a></li>
-        <li class="breadcrumb-item"><a href="#">Module home</a></li>
-	</ol>
+     <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">DashBoard</a></li>
+        <li class="breadcrumb-item"><a href="#">MAPV311</a></li>
+        <li class="breadcrumb-item active">Module Statistics</li>
+    </ol>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="mainHeading" runat="server">
-    Module statistics
+    Module Statistics
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="MainContent" runat="server">
     <div class="jumbotron">
-        <h2>Some subheading</h2>
+        <h2>MAPV311 : Finite Difference Methods</h2>
         <hr />
         <br />
 
-         <table class="table table-hover">
-            <tbody>
+         <table class="table table-hover ">
+            <tbody>           
                 <tr>
-                    <td class="blue-element">Your average mark</td>
-                    <td>79%</td>
-                </tr>
-                <tr>
-                    <td class="blue-element">Class average</td>
+                    <td class="blue-element">Class Average</td>
                     <td>55%</td>
                 </tr>
                 <tr>
-                    <td class="blue-element">Number of assessments complete</td>
+                    <td class="blue-element">Number of Assessments Completed</td>
                     <td>5</td>
-                </tr>
-                <tr>
-                    <td class="blue-element">Number of assessments missed</td>
-                    <td>0</td>
                 </tr>
             </tbody>
         </table>
+        <br />
+        <hr />
+        <h3>Module progress</h3>
         <hr />
         <br />
-        <h3>Your module progress</h3>
           <div class="form-group">
             <label for="chart-to-show">Select graph:</label>
             <select class="form-control" id="chart-to-show">
@@ -59,7 +88,24 @@
         </div>
         <h4>Click on legend text to filter chart</h4>
         <canvas id="my-Line-Chart" width="250" height="100"></canvas>
-        <canvas id="my-Bar-Chart" width="250" height="100" style="display:none"></canvas>
+        <canvas id="my-Bar-Chart" width="250" height="100" style="display: none"></canvas>
+        <br />
+        <hr />
+        <br />
+        <div id="container">
+            <div class="row justify-content-around">
+                <div class="grid-button-container col-4">
+                    <a href="LecturerStudentView.aspx" class="btn btn-outline-primary btn-lg btn-rounded-border" role="button">View Student List</a>
+                </div>
+                <div class="grid-button-container col-4">
+                    <a href="EditAdminInformation.aspx" class="btn btn-outline-primary btn-lg btn-rounded-border" role="button">View Assessments</a>
+                </div>
+            </div>
+
+        </div>
+        
+        <br />
+ 
     </div>
 
      <script>
@@ -84,12 +130,7 @@
             type: 'line',
             data: {
                 labels: ['Tutorial test 1', 'Class quiz 1', 'Semester test 1', 'Tutorial test 2', 'Tutorial test 3'],
-                datasets: [{
-                    data: [50, 69, 88, 79, 64],
-                    label: 'Your marks',
-                    borderColor: 'rgba(0, 125, 255, 0.6)',
-                    fill: false
-                },
+                datasets: [
                 {
                     data: [55, 50, 85, 64, 77],
                     label: 'Class average marks (2020)',
@@ -133,12 +174,7 @@
             type: 'bar',
             data: {
                 labels: ['Tutorial test 1', 'Class quiz 1', 'Semester test 1', 'Tutorial test 2', 'Tutorial test 3'],
-                datasets: [{
-                    data: [50, 69, 88, 79, 64],
-                    label: 'Your marks',
-                    backgroundColor: 'rgba(0, 125, 255, 0.6)',
-                    fill: false
-                },
+                datasets: [
                 {
                     data: [55, 50, 85, 64, 77],
                     label: 'Class average marks (2020)',
@@ -177,3 +213,4 @@
         });
     </script>
 </asp:Content>
+

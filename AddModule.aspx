@@ -1,23 +1,24 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EditModuleDetails.aspx.cs" Inherits="WebApplication3.EditModuleDetials" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AddModule.aspx.cs" Inherits="WebApplication3.EditModuleDetials" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="pageTitle" runat="server">
-	Edit Module Details
+	Add Module 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Custom_styles_placeholder" runat="server">
-    <style>
-    	.btn-rounded-border {
-    		border-radius: 8px;
-    	}
+	<style>
+		.btn-rounded-border {
+			border-radius: 8px;
+		}
 
-    	.custome-table-props {
-    		background-color: white;
-    		margin: 10px;
-    	}
+		.custome-table-props {
+			background-color: white;
+			margin: 10px;
+		}
 
-    	.no-mark {
-    		color: grey;
-    		font-size: small;
-    	}
-    </style>
+		.no-mark {
+			color: grey;
+			font-size: small;
+		}
+	</style>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Login_LogoutButton" runat="server">
 	<button class="btn btn-secondary my-2 my-sm-0" type="submit">Logout</button>
@@ -30,7 +31,7 @@
 	</ol>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="mainHeading" runat="server">
-	Edit Module Details
+	Add Module 
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="MainContent" runat="server">
 	<div class="jumbotron">
@@ -76,7 +77,8 @@
 						<tbody>
 							<tr>
 								<td>00000000000000</td>
-								<td>LORD JASSON </td> <%--Was here--%>
+								<td>LORD JASSON </td>
+								<%--Was here--%>
 
 								<td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">View Studnet</a></td>
 							</tr>
@@ -153,9 +155,33 @@
 				<br />
 				<hr />
 				<br />
-				<button type="submit" class="btn btn-outline-primary btn-lg">Save Changes</button>
+			
+            <button type="button" class="btn btn-outline-primary btn-lg btn-rounded-border" data-toggle="modal" data-target="#myModal">Create</button>
 				<button type="button" class="btn btn-outline-danger btn-lg">Cancel</button>
 			</fieldset>
 		</form>
+
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+           <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Form submission</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <div class="modal-body">
+                        <h3>Form submission unccessessful.</h3>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Rety</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 	</div>
 </asp:Content>

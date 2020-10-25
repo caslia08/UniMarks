@@ -29,12 +29,25 @@
             border-bottom-color:rgb(19, 80, 177);
             border-bottom-width: 4px;
         }
-        .module-img{
+        .module-img {
             width: 100%;
             height: 230px;
             border-bottom-left-radius: 10px;
             border-bottom-right-radius: 10px;
             opacity: 0.7;
+        }
+
+        .material-icons.md-68 {
+            font-size: 68px;
+        }
+
+        .grid-icon {
+            place-self: center;
+        }
+        .student-details-grid-container {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            grid-gap: 40px;
         }
     </style>
 </asp:Content>
@@ -46,13 +59,69 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="Login_LogoutButton" runat="server">
     <button class="btn btn-secondary my-2 my-sm-0" type="submit">Logout</button>
 </asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="BreadCrumbs" runat="server">
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a href="#">DashBoard</a></li>
+	</ol>
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="jumbotron">
         <div class="container">
             <h2>Welome, First Name</h2>
-            <p>
-                Black i saw beyonces tizzles and my pizzle went crizzle you son of a bizzle sit amizzle, da bomb adipiscing elit. Its fo rizzle break it down velizzle, fo shizzle my nizzle volutpat, suscipizzle yo mamma, gravida vel, arcu. Pellentesque for sure bling bling. Sizzle erizzle.
-            </p>
+            <hr />
+            <br />
+            <div class="student-details-grid-container">
+                <div class="grid-icon">
+                    <i class="material-icons md-68">person</i>
+                </div>
+                <div class="grid-content">
+                    <h5 class="grid-content-heading">Personal Details:
+                    </h5>
+                    <table class="table table-hover">
+                        <tr>
+                            <td>Title:</td>
+                            <td>Mr</td>
+                        </tr>
+                        <tr>
+                            <td>Full name:</td>
+                            <td>Commander Shepard</td>
+                        </tr>
+                        <tr>
+                            <td>Email address:</td>
+                            <td>INeedAJob@IhateWebProgramming.ac.za</td>
+                        </tr>
+                        <tr>
+                            <td>Id number:</td>
+                            <td>1010101010101010</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="grid-icon">
+					<i class="material-icons md-68">account_balance</i>
+				</div>
+                <div class="grid-content">
+                    <h5 class="grid-content-heading">Institutional Details:
+                    </h5>
+                    <table class="table table-hover">
+                        <tr>
+                            <td>Department:</td>
+                            <td>FACULTY OF SCIENCE</td>
+                        </tr>
+                        <tr>
+                            <td>Student number:</td>
+                            <td>1010101010101010</td>
+                        </tr>
+                         <tr>
+                            <td>Qualification code:</td>
+                            <td>xxxxx</td>
+                        </tr>
+                       <tr>
+                            <td>Qualification name:</td>
+                            <td>Bsc General</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
     

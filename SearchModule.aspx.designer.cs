@@ -7,11 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication3.Account
-{
-
-
-    public partial class Login
-    {
+namespace WebApplication3 {
+    
+    
+    public partial class EditLecturerInformation {
     }
 }
