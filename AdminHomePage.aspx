@@ -21,7 +21,7 @@
 
 		#links-to-stats-grid-container {
 			display: grid;
-			grid-template-columns: 1fr 1fr 1fr;
+			grid-template-columns: 1fr 1fr;
 			grid-gap: 20px;
 		}
 
@@ -51,7 +51,7 @@
 	</ol>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="mainHeading" runat="server">
-	Admin profile
+	Admin 
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="MainContent" runat="server">
 	<div class="jumbotron">
@@ -108,14 +108,22 @@
 					</table>
 				</div>
 			</div>
+
+
 		</div>
-	</div>
+	</div>	
 	<div id="links-to-stats-grid-container">
 		<div class="grid-button-container">
-			<a href="EditAdminInformation.aspx" class="btn btn-outline-primary btn-lg btn-rounded-border" role="button">Add Student</a>
+			<a href="EditAdminInformation.aspx" class="btn btn-outline-primary btn-lg btn-rounded-border" role="button">View Modules </a>
 		</div>
 		<div class="grid-button-container">
-			<a href="EditAdminInformation.aspx" class="btn btn-outline-primary btn-lg btn-rounded-border" role="button">Add lecturer</a>
+			<a href="EditAdminInformation.aspx" class="btn btn-outline-primary btn-lg btn-rounded-border" role="button">View Lecturer</a>
+		</div>
+	</div>
+	<br />
+	<div id="links-to-stats-grid-container">
+		<div class="grid-button-container">
+			<a href="EditAdminInformation.aspx" class="btn btn-outline-primary btn-lg btn-rounded-border" role="button">Add Module</a>
 		</div>
 		<div class="grid-button-container">
 			<a href="EditAdminInformation.aspx" class="btn btn-outline-primary btn-lg btn-rounded-border" role="button">Edit Your Profile</a>

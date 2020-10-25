@@ -167,6 +167,9 @@
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="AddAssessment.aspx" />
+    <Content Include="SearchModule.aspx" />
+    <Content Include="SearchLecturer.aspx" />
+    <Content Include="SearchStudent.aspx" />
     <Content Include="AdminHomePage.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -352,6 +355,27 @@
     </Compile>
     <Compile Include="AddAssessment.aspx.designer.cs">
       <DependentUpon>AddAssessment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchModule.aspx.cs">
+      <DependentUpon>SearchModule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchModule.aspx.designer.cs">
+      <DependentUpon>SearchModule.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchLecturer.aspx.cs">
+      <DependentUpon>SearchLecturer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchLecturer.aspx.designer.cs">
+      <DependentUpon>SearchLecturer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchStudent.aspx.cs">
+      <DependentUpon>SearchStudent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchStudent.aspx.designer.cs">
+      <DependentUpon>SearchStudent.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminHomePage.aspx.cs">
       <DependentUpon>AdminHomePage.aspx</DependentUpon>

@@ -1,23 +1,24 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AddModule.aspx.cs" Inherits="WebApplication3.EditModuleDetials" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="pageTitle" runat="server">
 	Add Module 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Custom_styles_placeholder" runat="server">
-    <style>
-    	.btn-rounded-border {
-    		border-radius: 8px;
-    	}
+	<style>
+		.btn-rounded-border {
+			border-radius: 8px;
+		}
 
-    	.custome-table-props {
-    		background-color: white;
-    		margin: 10px;
-    	}
+		.custome-table-props {
+			background-color: white;
+			margin: 10px;
+		}
 
-    	.no-mark {
-    		color: grey;
-    		font-size: small;
-    	}
-    </style>
+		.no-mark {
+			color: grey;
+			font-size: small;
+		}
+	</style>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Login_LogoutButton" runat="server">
 	<button class="btn btn-secondary my-2 my-sm-0" type="submit">Logout</button>
@@ -76,7 +77,8 @@
 						<tbody>
 							<tr>
 								<td>00000000000000</td>
-								<td>LORD JASSON </td> <%--Was here--%>
+								<td>LORD JASSON </td>
+								<%--Was here--%>
 
 								<td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">View Studnet</a></td>
 							</tr>
