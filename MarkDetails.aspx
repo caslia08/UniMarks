@@ -21,6 +21,7 @@
 		<li class="breadcrumb-item"><a href="#">DashBoard</a></li>
         <li class="breadcrumb-item"><a href="#">Module home</a></li>
         <li class="breadcrumb-item"><a href="#">Module assessments</a></li>
+        <h1 runat="server" id="tester"></h1>
 	</ol>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="mainHeading" runat="server">
@@ -70,7 +71,7 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="AssType">Reason for flag</label>
-                            <select class="form-control" id="AssType">
+                            <select class="form-control" id="AssType" runat="server"  name="AssType">
                                 <option disabled selected>Select a reason for flagging</option>
                                 <option>Incorrect mark captured on system</option>
                                 <option>Incorrect tallying of mark</option>
@@ -80,11 +81,12 @@
                         </div>
                         <div class="form-group">
                             <label for="AssDesc">Elaboration on selection</label>
-                            <textarea class="form-control" id="AssDesc" rows="4"></textarea>
+                           <%-- <asp:TextBox ID="AssDesc" runat="server" TextMode="MultiLine" class="form-control"></asp:TextBox>--%>
+                            <textarea class="form-control" id="AssDesc" rows="4" name ="AssDesc" runat="server"></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-primary " data-dismiss="modal">Submit</button>
+                        <button type="submit" runat="server" class="btn btn-outline-primary " data-dismiss="modal" onServerClick="submitFlagBtnClicked">Submit</button>
                         <button type="button" class="btn btn-outline-danger " data-dismiss="modal">Cancel</button>
                     </div>
                 </div>
