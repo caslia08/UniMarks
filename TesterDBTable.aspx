@@ -27,6 +27,76 @@
             <asp:BoundField DataField="qualificationName" HeaderText="qualificationName" SortExpression="qualificationName" />
         </Columns>
     </asp:GridView>
+
+    <div class="jumbotron">
+       <h2>Assessment Information</h2>
+            <hr />
+            <br />
+     <form>
+        <fieldset>
+            <div class="form-group">
+                <label>Assessment ID</label>
+                <br />
+                <asp:TextBox ID="txtAssID" runat="server" class="form-control" ></asp:TextBox>
+            </div>          
+
+             <div class="form-group">
+                <label for="AssDesc">Description</label>
+                                 <br />
+
+                <asp:TextBox ID="txtAssDesc" runat="server" TextMode="MultiLine" Rows="5" class="form-control"></asp:TextBox>
+            </div>
+              <div class="form-group">
+                <label for="AssType">Assessment Type</label>
+                                  <br />
+
+                <asp:DropDownList ID="dropAssType" runat="server" class="form-control">
+                      <asp:ListItem Text="Semester Test" Value="Semester Test" />
+                      <asp:ListItem Text="Assignment" Value="Assignment" />
+                      <asp:ListItem Text="Presentation" Value="Presentation" />
+                      <asp:ListItem Text="Tutorial Test" Value="Tutorial Test" />
+                </asp:DropDownList>             
+            </div>
+
+              <div class="form-group">
+                <label for="AssDate">Date</label>
+                                  <br />
+
+                 <asp:TextBox ID="txtDate" runat="server" TextMode="Date" class="form-control"></asp:TextBox>
+            </div>
+
+            <div class="form-group">
+                <label for="AssVenue">Venue</label>
+                                <br />
+
+                <asp:TextBox ID="txtAssVenue" runat="server" class="form-control"></asp:TextBox>
+            </div>
+
+             <div class="form-group">
+                <label for="AssWeight">Assessment Weightage</label>
+                                 <br />
+
+                 <asp:DropDownList ID="dropAssWeight" runat="server" class="form-control">
+                     <asp:ListItem Text="5%" Value="5"></asp:ListItem>
+                     <asp:ListItem Text="15%" Value="15"></asp:ListItem>
+                     <asp:ListItem Text="20%" Value="20"></asp:ListItem>
+                     <asp:ListItem Text="25%" Value="25"></asp:ListItem>
+                     <asp:ListItem Text="30%" Value="30"></asp:ListItem>
+                     <asp:ListItem Text="35%" Value="35"></asp:ListItem>
+                     <asp:ListItem Text="40%" Value="40"></asp:ListItem>
+                     <asp:ListItem Text="45%" Value="45"></asp:ListItem>
+                 </asp:DropDownList> 
+             </div>
+            <br />
+
+            <hr />
+            <br />
+            <asp:Button ID="btnCreateAss" type="button" class="btn btn-outline-primary btn-lg btn-rounded-border" onclick="btnCreateAss_OnClick" runat="server" Text="Create" />
+            <asp:Button ID="btnCancelAss" type="button" class="btn btn-outline-danger btn-lg btn-rounded-border"  runat="server" Text="Cancel" />
+            <asp:Label ID="MessageLabel" runat="server" Text="Label"></asp:Label>
+        </fieldset>
+    </form>
+        </div>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [Student]"></asp:SqlDataSource>
 </asp:Content>
 <asp:Content ID="Content8" ContentPlaceHolderID="Scripts" runat="server">

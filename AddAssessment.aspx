@@ -34,7 +34,7 @@
             
             <div class="form-group">
                 <label for="AssName">Name</label>
-                <input type="text" class="form-control" id="AssName" aria-describedby="emailHelp" placeholder="Assessment Name">
+                <input  type="text" class="form-control" id="AssName" aria-describedby="emailHelp" placeholder="Assessment Name">
             </div>
 
              <div class="form-group">
@@ -81,7 +81,7 @@
             <hr />
             <br />
            
-            <button type="button" class="btn btn-outline-primary btn-lg btn-rounded-border" data-toggle="modal" data-target="#myModal">Create</button>
+            <button ID="btnCreateAss" type="button" class="btn btn-outline-primary btn-lg btn-rounded-border" data-toggle="modal" data-target="#myModal" onclick="btnCreateAss_OnClick">Create</button>
             
         
             <button type="button" class="btn btn-outline-danger btn-lg btn-rounded-border">Cancel</button>
