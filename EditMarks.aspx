@@ -57,7 +57,7 @@
         </div>
         <br />
         <div class="table-responsive">
-            <table class="table table-hover" id="markTable">
+            <table class="table " id="markTable">
                 <thead>
                     <tr class="table-primary">
                         <th scope="col">Student Number</th>

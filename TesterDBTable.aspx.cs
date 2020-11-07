@@ -13,7 +13,7 @@ namespace WebApplication3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            GridView1.HeaderRow.TableSection = TableRowSection.TableHeader;
         }
 
         protected void btnCreateAss_OnClick(object sender, EventArgs e)

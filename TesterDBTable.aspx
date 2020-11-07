@@ -2,6 +2,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="pageTitle" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Custom_styles_placeholder" runat="server">
+   <style>
+       .border_styling {
+  border-top-style: none;
+  border-right-style: none;
+  border-bottom-style: solid;
+  border-left-style: none;
+}
+   </style>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="NavListElements" runat="server">
 </asp:Content>
@@ -12,8 +20,11 @@
 <asp:Content ID="Content6" ContentPlaceHolderID="mainHeading" runat="server">
 </asp:Content>
 <asp:Content ID="Content7" ContentPlaceHolderID="MainContent" runat="server">
-    <asp:GridView ID="GridView1" runat="server" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" DataKeyNames="studentNumber"
-        class="">
+   
+
+    <asp:GridView ID="GridView1" runat="server"  DataSourceID="SqlDataSource1" AutoGenerateColumns="False" DataKeyNames="studentNumber"
+         AllowPaging="True" PageSize="10" class="table table-responsive table-hover table-secondary" HeaderStyle-CssClass="table-primary" GridLines="Horizontal">
+        
         <Columns>
             <asp:BoundField DataField="studentNumber" HeaderText="studentNumber" ReadOnly="True" SortExpression="studentNumber" />
             <asp:BoundField DataField="firtsName" HeaderText="firtsName" SortExpression="firtsName" />
@@ -25,6 +36,14 @@
             <asp:BoundField DataField="yearOfStudy" HeaderText="yearOfStudy" SortExpression="yearOfStudy" />
             <asp:BoundField DataField="qualificationCode" HeaderText="qualificationCode" SortExpression="qualificationCode" />
             <asp:BoundField DataField="qualificationName" HeaderText="qualificationName" SortExpression="qualificationName" />
+            <asp:TemplateField  HeaderText="finalamount">
+                   <ItemTemplate>
+                       <asp:Label  Text="HI I dunno what you do " runat="server" />
+                   </ItemTemplate>
+                   <FooterTemplate>
+                       <asp:Button Text="Save" runat="server" />
+                   </FooterTemplate>
+               </asp:TemplateField>
         </Columns>
     </asp:GridView>
 
