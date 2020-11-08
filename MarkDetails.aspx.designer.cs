@@ -22,6 +22,42 @@ namespace WebApplication3 {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl tester;
         
         /// <summary>
+        /// studentMark control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl studentMark;
+        
+        /// <summary>
+        /// minMark control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl minMark;
+        
+        /// <summary>
+        /// maxMark control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl maxMark;
+        
+        /// <summary>
+        /// avgMark control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl avgMark;
+        
+        /// <summary>
         /// AssType control.
         /// </summary>
         /// <remarks>
