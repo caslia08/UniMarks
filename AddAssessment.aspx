@@ -32,11 +32,13 @@
             <div class="form-group">
                 <label for="txtAssID">ID</label>
                 <asp:TextBox ID="txtAssID" runat="server" class="form-control" placeholder="Assessment ID"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtAssID" ErrorMessage="Assessment ID Required"></asp:RequiredFieldValidator>
             </div>     
 
 
             <div class="form-group">
-                <label for="txtAssName">Name</label>
+                <label for="txtAssName">
+                Name</label>
                 <asp:TextBox ID="txtAssName" runat="server" class="form-control" placeholder="Assessment Name"></asp:TextBox>
             </div>
 

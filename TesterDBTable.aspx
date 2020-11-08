@@ -2,6 +2,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="pageTitle" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Custom_styles_placeholder" runat="server">
+    <style>
+
+    </style>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="NavListElements" runat="server">
 </asp:Content>

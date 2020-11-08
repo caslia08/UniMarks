@@ -1,4 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EditAssessment.aspx.cs" Inherits="WebApplication3.Edit_Assessment" %>
+<%@ PreviousPageType VirtualPath="~/LecturerViewAssessments.aspx" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="pageTitle" runat="server">
     Edit Assessment
 </asp:Content>
@@ -26,62 +28,65 @@
        <h2>Assessment Information</h2>
             <hr />
             <br />
-    <form>
-        <fieldset>
-           
-            <div class="form-group has-danger">
-                <label class="form-control-label" for="AssNameDanger">Name</label>
-                <input type="text" class="form-control is-invalid" id="inputInvalid">
-                <div class="invalid-feedback">Assessment name is required</div>
-            </div>
+    
+            <div class="form-group">
+                <label for="txtAssID">ID</label>
+                <asp:TextBox ID="txtAssID" runat="server" class="form-control" placeholder="Assessment ID"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtAssID" ErrorMessage="Assessment ID Required"></asp:RequiredFieldValidator>
+            </div>     
+
 
             <div class="form-group">
-                <label for="AssDesc">Description</label>
-                <textarea class="form-control" id="AssDesc" rows="4"></textarea>
+                <label for="txtAssName">
+                Name</label>
+                <asp:TextBox ID="txtAssName" runat="server" class="form-control" placeholder="Assessment Name"></asp:TextBox>
+            </div>
+
+             <div class="form-group">
+                <label for="txtAssDesc">Description</label>
+                <asp:TextBox ID="txtAssDesc" runat="server" class="form-control" placeholder="Assessment Description" TextMode="MultiLine" Rows="5"></asp:TextBox>
             </div>
 
               <div class="form-group">
-                <label for="AssDate">Date</label>
-                <input type="date" class="form-control" id="AssDate">
-              </div>
+                <label for="txtAssDate">Date</label>
+                <asp:TextBox ID="txtAssDate" runat="server" class="form-control" TextMode="Date"></asp:TextBox>
+            </div>
 
              <div class="form-group">
-                <label for="AssType">Assessment Type</label>
-                <select class="form-control" id="AssType">
-                    <option>Semester Test</option>
-                    <option>Assignment</option>
-                    <option>Presentation</option>
-                    <option>Tutorial Test</option>
-                </select>
+                <label for="dropAssType" >Assessment Type</label>
+                 <asp:DropDownList ID="dropAssType" class="form-control" runat="server">
+                     <asp:ListItem Text="Semester Test" Value="Semester Test"></asp:ListItem>
+                     <asp:ListItem Text="Assignment" Value="Assignment"></asp:ListItem>
+                     <asp:ListItem Text="Presentation" Value="Presentation"></asp:ListItem>
+                     <asp:ListItem Text ="Tutorial Test" Value="Tutorial Test"></asp:ListItem>
+                 </asp:DropDownList>
             </div>
 
             <div class="form-group">
-                <label for="AssVenue">Venue</label>
-                <input type="text" class="form-control" id="AssVenue" aria-describedby="emailHelp" placeholder="Assessment Venue">
+                <label for="txtAssVenue">Venue</label>
+                <asp:TextBox ID="txtAssVenue" runat="server" class="form-control" placeholder="Assessment Venue" ></asp:TextBox>
             </div>
 
              <div class="form-group">
                 <label for="AssWeight">Assessment Weightage</label>
-                <select class="form-control" id="AssWeight">
-                    <option>To Be Determined</option>
-                    <option>5%</option>
-                    <option>10%</option>
-                    <option>15%</option>
-                    <option>20%</option>
-                    <option>25%</option>
-                    <option>30%</option>
-                    <option>35%</option>
-                    <option>40%</option>
-                </select>
+                 <asp:DropDownList ID="dropAssWeight" class="form-control" runat="server">
+                     <asp:ListItem Text="5%"  Value="5"></asp:ListItem>
+                     <asp:ListItem Text="10%" Value="10"></asp:ListItem>
+                     <asp:ListItem Text="15%" Value="15"></asp:ListItem>
+                     <asp:ListItem Text="20%" Value="20"></asp:ListItem>
+                     <asp:ListItem Text="25%" Value="25"></asp:ListItem>
+                     <asp:ListItem Text="30%" Value="30"></asp:ListItem>
+                     <asp:ListItem Text="35%" Value="35"></asp:ListItem>
+                     <asp:ListItem Text="40%" Value="40"></asp:ListItem>
+                     <asp:ListItem Text="45%" Value="45"></asp:ListItem>
+                 </asp:DropDownList>
              </div>
             <br />
-
             <hr />
             <br />
-            <button type="submit" class="btn btn-outline-primary btn-lg">Save Changes</button>
-            <button type="button" class="btn btn-outline-danger btn-lg">Cancel</button>
-        </fieldset>
-    </form>
+       <asp:Button ID="btnSaveChanges"  class="btn btn-outline-primary btn-lg btn-rounded-border" runat="server" Text="Save Changes" />
+       <asp:Button ID="btnCancelAss" class="btn btn-outline-danger btn-lg btn-rounded-border" runat="server" Text="Cancel" />
+       <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
    </div>
 
 </asp:Content>
