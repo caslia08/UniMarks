@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="pageTitle" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Custom_styles_placeholder" runat="server">
-   <style>
+    <style>
        .border_styling {
   border-top-style: none;
   border-right-style: none;
@@ -51,7 +51,6 @@
        <h2>Assessment Information</h2>
             <hr />
             <br />
-     <form>
         <fieldset>
             <div class="form-group">
                 <label>Assessment ID</label>
@@ -114,7 +113,6 @@
             <asp:Button ID="btnCancelAss" type="button" class="btn btn-outline-danger btn-lg btn-rounded-border"  runat="server" Text="Cancel" />
             <asp:Label ID="MessageLabel" runat="server" Text="Label"></asp:Label>
         </fieldset>
-    </form>
         </div>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [Student]"></asp:SqlDataSource>
 </asp:Content>
