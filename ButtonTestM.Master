@@ -1,0 +1,40 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="ButtonTestM.master.cs" Inherits="WebApplication3.ButtonTestM" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><asp:ContentPlaceHolder ID="pageTitle" runat="server"></asp:ContentPlaceHolder></title>
+
+    <asp:PlaceHolder runat="server">
+<%--       <%: Scripts.Render("~/bundles/modernizr") %>--%>
+    </asp:PlaceHolder>
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js">
+    </script>
+
+    <asp:ContentPlaceHolder ID="Custom_styles_placeholder" runat="server">
+ 
+    </asp:ContentPlaceHolder>
+   <style>
+       #heading h1{
+           padding: 10px 25px 25px 25px;
+       }
+
+   </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
