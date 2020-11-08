@@ -45,7 +45,7 @@ namespace WebApplication3
 
                 if (ReturnCode == 1)
                 {
-                    Label1.Text = "Success"; 
+                    Response.Write("<script>alert('Assessment Added Successfully');</script>");
                     //TODO success message
                 }
                 else

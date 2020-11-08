@@ -37,6 +37,8 @@
 			border-radius: 8px;
 			margin-top: 10px;
 		}
+
+
     </style>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="NavListElements" runat="server">
@@ -60,6 +62,31 @@
         <h2>Module Assessments</h2>
         <hr />
         <br />
+      <asp:Label ID="lblSearch" runat="server" Text="Search"></asp:Label>
+      <asp:TextBox ID="txtSearch" runat="server" AutoPostBack="true" OnTextChanged="txtSearch_TextChanged"></asp:TextBox>
+      <asp:GridView ID="gridViewAssessments" runat="server" AutoGenerateColumns="False" DataKeyNames="assessmentID" DataSourceID="sqlAssessmentDataSource"
+          AllowSorting="True" OnPageIndexChanging="OnPaging" AllowPaging="True" class="table table-responsive table-hover" HeaderStyle-CssClass="table-primary" GridLines="Horizontal" BorderStyle="None">
+          <Columns>
+              <asp:BoundField DataField="assessmentID" HeaderText="Assessment ID" ReadOnly="True" SortExpression="assessmentID" />
+              <asp:BoundField DataField="assessmentName" HeaderText="Name" SortExpression="assessmentName" />
+              <asp:BoundField DataField="assessmentDescription" HeaderText="Description" SortExpression="assessmentDescription" />
+              <asp:BoundField DataField="assessmentDate" HeaderText="Date" SortExpression="assessmentDate" />
+              <asp:BoundField DataField="assessmentType" HeaderText="Assessment Type" SortExpression="assessmentType" />
+              <asp:BoundField DataField="assessmentVenue" HeaderText="Venue" SortExpression="assessmentVenue" />
+              <asp:BoundField DataField="assessmentWeightage" HeaderText="Weightage %" SortExpression="assessmentWeightage" />
+              <asp:BoundField DataField="classAverage" HeaderText="Class Average" SortExpression="classAverage" />
+               <asp:TemplateField>
+                   <ItemTemplate>
+                       <asp:Button ID="btnEditAss" runat="server" Text="Edit Assessment" class="btn btn-outline-primary btn-sm btn-rounded-border"
+                          PostBackUrl='<%# "~/EditAssessment.aspx?RowIndex=" + Container.DataItemIndex %>' />
+                   </ItemTemplate>
+               </asp:TemplateField>
+          </Columns>
+
+<HeaderStyle CssClass="table-primary"></HeaderStyle>
+        </asp:GridView>
+
+      <asp:SqlDataSource ID="sqlAssessmentDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [Assessment Information]"></asp:SqlDataSource>
  
         <table class="table table-hover custome-table-props marks-table" >
             <thead>
@@ -128,7 +155,7 @@
        <div id="container">
             <div class="row justify-content-center">
                 <div class="grid-button-container col-4">
-                    <a href="LecturerStudentView.aspx" class="btn btn-outline-primary btn-lg btn-rounded-border" role="button">Add Assessment</a>
+                    <a href="AddAssessment.aspx" class="btn btn-outline-primary btn-lg btn-rounded-border" role="button">Add Assessment</a>
                 </div>
             </div>
 
