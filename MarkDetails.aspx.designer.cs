@@ -22,21 +22,21 @@ namespace WebApplication3 {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl tester;
         
         /// <summary>
-        /// AssType control.
+        /// reasonForFlag control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect AssType;
+        protected global::System.Web.UI.WebControls.DropDownList reasonForFlag;
         
         /// <summary>
-        /// AssDesc control.
+        /// elaborationOnFlag control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea AssDesc;
+        protected global::System.Web.UI.WebControls.TextBox elaborationOnFlag;
     }
 }

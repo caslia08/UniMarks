@@ -71,26 +71,32 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="AssType">Reason for flag</label>
-                            <select class="form-control" id="AssType" runat="server"  name="AssType">
-                                <option disabled selected>Select a reason for flagging</option>
-                                <option>Incorrect mark captured on system</option>
+                 <%--           <select class="form-control" id="AssType" runat="server"  name="AssType">--%>
+                           <%--     <option disabled selected>Select a reason for flagging</option>--%>
+                                <asp:DropDownList ID="reasonForFlag" CssClass="form-control" runat="server" >
+                                    <asp:ListItem>Incorrect mark captured on system</asp:ListItem>
+                                    <asp:ListItem>Incorrect tallying of mark</asp:ListItem>
+                                    <asp:ListItem>Disagree with mark obtained</asp:ListItem>
+                                    <asp:ListItem>Other</asp:ListItem>
+                                </asp:DropDownList>
+                        <%--        <option>Incorrect mark captured on system</option>
                                 <option>Incorrect tallying of mark</option>
                                 <option>Disagree with mark obtained</option>
                                 <option>Other</option>
-                            </select>
+                            </select>--%>
                         </div>
                         <div class="form-group">
                             <label for="AssDesc">Elaboration on selection</label>
                            <%-- <asp:TextBox ID="AssDesc" runat="server" TextMode="MultiLine" class="form-control"></asp:TextBox>--%>
-                            <textarea class="form-control" id="AssDesc" rows="4" name ="AssDesc" runat="server"></textarea>
+      <%--                      <textarea class="form-control" id="AssDesc" rows="4" name ="AssDesc" runat="server"></textarea>--%>
+                            <asp:TextBox ID="elaborationOnFlag" runat="server" TextMode="MultiLine" CssClass="form-control"></asp:TextBox>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" runat="server" class="btn btn-outline-primary " data-dismiss="modal" onServerClick="submitFlagBtnClicked">Submit</button>
+                        <button type="button" runat="server" class="btn btn-outline-primary " data-dismiss="modal" onServerClick="submitFlagBtnClicked" UseSubmitBehavior="false">Submit</button>
                         <button type="button" class="btn btn-outline-danger " data-dismiss="modal">Cancel</button>
                     </div>
                 </div>
-
             </div>
         </div>
 
