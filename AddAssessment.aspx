@@ -81,8 +81,8 @@
             <hr />
             <br />
            
-            <button ID="btnCreateAss" type="button" class="btn btn-outline-primary btn-lg btn-rounded-border" data-toggle="modal" data-target="#myModal" onclick="btnCreateAss_OnClick">Create</button>
-            
+          <!--  <button ID="btnCreateAss" type="button" class="btn btn-outline-primary btn-lg btn-rounded-border" data-toggle="modal" data-target="#myModal">Create</button>  -->
+          
         
             <button type="button" class="btn btn-outline-danger btn-lg btn-rounded-border">Cancel</button>
         </fieldset>

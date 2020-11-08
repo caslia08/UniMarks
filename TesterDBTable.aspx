@@ -51,8 +51,7 @@
        <h2>Assessment Information</h2>
             <hr />
             <br />
-     <form>
-        <fieldset>
+       
             <div class="form-group">
                 <label>Assessment ID</label>
                 <br />
@@ -110,11 +109,10 @@
 
             <hr />
             <br />
-            <asp:Button ID="btnCreateAss" type="button" class="btn btn-outline-primary btn-lg btn-rounded-border" onclick="btnCreateAss_OnClick" runat="server" Text="Create" />
+            <asp:Button ID="btnCreateAss" type="button" class="btn btn-outline-primary btn-lg btn-rounded-border"  runat="server" Text="Create" OnClick="btnCreateAss_Click" />
             <asp:Button ID="btnCancelAss" type="button" class="btn btn-outline-danger btn-lg btn-rounded-border"  runat="server" Text="Cancel" />
             <asp:Label ID="MessageLabel" runat="server" Text="Label"></asp:Label>
-        </fieldset>
-    </form>
+        
         </div>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [Student]"></asp:SqlDataSource>
 </asp:Content>
