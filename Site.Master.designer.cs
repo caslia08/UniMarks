@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication3
-{
-
-
-    public partial class SiteMaster
-    {
-
+namespace WebApplication3 {
+    
+    
+    public partial class SiteMaster {
+        
         /// <summary>
         /// pageTitle control.
         /// </summary>
@@ -22,7 +20,7 @@ namespace WebApplication3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder pageTitle;
-
+        
         /// <summary>
         /// Custom_styles_placeholder control.
         /// </summary>
@@ -31,7 +29,7 @@ namespace WebApplication3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder Custom_styles_placeholder;
-
+        
         /// <summary>
         /// NavListElements control.
         /// </summary>
@@ -40,7 +38,7 @@ namespace WebApplication3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder NavListElements;
-
+        
         /// <summary>
         /// Login_LogoutButton control.
         /// </summary>
@@ -49,7 +47,7 @@ namespace WebApplication3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder Login_LogoutButton;
-
+        
         /// <summary>
         /// BreadCrumbs control.
         /// </summary>
@@ -58,7 +56,7 @@ namespace WebApplication3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder BreadCrumbs;
-
+        
         /// <summary>
         /// mainHeading control.
         /// </summary>
@@ -67,7 +65,7 @@ namespace WebApplication3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder mainHeading;
-
+        
         /// <summary>
         /// MainContent control.
         /// </summary>
@@ -76,7 +74,7 @@ namespace WebApplication3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
-
+        
         /// <summary>
         /// Scripts control.
         /// </summary>

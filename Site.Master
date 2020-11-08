@@ -74,9 +74,7 @@
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/Contact">Contact</a></li>                     
 
                     </ul>
-                    <form class="form-inline my-2 my-lg-0">
-                        <asp:ContentPlaceHolder ID="Login_LogoutButton" runat="server"></asp:ContentPlaceHolder>
-                    </form>
+                      <asp:ContentPlaceHolder ID="Login_LogoutButton" runat="server"></asp:ContentPlaceHolder>
                 </div>
             </nav>
 
