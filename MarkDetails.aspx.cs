@@ -18,24 +18,29 @@ namespace WebApplication3
 
         protected void submitFlagBtnClicked(object sender, EventArgs e)
         {
-
-
-            String bodyHeading = reasonForFlag.SelectedItem.Value;
-            String bodyMain = elaborationOnFlag.Text.ToString();
-            MailMessage mailMessage = new MailMessage("josephjasson@outlook.com", "josephjasson@outlook.com");
-
-            mailMessage.Subject = "Flagged mark";
-
-            mailMessage.Body = bodyHeading + "\n" + bodyMain;
-            SmtpClient smtp = new SmtpClient("smtp.office365.com", 587);
-            smtp.Credentials = new System.Net.NetworkCredential()
+            try
             {
-                UserName = "josephjasson@outlook.com",
-                Password = "Fuck off"
+                String bodyHeading = reasonForFlag.SelectedItem.Value;
+                String bodyMain = elaborationOnFlag.Text.ToString();
+                MailMessage mailMessage = new MailMessage("josephjasson@outlook.com", "s21796234@mandela.ac.za");
 
-            };
-            smtp.EnableSsl = true;
-            smtp.Send(mailMessage);
+                mailMessage.Subject = "Flagged mark";
+
+                mailMessage.Body = bodyHeading + "\n" + bodyMain;
+                SmtpClient smtp = new SmtpClient("smtp.office365.com", 587);
+                smtp.Credentials = new System.Net.NetworkCredential()
+                {
+                    UserName = "hulu.com",
+                    Password = "look away"
+
+                };
+                smtp.EnableSsl = true;
+                smtp.Send(mailMessage);
+            }
+            catch (Exception ex)
+            {
+                //Add logic for pop-up to show here
+            }
         }
     }
 }

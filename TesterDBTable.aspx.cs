@@ -18,7 +18,7 @@ namespace WebApplication3
 
         protected void btnCreateAss_OnClick(object sender, EventArgs e)
         {
-            MessageLabel.Text = "I started";
+           // MessageLabel.Text = "I started";
 
             if (Page.IsValid)
             {
@@ -31,13 +31,13 @@ namespace WebApplication3
 
                 OleDbCommand command = new OleDbCommand(sqlCommand, dbConnection);
 
-                command.Parameters.AddWithValue("@ID", txtAssID.Text);
-                command.Parameters.AddWithValue("@type", dropAssType.SelectedValue);
-                command.Parameters.AddWithValue("@date", txtDate.Text);
-                command.Parameters.AddWithValue("@desc", txtAssDesc.Text);
-                command.Parameters.AddWithValue("@venue", txtAssVenue.Text);
-                command.Parameters.AddWithValue("@average", 0);
-                command.Parameters.AddWithValue("@weight", dropAssWeight.Text);
+                //command.Parameters.AddWithValue("@ID", txtAssID.Text);
+                //command.Parameters.AddWithValue("@type", dropAssType.SelectedValue);
+                //command.Parameters.AddWithValue("@date", txtDate.Text);
+                //command.Parameters.AddWithValue("@desc", txtAssDesc.Text);
+                //command.Parameters.AddWithValue("@venue", txtAssVenue.Text);
+                //command.Parameters.AddWithValue("@average", 0);
+                //command.Parameters.AddWithValue("@weight", dropAssWeight.Text);
                
                 dbConnection.Open();
                 int ReturnCode = command.ExecuteNonQuery();
@@ -45,18 +45,18 @@ namespace WebApplication3
 
                 if (ReturnCode == 1)
                 {
-                    MessageLabel.Text = "Reciped Added Successfully";
+                  //  MessageLabel.Text = "Reciped Added Successfully";
                 }
                 else
                 {
 
-                    MessageLabel.Text = "Recipe not added Successfully";
+                    //MessageLabel.Text = "Recipe not added Successfully";
                 }
 
             }
             else
             {
-                MessageLabel.Text = "Problem on Page";
+               // MessageLabel.Text = "Problem on Page";
             }
         }
 

@@ -59,7 +59,7 @@
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-        <div id="myModal" class="modal fade" role="dialog">
+        <div id="myModal" class="modal fade" role="dialog" runat="server">
             <div class="modal-dialog modal-lg">
                 <!-- Modal content-->
                 <div class="modal-content">
@@ -93,7 +93,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" runat="server" class="btn btn-outline-primary " data-dismiss="modal" onServerClick="submitFlagBtnClicked" UseSubmitBehavior="false">Submit</button>
+                        <button type="submit" runat="server" class="btn btn-outline-primary " id="submitBtn"  onserverclick="submitFlagBtnClicked" >Submit</button>
                         <button type="button" class="btn btn-outline-danger " data-dismiss="modal">Cancel</button>
                     </div>
                 </div>
