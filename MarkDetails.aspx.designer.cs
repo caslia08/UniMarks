@@ -22,39 +22,57 @@ namespace WebApplication3 {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl tester;
         
         /// <summary>
-        /// myModal control.
+        /// studentMark control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl myModal;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl studentMark;
         
         /// <summary>
-        /// reasonForFlag control.
+        /// minMark control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList reasonForFlag;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl minMark;
         
         /// <summary>
-        /// elaborationOnFlag control.
+        /// maxMark control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox elaborationOnFlag;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl maxMark;
         
         /// <summary>
-        /// submitBtn control.
+        /// avgMark control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton submitBtn;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl avgMark;
+        
+        /// <summary>
+        /// AssType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect AssType;
+        
+        /// <summary>
+        /// AssDesc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea AssDesc;
     }
 }

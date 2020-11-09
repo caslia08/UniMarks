@@ -33,23 +33,24 @@
         <hr />
         <br />
         <h4>Aggregate functions</h4>
+            
         <table class="table table-hover">
             <tbody>
                 <tr>
                     <td class="blue-element">Your mark</td>
-                    <td>79%</td>
+                    <td><p id="studentMark" runat="server"></p></td>
                 </tr>
                 <tr>
                     <td class="blue-element">Minimum mark</td>
-                    <td>39%</td>
+                    <td><p id="minMark" runat="server"></p></td>
                 </tr>
                 <tr>
                     <td class="blue-element">Maximum mark</td>
-                    <td>99%</td>
+                    <td><p id="maxMark" runat="server"></p></td>
                 </tr>
                 <tr>
                     <td class="blue-element">Average mark</td>
-                    <td>60%</td>
+                    <td><p id="avgMark" runat="server"></p></td>
                 </tr>
             </tbody>
         </table>
