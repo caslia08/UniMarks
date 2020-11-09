@@ -139,135 +139,140 @@
         });
      
     </script>
-    <script>
-        let myBarChart = document.getElementById('my-Bar-Chart').getContext('2d');
+    <div>
+        <asp:Literal ID="chartsBar" runat="server"></asp:Literal>
+        <asp:Literal ID="chartsPie" runat="server"></asp:Literal>
+        <asp:Literal ID="chartsLine" runat="server"></asp:Literal>
+    </div>
+  <%--  <script>
+        //let myBarChart = document.getElementById('my-Bar-Chart').getContext('2d');
 
-        let marksBarChart = new Chart(myBarChart, {
-            type: 'bar',
-            data: {
-                labels: ['0-10', '10-20', '20-30', '30-40', '40-50', '50-60', '60-70', '70-80', '80-90', '90-100'],
-                datasets: [{
-                    label:'',
-                    data: [0, 0, 0, 1, 5, 6,4,3,1,1],
-                  backgroundColor: [
-                        'rgba(153, 0, 0, 0.6)',
-                        'rgba(204, 0, 0, 0.6)',
-                        'rgba(255, 0, 0, 0.6)',
-                        'rgba(255, 48, 48, 0.6)',
-                        'rgba(0, 0, 153, 0.6)',
-                        'rgba(0, 125, 255, 0.6)',
-                        'rgba(0, 204, 204, 0.6)',
-                        'rgba(0,153 , 0, 0.6)',
-                        'rgba(0, 255, 0, 0.6)',
-                        'rgba(204, 255, 153, 0.6)'
+        //let marksBarChart = new Chart(myBarChart, {
+        //    type: 'bar',
+        //    data: {
+        //        labels: ['0-10', '10-20', '20-30', '30-40', '40-50', '50-60', '60-70', '70-80', '80-90', '90-100'],
+        //        datasets: [{
+        //            label:'',
+        //            data: [0, 0, 0, 1, 5, 6,4,3,1,1],
+        //          backgroundColor: [
+        //                'rgba(153, 0, 0, 0.6)',
+        //                'rgba(204, 0, 0, 0.6)',
+        //                'rgba(255, 0, 0, 0.6)',
+        //                'rgba(255, 48, 48, 0.6)',
+        //                'rgba(0, 0, 153, 0.6)',
+        //                'rgba(0, 125, 255, 0.6)',
+        //                'rgba(0, 204, 204, 0.6)',
+        //                'rgba(0,153 , 0, 0.6)',
+        //                'rgba(0, 255, 0, 0.6)',
+        //                'rgba(204, 255, 153, 0.6)'
 
 
-                    ],
-                    borderColor: [
-                        'rgba(153, 0, 0, 0.1)',
-                        'rgba(204, 0, 0, 0.1)',
-                        'rgba(255, 0, 0, 0.1)',
-                        'rgba(255, 48, 48, 0.1)',
-                        'rgba(0, 0, 153, 0.1)',
-                        'rgba(0, 125, 255, 0.1)',
-                        'rgba(0, 204, 204, 0.1)',
-                        'rgba(0,153 , 0, 0.1)',
-                        'rgba(0, 255, 0, 0.1)',
-                        'rgba(204, 255, 153, 0.1)'
-                    ],
-                    borderWidth: 1,
-                    hoverBorderWidth:2, 
-                    hoverBorderColor: '#000' 
-                }]
-            },
-            options: {
-                title: {
-                    display: true,
-                    text: 'Marks distrabution',
-                    fontSize: 25
-                },
-                legend: {
-                    display: false
-                },
-                scales: {
-                        xAxes: [{
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'percentage range'
-                        }
-                    }],
-                    yAxes: [{
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Number of people'
-                        },
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
+        //            ],
+        //            borderColor: [
+        //                'rgba(153, 0, 0, 0.1)',
+        //                'rgba(204, 0, 0, 0.1)',
+        //                'rgba(255, 0, 0, 0.1)',
+        //                'rgba(255, 48, 48, 0.1)',
+        //                'rgba(0, 0, 153, 0.1)',
+        //                'rgba(0, 125, 255, 0.1)',
+        //                'rgba(0, 204, 204, 0.1)',
+        //                'rgba(0,153 , 0, 0.1)',
+        //                'rgba(0, 255, 0, 0.1)',
+        //                'rgba(204, 255, 153, 0.1)'
+        //            ],
+        //            borderWidth: 1,
+        //            hoverBorderWidth:2, 
+        //            hoverBorderColor: '#000' 
+        //        }]
+        //    },
+        //    options: {
+        //        title: {
+        //            display: true,
+        //            text: 'Marks distrabution',
+        //            fontSize: 25
+        //        },
+        //        legend: {
+        //            display: false
+        //        },
+        //        scales: {
+        //                xAxes: [{
+        //                scaleLabel: {
+        //                    display: true,
+        //                    labelString: 'percentage range'
+        //                }
+        //            }],
+        //            yAxes: [{
+        //                scaleLabel: {
+        //                    display: true,
+        //                    labelString: 'Number of people'
+        //                },
+        //                ticks: {
+        //                    beginAtZero: true
+        //                }
+        //            }]
                 
-                }
-            }
-        });
+        //        }
+        //    }
+        //});
 
          let myPieChart = document.getElementById('my-Pie-Chart').getContext('2d');
 
-        let marksPieChart = new Chart(myPieChart, {
-            type: 'pie',
-            data: {
-                labels: ['0-10', '10-20', '20-30', '30-40', '40-50', '50-60', '60-70', '70-80', '80-90', '90-100'],
-                datasets: [{
-                    label:'',
-                    data: [0, 0, 0, 1, 5, 6,4,3,1,1],
-                    backgroundColor: [
-                        'rgba(153, 0, 0, 0.6)',
-                        'rgba(204, 0, 0, 0.6)',
-                        'rgba(255, 0, 0, 0.6)',
-                        'rgba(255, 48, 48, 0.6)',
-                        'rgba(0, 0, 153, 0.6)',
-                        'rgba(0, 125, 255, 0.6)',
-                        'rgba(0, 204, 204, 0.6)',
-                        'rgba(0,153 , 0, 0.6)',
-                        'rgba(0, 255, 0, 0.6)',
-                        'rgba(204, 255, 153, 0.6)'
+        //let marksPieChart = new Chart(myPieChart, {
+        //    type: 'pie',
+        //    data: {
+        //        labels: ['0-10', '10-20', '20-30', '30-40', '40-50', '50-60', '60-70', '70-80', '80-90', '90-100'],
+        //        datasets: [{
+        //            label:'',
+        //            data: [0, 0, 0, 1, 5, 6,4,3,1,1],
+        //            backgroundColor: [
+        //                'rgba(153, 0, 0, 0.6)',
+        //                'rgba(204, 0, 0, 0.6)',
+        //                'rgba(255, 0, 0, 0.6)',
+        //                'rgba(255, 48, 48, 0.6)',
+        //                'rgba(0, 0, 153, 0.6)',
+        //                'rgba(0, 125, 255, 0.6)',
+        //                'rgba(0, 204, 204, 0.6)',
+        //                'rgba(0,153 , 0, 0.6)',
+        //                'rgba(0, 255, 0, 0.6)',
+        //                'rgba(204, 255, 153, 0.6)'
 
 
-                    ],
-                    borderColor: [
-                        'rgba(153, 0, 0, 0.1)',
-                        'rgba(204, 0, 0, 0.1)',
-                        'rgba(255, 0, 0, 0.1)',
-                        'rgba(255, 48, 48, 0.1)',
-                        'rgba(0, 0, 153, 0.1)',
-                        'rgba(0, 125, 255, 0.1)',
-                        'rgba(0, 204, 204, 0.1)',
-                        'rgba(0,153 , 0, 0.1)',
-                        'rgba(0, 255, 0, 0.1)',
-                        'rgba(204, 255, 153, 0.1)'
-                    ],
-                    borderWidth: 1,
-                    hoverBorderWidth:2, 
-                    hoverBorderColor: '#000' 
-                }]
-            },
-            options: {
-                title: {
-                    display: true,
-                    text: 'Marks distrabution',
-                    fontSize: 25
-                },
-                legend: {
-                    display: true,
-                    position:'right'
+        //            ],
+        //            borderColor: [
+        //                'rgba(153, 0, 0, 0.1)',
+        //                'rgba(204, 0, 0, 0.1)',
+        //                'rgba(255, 0, 0, 0.1)',
+        //                'rgba(255, 48, 48, 0.1)',
+        //                'rgba(0, 0, 153, 0.1)',
+        //                'rgba(0, 125, 255, 0.1)',
+        //                'rgba(0, 204, 204, 0.1)',
+        //                'rgba(0,153 , 0, 0.1)',
+        //                'rgba(0, 255, 0, 0.1)',
+        //                'rgba(204, 255, 153, 0.1)'
+        //            ],
+        //            borderWidth: 1,
+        //            hoverBorderWidth:2, 
+        //            hoverBorderColor: '#000' 
+        //        }]
+        //    },
+        //    options: {
+        //        title: {
+        //            display: true,
+        //            text: 'Marks distrabution',
+        //            fontSize: 25
+        //        },
+        //        legend: {
+        //            display: true,
+        //            position:'right'
 
-                },
-                scales: {
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
+        //        },
+        //        scales: {
+        //            ticks: {
+        //                beginAtZero: true
+        //            }
+        //        }
+        //    }
+        //});
 
        let myLineChart = document.getElementById('my-Line-Chart').getContext('2d');
 
@@ -320,5 +325,5 @@
             }
         });
 
-    </script>
+    </script>--%>
 </asp:Content>
