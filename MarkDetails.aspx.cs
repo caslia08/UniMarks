@@ -110,27 +110,29 @@ namespace WebApplication3
 
         protected void submitFlagBtnClicked(object sender, EventArgs e)
         {
+            try
+            {
+                String bodyHeading = reasonForFlag.SelectedItem.Value;
+                String bodyMain = elaborationOnFlag.Text.ToString();
+                MailMessage mailMessage = new MailMessage("josephjasson@outlook.com", "s21796234@mandela.ac.za");
 
-            string bodyHeading = Request.Form["AssType"];
-            string bodyMain = AssDesc.InnerText;
+                mailMessage.Subject = "Flagged mark";
 
-            tester.InnerText = bodyHeading + bodyMain;
+                mailMessage.Body = bodyHeading + "\n" + bodyMain;
+                SmtpClient smtp = new SmtpClient("smtp.office365.com", 587);
+                smtp.Credentials = new System.Net.NetworkCredential()
+                {
+                    UserName = "hulu.com",
+                    Password = "look away"
 
-            //StringBuilder sb = new StringBuilder();
-            //MailMessage mailMessage = new MailMessage("s219473498@mandela.ac.za", "s219473498@mandela.ac.za");
-
-            //mailMessage.Subject = "Flagged mark";
-            
-            //mailMessage.Body = bodyHeading + "\n" + bodyMain;
-            //SmtpClient smtp = new SmtpClient("smtp.office365.com", 587);
-            //smtp.Credentials = new System.Net.NetworkCredential()
-            //{
-            //    UserName = "s219473498@mandela.ac.za",
-            //    Password = "EafInt72"
-
-            //};
-            //smtp.EnableSsl = true;
-            //smtp.Send(mailMessage);
+                };
+                smtp.EnableSsl = true;
+                smtp.Send(mailMessage);
+            }
+            catch (Exception ex)
+            {
+                //Add logic for pop-up to show here
+            }
         }
     }
 }

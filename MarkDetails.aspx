@@ -60,7 +60,7 @@
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-        <div id="myModal" class="modal fade" role="dialog">
+        <div id="myModal" class="modal fade" role="dialog" runat="server">
             <div class="modal-dialog modal-lg">
                 <!-- Modal content-->
                 <div class="modal-content">
@@ -72,26 +72,32 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="AssType">Reason for flag</label>
-                            <select class="form-control" id="AssType" runat="server"  name="AssType">
-                                <option disabled selected>Select a reason for flagging</option>
-                                <option>Incorrect mark captured on system</option>
+                 <%--           <select class="form-control" id="AssType" runat="server"  name="AssType">--%>
+                           <%--     <option disabled selected>Select a reason for flagging</option>--%>
+                                <asp:DropDownList ID="reasonForFlag" CssClass="form-control" runat="server" >
+                                    <asp:ListItem>Incorrect mark captured on system</asp:ListItem>
+                                    <asp:ListItem>Incorrect tallying of mark</asp:ListItem>
+                                    <asp:ListItem>Disagree with mark obtained</asp:ListItem>
+                                    <asp:ListItem>Other</asp:ListItem>
+                                </asp:DropDownList>
+                        <%--        <option>Incorrect mark captured on system</option>
                                 <option>Incorrect tallying of mark</option>
                                 <option>Disagree with mark obtained</option>
                                 <option>Other</option>
-                            </select>
+                            </select>--%>
                         </div>
                         <div class="form-group">
                             <label for="AssDesc">Elaboration on selection</label>
                            <%-- <asp:TextBox ID="AssDesc" runat="server" TextMode="MultiLine" class="form-control"></asp:TextBox>--%>
-                            <textarea class="form-control" id="AssDesc" rows="4" name ="AssDesc" runat="server"></textarea>
+      <%--                      <textarea class="form-control" id="AssDesc" rows="4" name ="AssDesc" runat="server"></textarea>--%>
+                            <asp:TextBox ID="elaborationOnFlag" runat="server" TextMode="MultiLine" CssClass="form-control"></asp:TextBox>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" runat="server" class="btn btn-outline-primary " data-dismiss="modal" onServerClick="submitFlagBtnClicked">Submit</button>
+                        <button type="submit" runat="server" class="btn btn-outline-primary " id="submitBtn"  onserverclick="submitFlagBtnClicked" >Submit</button>
                         <button type="button" class="btn btn-outline-danger " data-dismiss="modal">Cancel</button>
                     </div>
                 </div>
-
             </div>
         </div>
 
