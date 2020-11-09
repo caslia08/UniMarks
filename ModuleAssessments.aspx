@@ -34,7 +34,19 @@
         <h2>Module Assessments</h2>
         <hr />
         <br />
- 
+       
+        <asp:GridView ID="assessmentsView" class="table table-responsive table-hover" HeaderStyle-CssClass="table-primary" autogeneratecolumns="false"  GridLines="none" BorderStyle="None" runat="server">
+        <columns>
+            <asp:boundfield datafield="assessmentName" headertext="Assessment name"/>
+            <asp:boundfield datafield="assessmentType" headertext="Type"/>
+            <asp:boundfield datafield="assessmentDate" headertext="Date"/>
+            <asp:boundfield datafield="assessmentDescription" headertext="Description"/>
+            <asp:boundfield datafield="assessmentVenue" headertext="Venue"/>
+      
+     </columns>
+        </asp:GridView>
+
+
         <table class="table table-hover custome-table-props marks-table" >
             <thead>
                 <tr>

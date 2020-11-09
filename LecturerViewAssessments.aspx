@@ -63,7 +63,7 @@
         <hr />
         <br />
       <asp:Label ID="lblSearch" runat="server" Text="Search"></asp:Label>
-      <asp:TextBox ID="txtSearch" runat="server" AutoPostBack="true" OnTextChanged="txtS earch_TextChanged"></asp:TextBox>
+      <asp:TextBox ID="txtSearch" runat="server" AutoPostBack="true" OnTextChanged="txtSearch_TextChanged"></asp:TextBox>
       <asp:GridView ID="gridViewAssessments" runat="server" AutoGenerateColumns="False" DataKeyNames="assessmentID" DataSourceID="sqlAssessmentDataSource"
           AllowSorting="True" OnPageIndexChanging="OnPaging" AllowPaging="True" class="table table-responsive table-hover" HeaderStyle-CssClass="table-primary" GridLines="Horizontal" BorderStyle="None">
           <Columns>
