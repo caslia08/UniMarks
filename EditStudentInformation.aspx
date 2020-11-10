@@ -36,115 +36,84 @@
 
 				<div class="form-group has-danger">
 					<label class="form-control-label" for="AssNameDanger">Last Name</label>
-					<input type="text" class="form-control is-invalid" id="inputInvalidLastName">
+					<asp:TextBox ID="lastName" class="form-control is-invalid" runat="server"></asp:TextBox>
 					<div class="invalid-feedback">Last name is required</div>
 				</div>
 
 				<div class="form-group has-danger">
 					<label class="form-control-label" for="AssNameDanger">Student Number</label>
-					<input type="text" onkeypress="return isNumberKey(event)" class="form-control is-invalid" id="inputInvalidStaffNumber">
+					<asp:TextBox ID="studentNum" class="form-control is-invalid" runat="server"></asp:TextBox>
 					<div class="invalid-feedback">Staff number is required</div>
 				</div>
 
 				<div class="form-group has-danger">
 					<label class="form-control-label" for="AssNameDanger">ID Number</label>
-					<input type="text" onkeypress="return isNumberKey(event)" class="form-control is-invalid" id="inputInvalidIdNumber">
+					<asp:TextBox ID="idNumber" class="form-control is-invalid" runat="server"></asp:TextBox>
 					<div class="invalid-feedback">ID number is required</div>
 				</div>
 
 				<div class="form-group has-danger">
 					<label class="form-control-label" for="AssNameDanger">Email address</label>
-					<input type="email" class="form-control is-invalid" id="inputInvalidEmail">
+					<asp:TextBox ID="email" class="form-control is-invalid" runat="server"></asp:TextBox>
 					<div class="invalid-feedback">Email is required</div>
 				</div>
 
 				<div class="form-group has-danger">
-					<label class="form-control-label" for="AssNameDanger">Cell Phone Number</label>
-					<input type="text" onkeypress="return isNumberKey(event)" class="form-control is-invalid" id="inputInvalidCellNumber">
+					<label class="form-control-label" for="AssNameDanger">Title</label>
+					<asp:TextBox ID="title" class="form-control is-invalid" runat="server"></asp:TextBox>
 					<div class="invalid-feedback">Cell phone number is required</div>
 				</div>
 
 				<div class="form-group">
 					<label for="AssDate">Date Registered</label>
-					<input type="datetime-local" class="form-control" id="AssDate">
+					<asp:TextBox ID="dateReg" class="form-control is-invalid" runat="server"></asp:TextBox>
 				</div>
 
 				<div class="form-group">
 					<label for="AssType">Year Of Study</label>
-					<select class="form-control" id="YearOfStudy">
-						<option>1.</option>
-						<option>2.</option>
-						<option>3.</option>
-						<option>4.</option>
-					</select>
+					<asp:DropDownList ID="yearOfStudy" class="form-control" runat="server">
+						<asp:ListItem>One</asp:ListItem>
+						<asp:ListItem>Two</asp:ListItem>
+						<asp:ListItem>Three</asp:ListItem>
+						<asp:ListItem>Four</asp:ListItem>
+
+					</asp:DropDownList>
+	
 				</div>
 
 				<div class="form-group">
 					<label for="AssType">FACULTY</label>
-					<select class="form-control" id="Faculty">
-						<option>FACULTY OF SCIENCE</option>
-						<option>FACULTY OF HUMANITIES</option>
-						<option>FACULTY OF BUSINESS AND ECONOMIC SCIENCES</option>
-						<option>FACULTY OF EDUCATION</option>
-						<option>FACULTY OF ENGINEERING, THE BUILT ENVIRONMENT AND TECHNOLOGY </option>
-						<option>FACULTY OF HEALTH SCIENCES</option>
-						<option>FACULTY OF LAW</option>
-					</select>
+					<asp:DropDownList ID="faculty" class="form-control" runat="server">
+						<asp:ListItem>FACULTY OF SCIENCE</asp:ListItem>
+						<asp:ListItem>FACULTY OF HUMANITIE</asp:ListItem>
+						<asp:ListItem>FACULTY OF BUSINESS AND ECONOMIC SCIENCE</asp:ListItem>
+						<asp:ListItem>FACULTY OF EDUCATION</asp:ListItem>
+						<asp:ListItem>FACULTY OF ENGINEERING, THE BUILT ENVIRONMENT AND TECHNOLOGY</asp:ListItem>
+						<asp:ListItem>FACULTY OF HEALTH SCIENCES</asp:ListItem>
+						<asp:ListItem>FACULTY OF LAW</asp:ListItem>
+					</asp:DropDownList>					
 				</div>
 
 				<div class="jumbotron">
 					<h2>Registered Modules</h2>
 					<hr />
 					<br />
+				<asp:GridView ID="moduleView" class="table table-responsive table-hover" HeaderStyle-CssClass="table-primary" runat="server" AutoGenerateColumns="False">
+					<Columns>
+						<asp:BoundField DataField="moduleCode" HeaderText="moduleCode" SortExpression="moduleCode" />
+					</Columns>
+					<HeaderStyle CssClass="table-primary"></HeaderStyle>
+				</asp:GridView>		
 
-					<table class="table table-hover custome-table-props marks-table">
-						<thead>
-							<tr>
-								<th>Module Code</th>
-								<th>Module Name</th>
-								<th></th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>00000000000000000</td>
-								<td>NAME</td>
-								<td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">View module</a></td>
-							</tr>
-							<tr>
-								<td>00000000000000000</td>
-								<td>NAME</td>
-								<td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">View module</a></td>
-							</tr>
-							<tr>
-								<td>00000000000000000</td>
-								<td>NAME</td>
-								<td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">View module</a></td>
-							</tr>
-							<tr>
-								<td>00000000000000000</td>
-								<td>NAME</td>
-								<td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">View module</a></td>
-							</tr>
-						</tbody>
-					</table>
-					<link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
-					<script src="https://code.jquery.com/jquery-3.5.1.jss"></script>
-					<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-					<script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
 
-					<script>
-						$(document).ready(function () {
-							$('.marks-table').DataTable();
-						});
-					</script>
+		
 				</div>
 
 				<br />
 				<hr />
 				<br />
-				<button type="submit" class="btn btn-outline-primary btn-lg">Save Changes</button>
-				<button type="button" class="btn btn-outline-danger btn-lg">Cancel</button>
+				<asp:Button ID="submit" class="btn btn-outline-primary btn-lg" runat="server" Text="Save Changes" OnClick="submit_Click" />
+				<asp:Button ID="cancle" class="btn btn-outline-danger btn-lg" runat="server" Text="Cancel" OnClick="cancle_Click" />
 			</fieldset>
 		</form>
 	</div>

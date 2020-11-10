@@ -64,7 +64,7 @@
 				</div>
 
 				<div class="form-group">
-					<label for="AssDesc">Module students</label>
+					<%--<label for="AssDesc">Module students</label>--%>
 					<asp:GridView ID="studentView" class="table table-responsive table-hover" HeaderStyle-CssClass="table-primary" runat="server" AutoGenerateColumns="False">
 						<Columns>
 							<asp:BoundField DataField="studentNumber" HeaderText="studentNumber" ReadOnly="True" SortExpression="studentNumber" />
@@ -77,7 +77,7 @@
 				</div>
 
 				<div class="form-group">
-					<label for="AssDesc">Module assesments</label>
+					<%--<label for="AssDesc">Module assesments</label>--%>
 
 					<asp:GridView ID="moduleAssesmentView" class="table table-responsive table-hover" HeaderStyle-CssClass="table-primary" runat="server" AutoGenerateColumns="False">
 						<Columns>
