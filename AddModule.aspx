@@ -42,25 +42,26 @@
 			<fieldset>
 				<div class="form-group has-danger">
 					<label class="form-control-label" for="AssNameDanger">Full Module Name</label>
-					<input type="text" class="form-control is-invalid" id="inputInvalidName">
+					<asp:TextBox ID="moduleName" class="form-control is-invalid" runat="server"></asp:TextBox>
 					<div class="invalid-feedback">Module name is required</div>
 				</div>
 
 				<div class="form-group has-danger">
 					<label class="form-control-label">Module Code</label>
-					<input type="text" class="form-control is-invalid" id="inputInvalidCode">
+					<asp:TextBox ID="moduleCode" class="form-control is-invalid" runat="server"></asp:TextBox>
 					<div class="invalid-feedback">Module code is required</div>
 				</div>
 
 				<div class="form-group has-danger">
-					<label class="form-control-label">Module Lecturer</label>
-					<input type="text" class="form-control is-invalid" id="inputInvalidLecturer">
+					<label class="form-control-label">Module Lecturer Number</label>
+					<asp:TextBox ID="moduleLecture" class="form-control is-invalid" runat="server"></asp:TextBox>
 					<div class="invalid-feedback">Module lecturer is required</div>
 				</div>
 
 				<div class="form-group">
 					<label for="AssDesc">Description</label>
-					<textarea class="form-control" id="AssDesc" rows="4"></textarea>
+					<asp:TextBox ID="moduleDsc" runat="server" class="form-control" placeholder="Module Description" TextMode="MultiLine" Rows="5"></asp:TextBox>
+					
 				</div>
 
 				<div class="form-group">
@@ -155,9 +156,8 @@
 				<br />
 				<hr />
 				<br />
-			
-            <button type="button" class="btn btn-outline-primary btn-lg btn-rounded-border" data-toggle="modal" data-target="#myModal">Create</button>
-				<button type="button" class="btn btn-outline-danger btn-lg">Cancel</button>
+				<asp:Button ID="createBnt" class="btn btn-outline-primary btn-lg btn-rounded-border" runat="server" Text="Create" OnClick="createBnt_Click" />
+				<asp:Button ID="cancelBnt" class="btn btn-outline-danger btn-lg" runat="server" Text="Cancel" OnClick="cancelBnt_Click" />
 			</fieldset>
 		</form>
 
