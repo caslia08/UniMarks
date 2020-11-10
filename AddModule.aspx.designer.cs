@@ -49,6 +49,24 @@ namespace WebApplication3 {
         protected global::System.Web.UI.WebControls.TextBox moduleDsc;
         
         /// <summary>
+        /// studentView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView studentView;
+        
+        /// <summary>
+        /// moduleAssesmentView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView moduleAssesmentView;
+        
+        /// <summary>
         /// createBnt control.
         /// </summary>
         /// <remarks>

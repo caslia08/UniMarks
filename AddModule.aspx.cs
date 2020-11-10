@@ -14,7 +14,8 @@ namespace WebApplication3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //populateStudentTable();
+            //populateAssessmentTable();
         }
 
         private void doModuleAdd()
@@ -89,12 +90,56 @@ namespace WebApplication3
             return true;            
         }
 
+        private void populateStudentTable()
+        {
+            String cs;
+            String moduleCode;
+            moduleCode = "LARA201";
+
+            cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            OleDbConnection dbConn = new OleDbConnection(cs);
+
+            //String sqlCmd1 = "SELECT Student.studentNumber, Student.firtsName, Student.surname FROM Student INNER JOIN([Module] INNER JOIN ModuleTaken ON Module.moduleCode = ModuleTaken.moduleCode) ON Student.studentNumber = ModuleTaken.studentNumber WHERE(((Module.moduleCode) = \"LARA201\"))";
+            //OleDbCommand cmd1 = new OleDbCommand(sqlCmd1, dbConn);
+            String ss = "SELECT Student.studentNumber, Student.firtsName, Student.surname FROM (Student INNER JOIN ([Module] INNER JOIN ModuleTaken ON [Module].moduleCode = ModuleTaken.moduleCode) ON Student.studentNumber = ModuleTaken.studentNumber)";
+            OleDbCommand cmd1 = new OleDbCommand(ss, dbConn);
+
+            //cmd1.Parameters.AddWithValue("@moduleCode", moduleCode);
+            dbConn.Open();
+            OleDbDataReader reader = cmd1.ExecuteReader();
+            studentView.DataSource = reader;
+            studentView.DataBind();
+            dbConn.Close();
+        }
+
+        private void populateAssessmentTable()
+        {
+            String cs;
+            String moduleCode;
+            moduleCode = "LARA201";
+
+            cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            OleDbConnection dbConn = new OleDbConnection(cs);
+
+            String ss = "SELECT [Assessment Results].assessmentID "+
+                        " FROM [Assessment Results] "+
+                        " WHERE ((([Assessment Results].moduleCode) = @moduleCode))";
+            
+            OleDbCommand cmd1 = new OleDbCommand(ss, dbConn);
+            cmd1.Parameters.AddWithValue("@moduleCode", moduleCode);
+
+            dbConn.Open();
+            OleDbDataReader reader = cmd1.ExecuteReader();
+            moduleAssesmentView.DataSource = reader;
+            moduleAssesmentView.DataBind();
+            dbConn.Close();
+        }
 
         protected void createBnt_Click(object sender, EventArgs e)
         {
             if (Page.IsValid)
             {
-                if (lectureExists());
+                if (lectureExists())
                 {
                     doModuleAdd();
                 }

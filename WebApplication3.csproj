@@ -167,6 +167,7 @@
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="AddAssessment.aspx" />
+    <Content Include="EditModuleDetails.aspx" />
     <Content Include="SearchModule.aspx" />
     <Content Include="SearchLecturer.aspx" />
     <Content Include="SearchStudent.aspx" />
@@ -184,7 +185,6 @@
     <Content Include="EditAssessment.aspx" />
     <Content Include="EditLecturerInformation.aspx" />
     <Content Include="AddModule.aspx" />
-    <Content Include="EditModuleDetails.aspx" />
     <Content Include="EditStudentInformation.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -357,6 +357,13 @@
     <Compile Include="AddAssessment.aspx.designer.cs">
       <DependentUpon>AddAssessment.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EditModuleDetails.aspx.cs">
+      <DependentUpon>EditModuleDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditModuleDetails.aspx.designer.cs">
+      <DependentUpon>EditModuleDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SearchModule.aspx.cs">
       <DependentUpon>SearchModule.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -437,13 +444,6 @@
     </Compile>
     <Compile Include="AddModule.aspx.designer.cs">
       <DependentUpon>AddModule.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="EditModuleDetails.aspx.cs">
-      <DependentUpon>EditModuleDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="EditModuleDetails.aspx.designer.cs">
-      <DependentUpon>EditModuleDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditStudentInformation.aspx.cs">
       <DependentUpon>EditStudentInformation.aspx</DependentUpon>

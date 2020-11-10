@@ -149,12 +149,10 @@
 					</script>
 				</div>
 
-
+				<asp:Button ID="Button1" runat="server" Text="Button" />
 				<br />
 				<hr />
 				<br />
-				<button type="submit" class="btn btn-outline-primary btn-lg">Save Changes</button>
-				<button type="button" class="btn btn-outline-danger btn-lg">Cancel</button>
 			</fieldset>
 		</form>
 	</div>

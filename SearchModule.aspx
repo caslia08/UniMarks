@@ -41,51 +41,29 @@
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="MainContent" runat="server">
     <div class="jumbotron">
-        <h2>Search Lecturer</h2>
+        <h2>Search Module</h2>
         <hr />
         <br />
  
-        <table class="table table-hover custome-table-props marks-table" >
-            <thead>
-                <tr>
-                    <th>Staff Number</th>
-                    <th>ID Number</th>
-					<th>Last name</th>
-                    <th>Email</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>00000000000</td>
-                    <td>00000000000</td>					
-                    <td>NAME</td>
-                    <td>@MAIL</td>
-                    <td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">Edit Lecturer Details</a></td>
-                </tr>
-                   <tr>
-                    <td>00000000000</td>
-                    <td>00000000000</td>
-                    <td>NAME</td>
-                    <td>@MAIL</td>
-                    <td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">Edit Lecturer Details</a></td>
-                </tr>
-                   <tr>
-                   <td>00000000000</td>
-                   <td>00000000000</td>
-                    <td>NAME</td>
-                    <td>@MAIL</td>
-                    <td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">Edit Lecturer Details</a></td>
-                </tr>
-                   <tr>
-                    <td>00000000000</td>
-                    <td>00000000000</td>
-                    <td>NAME</td>
-                    <td>@MAIL</td>
-					<td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">Edit Lecturer Details</a></td>                    
-                </tr>
-            </tbody>
-        </table>
+      <asp:GridView ID="gridViewAssessments" runat="server" AutoGenerateColumns="False" DataKeyNames="moduleCode" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True"
+		  class="table table-responsive table-hover" HeaderStyle-CssClass="table-primary"
+		  >
+          <Columns>
+               <asp:BoundField DataField="moduleCode" HeaderText="moduleCode" ReadOnly="True" SortExpression="moduleCode" />
+			   <asp:BoundField DataField="moduleName" HeaderText="moduleName" SortExpression="moduleName" />
+			   <asp:BoundField DataField="moduleMarks" HeaderText="moduleMarks" SortExpression="moduleMarks" />
+			                 <asp:TemplateField>
+                   <ItemTemplate>
+                       <asp:Button ID="btnEditAss" runat="server" Text="Edit Module" class="btn btn-outline-primary btn-sm btn-rounded-border"
+                          PostBackUrl='<%# "~/EditModuleDetails.aspx?RowIndex=" + Container.DataItemIndex %>' />
+                   </ItemTemplate>
+               </asp:TemplateField>
+          </Columns>
+
+		<HeaderStyle CssClass="table-primary"></HeaderStyle>
+        </asp:GridView>
+
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [Module]"></asp:SqlDataSource>
 
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
           <script src="https://code.jquery.com/jquery-3.5.1.jss"></script>

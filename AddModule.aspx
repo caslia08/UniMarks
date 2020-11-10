@@ -60,96 +60,33 @@
 
 				<div class="form-group">
 					<label for="AssDesc">Description</label>
-					<asp:TextBox ID="moduleDsc" runat="server" class="form-control" placeholder="Module Description" TextMode="MultiLine" Rows="5"></asp:TextBox>
-					
+					<asp:TextBox ID="moduleDsc" runat="server" class="form-control" placeholder="Module Description" TextMode="MultiLine" Rows="5"></asp:TextBox>					
 				</div>
 
 				<div class="form-group">
 					<label for="AssDesc">Module students</label>
-
-					<table class="table table-hover custome-table-props module-students">
-						<thead>
-							<tr>
-								<th>Student Number</th>
-								<th>Last Name</th>
-								<th></th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>00000000000000</td>
-								<td>LORD JASSON </td>
-								<%--Was here--%>
-
-								<td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">View Studnet</a></td>
-							</tr>
-							<tr>
-								<td>00000000000000</td>
-								<td>Basson </td>
-
-								<td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">View Studnet</a></td>
-							</tr>
-							<tr>
-								<td>00000000000000</td>
-								<td>Porter </td>
-
-								<td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">View Studnet</a></td>
-						</tbody>
-					</table>
-					<link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
-					<script src="https://code.jquery.com/jquery-3.5.1.jss"></script>
-					<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-					<script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
-
-					<script>
-						$(document).ready(function () {
-							$('.module-students').DataTable();
-						});
-					</script>
+					<asp:GridView ID="studentView" class="table table-responsive table-hover" HeaderStyle-CssClass="table-primary" runat="server" AutoGenerateColumns="False">
+						<Columns>
+							<asp:BoundField DataField="studentNumber" HeaderText="studentNumber" ReadOnly="True" SortExpression="studentNumber" />
+							<asp:BoundField DataField="firtsName" HeaderText="firtsName" SortExpression="firtsName" />
+							<asp:BoundField DataField="surname" HeaderText="surname" SortExpression="surname" />
+						</Columns>
+						<HeaderStyle CssClass="table-primary"></HeaderStyle>
+					</asp:GridView>				
 
 				</div>
 
 				<div class="form-group">
 					<label for="AssDesc">Module assesments</label>
 
-					<table class="table table-hover custome-table-props module-ass">
-						<thead>
-							<tr>
-								<th>Module Code</th>
-								<th>Module Name</th>
-								<th></th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>MMMMMM </td>
-								<td>Namedadadada </td>
+					<asp:GridView ID="moduleAssesmentView" class="table table-responsive table-hover" HeaderStyle-CssClass="table-primary" runat="server" AutoGenerateColumns="False">
+						<Columns>
+							<asp:BoundField DataField="assessmentID" HeaderText="assessmentID" SortExpression="assessmentID" />
+						</Columns>
+						<HeaderStyle CssClass="table-primary"></HeaderStyle>
+					</asp:GridView>				
 
-								<td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">View Assesment</a></td>
-							</tr>
-							<tr>
-								<td>MMMMMM </td>
-								<td>Name </td>
 
-								<td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">View Assesment</a></td>
-							</tr>
-							<tr>
-								<td>MMMMMM </td>
-								<td>Name </td>
-
-								<td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">View Assesment</a></td>
-						</tbody>
-					</table>
-					<link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
-					<script src="https://code.jquery.com/jquery-3.5.1.jss"></script>
-					<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-					<script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
-
-					<script>
-						$(document).ready(function () {
-							$('.module-ass').DataTable(); /*Nice*/
-						});
-					</script>
 				</div>
 
 
