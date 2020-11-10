@@ -14,8 +14,6 @@ namespace WebApplication3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //populateStudentTable();
-            //populateAssessmentTable();
         }
 
         private void doModuleAdd()
@@ -81,7 +79,7 @@ namespace WebApplication3
             reader.Close();
             dbConnection.Close();
 
-            if (resData == null)
+            if (resData[0] == null)
             {
                 Response.Write("<script>alert('Lecturer could not be found');</script>");
                 return false;
@@ -139,6 +137,19 @@ namespace WebApplication3
         {
             if (Page.IsValid)
             {
+                if (moduleCode.Text.Length <= 0)
+                {
+                    Response.Write("<script>alert('Module code is empty');</script>");
+                }
+                else if (moduleName.Text.Length <= 0)
+                {
+                    Response.Write("<script>alert('Module name is empty');</script>");
+                }
+                else if (moduleLecture.Text.Length <= 0)
+                {
+                    Response.Write("<script>alert('Module lecture is empty');</script>");
+                }
+
                 if (lectureExists())
                 {
                     doModuleAdd();
