@@ -13,10 +13,23 @@ namespace WebApplication3
 {
     public partial class Edit_Assessment : System.Web.UI.Page
     {
+        Boolean isUpdate = false; 
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            String assID = this.Request.QueryString["AssessmentID"];
-            txtAssID.Text = assID;
+            Label1.Text = "I was loaded"; 
+            String assID;
+            if (isUpdate)
+            {
+                assID = txtAssID.Text; 
+            }
+            else 
+            {
+                assID = this.Request.QueryString["AssessmentID"];
+                txtAssID.Text = assID;
+            }
+            
 
             String CS = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             OleDbConnection con = new OleDbConnection(CS);
@@ -39,7 +52,7 @@ namespace WebApplication3
                 txtAssDate.Text = reader["assessmentDate"].ToString();//TODO Date is not properly stored in database
                 txtAssDesc.Text = reader["assessmentDescription"].ToString();
                 txtAssVenue.Text = reader["assessmentVenue"].ToString();
-                Label1.Text = reader["classAverage"].ToString();
+                String placeHolder = reader["classAverage"].ToString();
                 dropAssWeight.SelectedValue = reader["assessmentWeightage"].ToString();
             }
                     con.Close();
@@ -49,19 +62,20 @@ namespace WebApplication3
 
         protected void btnSaveChanges_Click(object sender, EventArgs e)
         {
+            Label1.Text = "Save Clicked"; 
             string CS;
             CS = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             OleDbConnection dbConnection = new OleDbConnection(CS);
 
 
             string sql ="UPDATE [Assessment Information] " +
-                        "SET assessmentName = @name, " +
-                        "assessmentType =@type, " +
-                        "assessmentDate = @date, " +
-                        "assessmentDescription = @desc, " +
-                        "assessmentVenue =  @venue, " +
-                        "classAverage = @average, " +
-                        "assessmentWeightage =  @weight " +
+                        "SET [assessmentName] = @name, " +
+                        "[assessmentType] =@type, " +
+                        "[assessmentDate] = @date, " +
+                        "[assessmentDescription] = @desc, " +
+                        "[assessmentVenue] =  @venue, " +
+                        "[classAverage] = @average, " +
+                        "[assessmentWeightage] =  @weight " +
                         "WHERE assessmentID = @AssID";
 
 
@@ -76,7 +90,6 @@ namespace WebApplication3
             dbCommand.Parameters.AddWithValue("@weight", dropAssWeight.SelectedValue);
             dbCommand.Parameters.AddWithValue("@AssID", txtAssID.Text);
 
-            Label1.Text = txtAssID.Text;  
             dbConnection.Open();
 
             int ReturnCode = dbCommand.ExecuteNonQuery();
@@ -84,7 +97,9 @@ namespace WebApplication3
             if (ReturnCode == 1)
             {
                 Response.Write("<script>alert('Assessment Updated Successfully');</script>");
-                
+                isUpdate = true;
+                Response.Redirect(Request.RawUrl);                
+                //this.Page_Load(this, null); 
                 //TODO success message
             }
             else

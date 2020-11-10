@@ -50,8 +50,7 @@
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="#">DashBoard</a></li>
         <li class="breadcrumb-item"><a href="#">MAPV311</a></li>
-        <li class="breadcrumb-item"><a href="#">Module Statistics</a></li>
-        <li class="breadcrumb-item active">Assessments</li>
+        <li class="breadcrumb-item active">View Assessments</li>
     </ol>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="mainHeading" runat="server">
@@ -62,8 +61,10 @@
         <h2>Module Assessments</h2>
         <hr />
         <br />
-      <asp:Label ID="lblSearch" runat="server" Text="Search"></asp:Label>
-      <asp:TextBox ID="txtSearch" runat="server" AutoPostBack="true" OnTextChanged="txtSearch_TextChanged"></asp:TextBox>
+      <div><asp:Label ID="lblSearch" runat="server" Text="Search:"></asp:Label>
+      <asp:TextBox ID="txtSearch" runat="server" AutoPostBack="true" OnTextChanged="txtSearch_TextChanged"></asp:TextBox></div>
+      <br />
+      
       <asp:GridView ID="gridViewAssessments" runat="server" AutoGenerateColumns="False" DataKeyNames="assessmentID" DataSourceID="sqlAssessmentDataSource"
           AllowSorting="True" OnPageIndexChanging="OnPaging" AllowPaging="True" class="table table-responsive table-hover" HeaderStyle-CssClass="table-primary" GridLines="Horizontal" BorderStyle="None" OnRowCommand="gridViewAssessments_RowCommand">
           <Columns>
@@ -83,6 +84,15 @@
                      <!--  PostBackUrl='<%# "~/EditAssessment.aspx?RowIndex=" + Container.DataItem.ToString() %>' -->
                    </ItemTemplate>
                </asp:TemplateField>
+
+               <asp:TemplateField>
+                   <ItemTemplate>
+                       <asp:Button ID="btnAddMarks" runat="server" Text="Add Marks" class="btn btn-outline-primary btn-sm btn-rounded-border"
+                           CommandName="AddMarks" CausesValidation="false" CommandArgument='<%# Eval("assessmentID") %>'
+                            />
+                     <!--  PostBackUrl='<%# "~/EditAssessment.aspx?RowIndex=" + Container.DataItem.ToString() %>' -->
+                   </ItemTemplate>
+               </asp:TemplateField>
           </Columns>
 
 <HeaderStyle CssClass="table-primary"></HeaderStyle>
@@ -90,7 +100,7 @@
 
       <asp:SqlDataSource ID="sqlAssessmentDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [Assessment Information]"></asp:SqlDataSource>
  
-        <table class="table table-hover custome-table-props marks-table" >
+        <%--<table class="table table-hover custome-table-props marks-table" >
             <thead>
                 <tr>
                     <th>Name</th>
@@ -140,7 +150,7 @@
                     <td><a href"#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">Edit Assessment</a></td>
                 </tr>
             </tbody>
-        </table>
+        </table>--%>
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
           <script src="https://code.jquery.com/jquery-3.5.1.jss"></script>
         <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
