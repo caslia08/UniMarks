@@ -63,9 +63,9 @@
         <hr />
         <br />
       <asp:Label ID="lblSearch" runat="server" Text="Search"></asp:Label>
-      <asp:TextBox ID="txtSearch" runat="server" AutoPostBack="true" OnTextChanged="txtS earch_TextChanged"></asp:TextBox>
+      <asp:TextBox ID="txtSearch" runat="server" AutoPostBack="true" OnTextChanged="txtSearch_TextChanged"></asp:TextBox>
       <asp:GridView ID="gridViewAssessments" runat="server" AutoGenerateColumns="False" DataKeyNames="assessmentID" DataSourceID="sqlAssessmentDataSource"
-          AllowSorting="True" OnPageIndexChanging="OnPaging" AllowPaging="True" class="table table-responsive table-hover" HeaderStyle-CssClass="table-primary" GridLines="Horizontal" BorderStyle="None">
+          AllowSorting="True" OnPageIndexChanging="OnPaging" AllowPaging="True" class="table table-responsive table-hover" HeaderStyle-CssClass="table-primary" GridLines="Horizontal" BorderStyle="None" OnRowCommand="gridViewAssessments_RowCommand">
           <Columns>
               <asp:BoundField DataField="assessmentID" HeaderText="Assessment ID" ReadOnly="True" SortExpression="assessmentID" />
               <asp:BoundField DataField="assessmentName" HeaderText="Name" SortExpression="assessmentName" />
@@ -78,7 +78,9 @@
                <asp:TemplateField>
                    <ItemTemplate>
                        <asp:Button ID="btnEditAss" runat="server" Text="Edit Assessment" class="btn btn-outline-primary btn-sm btn-rounded-border"
-                          PostBackUrl='<%# "~/EditAssessment.aspx?RowIndex=" + Container.DataItemIndex %>' />
+                           CommandName="EditStudents" CausesValidation="false" CommandArgument='<%# Eval("assessmentID") %>'
+                            />
+                     <!--  PostBackUrl='<%# "~/EditAssessment.aspx?RowIndex=" + Container.DataItem.ToString() %>' -->
                    </ItemTemplate>
                </asp:TemplateField>
           </Columns>

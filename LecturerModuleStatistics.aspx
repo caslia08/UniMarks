@@ -98,7 +98,7 @@
                     <a href="LecturerStudentView.aspx" class="btn btn-outline-primary btn-lg btn-rounded-border" role="button">View Student List</a>
                 </div>
                 <div class="grid-button-container col-4">
-                    <a href="EditAdminInformation.aspx" class="btn btn-outline-primary btn-lg btn-rounded-border" role="button">View Assessments</a>
+                    <a href="LecturerViewAssessments.aspx" class="btn btn-outline-primary btn-lg btn-rounded-border" role="button">View Assessments</a>
                 </div>
             </div>
 

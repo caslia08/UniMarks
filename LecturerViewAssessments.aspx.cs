@@ -67,15 +67,29 @@ namespace WebApplication3
 
         protected void btnEditAss_Click(object sender, EventArgs e)
         {
+
+                    
             if (Page.IsValid)
             {
-                GridViewRow row_ = gridViewAssessments.SelectedRow; 
-
+                int row = gridViewAssessments.PageIndex;
+                txtSearch.Text = row.ToString(); 
+                //Response.Redirect("EditAssessment.aspx?AssessmentID=" + assID);
             }
             else
             { 
                 //TODO error
             }
+
+        }
+
+        protected void gridViewAssessments_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "EditStudents")
+            {
+                String assessmentID = e.CommandArgument.ToString();
+                Response.Redirect("EditAssessment.aspx?AssessmentID=" + assessmentID);
+            }
+
 
         }
     }
