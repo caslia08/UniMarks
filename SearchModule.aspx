@@ -55,7 +55,7 @@
 			                 <asp:TemplateField>
                    <ItemTemplate>
                        <asp:Button ID="btnEditAss" runat="server" Text="Edit Module" class="btn btn-outline-primary btn-sm btn-rounded-border"
-                          PostBackUrl='<%# "~/EditModuleDetails.aspx?RowIndex=" + Container.DataItemIndex %>' />
+                          PostBackUrl='<%# "~/EditModule.aspx?RowIndex=" + Container.DataItemIndex %>' />
                    </ItemTemplate>
                </asp:TemplateField>
           </Columns>

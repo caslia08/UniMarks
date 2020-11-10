@@ -30,7 +30,7 @@
 			<fieldset>
 				<div class="form-group has-danger">
 					<label class="form-control-label" for="AssNameDanger">First Names</label>
-					<input type="text" class="form-control is-invalid" id="inputInvalidFirstName">
+					<asp:TextBox ID="firstNames" class="form-control is-invalid" runat="server"></asp:TextBox>
 					<div class="invalid-feedback">First name is required</div>
 				</div>
 
@@ -139,8 +139,6 @@
 						});
 					</script>
 				</div>
-
-
 
 				<br />
 				<hr />
