@@ -13,56 +13,55 @@ namespace WebApplication3
 {
     public partial class Edit_Assessment : System.Web.UI.Page
     {
-        Boolean isUpdate = false; 
-
+        static Boolean isCreated = false; 
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Label1.Text = "I was loaded"; 
             String assID;
-            if (isUpdate)
+            if (isCreated)
             {
-                assID = txtAssID.Text; 
+                assID = txtAssID.Text;
             }
-            else 
+            else
             {
                 assID = this.Request.QueryString["AssessmentID"];
                 txtAssID.Text = assID;
+
+
+                String CS = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+                OleDbConnection con = new OleDbConnection(CS);
+
+                OleDbCommand cmd = new OleDbCommand();
+
+                string sql = "SELECT assessmentID, assessmentName, assessmentType, assessmentDate, assessmentDescription, assessmentVenue," +
+                    "classAverage, assessmentWeightage FROM [Assessment Information] WHERE assessmentID = @AssID";
+
+                cmd.Parameters.AddWithValue("@AssID", assID.ToString());
+                cmd.CommandText = sql;
+                cmd.Connection = con;
+                con.Open();
+                OleDbDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    txtAssID.Text = reader["assessmentID"].ToString();
+                    txtAssName.Text = reader["assessmentName"].ToString();
+                    dropAssType.SelectedValue = reader["assessmentType"].ToString();
+                    txtAssDate.Text = reader["assessmentDate"].ToString();//TODO Date is not properly stored in database
+                    txtAssDesc.Text = reader["assessmentDescription"].ToString();
+                    txtAssVenue.Text = reader["assessmentVenue"].ToString();
+                    String placeHolder = reader["classAverage"].ToString();
+                    dropAssWeight.SelectedValue = reader["assessmentWeightage"].ToString();
+                }
+
+                con.Close();
+                isCreated = true; 
             }
-            
-
-            String CS = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-            OleDbConnection con = new OleDbConnection(CS);
-
-            OleDbCommand cmd = new OleDbCommand(); 
-            
-            string sql = "SELECT assessmentID, assessmentName, assessmentType, assessmentDate, assessmentDescription, assessmentVenue," +
-                "classAverage, assessmentWeightage FROM [Assessment Information] WHERE assessmentID = @AssID";              
-            
-            cmd.Parameters.AddWithValue("@AssID", assID.ToString());                   
-            cmd.CommandText = sql;
-            cmd.Connection = con;
-            con.Open();
-            OleDbDataReader reader = cmd.ExecuteReader();
-            
-            while (reader.Read()) {
-                txtAssID.Text = reader["assessmentID"].ToString();
-                txtAssName.Text = reader["assessmentName"].ToString();
-                dropAssType.SelectedValue = reader["assessmentType"].ToString();
-                txtAssDate.Text = reader["assessmentDate"].ToString();//TODO Date is not properly stored in database
-                txtAssDesc.Text = reader["assessmentDescription"].ToString();
-                txtAssVenue.Text = reader["assessmentVenue"].ToString();
-                String placeHolder = reader["classAverage"].ToString();
-                dropAssWeight.SelectedValue = reader["assessmentWeightage"].ToString();
-            }
-                    con.Close();
-
             txtAssID.Enabled = false;
         }
 
         protected void btnSaveChanges_Click(object sender, EventArgs e)
         {
-            Label1.Text = "Save Clicked"; 
             string CS;
             CS = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             OleDbConnection dbConnection = new OleDbConnection(CS);
@@ -74,7 +73,7 @@ namespace WebApplication3
                         "[assessmentDate] = @date, " +
                         "[assessmentDescription] = @desc, " +
                         "[assessmentVenue] =  @venue, " +
-                        "[classAverage] = @average, " +
+                        "[classAverage] = @ave, " +
                         "[assessmentWeightage] =  @weight " +
                         "WHERE assessmentID = @AssID";
 
@@ -86,7 +85,7 @@ namespace WebApplication3
             dbCommand.Parameters.AddWithValue("@date", txtAssDate.Text);
             dbCommand.Parameters.AddWithValue("@desc", txtAssDesc.Text);
             dbCommand.Parameters.AddWithValue("@venue", txtAssVenue.Text);
-            dbCommand.Parameters.AddWithValue("@average", 0);
+            dbCommand.Parameters.AddWithValue("@ave", 0);
             dbCommand.Parameters.AddWithValue("@weight", dropAssWeight.SelectedValue);
             dbCommand.Parameters.AddWithValue("@AssID", txtAssID.Text);
 
@@ -97,18 +96,18 @@ namespace WebApplication3
             if (ReturnCode == 1)
             {
                 Response.Write("<script>alert('Assessment Updated Successfully');</script>");
-                isUpdate = true;
-                Response.Redirect(Request.RawUrl);                
-                //this.Page_Load(this, null); 
-                //TODO success message
             }
             else
             {
-                Label1.Text = "Oof";
-
-                //TODO error 
+                Response.Write("<script>alert('Assessment could not be added');</script>");
             }
-            //Response.Redirect("LecturerViewAssessments.aspx");
+        }
+
+        protected void btnBack_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("LecturerViewAssessments.aspx");
         }
     }
 }
+
+

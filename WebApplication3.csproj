@@ -167,6 +167,7 @@
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="AddAssessment.aspx" />
+    <Content Include="AddMarksTester.aspx" />
     <Content Include="SearchModule.aspx" />
     <Content Include="SearchLecturer.aspx" />
     <Content Include="SearchStudent.aspx" />
@@ -356,6 +357,13 @@
     </Compile>
     <Compile Include="AddAssessment.aspx.designer.cs">
       <DependentUpon>AddAssessment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddMarksTester.aspx.cs">
+      <DependentUpon>AddMarksTester.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddMarksTester.aspx.designer.cs">
+      <DependentUpon>AddMarksTester.aspx</DependentUpon>
     </Compile>
     <Compile Include="SearchModule.aspx.cs">
       <DependentUpon>SearchModule.aspx</DependentUpon>

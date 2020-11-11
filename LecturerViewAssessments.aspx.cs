@@ -83,10 +83,11 @@ namespace WebApplication3
 
         protected void gridViewAssessments_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            String isCreated = "false"; 
             if (e.CommandName == "EditStudents")
             {
                 String assessmentID = e.CommandArgument.ToString();
-                Response.Redirect("EditAssessment.aspx?AssessmentID=" + assessmentID);
+                Response.Redirect("EditAssessment.aspx?AssessmentID=" + assessmentID + "&isCreate=" + isCreated);
             }
             else if (e.CommandName == "AddMarks")
             {
@@ -94,7 +95,8 @@ namespace WebApplication3
                 Response.Redirect("AddMarks.aspx?AssessmentID=" + assessmentID);
             }
 
-
         }
+
+
     }
 }
