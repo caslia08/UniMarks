@@ -42,7 +42,7 @@
 
 				<div class="form-group has-danger">
 					<label class="form-control-label" for="AssNameDanger">Student Number</label>
-					<asp:TextBox ID="studentNum" class="form-control is-invalid" runat="server"></asp:TextBox>
+					<asp:TextBox ID="studentNum" class="form-control is-invalid" runat="server" ></asp:TextBox>
 					<div class="invalid-feedback">Staff number is required</div>
 				</div>
 

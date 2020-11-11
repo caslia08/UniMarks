@@ -27,10 +27,10 @@ namespace WebApplication3
             CS = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             OleDbConnection dbConnection = new OleDbConnection(CS);
 
-            String ss = "SELECT ModulePresented.staffNumber FROM ModulePresented WHERE(((ModulePresented.moduleCode) = \"LARA201\"))";
+            String ss = "SELECT ModulePresented.staffNumber FROM ModulePresented WHERE(((ModulePresented.moduleCode) = @moduleCode))";
             
             OleDbCommand cmd1 = new OleDbCommand(ss, dbConnection);
-          //  cmd1.Parameters.AddWithValue("@moduleCode", moduleCode);
+            cmd1.Parameters.AddWithValue("@moduleCode", moduleCode);
 
             dbConnection.Open();
             OleDbDataReader reader = cmd1.ExecuteReader();
@@ -50,8 +50,10 @@ namespace WebApplication3
 
             reader.Close();
             dbConnection.Close();
-
-            moduleLecture.Text = resData[0].ToString();
+            if (resData[0] != null)
+            {
+                moduleLecture.Text = resData[0].ToString();
+            }            
 
         }
 

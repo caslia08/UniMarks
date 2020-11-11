@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SearchStudent.aspx.cs" Inherits="WebApplication3.AdminHomePage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="pageTitle" runat="server">
-	Search Student
+	View Student
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Custom_styles_placeholder" runat="server">
     <style>
@@ -37,16 +37,16 @@
 	</ol>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="mainHeading" runat="server">
-	Search Student
+	View Student
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="MainContent" runat="server">
     <div class="jumbotron">
-        <h2>Search Student</h2>
+        <h2>View Student</h2>
         <hr />
         <br />
  
 		<asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="studentNumber" DataSourceID="SqlDataSource1"
-			class="table table-responsive table-hover" HeaderStyle-CssClass="table-primary"
+			class="table table-responsive table-hover" HeaderStyle-CssClass="table-primary" OnRowCommand="GridView1_RowCommand"
 			>
 			<Columns>
 				<asp:BoundField DataField="studentNumber" HeaderText="studentNumber" ReadOnly="True" SortExpression="studentNumber" />
@@ -61,8 +61,8 @@
 				<asp:BoundField DataField="qualificationName" HeaderText="qualificationName" SortExpression="qualificationName" />
 							                 <asp:TemplateField>
                    <ItemTemplate>
-                       <asp:Button ID="btnEditAss" runat="server" Text="Edit Student" class="btn btn-outline-primary btn-sm btn-rounded-border"
-                          PostBackUrl='<%# "~/EditStudentInformation.aspx?RowIndex=" + Container.DataItemIndex %>' />
+                    <asp:Button ID="btnEditSdnt" runat="server" Text="Edit Student" class="btn btn-outline-primary btn-sm btn-rounded-border"
+                             CommandName="EditStudent" CausesValidation="false" CommandArgument='<%# Eval("studentNumber") %>' />
                    </ItemTemplate>
                </asp:TemplateField>
 			</Columns>

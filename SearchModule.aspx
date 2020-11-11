@@ -45,8 +45,7 @@
         <h2>Search Module</h2>
         <hr />
         <br />
-	   <asp:Button ID="addBtn" class="btn btn-outline-primary btn-sm btn-rounded-border" runat="server" Text="Add module" onClick="addBtn_Click"/>
-		   <br />
+
       <asp:GridView ID="gridViewAssessments" runat="server" AutoGenerateColumns="False" DataKeyNames="moduleCode" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True"
 		  class="table table-responsive table-hover" HeaderStyle-CssClass="table-primary" OnRowCommand="gridViewAssessments_RowCommand"
 		  >
@@ -67,6 +66,15 @@
         </asp:GridView>
 
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [Module]"></asp:SqlDataSource>
+
+		          <div id="container">
+            <div class="row justify-content-center">
+                <div class="grid-button-container col-4">
+                    <a href="AddModule.aspx" class="btn btn-outline-primary btn-lg btn-rounded-border" role="button">Add Module</a>
+                </div>
+            </div>
+
+        </div>
 
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
           <script src="https://code.jquery.com/jquery-3.5.1.jss"></script>

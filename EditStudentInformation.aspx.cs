@@ -13,12 +13,11 @@ namespace WebApplication3
     public partial class EditStudentInformation : System.Web.UI.Page
     {
         String sNum = "335975982";
+        static bool created = false;
 
         private void populateTable()
         {
             String cs;
-            String studentNumber = "335975982";
-
             cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             OleDbConnection dbConn = new OleDbConnection(cs);
 
@@ -26,7 +25,7 @@ namespace WebApplication3
 
             OleDbCommand cmd1 = new OleDbCommand(ss, dbConn);
 
-            cmd1.Parameters.AddWithValue("@sNum", studentNumber);
+            cmd1.Parameters.AddWithValue("@sNum", sNum);
             dbConn.Open();
             OleDbDataReader reader = cmd1.ExecuteReader();
             
@@ -94,14 +93,19 @@ namespace WebApplication3
                     yearOfStudy.SelectedValue = "Four";
                 }
 
-                faculty.SelectedValue = "FACULTY OF EDUCATION";
+                faculty.SelectedValue = (String)resData[9];
             }
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            populateTable();
-            populateData();
+                sNum = this.Request.QueryString["studentNumber"];
+            if (!created)
+            {
+                populateTable();
+                populateData();
+                created = true;
+            }
         }
 
         protected void submit_Click(object sender, EventArgs e)
@@ -110,16 +114,31 @@ namespace WebApplication3
             CS = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             OleDbConnection dbConnection = new OleDbConnection(CS);
 
-            String sqlComm = "UPDATE Student SET firtsName = @firstName , surname = @lastName WHERE studentNumber = @sNum";
-            
+            String sqlComm = "UPDATE Student SET " +
+                "firtsName = @firstName , " +
+                "surname = @lastName , " +
+                "title = @title , " +
+                "emailAddress = @email , " +
+                "IDNumber = @id , " +
+                "dateOfRegistration = @date , " +
+                "yearOfStudy = @year , " +
+                "qualificationName = @qual " +
+                "WHERE studentNumber = @sNum";
+
             OleDbCommand dbCommand = new OleDbCommand(sqlComm, dbConnection);
+
 
             dbCommand.Parameters.AddWithValue("@firstName", firstNames.Text);
             dbCommand.Parameters.AddWithValue("@lastName", lastName.Text);
-           // dbCommand.Parameters.AddWithValue("@lastName", lastName.Text);
+            dbCommand.Parameters.AddWithValue("@title", title.Text);
+            dbCommand.Parameters.AddWithValue("@emailAddress", email.Text);
+            dbCommand.Parameters.AddWithValue("@IDNumber", idNumber.Text);
+            dbCommand.Parameters.AddWithValue("@dateOfRegistration", dateReg.Text);
+            dbCommand.Parameters.AddWithValue("@yearOfStudy", yearOfStudy.SelectedIndex + 1);
+            dbCommand.Parameters.AddWithValue("@qualificationName", faculty.SelectedValue);
 
 
-            dbCommand.Parameters.AddWithValue("@sNum", sNum); 
+            dbCommand.Parameters.AddWithValue("@sNum", sNum);
 
             dbConnection.Open();
 
@@ -135,11 +154,14 @@ namespace WebApplication3
             }
 
             dbConnection.Close();
+
+            created = false;
         }
 
         protected void cancle_Click(object sender, EventArgs e)
         {
-
+            created = false;
+            Response.Redirect("SearchStudent.aspx");
         }
     }
 }
