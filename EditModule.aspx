@@ -72,6 +72,7 @@
 							<asp:BoundField DataField="studentNumber" HeaderText="studentNumber" ReadOnly="True" SortExpression="studentNumber" />
 							<asp:BoundField DataField="firtsName" HeaderText="firtsName" SortExpression="firtsName" />
 							<asp:BoundField DataField="surname" HeaderText="surname" SortExpression="surname" />
+							<asp:BoundField DataField="emailAddress" HeaderText="emailAddress" SortExpression="emailAddress" />
 						</Columns>
 						<HeaderStyle CssClass="table-primary"></HeaderStyle>
 					</asp:GridView>				
@@ -84,6 +85,9 @@
 					<asp:GridView ID="moduleAssesmentView" class="table table-responsive table-hover" HeaderStyle-CssClass="table-primary" runat="server" AutoGenerateColumns="False">
 						<Columns>
 							<asp:BoundField DataField="assessmentID" HeaderText="assessmentID" SortExpression="assessmentID" />
+							<asp:BoundField DataField="assessmentName" HeaderText="assessmentName" SortExpression="assessmentName" />
+							<asp:BoundField DataField="assessmentType" HeaderText="assessmentType" SortExpression="assessmentType" />
+							<asp:BoundField DataField="moduleCode" HeaderText="moduleCode" SortExpression="moduleCode" />
 						</Columns>
 						<HeaderStyle CssClass="table-primary"></HeaderStyle>
 					</asp:GridView>			

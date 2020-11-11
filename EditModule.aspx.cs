@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.OleDb;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -11,30 +14,50 @@ namespace WebApplication3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (this.Page.PreviousPage != null)
-            {
-                //int rowIndex = int.Parse(Request.QueryString["RowIndex"]);
-                //GridView GridView1 = (GridView)this.Page.PreviousPage.FindControl("gridViewAssessments");
-                //GridViewRow row = GridView1.Rows[rowIndex];
-                //Label1.Text = rowIndex.ToString();
-                //txtAssID.Text = row.Cells[0].Text;
-                //this.AssID = int.Parse(row.Cells[0].Text);
-                //txtAssName.Text = row.Cells[1].Text;
-                //txtAssDesc.Text = row.Cells[2].Text;
-                //txtAssDate.Text = row.Cells[3].Text;
-                //dropAssType.SelectedValue = row.Cells[4].Text;
-                //txtAssVenue.Text = row.Cells[5].Text;
-                //dropAssWeight.SelectedValue = row.Cells[6].Text;
-                ////lblId.Text = row.Cells[0].Text;
-                ////lblName.Text = (row.FindControl("lblName") as Label).Text;
-                ////lblCountry.Text = row.Cells[2].Text;
+            populateStudentTable();
+            populateAssessmentTable();
+        }
 
-            }
-            else
-            {
-                moduleCode.Text = "Big Oof";
+        private void populateStudentTable()
+        {
+            String cs;
+            String moduleCode = "LARA201";
 
-            }
+            cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            OleDbConnection dbConn = new OleDbConnection(cs);
+
+            String ss = "SELECT Student.studentNumber, Student.firtsName, Student.surname, Student.emailAddress FROM Student INNER JOIN ModuleTaken ON Student.studentNumber = ModuleTaken.studentNumber WHERE (((ModuleTaken.moduleCode) = \"LARA201\"))";
+
+            OleDbCommand cmd1 = new OleDbCommand(ss, dbConn);
+
+            //cmd1.Parameters.AddWithValue("@moduleCode", moduleCode);
+            dbConn.Open();
+            OleDbDataReader reader = cmd1.ExecuteReader();
+            studentView.DataSource = reader;
+            studentView.DataBind();
+            dbConn.Close();
+        }
+
+        private void populateAssessmentTable()
+        {
+            String cs;
+            String moduleCode;
+            moduleCode = "LARA201";
+
+            cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            OleDbConnection dbConn = new OleDbConnection(cs);
+
+           String ss = "SELECT [Assessment Results].assessmentID, [Assessment Information].assessmentName, [Assessment Information].assessmentType, [Assessment Results].moduleCode FROM [Assessment Information] INNER JOIN [Assessment Results] ON [Assessment Information].assessmentID = [Assessment Results].assessmentID WHERE ((([Assessment Results].moduleCode)= @moduleCode))";
+
+
+            OleDbCommand cmd1 = new OleDbCommand(ss, dbConn);
+            cmd1.Parameters.AddWithValue("@moduleCode", moduleCode);
+
+            dbConn.Open();
+            OleDbDataReader reader = cmd1.ExecuteReader();
+            moduleAssesmentView.DataSource = reader;
+            moduleAssesmentView.DataBind();
+            dbConn.Close();
         }
 
         protected void saveBtn_Click(object sender, EventArgs e)
