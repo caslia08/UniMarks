@@ -28,8 +28,7 @@
         <h3>MAPV311 Semester Test 1</h3>
         <hr />
         <br />
-        <asp:GridView ID="GridView1" runat="server" DataSourceID="SqlDataSource1"></asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
+        <asp:GridView ID="gridViewMarks" runat="server"></asp:GridView>
         <%--<div class="table-responsive">
             <table class="table table-hover" id="markTable">
                 <thead>
