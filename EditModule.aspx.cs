@@ -13,10 +13,12 @@ namespace WebApplication3
     public partial class EditModule : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {            
-            populateFields("LARA201");
-            populateStudentTable("LARA201");
-            populateAssessmentTable("LARA201");
+        {
+            String moduleCode = this.Request.QueryString["ModuleCode"];
+
+            populateFields(moduleCode);
+            populateStudentTable(moduleCode);
+            populateAssessmentTable(moduleCode);
         }
 
         private void populateLectuture(String moduleCode)
@@ -150,7 +152,7 @@ namespace WebApplication3
 
         protected void cancelBtn_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("SearchModule.aspx");
         }
     }
 }

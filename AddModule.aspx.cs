@@ -118,7 +118,7 @@ namespace WebApplication3
 
         protected void cancelBnt_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("SearchModule.aspx");
         }
     }
 }
