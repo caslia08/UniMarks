@@ -46,22 +46,15 @@ namespace WebApplication3
                 if (ReturnCode == 1)
                 {
                     Response.Write("<script>alert('Assessment Added Successfully');</script>");
-                    //TODO success message
                 }
                 else
                 {
-                    Label1.Text = "Oof";
-
-                    //TODO error 
+                    Response.Write("<script>alert('Assessment Could not be Added');</script>");
                 }
-
-
             }
             else
             {
-                Label1.Text = "Big Oof";
-
-                //TODO disp error message
+                Response.Write("<script>alert('This Page is not working');</script>");
             }
         }
     }

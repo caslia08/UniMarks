@@ -47,7 +47,7 @@ namespace WebApplication3
                     txtAssID.Text = reader["assessmentID"].ToString();
                     txtAssName.Text = reader["assessmentName"].ToString();
                     dropAssType.SelectedValue = reader["assessmentType"].ToString();
-                    txtAssDate.Text = reader["assessmentDate"].ToString();//TODO Date is not properly stored in database
+                    txtAssDate.Text = reader["assessmentDate"].ToString();
                     txtAssDesc.Text = reader["assessmentDescription"].ToString();
                     txtAssVenue.Text = reader["assessmentVenue"].ToString();
                     String placeHolder = reader["classAverage"].ToString();
@@ -105,6 +105,13 @@ namespace WebApplication3
 
         protected void btnBack_Click(object sender, EventArgs e)
         {
+            isCreated = false;
+            Response.Redirect("LecturerViewAssessments.aspx");
+        }
+
+        protected void btnCancelAss_Click(object sender, EventArgs e)
+        {
+            isCreated = false;
             Response.Redirect("LecturerViewAssessments.aspx");
         }
     }

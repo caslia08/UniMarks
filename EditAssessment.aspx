@@ -85,7 +85,7 @@
             <hr />
             <br />
        <asp:Button ID="btnSaveChanges"  class="btn btn-outline-primary btn-lg btn-rounded-border" runat="server" Text="Save Changes" OnClick="btnSaveChanges_Click" />
-       <asp:Button ID="btnCancelAss" class="btn btn-outline-danger btn-lg btn-rounded-border" runat="server" Text="Cancel" />
+       <asp:Button ID="btnCancelAss" class="btn btn-outline-danger btn-lg btn-rounded-border" runat="server" Text="Cancel" OnClick="btnCancelAss_Click" />
        <asp:Button ID="btnBack" class="btn btn-outline-primary btn-lg btn-rounded-border" runat="server" Text="Back" OnClick="btnBack_Click" />
    </div>
 

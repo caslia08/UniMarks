@@ -10,6 +10,9 @@
     word-wrap:break-word;
     table-layout: fixed;
 }
+        .btn-rounded-border {
+            border-radius: 8px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Login_LogoutButton" runat="server">
@@ -34,22 +37,20 @@
         <h3>MAPV311 Semester Test 1</h3>
         <hr />
         <br />
-        <asp:GridView ID="gridViewMarks"  runat="server" AllowPaging="True" class="table table-responsive table-hover gridview" HeaderStyle-CssClass="table-primary" GridLines="Horizontal" BorderStyle="None" OnRowDataBound="gridViewMarks_RowDataBound" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" OnRowUpdating="gridViewMarks_RowUpdating" >
-            <Columns>
-                <asp:CommandField ShowEditButton="True" />
-                <asp:BoundField DataField="studentNumber" HeaderText="Student Number" SortExpression="studentNumber" ReadOnly="true" />
-                <asp:BoundField DataField="surname" HeaderText="Last Name" SortExpression="surname" ReadOnly="True" />
-                <asp:BoundField DataField="firtsName" HeaderText="First Name" SortExpression="firtsName" ReadOnly="True"/>
-                <asp:BoundField DataField="markCaptured" HeaderText="Mark"  SortExpression="markCaptured" ReadOnly="false"/>
-            </Columns>
+
+           
+        <asp:GridView ID="gridViewMarks" AutoGenerateEditButton="true"  runat="server" class="table table-responsive table-hover gridview" HeaderStyle-CssClass="table-primary" GridLines="Horizontal" BorderStyle="None" OnRowDataBound="gridViewMarks_RowDataBound" OnRowCancelingEdit="gridViewMarks_RowCancelingEdit" OnRowEditing="gridViewMarks_RowEditing" OnRowUpdating="gridViewMarks_RowUpdating" OnRowUpdated="gridViewMarks_RowUpdated"
+            >
             <HeaderStyle CssClass="table-primary"></HeaderStyle>
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT Student.studentNumber, Student.surname, Student.firtsName, [Assessment Results].markCaptured FROM Student INNER JOIN[Assessment Results] ON Student.[studentNumber] = [Assessment Results].[studentNumber] WHERE ([Assessment Results].assessmentID = ?)" UpdateCommand="UPDATE [Assessment Results] SET (markCaptured = ?) ">
-            <SelectParameters>
-                <asp:QueryStringParameter DefaultValue="98405" Name="?" QueryStringField="AssID" />
-            </SelectParameters>
-        </asp:SqlDataSource>
     </div>
+    <div class ="jumbotron text-danger">
+          <asp:Label ID ="Warning" Text=" " class="text-danger" runat="server" ></asp:Label>
+      </div>
+
+    <asp:Button ID="btnSubmit" class="btn btn-outline-primary btn-lg btn-rounded-border" runat="server" Text="Submit"/>
+    <asp:Button ID="btnCancel" class="btn btn-outline-danger btn-lg btn-rounded-border" runat="server" Text="Cancel" OnClick="btnCancel_Click"/>
+     
 </asp:Content>
 
 <asp:Content ID="Content7" ContentPlaceHolderID="Scripts" runat="server">
