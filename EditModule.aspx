@@ -50,7 +50,7 @@
 
 				<div class="form-group has-danger">
 					<label class="form-control-label">Module Code</label>
-					<asp:TextBox ID="moduleCode" class="form-control is-invalid" runat="server"></asp:TextBox>
+					<asp:TextBox ID="mdCode" class="form-control is-invalid" runat="server"></asp:TextBox>
 					<div class="invalid-feedback">Module code is required</div>
 				</div>
 
