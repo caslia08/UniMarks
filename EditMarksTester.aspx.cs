@@ -13,17 +13,17 @@ using System.Data.Entity;
 
 namespace WebApplication3
 {
-    public partial class AddMarksTester : System.Web.UI.Page
+    public partial class EditMarksTester : System.Web.UI.Page
     {
         public string assID = "";
         static Boolean isCreated = false;
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
             assID = this.Request.QueryString["AssessmentID"];
             if (!isCreated)
             {
-               loadTable();
+                loadTable();
             }
         }
 
@@ -44,7 +44,7 @@ namespace WebApplication3
             OleDbDataAdapter sqlData = new OleDbDataAdapter(cmd);
             sqlData.Fill(table);
             isCreated = true;
-            Session["MarksTable"] = table; 
+            Session["MarksTable"] = table;
             BindData();
 
             if (table.Rows.Count == 0)
@@ -55,13 +55,16 @@ namespace WebApplication3
 
         protected void gridViewMarks_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            //if (e.Row.RowType == DataControlRowType.Header)
-            //{
-            //    e.Row.Cells[5].Text = "Student Number";
-            //    e.Row.Cells[6].Text = "Last Name";
-            //    e.Row.Cells[7].Text = "First Name";
-            //    e.Row.Cells[8].Text = "Mark";        
-            //}
+            if (e.Row.RowType == DataControlRowType.Header)
+            {
+                e.Row.Cells[1].Text = "Student Number";
+                e.Row.Cells[2].Text = "Last Name";
+                e.Row.Cells[3].Text = "First Name";
+                e.Row.Cells[4].Text = "Mark";
+                e.Row.Cells[1].Enabled = false;
+                e.Row.Cells[2].Enabled = false;
+                e.Row.Cells[3].Enabled = false;
+            }
         }
 
 
@@ -94,16 +97,16 @@ namespace WebApplication3
 
             OleDbCommand cmd = new OleDbCommand(sql, dbConnection);
 
-            //Control txtStudNum = gridViewMarks.Rows[e.RowIndex].Cells[1].Controls[0];
+            TextBox txtStudNum = (TextBox)gridViewMarks.Rows[e.RowIndex].Cells[1].Controls[0];
             TextBox txtMarks = (TextBox)gridViewMarks.Rows[e.RowIndex].Cells[4].Controls[0];
 
-            string studNum = gridViewMarks.Rows[e.RowIndex].Cells[1].Text;
+            string studNum = txtStudNum.Text;
             int newMark;
             if (txtMarks.Text == null || txtMarks.Text == "")
             {
                 newMark = 0;
             }
-            else 
+            else
             {
                 newMark = int.Parse(txtMarks.Text);
             }
@@ -112,23 +115,23 @@ namespace WebApplication3
             {
                 Response.Write("<script>alert('Mark must be less than or equal to 100');</script>");
                 loadTable();
-                return; 
+                return;
             }
 
             cmd.Parameters.AddWithValue("@newMark", newMark);
             cmd.Parameters.AddWithValue("@AssID", assID);
             cmd.Parameters.AddWithValue("@studNum", studNum);
-            
-            dbConnection.Open(); 
-            
+
+            dbConnection.Open();
+
             int ReturnCode = cmd.ExecuteNonQuery();
-            
+
             if (ReturnCode == 1)
             {
                 gridViewMarks.EditIndex = -1;
-                loadTable();
                 BindData();
-                Response.Write("<script>alert('Assessment Updated Successfully');</script>");
+                loadTable();
+                //Response.Write("<script>alert('Assessment Updated Successfully');</script>");
             }
             else
             {
@@ -153,8 +156,7 @@ namespace WebApplication3
 
         protected void gridViewMarks_RowUpdated(object sender, GridViewUpdatedEventArgs e)
         {
-            //BindData();
-            //loadTable(); 
+            loadTable();
         }
     }
 }

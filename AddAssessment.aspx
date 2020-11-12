@@ -32,7 +32,7 @@
             <div class="form-group">
                 <label for="txtAssID">ID</label>
                 <asp:TextBox ID="txtAssID" runat="server" class="form-control" placeholder="Assessment ID"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtAssID" ErrorMessage="Assessment ID Required"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="requiredIDvalidator" runat="server" ControlToValidate="txtAssID" ErrorMessage="Assessment ID Required" class="text-danger"></asp:RequiredFieldValidator>
             </div>     
 
 
@@ -40,6 +40,8 @@
                 <label for="txtAssName">
                 Name</label>
                 <asp:TextBox ID="txtAssName" runat="server" class="form-control" placeholder="Assessment Name"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="requiredName" runat="server" ControlToValidate="txtAssName" ErrorMessage="Assessment Name Required" class="text-danger"></asp:RequiredFieldValidator>
+
             </div>
 
              <div class="form-group">
@@ -50,6 +52,8 @@
               <div class="form-group">
                 <label for="txtAssDate">Date</label>
                 <asp:TextBox ID="txtAssDate" runat="server" class="form-control" TextMode="Date"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="requiredDateVal" runat="server" ControlToValidate="txtAssDate" ErrorMessage="Date Required" class="text-danger"></asp:RequiredFieldValidator>
+
             </div>
 
              <div class="form-group">

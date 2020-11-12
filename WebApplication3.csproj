@@ -168,6 +168,7 @@
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="AddAssessment.aspx" />
     <Content Include="AddMarksTester.aspx" />
+    <Content Include="EditMarksTester.aspx" />
     <Content Include="SearchModule.aspx" />
     <Content Include="SearchLecturer.aspx" />
     <Content Include="SearchStudent.aspx" />
@@ -364,6 +365,13 @@
     </Compile>
     <Compile Include="AddMarksTester.aspx.designer.cs">
       <DependentUpon>AddMarksTester.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditMarksTester.aspx.cs">
+      <DependentUpon>EditMarksTester.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditMarksTester.aspx.designer.cs">
+      <DependentUpon>EditMarksTester.aspx</DependentUpon>
     </Compile>
     <Compile Include="SearchModule.aspx.cs">
       <DependentUpon>SearchModule.aspx</DependentUpon>

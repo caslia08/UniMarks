@@ -39,8 +39,14 @@
         <br />
 
            
-        <asp:GridView ID="gridViewMarks" AutoGenerateEditButton="true"  runat="server" class="table table-responsive table-hover gridview" HeaderStyle-CssClass="table-primary" GridLines="Horizontal" BorderStyle="None" OnRowDataBound="gridViewMarks_RowDataBound" OnRowCancelingEdit="gridViewMarks_RowCancelingEdit" OnRowEditing="gridViewMarks_RowEditing" OnRowUpdating="gridViewMarks_RowUpdating" OnRowUpdated="gridViewMarks_RowUpdated"
+        <asp:GridView ID="gridViewMarks" AutoGenerateEditButton="true" AutoGenerateColumns="false" runat="server" class="table table-responsive table-hover gridview" HeaderStyle-CssClass="table-primary" GridLines="Horizontal" BorderStyle="None" OnRowDataBound="gridViewMarks_RowDataBound" OnRowCancelingEdit="gridViewMarks_RowCancelingEdit" OnRowEditing="gridViewMarks_RowEditing" OnRowUpdating="gridViewMarks_RowUpdating" OnRowUpdated="gridViewMarks_RowUpdated"
             >
+            <Columns>
+                <asp:boundfield datafield="studentNumber" readonly="true" headertext="Student Number"/>
+                <asp:boundfield datafield="surname" readonly="true" headertext="Last Name"/>
+                <asp:boundfield datafield="firtsName" readonly="true" headertext="First Name"/>
+                <asp:boundfield datafield="markCaptured" headertext="Mark"/>
+             </Columns>
             <HeaderStyle CssClass="table-primary"></HeaderStyle>
         </asp:GridView>
     </div>

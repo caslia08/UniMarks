@@ -24,13 +24,13 @@ namespace WebApplication3
         protected global::System.Web.UI.WebControls.TextBox txtAssID;
 
         /// <summary>
-        /// RequiredFieldValidator1 control.
+        /// requiredIDvalidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredIDvalidator;
 
         /// <summary>
         /// txtAssName control.
@@ -40,6 +40,15 @@ namespace WebApplication3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAssName;
+
+        /// <summary>
+        /// requiredName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredName;
 
         /// <summary>
         /// txtAssDesc control.
@@ -58,6 +67,15 @@ namespace WebApplication3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAssDate;
+
+        /// <summary>
+        /// requiredDateVal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredDateVal;
 
         /// <summary>
         /// dropAssType control.
