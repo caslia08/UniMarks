@@ -12,13 +12,18 @@ namespace WebApplication3
 {
     public partial class EditModule : System.Web.UI.Page
     {
+        public static bool created = false;
+        String moduleCodeInput = null;
         protected void Page_Load(object sender, EventArgs e)
         {
-            String moduleCode = this.Request.QueryString["ModuleCode"];
-
-            populateFields(moduleCode);
-            populateStudentTable(moduleCode);
-            populateAssessmentTable(moduleCode);
+            moduleCodeInput = this.Request.QueryString["ModuleCode"];
+            if (!created)
+            {
+                populateFields(moduleCodeInput);
+                populateStudentTable(moduleCodeInput);
+                populateAssessmentTable(moduleCodeInput);
+                created = true;
+            }
         }
 
         private void populateLectuture(String moduleCode)
@@ -53,8 +58,47 @@ namespace WebApplication3
             if (resData[0] != null)
             {
                 moduleLecture.Text = resData[0].ToString();
-            }            
+            }           
+        }
 
+        private bool lectureExists()
+        {
+            string CS;
+            CS = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            OleDbConnection dbConnection = new OleDbConnection(CS);
+
+            String sqlCmd1 = "SELECT [firstName] FROM [Lecturer] WHERE (staffNumber = @staffNum)";
+
+            OleDbCommand cmd1 = new OleDbCommand(sqlCmd1, dbConnection);
+
+            cmd1.Parameters.AddWithValue("@staffNum", moduleLecture.Text);
+
+            dbConnection.Open();
+
+            bool read;
+            Object[] resData = new Object[1];
+
+            OleDbDataReader reader = cmd1.ExecuteReader();
+
+            if (reader.Read() == true)
+            {
+                do
+                {
+                    reader.GetValues(resData);
+                    read = reader.Read();
+                } while (read == true);
+            }
+
+            reader.Close();
+            dbConnection.Close();
+
+            if (resData[0] == null)
+            {
+                Response.Write("<script>alert('Lecturer could not be found');</script>");
+                return false;
+            }
+
+            return true;
         }
 
         private void populateFields(String moduleCode)
@@ -149,11 +193,53 @@ namespace WebApplication3
 
         protected void saveBtn_Click(object sender, EventArgs e)
         {
+            created = false;
+            if (lectureExists())
+            {            
+                if (moduleName.Text.Length != 0)
+                {                    
+                    string CS;
+                    CS = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+                    OleDbConnection dbConnection = new OleDbConnection(CS);
 
+                    String sqlComm = "UPDATE [Module] SET " +
+                        "moduleName = @Name , " +
+                        "moduleDesc = @Desc " +
+                        "WHERE moduleCode = @moduleCode";
+
+                    OleDbCommand dbCommand = new OleDbCommand(sqlComm, dbConnection);
+
+                    dbCommand.Parameters.AddWithValue("@Name", moduleName.Text);
+                    dbCommand.Parameters.AddWithValue("@Desc", moduleDsc.Text);
+
+                    dbCommand.Parameters.AddWithValue("@moduleCode", moduleCodeInput);
+
+                    dbConnection.Open();
+
+                    int ReturnCode = dbCommand.ExecuteNonQuery();
+
+                    dbConnection.Close();                        
+
+                    if (ReturnCode == 1)
+                    {
+                        Response.Write("<script>alert('Module edited successfully');</script>");
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('Module edited failed');</script>");
+                    }
+                    
+                }
+                else
+                {
+                    moduleName.CssClass = "form-control is-invalid";
+                }         
+            }  
         }
 
         protected void cancelBtn_Click(object sender, EventArgs e)
         {
+            created = false;
             Response.Redirect("SearchModule.aspx");
         }
     }

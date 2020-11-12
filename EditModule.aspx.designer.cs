@@ -13,15 +13,6 @@ namespace WebApplication3 {
     public partial class EditModule {
         
         /// <summary>
-        /// moduleName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox moduleName;
-        
-        /// <summary>
         /// mdCode control.
         /// </summary>
         /// <remarks>
@@ -29,6 +20,15 @@ namespace WebApplication3 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox mdCode;
+        
+        /// <summary>
+        /// moduleName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox moduleName;
         
         /// <summary>
         /// moduleLecture control.

@@ -168,7 +168,6 @@
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="AddAssessment.aspx" />
     <Content Include="EditModule.aspx" />
-    <Content Include="EditModuleDetails.aspx" />
     <Content Include="SearchModule.aspx" />
     <Content Include="SearchLecturer.aspx" />
     <Content Include="SearchStudent.aspx" />
@@ -364,13 +363,6 @@
     </Compile>
     <Compile Include="EditModule.aspx.designer.cs">
       <DependentUpon>EditModule.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="EditModuleDetails.aspx.cs">
-      <DependentUpon>EditModuleDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="EditModuleDetails.aspx.designer.cs">
-      <DependentUpon>EditModuleDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="SearchModule.aspx.cs">
       <DependentUpon>SearchModule.aspx</DependentUpon>

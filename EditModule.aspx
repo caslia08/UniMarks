@@ -42,22 +42,21 @@
 		<br />
 		<form>
 			<fieldset>
-				<div class="form-group has-danger">
-					<label class="form-control-label" for="AssNameDanger">Full Module Name</label>
-					<asp:TextBox ID="moduleName" class="form-control is-invalid" runat="server"></asp:TextBox>
-					<div class="invalid-feedback">Module name is required</div>
+
+								<div class="form-group has-danger">
+					<label class="form-control-label">Module Code</label>
+					<asp:TextBox ID="mdCode" class="form-control is-valid" runat="server" Enabled ="false"></asp:TextBox>
 				</div>
 
 				<div class="form-group has-danger">
-					<label class="form-control-label">Module Code</label>
-					<asp:TextBox ID="mdCode" class="form-control is-invalid" runat="server"></asp:TextBox>
-					<div class="invalid-feedback">Module code is required</div>
+					<label class="form-control-label" for="AssNameDanger">Full Module Name</label>
+					<asp:TextBox ID="moduleName" class="form-control is-valid" runat="server"></asp:TextBox>
 				</div>
+
 
 				<div class="form-group has-danger">
 					<label class="form-control-label">Module Lecturer Number</label>
-					<asp:TextBox ID="moduleLecture" class="form-control is-invalid" runat="server"></asp:TextBox>
-					<div class="invalid-feedback">Module lecturer is required</div>
+					<asp:TextBox ID="moduleLecture" class="form-control is-valid" runat="server"></asp:TextBox>
 				</div>
 
 				<div class="form-group">

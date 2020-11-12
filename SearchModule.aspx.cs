@@ -19,6 +19,7 @@ namespace WebApplication3
             if (e.CommandName == "EditModule")
             {
                 String assessmentID = e.CommandArgument.ToString();
+                EditModule.created = false;
                 Response.Redirect("EditModule.aspx?ModuleCode=" + assessmentID);
             }
         }

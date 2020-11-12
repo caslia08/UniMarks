@@ -43,19 +43,16 @@
 				<div class="form-group has-danger">
 					<label class="form-control-label" for="AssNameDanger">Full Module Name</label>
 					<asp:TextBox ID="moduleName" class="form-control is-invalid" runat="server"></asp:TextBox>
-					<div class="invalid-feedback">Module name is required</div>
 				</div>
 
 				<div class="form-group has-danger">
 					<label class="form-control-label">Module Code</label>
 					<asp:TextBox ID="moduleCode" class="form-control is-invalid" runat="server"></asp:TextBox>
-					<div class="invalid-feedback">Module code is required</div>
 				</div>
 
 				<div class="form-group has-danger">
 					<label class="form-control-label">Module Lecturer Number</label>
 					<asp:TextBox ID="moduleLecture" class="form-control is-invalid" runat="server"></asp:TextBox>
-					<div class="invalid-feedback">Module lecturer is required</div>
 				</div>
 
 				<div class="form-group">

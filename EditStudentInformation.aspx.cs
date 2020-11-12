@@ -13,7 +13,7 @@ namespace WebApplication3
     public partial class EditStudentInformation : System.Web.UI.Page
     {
         String sNum = "335975982";
-        static bool created = false;
+       public static bool created = false;
 
         private void populateTable()
         {

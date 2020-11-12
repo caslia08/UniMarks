@@ -48,6 +48,41 @@ namespace WebApplication3
             dbConnection.Close();
         }
 
+        private void doModulePresnetedAdd()
+        {
+            string CS;
+            CS = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            OleDbConnection dbConnection = new OleDbConnection(CS);
+
+            String sqlComm = "INSERT into [ModulePresented]([staffNumber], [moduleCode])" +
+                " VALUES (@sft, @mc)";
+
+            OleDbCommand dbCommand = new OleDbCommand(sqlComm, dbConnection);
+
+            dbCommand.Parameters.AddWithValue("@ID", moduleCode.Text);
+            dbCommand.Parameters.AddWithValue("@name", moduleName.Text);
+            dbCommand.Parameters.AddWithValue("@marks", "0");
+            dbCommand.Parameters.AddWithValue("@desc", moduleDsc.Text);
+
+            dbConnection.Open();
+
+            int ReturnCode = dbCommand.ExecuteNonQuery();
+
+            if (ReturnCode == 1)
+            {
+                Response.Write("<script>alert('Module Added Successfully');</script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('Module cannot be added');</script>");
+            }
+
+            dbConnection.Close();
+        }
+
+
+
+
         private bool lectureExists()
         {
             string CS;

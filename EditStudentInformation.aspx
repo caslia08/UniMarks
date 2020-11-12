@@ -30,43 +30,37 @@
 			<fieldset>
 				<div class="form-group has-danger">
 					<label class="form-control-label" for="AssNameDanger">First Names</label>
-					<asp:TextBox ID="firstNames" class="form-control is-invalid" runat="server"></asp:TextBox>
-					<div class="invalid-feedback">First name is required</div>
+					<asp:TextBox ID="firstNames" class="form-control is-valid" runat="server"></asp:TextBox>
 				</div>
 
 				<div class="form-group has-danger">
 					<label class="form-control-label" for="AssNameDanger">Last Name</label>
-					<asp:TextBox ID="lastName" class="form-control is-invalid" runat="server"></asp:TextBox>
-					<div class="invalid-feedback">Last name is required</div>
+					<asp:TextBox ID="lastName" class="form-control is-valid" runat="server"></asp:TextBox>
 				</div>
 
 				<div class="form-group has-danger">
 					<label class="form-control-label" for="AssNameDanger">Student Number</label>
-					<asp:TextBox ID="studentNum" class="form-control is-invalid" runat="server" ></asp:TextBox>
-					<div class="invalid-feedback">Staff number is required</div>
+					<asp:TextBox ID="studentNum" class="form-control is-valid" runat="server" ></asp:TextBox>
 				</div>
 
 				<div class="form-group has-danger">
 					<label class="form-control-label" for="AssNameDanger">ID Number</label>
-					<asp:TextBox ID="idNumber" class="form-control is-invalid" runat="server"></asp:TextBox>
-					<div class="invalid-feedback">ID number is required</div>
+					<asp:TextBox ID="idNumber" class="form-control is-valid" runat="server"></asp:TextBox>
 				</div>
 
 				<div class="form-group has-danger">
 					<label class="form-control-label" for="AssNameDanger">Email address</label>
-					<asp:TextBox ID="email" class="form-control is-invalid" runat="server"></asp:TextBox>
-					<div class="invalid-feedback">Email is required</div>
+					<asp:TextBox ID="email" class="form-control is-valid" runat="server"></asp:TextBox>
 				</div>
 
 				<div class="form-group has-danger">
 					<label class="form-control-label" for="AssNameDanger">Title</label>
-					<asp:TextBox ID="title" class="form-control is-invalid" runat="server"></asp:TextBox>
-					<div class="invalid-feedback">Cell phone number is required</div>
+					<asp:TextBox ID="title" class="form-control is-valid" runat="server"></asp:TextBox>
 				</div>
 
 				<div class="form-group">
 					<label for="AssDate">Date Registered</label>
-					<asp:TextBox ID="dateReg" class="form-control is-invalid" runat="server"></asp:TextBox>
+					<asp:TextBox ID="dateReg" class="form-control is-valid" runat="server"></asp:TextBox>
 				</div>
 
 				<div class="form-group">
