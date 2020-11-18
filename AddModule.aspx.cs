@@ -33,16 +33,24 @@ namespace WebApplication3
             dbCommand.Parameters.AddWithValue("@desc", moduleDsc.Text);
 
             dbConnection.Open();
-
-            int ReturnCode = dbCommand.ExecuteNonQuery();
-
-            if (ReturnCode == 1)
+            
+            try
             {
-                Response.Write("<script>alert('Module Added Successfully');</script>");
+                int ReturnCode = dbCommand.ExecuteNonQuery();
+
+                if (ReturnCode == 1)
+                {
+                    Response.Write("<script>alert('Module Added Successfully');</script>");
+                }
+                else
+                {
+                    Response.Write("<script>alert('Module cannot be added');</script>");
+                }
+
             }
-            else
+            catch (Exception e)
             {
-                Response.Write("<script>alert('Module cannot be added');</script>");
+                Response.Write("<script>alert('Module cannot be added: " + e.Message + "');</script>");
             }
 
             dbConnection.Close();

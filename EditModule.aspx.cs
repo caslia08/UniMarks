@@ -215,20 +215,24 @@ namespace WebApplication3
                     dbCommand.Parameters.AddWithValue("@moduleCode", moduleCodeInput);
 
                     dbConnection.Open();
-
-                    int ReturnCode = dbCommand.ExecuteNonQuery();
-
-                    dbConnection.Close();                        
-
-                    if (ReturnCode == 1)
+                    try
                     {
-                        Response.Write("<script>alert('Module edited successfully');</script>");
+                        int ReturnCode = dbCommand.ExecuteNonQuery();
+
+                        if (ReturnCode == 1)
+                        {
+                            Response.Write("<script>alert('Module edited successfully');</script>");
+                        }
+                        else
+                        {
+                            Response.Write("<script>alert('Module edited failed');</script>");
+                        }
                     }
-                    else
+                    catch(Exception err)
                     {
-                        Response.Write("<script>alert('Module edited failed');</script>");
+                        Response.Write("<script>alert('Module edited failed:" + err.Message + "');</script>");
                     }
-                    
+                    dbConnection.Close();
                 }
                 else
                 {
