@@ -32,7 +32,7 @@
             <div class="form-group">
                 <label for="txtAssID">ID</label>
                 <asp:TextBox ID="txtAssID" runat="server" class="form-control" placeholder="Assessment ID"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtAssID" ErrorMessage="Assessment ID Required"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="requiredIDvalidator" runat="server" ControlToValidate="txtAssID" ErrorMessage="Assessment ID Required" class="text-danger"></asp:RequiredFieldValidator>
             </div>     
 
 
@@ -40,6 +40,8 @@
                 <label for="txtAssName">
                 Name</label>
                 <asp:TextBox ID="txtAssName" runat="server" class="form-control" placeholder="Assessment Name"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="requiredName" runat="server" ControlToValidate="txtAssName" ErrorMessage="Assessment Name Required" class="text-danger"></asp:RequiredFieldValidator>
+
             </div>
 
              <div class="form-group">
@@ -50,6 +52,8 @@
               <div class="form-group">
                 <label for="txtAssDate">Date</label>
                 <asp:TextBox ID="txtAssDate" runat="server" class="form-control" TextMode="Date"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="requiredDateVal" runat="server" ControlToValidate="txtAssDate" ErrorMessage="Date Required" class="text-danger"></asp:RequiredFieldValidator>
+
             </div>
 
              <div class="form-group">
@@ -86,7 +90,6 @@
             <br />
        <asp:Button ID="btnCreateAss"  class="btn btn-outline-primary btn-lg btn-rounded-border" runat="server" Text="Create" OnClick="btnCreateAss_Click" />
        <asp:Button ID="btnCancelAss" class="btn btn-outline-danger btn-lg btn-rounded-border" runat="server" Text="Cancel" />
-       <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
        
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>

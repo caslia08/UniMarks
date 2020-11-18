@@ -13,35 +13,51 @@ namespace WebApplication3
 {
     public partial class Edit_Assessment : System.Web.UI.Page
     {
-        int AssID = 0; 
-
+        static Boolean isCreated = false; 
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (this.Page.PreviousPage != null)
+            String assID;
+            if (isCreated)
             {
-                
-                int rowIndex = int.Parse(Request.QueryString["RowIndex"]);
-                GridView GridView1 = (GridView)this.Page.PreviousPage.FindControl("gridViewAssessments");
-                GridViewRow row = GridView1.Rows[rowIndex];
-                Label1.Text = rowIndex.ToString();
-                txtAssID.Text = row.Cells[0].Text;
-                this.AssID = int.Parse(row.Cells[0].Text); 
-                txtAssName.Text = row.Cells[1].Text;
-                txtAssDesc.Text = row.Cells[2].Text;
-                txtAssDate.Text = row.Cells[3].Text;
-                dropAssType.SelectedValue = row.Cells[4].Text;
-                txtAssVenue.Text = row.Cells[5].Text;
-                dropAssWeight.SelectedValue = row.Cells[6].Text;
-                //lblId.Text = row.Cells[0].Text;
-                //lblName.Text = (row.FindControl("lblName") as Label).Text;
-                //lblCountry.Text = row.Cells[2].Text;
-
+                assID = txtAssID.Text;
             }
-            else {
-                Label1.Text = "Big Oof";
+            else
+            {
+                assID = this.Request.QueryString["AssessmentID"];
+                txtAssID.Text = assID;
 
+
+                String CS = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+                OleDbConnection con = new OleDbConnection(CS);
+
+                OleDbCommand cmd = new OleDbCommand();
+
+                string sql = "SELECT assessmentID, assessmentName, assessmentType, assessmentDate, assessmentDescription, assessmentVenue," +
+                    "classAverage, assessmentWeightage FROM [Assessment Information] WHERE assessmentID = @AssID";
+
+                cmd.Parameters.AddWithValue("@AssID", assID.ToString());
+                cmd.CommandText = sql;
+                cmd.Connection = con;
+                con.Open();
+                OleDbDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    txtAssID.Text = reader["assessmentID"].ToString();
+                    txtAssName.Text = reader["assessmentName"].ToString();
+                    dropAssType.SelectedValue = reader["assessmentType"].ToString();
+                    txtAssDate.Text = reader["assessmentDate"].ToString();
+                    txtAssDesc.Text = reader["assessmentDescription"].ToString();
+                    txtAssVenue.Text = reader["assessmentVenue"].ToString();
+                    String placeHolder = reader["classAverage"].ToString();
+                    dropAssWeight.SelectedValue = reader["assessmentWeightage"].ToString();
+                }
+
+                con.Close();
+                isCreated = true; 
             }
+            txtAssID.Enabled = false;
         }
 
         protected void btnSaveChanges_Click(object sender, EventArgs e)
@@ -50,6 +66,55 @@ namespace WebApplication3
             CS = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             OleDbConnection dbConnection = new OleDbConnection(CS);
 
+
+            string sql ="UPDATE [Assessment Information] " +
+                        "SET [assessmentName] = @name, " +
+                        "[assessmentType] =@type, " +
+                        "[assessmentDate] = @date, " +
+                        "[assessmentDescription] = @desc, " +
+                        "[assessmentVenue] =  @venue, " +
+                        "[classAverage] = @ave, " +
+                        "[assessmentWeightage] =  @weight " +
+                        "WHERE assessmentID = @AssID";
+
+
+            OleDbCommand dbCommand = new OleDbCommand(sql, dbConnection);
+
+            dbCommand.Parameters.AddWithValue("@name", txtAssName.Text);
+            dbCommand.Parameters.AddWithValue("@type", dropAssType.SelectedValue);
+            dbCommand.Parameters.AddWithValue("@date", txtAssDate.Text);
+            dbCommand.Parameters.AddWithValue("@desc", txtAssDesc.Text);
+            dbCommand.Parameters.AddWithValue("@venue", txtAssVenue.Text);
+            dbCommand.Parameters.AddWithValue("@ave", 0);
+            dbCommand.Parameters.AddWithValue("@weight", dropAssWeight.SelectedValue);
+            dbCommand.Parameters.AddWithValue("@AssID", txtAssID.Text);
+
+            dbConnection.Open();
+
+            int ReturnCode = dbCommand.ExecuteNonQuery();
+
+            if (ReturnCode == 1)
+            {
+                Response.Write("<script>alert('Assessment Updated Successfully');</script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('Assessment could not be added');</script>");
+            }
+        }
+
+        protected void btnBack_Click(object sender, EventArgs e)
+        {
+            isCreated = false;
+            Response.Redirect("LecturerViewAssessments.aspx");
+        }
+
+        protected void btnCancelAss_Click(object sender, EventArgs e)
+        {
+            isCreated = false;
+            Response.Redirect("LecturerViewAssessments.aspx");
         }
     }
 }
+
+

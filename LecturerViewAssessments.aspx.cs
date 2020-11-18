@@ -5,7 +5,6 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
-using System.Data.SqlClient;
 using System.Configuration;
 using System.Data.OleDb;
 
@@ -65,18 +64,39 @@ namespace WebApplication3
             //this.searchStudents();
         }
 
-        protected void btnEditAss_Click(object sender, EventArgs e)
-        {
-            if (Page.IsValid)
-            {
-                GridViewRow row_ = gridViewAssessments.SelectedRow; 
+        //protected void btnEditAss_Click(object sender, EventArgs e)
+        //{
+        //
+        //            
+        //    if (Page.IsValid)
+        //    {
+        //        int row = gridViewAssessments.PageIndex;
+        //        txtSearch.Text = row.ToString(); 
+        //        //Response.Redirect("EditAssessment.aspx?AssessmentID=" + assID);
+        //    }
+        //    else
+        //    { 
+        //        //TODO error
+        //    }
+        //
+        //}
 
+        protected void gridViewAssessments_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            String isCreated = "false"; 
+            if (e.CommandName == "EditStudents")
+            {
+                String assessmentID = e.CommandArgument.ToString();
+                Response.Redirect("EditAssessment.aspx?AssessmentID=" + assessmentID + "&isCreate=" + isCreated);
             }
-            else
-            { 
-                //TODO error
+            else if (e.CommandName == "AddMarks")
+            {
+                String assessmentID = e.CommandArgument.ToString();
+                Response.Redirect("AddMarksTester.aspx?AssessmentID=" + assessmentID);
             }
 
         }
+
+
     }
 }
