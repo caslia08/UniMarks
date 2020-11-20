@@ -52,7 +52,7 @@
 
 				<div class="form-group has-danger">
 					<label class="form-control-label">Module Lecturer Number</label>
-					<asp:TextBox ID="moduleLecture" class="form-control is-invalid" runat="server"></asp:TextBox>
+					<asp:DropDownList ID="lecutureDrop" class="form-control" runat="server"></asp:DropDownList>
 				</div>
 
 				<div class="form-group">
