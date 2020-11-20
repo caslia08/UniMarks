@@ -37,11 +37,10 @@
 		<h2>Module Information</h2>
 		<hr />
 		<br />
-		<form>
 			<fieldset>
 				<div class="form-group has-danger">
 					<label class="form-control-label" for="AssNameDanger">Full Module Name</label>
-					<input type="text" class="form-control is-invalid" id="inputInvalidName">
+					<asp:TextBox ID="ddddddddd" class="form-control is-invalid" runat="server"></asp:TextBox>
 					<div class="invalid-feedback">Module name is required</div>
 				</div>
 
@@ -149,13 +148,10 @@
 					</script>
 				</div>
 
-
+				<asp:Button ID="Button1" runat="server" Text="Button" />
 				<br />
 				<hr />
 				<br />
-				<button type="submit" class="btn btn-outline-primary btn-lg">Save Changes</button>
-				<button type="button" class="btn btn-outline-danger btn-lg">Cancel</button>
 			</fieldset>
-		</form>
 	</div>
 </asp:Content>

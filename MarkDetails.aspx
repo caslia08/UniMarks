@@ -60,7 +60,7 @@
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-        <div id="myModal" class="modal fade" role="dialog">
+        <div id="myModal" class="modal fade" role="dialog" runat="server">
             <div class="modal-dialog modal-lg">
                 <!-- Modal content-->
                 <div class="modal-content">
@@ -72,26 +72,32 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="AssType">Reason for flag</label>
-                            <select class="form-control" id="AssType" runat="server"  name="AssType">
-                                <option disabled selected>Select a reason for flagging</option>
-                                <option>Incorrect mark captured on system</option>
+                 <%--           <select class="form-control" id="AssType" runat="server"  name="AssType">--%>
+                           <%--     <option disabled selected>Select a reason for flagging</option>--%>
+                                <asp:DropDownList ID="reasonForFlag" CssClass="form-control" runat="server" >
+                                    <asp:ListItem>Incorrect mark captured on system</asp:ListItem>
+                                    <asp:ListItem>Incorrect tallying of mark</asp:ListItem>
+                                    <asp:ListItem>Disagree with mark obtained</asp:ListItem>
+                                    <asp:ListItem>Other</asp:ListItem>
+                                </asp:DropDownList>
+                        <%--        <option>Incorrect mark captured on system</option>
                                 <option>Incorrect tallying of mark</option>
                                 <option>Disagree with mark obtained</option>
                                 <option>Other</option>
-                            </select>
+                            </select>--%>
                         </div>
                         <div class="form-group">
                             <label for="AssDesc">Elaboration on selection</label>
                            <%-- <asp:TextBox ID="AssDesc" runat="server" TextMode="MultiLine" class="form-control"></asp:TextBox>--%>
-                            <textarea class="form-control" id="AssDesc" rows="4" name ="AssDesc" runat="server"></textarea>
+      <%--                      <textarea class="form-control" id="AssDesc" rows="4" name ="AssDesc" runat="server"></textarea>--%>
+                            <asp:TextBox ID="elaborationOnFlag" runat="server" TextMode="MultiLine" CssClass="form-control"></asp:TextBox>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" runat="server" class="btn btn-outline-primary " data-dismiss="modal" onServerClick="submitFlagBtnClicked">Submit</button>
+                        <button type="submit" runat="server" class="btn btn-outline-primary " id="submitBtn"  onserverclick="submitFlagBtnClicked" >Submit</button>
                         <button type="button" class="btn btn-outline-danger " data-dismiss="modal">Cancel</button>
                     </div>
                 </div>
-
             </div>
         </div>
 
@@ -133,135 +139,140 @@
         });
      
     </script>
-    <script>
-        let myBarChart = document.getElementById('my-Bar-Chart').getContext('2d');
+    <div>
+        <asp:Literal ID="chartsBar" runat="server"></asp:Literal>
+        <asp:Literal ID="chartsPie" runat="server"></asp:Literal>
+        <asp:Literal ID="chartsLine" runat="server"></asp:Literal>
+    </div>
+  <%--  <script>
+        //let myBarChart = document.getElementById('my-Bar-Chart').getContext('2d');
 
-        let marksBarChart = new Chart(myBarChart, {
-            type: 'bar',
-            data: {
-                labels: ['0-10', '10-20', '20-30', '30-40', '40-50', '50-60', '60-70', '70-80', '80-90', '90-100'],
-                datasets: [{
-                    label:'',
-                    data: [0, 0, 0, 1, 5, 6,4,3,1,1],
-                  backgroundColor: [
-                        'rgba(153, 0, 0, 0.6)',
-                        'rgba(204, 0, 0, 0.6)',
-                        'rgba(255, 0, 0, 0.6)',
-                        'rgba(255, 48, 48, 0.6)',
-                        'rgba(0, 0, 153, 0.6)',
-                        'rgba(0, 125, 255, 0.6)',
-                        'rgba(0, 204, 204, 0.6)',
-                        'rgba(0,153 , 0, 0.6)',
-                        'rgba(0, 255, 0, 0.6)',
-                        'rgba(204, 255, 153, 0.6)'
+        //let marksBarChart = new Chart(myBarChart, {
+        //    type: 'bar',
+        //    data: {
+        //        labels: ['0-10', '10-20', '20-30', '30-40', '40-50', '50-60', '60-70', '70-80', '80-90', '90-100'],
+        //        datasets: [{
+        //            label:'',
+        //            data: [0, 0, 0, 1, 5, 6,4,3,1,1],
+        //          backgroundColor: [
+        //                'rgba(153, 0, 0, 0.6)',
+        //                'rgba(204, 0, 0, 0.6)',
+        //                'rgba(255, 0, 0, 0.6)',
+        //                'rgba(255, 48, 48, 0.6)',
+        //                'rgba(0, 0, 153, 0.6)',
+        //                'rgba(0, 125, 255, 0.6)',
+        //                'rgba(0, 204, 204, 0.6)',
+        //                'rgba(0,153 , 0, 0.6)',
+        //                'rgba(0, 255, 0, 0.6)',
+        //                'rgba(204, 255, 153, 0.6)'
 
 
-                    ],
-                    borderColor: [
-                        'rgba(153, 0, 0, 0.1)',
-                        'rgba(204, 0, 0, 0.1)',
-                        'rgba(255, 0, 0, 0.1)',
-                        'rgba(255, 48, 48, 0.1)',
-                        'rgba(0, 0, 153, 0.1)',
-                        'rgba(0, 125, 255, 0.1)',
-                        'rgba(0, 204, 204, 0.1)',
-                        'rgba(0,153 , 0, 0.1)',
-                        'rgba(0, 255, 0, 0.1)',
-                        'rgba(204, 255, 153, 0.1)'
-                    ],
-                    borderWidth: 1,
-                    hoverBorderWidth:2, 
-                    hoverBorderColor: '#000' 
-                }]
-            },
-            options: {
-                title: {
-                    display: true,
-                    text: 'Marks distrabution',
-                    fontSize: 25
-                },
-                legend: {
-                    display: false
-                },
-                scales: {
-                        xAxes: [{
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'percentage range'
-                        }
-                    }],
-                    yAxes: [{
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Number of people'
-                        },
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
+        //            ],
+        //            borderColor: [
+        //                'rgba(153, 0, 0, 0.1)',
+        //                'rgba(204, 0, 0, 0.1)',
+        //                'rgba(255, 0, 0, 0.1)',
+        //                'rgba(255, 48, 48, 0.1)',
+        //                'rgba(0, 0, 153, 0.1)',
+        //                'rgba(0, 125, 255, 0.1)',
+        //                'rgba(0, 204, 204, 0.1)',
+        //                'rgba(0,153 , 0, 0.1)',
+        //                'rgba(0, 255, 0, 0.1)',
+        //                'rgba(204, 255, 153, 0.1)'
+        //            ],
+        //            borderWidth: 1,
+        //            hoverBorderWidth:2, 
+        //            hoverBorderColor: '#000' 
+        //        }]
+        //    },
+        //    options: {
+        //        title: {
+        //            display: true,
+        //            text: 'Marks distrabution',
+        //            fontSize: 25
+        //        },
+        //        legend: {
+        //            display: false
+        //        },
+        //        scales: {
+        //                xAxes: [{
+        //                scaleLabel: {
+        //                    display: true,
+        //                    labelString: 'percentage range'
+        //                }
+        //            }],
+        //            yAxes: [{
+        //                scaleLabel: {
+        //                    display: true,
+        //                    labelString: 'Number of people'
+        //                },
+        //                ticks: {
+        //                    beginAtZero: true
+        //                }
+        //            }]
                 
-                }
-            }
-        });
+        //        }
+        //    }
+        //});
 
          let myPieChart = document.getElementById('my-Pie-Chart').getContext('2d');
 
-        let marksPieChart = new Chart(myPieChart, {
-            type: 'pie',
-            data: {
-                labels: ['0-10', '10-20', '20-30', '30-40', '40-50', '50-60', '60-70', '70-80', '80-90', '90-100'],
-                datasets: [{
-                    label:'',
-                    data: [0, 0, 0, 1, 5, 6,4,3,1,1],
-                    backgroundColor: [
-                        'rgba(153, 0, 0, 0.6)',
-                        'rgba(204, 0, 0, 0.6)',
-                        'rgba(255, 0, 0, 0.6)',
-                        'rgba(255, 48, 48, 0.6)',
-                        'rgba(0, 0, 153, 0.6)',
-                        'rgba(0, 125, 255, 0.6)',
-                        'rgba(0, 204, 204, 0.6)',
-                        'rgba(0,153 , 0, 0.6)',
-                        'rgba(0, 255, 0, 0.6)',
-                        'rgba(204, 255, 153, 0.6)'
+        //let marksPieChart = new Chart(myPieChart, {
+        //    type: 'pie',
+        //    data: {
+        //        labels: ['0-10', '10-20', '20-30', '30-40', '40-50', '50-60', '60-70', '70-80', '80-90', '90-100'],
+        //        datasets: [{
+        //            label:'',
+        //            data: [0, 0, 0, 1, 5, 6,4,3,1,1],
+        //            backgroundColor: [
+        //                'rgba(153, 0, 0, 0.6)',
+        //                'rgba(204, 0, 0, 0.6)',
+        //                'rgba(255, 0, 0, 0.6)',
+        //                'rgba(255, 48, 48, 0.6)',
+        //                'rgba(0, 0, 153, 0.6)',
+        //                'rgba(0, 125, 255, 0.6)',
+        //                'rgba(0, 204, 204, 0.6)',
+        //                'rgba(0,153 , 0, 0.6)',
+        //                'rgba(0, 255, 0, 0.6)',
+        //                'rgba(204, 255, 153, 0.6)'
 
 
-                    ],
-                    borderColor: [
-                        'rgba(153, 0, 0, 0.1)',
-                        'rgba(204, 0, 0, 0.1)',
-                        'rgba(255, 0, 0, 0.1)',
-                        'rgba(255, 48, 48, 0.1)',
-                        'rgba(0, 0, 153, 0.1)',
-                        'rgba(0, 125, 255, 0.1)',
-                        'rgba(0, 204, 204, 0.1)',
-                        'rgba(0,153 , 0, 0.1)',
-                        'rgba(0, 255, 0, 0.1)',
-                        'rgba(204, 255, 153, 0.1)'
-                    ],
-                    borderWidth: 1,
-                    hoverBorderWidth:2, 
-                    hoverBorderColor: '#000' 
-                }]
-            },
-            options: {
-                title: {
-                    display: true,
-                    text: 'Marks distrabution',
-                    fontSize: 25
-                },
-                legend: {
-                    display: true,
-                    position:'right'
+        //            ],
+        //            borderColor: [
+        //                'rgba(153, 0, 0, 0.1)',
+        //                'rgba(204, 0, 0, 0.1)',
+        //                'rgba(255, 0, 0, 0.1)',
+        //                'rgba(255, 48, 48, 0.1)',
+        //                'rgba(0, 0, 153, 0.1)',
+        //                'rgba(0, 125, 255, 0.1)',
+        //                'rgba(0, 204, 204, 0.1)',
+        //                'rgba(0,153 , 0, 0.1)',
+        //                'rgba(0, 255, 0, 0.1)',
+        //                'rgba(204, 255, 153, 0.1)'
+        //            ],
+        //            borderWidth: 1,
+        //            hoverBorderWidth:2, 
+        //            hoverBorderColor: '#000' 
+        //        }]
+        //    },
+        //    options: {
+        //        title: {
+        //            display: true,
+        //            text: 'Marks distrabution',
+        //            fontSize: 25
+        //        },
+        //        legend: {
+        //            display: true,
+        //            position:'right'
 
-                },
-                scales: {
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
+        //        },
+        //        scales: {
+        //            ticks: {
+        //                beginAtZero: true
+        //            }
+        //        }
+        //    }
+        //});
 
        let myLineChart = document.getElementById('my-Line-Chart').getContext('2d');
 
@@ -314,5 +325,5 @@
             }
         });
 
-    </script>
+    </script>--%>
 </asp:Content>
