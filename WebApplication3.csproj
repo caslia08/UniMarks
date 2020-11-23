@@ -167,8 +167,7 @@
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="AddAssessment.aspx" />
-    <Content Include="AddMarksTester.aspx" />
-    <Content Include="EditMarksTester.aspx" />
+    <Content Include="EditModule.aspx" />
     <Content Include="SearchModule.aspx" />
     <Content Include="SearchLecturer.aspx" />
     <Content Include="SearchStudent.aspx" />
@@ -186,7 +185,6 @@
     <Content Include="EditAssessment.aspx" />
     <Content Include="EditLecturerInformation.aspx" />
     <Content Include="AddModule.aspx" />
-    <Content Include="EditModuleDetails.aspx" />
     <Content Include="EditStudentInformation.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -359,19 +357,12 @@
     <Compile Include="AddAssessment.aspx.designer.cs">
       <DependentUpon>AddAssessment.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AddMarksTester.aspx.cs">
-      <DependentUpon>AddMarksTester.aspx</DependentUpon>
+    <Compile Include="EditModule.aspx.cs">
+      <DependentUpon>EditModule.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AddMarksTester.aspx.designer.cs">
-      <DependentUpon>AddMarksTester.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="EditMarksTester.aspx.cs">
-      <DependentUpon>EditMarksTester.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="EditMarksTester.aspx.designer.cs">
-      <DependentUpon>EditMarksTester.aspx</DependentUpon>
+    <Compile Include="EditModule.aspx.designer.cs">
+      <DependentUpon>EditModule.aspx</DependentUpon>
     </Compile>
     <Compile Include="SearchModule.aspx.cs">
       <DependentUpon>SearchModule.aspx</DependentUpon>
@@ -453,13 +444,6 @@
     </Compile>
     <Compile Include="AddModule.aspx.designer.cs">
       <DependentUpon>AddModule.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="EditModuleDetails.aspx.cs">
-      <DependentUpon>EditModuleDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="EditModuleDetails.aspx.designer.cs">
-      <DependentUpon>EditModuleDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditStudentInformation.aspx.cs">
       <DependentUpon>EditStudentInformation.aspx</DependentUpon>

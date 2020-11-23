@@ -14,6 +14,7 @@ namespace WebApplication3
             if (e.CommandName == "EditStudent")
             {
                 String studentNumber = e.CommandArgument.ToString();
+                EditStudentInformation.created = false;
                 Response.Redirect("EditStudentInformation.aspx?studentNumber=" + studentNumber);
             }
         }

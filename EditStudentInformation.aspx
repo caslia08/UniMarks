@@ -28,45 +28,40 @@
 		<br />
 		<form>
 			<fieldset>
-				<div class="form-group has-danger">
-					<label class="form-control-label" for="AssNameDanger">First Names</label>
-					<asp:TextBox ID="firstNames" class="form-control is-invalid" runat="server"></asp:TextBox>
-					<div class="invalid-feedback">First name is required</div>
-				</div>
-
-				<div class="form-group has-danger">
-					<label class="form-control-label" for="AssNameDanger">Last Name</label>
-					<asp:TextBox ID="lastName" class="form-control is-invalid" runat="server"></asp:TextBox>
-					<div class="invalid-feedback">Last name is required</div>
-				</div>
 
 				<div class="form-group has-danger">
 					<label class="form-control-label" for="AssNameDanger">Student Number</label>
-					<asp:TextBox ID="studentNum" class="form-control is-invalid" runat="server" ></asp:TextBox>
-					<div class="invalid-feedback">Staff number is required</div>
+					<asp:TextBox ID="studentNum" class="form-control is-valid" Enabled="false" runat="server"></asp:TextBox>
 				</div>
 
 				<div class="form-group has-danger">
 					<label class="form-control-label" for="AssNameDanger">ID Number</label>
-					<asp:TextBox ID="idNumber" class="form-control is-invalid" runat="server"></asp:TextBox>
-					<div class="invalid-feedback">ID number is required</div>
+					<asp:TextBox ID="idNumber" class="form-control is-valid" Enabled="false" runat="server"></asp:TextBox>
+				</div>
+
+				<div class="form-group has-danger">
+					<label class="form-control-label" for="AssNameDanger">First Names</label>
+					<asp:TextBox ID="firstNames" class="form-control is-valid" runat="server"></asp:TextBox>
+				</div>
+
+				<div class="form-group has-danger">
+					<label class="form-control-label" for="AssNameDanger">Last Name</label>
+					<asp:TextBox ID="lastName" class="form-control is-valid" runat="server"></asp:TextBox>
 				</div>
 
 				<div class="form-group has-danger">
 					<label class="form-control-label" for="AssNameDanger">Email address</label>
-					<asp:TextBox ID="email" class="form-control is-invalid" runat="server"></asp:TextBox>
-					<div class="invalid-feedback">Email is required</div>
+					<asp:TextBox ID="email" class="form-control is-valid" runat="server"></asp:TextBox>
 				</div>
 
 				<div class="form-group has-danger">
 					<label class="form-control-label" for="AssNameDanger">Title</label>
-					<asp:TextBox ID="title" class="form-control is-invalid" runat="server"></asp:TextBox>
-					<div class="invalid-feedback">Cell phone number is required</div>
+					<asp:TextBox ID="title" class="form-control is-valid" runat="server"></asp:TextBox>
 				</div>
 
 				<div class="form-group">
 					<label for="AssDate">Date Registered</label>
-					<asp:TextBox ID="dateReg" class="form-control is-invalid" runat="server"></asp:TextBox>
+					<asp:TextBox ID="dateReg" class="form-control is-valid" runat="server"></asp:TextBox>
 				</div>
 
 				<div class="form-group">
@@ -78,7 +73,7 @@
 						<asp:ListItem>Four</asp:ListItem>
 
 					</asp:DropDownList>
-	
+
 				</div>
 
 				<div class="form-group">
@@ -91,22 +86,22 @@
 						<asp:ListItem>FACULTY OF ENGINEERING, THE BUILT ENVIRONMENT AND TECHNOLOGY</asp:ListItem>
 						<asp:ListItem>FACULTY OF HEALTH SCIENCES</asp:ListItem>
 						<asp:ListItem>FACULTY OF LAW</asp:ListItem>
-					</asp:DropDownList>					
+					</asp:DropDownList>
 				</div>
 
 				<div class="jumbotron">
 					<h2>Registered Modules</h2>
 					<hr />
 					<br />
-				<asp:GridView ID="moduleView" class="table table-responsive table-hover" HeaderStyle-CssClass="table-primary" runat="server" AutoGenerateColumns="False">
-					<Columns>
-						<asp:BoundField DataField="moduleCode" HeaderText="moduleCode" SortExpression="moduleCode" />
-					</Columns>
-					<HeaderStyle CssClass="table-primary"></HeaderStyle>
-				</asp:GridView>		
+					<asp:GridView ID="moduleView" class="table table-responsive table-hover" HeaderStyle-CssClass="table-primary" runat="server" AutoGenerateColumns="False">
+						<Columns>
+							<asp:BoundField DataField="moduleCode" HeaderText="moduleCode" SortExpression="moduleCode" />
+						</Columns>
+						<HeaderStyle CssClass="table-primary"></HeaderStyle>
+					</asp:GridView>
 
 
-		
+
 				</div>
 
 				<br />

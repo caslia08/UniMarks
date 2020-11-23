@@ -13,7 +13,7 @@ namespace WebApplication3
     public partial class EditStudentInformation : System.Web.UI.Page
     {
         String sNum = "335975982";
-        static bool created = false;
+       public static bool created = false;
 
         private void populateTable()
         {
@@ -110,6 +110,45 @@ namespace WebApplication3
 
         protected void submit_Click(object sender, EventArgs e)
         {
+            created = false;
+
+            if (firstNames.Text.Length == 0)
+            {
+                firstNames.CssClass = "form-control is-invalid";
+                return;
+            }
+
+            if (lastName.Text.Length == 0)
+            {
+                lastName.CssClass = "form-control is-invalid";
+                return;
+            }
+
+            if (title.Text.Length == 0)
+            {
+                title.CssClass = "form-control is-invalid";
+                return;
+            }
+
+            if (email.Text.Length == 0)
+            {
+                email.CssClass = "form-control is-invalid";
+                return;
+            }
+
+            if (idNumber.Text.Length == 0)
+            {
+                idNumber.CssClass = "form-control is-invalid";
+                return;
+            }
+
+            if (dateReg.Text.Length == 0)
+            {
+                dateReg.CssClass = "form-control is-invalid";
+                return;
+            }
+
+
             string CS;
             CS = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             OleDbConnection dbConnection = new OleDbConnection(CS);
@@ -128,6 +167,7 @@ namespace WebApplication3
             OleDbCommand dbCommand = new OleDbCommand(sqlComm, dbConnection);
 
 
+
             dbCommand.Parameters.AddWithValue("@firstName", firstNames.Text);
             dbCommand.Parameters.AddWithValue("@lastName", lastName.Text);
             dbCommand.Parameters.AddWithValue("@title", title.Text);
@@ -141,21 +181,24 @@ namespace WebApplication3
             dbCommand.Parameters.AddWithValue("@sNum", sNum);
 
             dbConnection.Open();
-
-            int ReturnCode = dbCommand.ExecuteNonQuery();
-
-            if (ReturnCode == 1)
+            try
             {
-                Response.Write("<script>alert('Student edited successfully');</script>");
+                int ReturnCode = dbCommand.ExecuteNonQuery();
+
+                if (ReturnCode == 1)
+                {
+                    Response.Write("<script>alert('Student edited successfully');</script>");
+                }
+                else
+                {
+                    Response.Write("<script>alert('Student edited failed');</script>");
+                }
             }
-            else
+            catch (Exception err)
             {
-                Response.Write("<script>alert('Student edited failed');</script>");
+                Response.Write("<script>alert('Student edited failed: " + err.Message + "');</script>");
             }
-
-            dbConnection.Close();
-
-            created = false;
+            dbConnection.Close();            
         }
 
         protected void cancle_Click(object sender, EventArgs e)
