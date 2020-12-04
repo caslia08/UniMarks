@@ -9,6 +9,14 @@ namespace WebApplication3
 {
     public partial class AdminHomePage : System.Web.UI.Page
     {
-
+        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "EditStudent")
+            {
+                String studentNumber = e.CommandArgument.ToString();
+                EditStudentInformation.created = false;
+                Response.Redirect("EditStudentInformation.aspx?studentNumber=" + studentNumber);
+            }
+        }
     }
 }

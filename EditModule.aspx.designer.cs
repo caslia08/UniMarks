@@ -10,7 +10,16 @@
 namespace WebApplication3 {
     
     
-    public partial class EditModuleDetials {
+    public partial class EditModule {
+        
+        /// <summary>
+        /// mdCode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox mdCode;
         
         /// <summary>
         /// moduleName control.
@@ -20,15 +29,6 @@ namespace WebApplication3 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox moduleName;
-        
-        /// <summary>
-        /// moduleCode control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox moduleCode;
         
         /// <summary>
         /// lecutureDrop control.
@@ -67,21 +67,21 @@ namespace WebApplication3 {
         protected global::System.Web.UI.WebControls.GridView moduleAssesmentView;
         
         /// <summary>
-        /// createBnt control.
+        /// saveBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button createBnt;
+        protected global::System.Web.UI.WebControls.Button saveBtn;
         
         /// <summary>
-        /// cancelBnt control.
+        /// cancelBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button cancelBnt;
+        protected global::System.Web.UI.WebControls.Button cancelBtn;
     }
 }

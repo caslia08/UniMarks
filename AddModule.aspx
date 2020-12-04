@@ -42,122 +42,56 @@
 			<fieldset>
 				<div class="form-group has-danger">
 					<label class="form-control-label" for="AssNameDanger">Full Module Name</label>
-					<input type="text" class="form-control is-invalid" id="inputInvalidName">
-					<div class="invalid-feedback">Module name is required</div>
+					<asp:TextBox ID="moduleName" class="form-control is-invalid" runat="server"></asp:TextBox>
 				</div>
 
 				<div class="form-group has-danger">
 					<label class="form-control-label">Module Code</label>
-					<input type="text" class="form-control is-invalid" id="inputInvalidCode">
-					<div class="invalid-feedback">Module code is required</div>
+					<asp:TextBox ID="moduleCode" class="form-control is-invalid" runat="server"></asp:TextBox>
 				</div>
 
 				<div class="form-group has-danger">
-					<label class="form-control-label">Module Lecturer</label>
-					<input type="text" class="form-control is-invalid" id="inputInvalidLecturer">
-					<div class="invalid-feedback">Module lecturer is required</div>
+					<label class="form-control-label">Module Lecturer Number</label>
+					<asp:DropDownList ID="lecutureDrop" class="form-control" runat="server"></asp:DropDownList>
 				</div>
 
 				<div class="form-group">
 					<label for="AssDesc">Description</label>
-					<textarea class="form-control" id="AssDesc" rows="4"></textarea>
+					<asp:TextBox ID="moduleDsc" runat="server" class="form-control" placeholder="Module Description" TextMode="MultiLine" Rows="5"></asp:TextBox>					
 				</div>
 
 				<div class="form-group">
-					<label for="AssDesc">Module students</label>
-
-					<table class="table table-hover custome-table-props module-students">
-						<thead>
-							<tr>
-								<th>Student Number</th>
-								<th>Last Name</th>
-								<th></th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>00000000000000</td>
-								<td>LORD JASSON </td>
-								<%--Was here--%>
-
-								<td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">View Studnet</a></td>
-							</tr>
-							<tr>
-								<td>00000000000000</td>
-								<td>Basson </td>
-
-								<td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">View Studnet</a></td>
-							</tr>
-							<tr>
-								<td>00000000000000</td>
-								<td>Porter </td>
-
-								<td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">View Studnet</a></td>
-						</tbody>
-					</table>
-					<link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
-					<script src="https://code.jquery.com/jquery-3.5.1.jss"></script>
-					<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-					<script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
-
-					<script>
-						$(document).ready(function () {
-							$('.module-students').DataTable();
-						});
-					</script>
+					<%--<label for="AssDesc">Module students</label>--%>
+					<asp:GridView ID="studentView" class="table table-responsive table-hover" HeaderStyle-CssClass="table-primary" runat="server" AutoGenerateColumns="False">
+						<Columns>
+							<asp:BoundField DataField="studentNumber" HeaderText="studentNumber" ReadOnly="True" SortExpression="studentNumber" />
+							<asp:BoundField DataField="firtsName" HeaderText="firtsName" SortExpression="firtsName" />
+							<asp:BoundField DataField="surname" HeaderText="surname" SortExpression="surname" />
+						</Columns>
+						<HeaderStyle CssClass="table-primary"></HeaderStyle>
+					</asp:GridView>				
 
 				</div>
 
 				<div class="form-group">
-					<label for="AssDesc">Module assesments</label>
+					<%--<label for="AssDesc">Module assesments</label>--%>
 
-					<table class="table table-hover custome-table-props module-ass">
-						<thead>
-							<tr>
-								<th>Module Code</th>
-								<th>Module Name</th>
-								<th></th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>MMMMMM </td>
-								<td>Namedadadada </td>
+					<asp:GridView ID="moduleAssesmentView" class="table table-responsive table-hover" HeaderStyle-CssClass="table-primary" runat="server" AutoGenerateColumns="False">
+						<Columns>
+							<asp:BoundField DataField="assessmentID" HeaderText="assessmentID" SortExpression="assessmentID" />
+						</Columns>
+						<HeaderStyle CssClass="table-primary"></HeaderStyle>
+					</asp:GridView>				
 
-								<td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">View Assesment</a></td>
-							</tr>
-							<tr>
-								<td>MMMMMM </td>
-								<td>Name </td>
 
-								<td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">View Assesment</a></td>
-							</tr>
-							<tr>
-								<td>MMMMMM </td>
-								<td>Name </td>
-
-								<td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">View Assesment</a></td>
-						</tbody>
-					</table>
-					<link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
-					<script src="https://code.jquery.com/jquery-3.5.1.jss"></script>
-					<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-					<script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
-
-					<script>
-						$(document).ready(function () {
-							$('.module-ass').DataTable(); /*Nice*/
-						});
-					</script>
 				</div>
 
 
 				<br />
 				<hr />
 				<br />
-			
-            <button type="button" class="btn btn-outline-primary btn-lg btn-rounded-border" data-toggle="modal" data-target="#myModal">Create</button>
-				<button type="button" class="btn btn-outline-danger btn-lg">Cancel</button>
+				<asp:Button ID="createBnt" class="btn btn-outline-primary btn-lg btn-rounded-border" runat="server" Text="Create" OnClick="createBnt_Click" />
+				<asp:Button ID="cancelBnt" class="btn btn-outline-danger btn-lg" runat="server" Text="Cancel" OnClick="cancelBnt_Click" />
 			</fieldset>
 		</form>
 

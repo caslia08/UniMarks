@@ -25,10 +25,10 @@ namespace WebApplication3
                 CS = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
                 OleDbConnection dbConnection = new OleDbConnection(CS); 
                 
-                String sqlComm = "INSERT into [Assessment Information]([assessmentID], [assessmentName],[assessmentType],[assessmentDate],[assessmentDescription]," +
+                String sqlInsert = "INSERT into [Assessment Information]([assessmentID], [assessmentName],[assessmentType],[assessmentDate],[assessmentDescription]," +
                     "[assessmentVenue],[classAverage],[assessmentWeightage] ) VALUES (@ID, @name, @type, @date, @desc, @venue, @average, @weight)";
 
-                OleDbCommand dbCommand = new OleDbCommand(sqlComm, dbConnection);
+                OleDbCommand dbCommand = new OleDbCommand(sqlInsert, dbConnection);
 
                 dbCommand.Parameters.AddWithValue("@ID", txtAssID.Text);
                 dbCommand.Parameters.AddWithValue("@name", txtAssName.Text);
@@ -41,27 +41,56 @@ namespace WebApplication3
 
                 dbConnection.Open();
 
-                int ReturnCode = dbCommand.ExecuteNonQuery();
-
-                if (ReturnCode == 1)
+                if (!checkID())
                 {
-                    Response.Write("<script>alert('Assessment Added Successfully');</script>");
-                    //TODO success message
+
+                    int ReturnCode = dbCommand.ExecuteNonQuery();
+
+                    if (ReturnCode == 1)
+                    {
+                        Response.Write("<script>alert('Assessment Added Successfully');</script>");
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('Assessment Could not be Added');</script>");
+                    }
                 }
                 else
                 {
-                    Label1.Text = "Oof";
 
-                    //TODO error 
+                    Response.Write("<script>alert('Assessment ID already Exists');</script>");
+
                 }
-
-
             }
             else
             {
-                Label1.Text = "Big Oof";
+                Response.Write("<script>alert('This Page is not working');</script>");
+            }
+        }
 
-                //TODO disp error message
+        private Boolean checkID()
+        {
+            string CS;
+            CS = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            OleDbConnection dbConnection = new OleDbConnection(CS);
+
+            String sqlCheck = "SELECT assessmentName FROM[Assessment Information] WHERE assessmentID = @ID";
+
+            OleDbCommand dbCommand = new OleDbCommand(sqlCheck, dbConnection);
+
+            dbCommand.Parameters.AddWithValue("@ID", txtAssID.Text);
+
+            dbConnection.Open();
+
+            int ReturnCode = dbCommand.ExecuteNonQuery();
+
+            if (ReturnCode == 1)
+            {
+                return false; 
+            }
+            else
+            {
+                return true;
             }
         }
     }

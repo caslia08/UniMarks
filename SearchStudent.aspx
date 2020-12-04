@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SearchStudent.aspx.cs" Inherits="WebApplication3.AdminHomePage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="pageTitle" runat="server">
-	Search Student
+	View Student
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Custom_styles_placeholder" runat="server">
     <style>
@@ -37,55 +37,40 @@
 	</ol>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="mainHeading" runat="server">
-	Search Student
+	View Student
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="MainContent" runat="server">
     <div class="jumbotron">
-        <h2>Search Student</h2>
+        <h2>View Student</h2>
         <hr />
         <br />
  
-        <table class="table table-hover custome-table-props marks-table" >
-            <thead>
-                <tr>
-                    <th>Student Number</th>
-                    <th>ID Number</th>
-					<th>Last name</th>
-                    <th>Email</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>00000000000</td>
-                    <td>00000000000</td>					
-                    <td>NAME</td>
-                    <td>@MAIL</td>
-                    <td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">Edit Student Details</a></td>
-                </tr>
-                   <tr>
-                    <td>00000000000</td>
-                    <td>00000000000</td>
-                    <td>NAME</td>
-                    <td>@MAIL</td>
-                    <td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">Edit Student Details</a></td>
-                </tr>
-                   <tr>
-                   <td>00000000000</td>
-                   <td>00000000000</td>
-                    <td>NAME</td>
-                    <td>@MAIL</td>
-                    <td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">Edit Student Details</a></td>
-                </tr>
-                   <tr>
-                    <td>00000000000</td>
-                    <td>00000000000</td>
-                    <td>NAME</td>
-                    <td>@MAIL</td>
-					<td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">Edit Student Details</a></td>                    
-                </tr>
-            </tbody>
-        </table>
+		<asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="studentNumber" DataSourceID="SqlDataSource1"
+			class="table table-responsive table-hover" HeaderStyle-CssClass="table-primary" OnRowCommand="GridView1_RowCommand"
+			>
+			<Columns>
+				<asp:BoundField DataField="studentNumber" HeaderText="studentNumber" ReadOnly="True" SortExpression="studentNumber" />
+				<asp:BoundField DataField="firtsName" HeaderText="firtsName" SortExpression="firtsName" />
+				<asp:BoundField DataField="surname" HeaderText="surname" SortExpression="surname" />
+				<asp:BoundField DataField="title" HeaderText="title" SortExpression="title" />
+				<asp:BoundField DataField="emailAddress" HeaderText="emailAddress" SortExpression="emailAddress" />
+				<asp:BoundField DataField="IDNumber" HeaderText="IDNumber" SortExpression="IDNumber" />
+				<asp:BoundField DataField="dateOfRegistration" HeaderText="dateOfRegistration" SortExpression="dateOfRegistration" />
+				<asp:BoundField DataField="yearOfStudy" HeaderText="yearOfStudy" SortExpression="yearOfStudy" />
+				<asp:BoundField DataField="qualificationCode" HeaderText="qualificationCode" SortExpression="qualificationCode" />
+				<asp:BoundField DataField="qualificationName" HeaderText="qualificationName" SortExpression="qualificationName" />
+							                 <asp:TemplateField>
+                   <ItemTemplate>
+                    <asp:Button ID="btnEditSdnt" runat="server" Text="Edit Student" class="btn btn-outline-primary btn-sm btn-rounded-border"
+                             CommandName="EditStudent" CausesValidation="false" CommandArgument='<%# Eval("studentNumber") %>' />
+                   </ItemTemplate>
+               </asp:TemplateField>
+			</Columns>
+		</asp:GridView>
+       
+
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [Student]"></asp:SqlDataSource>
+       
 
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
           <script src="https://code.jquery.com/jquery-3.5.1.jss"></script>
