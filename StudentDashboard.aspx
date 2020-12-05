@@ -80,19 +80,19 @@
                     <table class="table table-hover">
                         <tr>
                             <td>Title:</td>
-                            <td>Mr</td>
+                            <td><p id ="title" runat="server"></p></td>
                         </tr>
                         <tr>
                             <td>Full name:</td>
-                            <td>Commander Shepard</td>
+                            <td id ="fullName" runat="server"></td>
                         </tr>
                         <tr>
                             <td>Email address:</td>
-                            <td>INeedAJob@IhateWebProgramming.ac.za</td>
+                            <td id="emailAddress" runat="server"></td>
                         </tr>
                         <tr>
                             <td>Id number:</td>
-                            <td>1010101010101010</td>
+                            <td id="IDNumber" runat="server"></td>
                         </tr>
                     </table>
                 </div>
@@ -104,21 +104,21 @@
                     </h5>
                     <table class="table table-hover">
                         <tr>
-                            <td>Department:</td>
-                            <td>FACULTY OF SCIENCE</td>
+                            <td>Faculty:</td>
+                            <td id="Faculty" runat="server"></td>
                         </tr>
                         <tr>
                             <td>Student number:</td>
-                            <td>1010101010101010</td>
+                            <td id="studNum" runat="server"></td>
                         </tr>
                          <tr>
                             <td>Qualification code:</td>
-                            <td>xxxxx</td>
+                            <td id="qualificationCode" runat="server"></td>
                         </tr>
-                       <tr>
+                 <%--      <tr>
                             <td>Qualification name:</td>
-                            <td>Bsc General</td>
-                        </tr>
+                            <td id="qualificationName" runat="server">Bsc General</td>
+                        </tr>--%>
                     </table>
                 </div>
             </div>
