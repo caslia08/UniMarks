@@ -59,10 +59,6 @@
 					<asp:DropDownList ID="lecutureDrop" class="form-control" runat="server"></asp:DropDownList>
 				</div>
 
-				<div class="form-group">
-					<label for="AssDesc">Description</label>
-					<asp:TextBox ID="moduleDsc" runat="server" class="form-control" placeholder="Module Description" TextMode="MultiLine" Rows="5"></asp:TextBox>
-				</div>
 
 				<div class="form-group">
 					<label for="AssDesc">Module students</label>
