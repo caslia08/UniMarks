@@ -94,7 +94,7 @@ namespace WebApplication3.Account
                         Response.Redirect("~/AdminHomePage.aspx");
                         break;
                     case 1:
-                        Response.Redirect("~/LecturerHomePage.aspx");
+                        Response.Redirect("~/Lecturer/LecturerHomePage.aspx");
                         break;
                     case 2:
                         Response.Redirect("~/StudentDashboard.aspx");

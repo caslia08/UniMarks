@@ -166,7 +166,7 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
-    <Content Include="AddAssessment.aspx" />
+    <Content Include="Lecturer\AddAssessment.aspx" />
     <Content Include="EditModule.aspx" />
     <Content Include="SearchModule.aspx" />
     <Content Include="SearchLecturer.aspx" />
@@ -182,7 +182,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="EditAdminInformation.aspx" />
-    <Content Include="EditAssessment.aspx" />
+    <Content Include="Lecturer\EditAssessment.aspx" />
     <Content Include="EditLecturerInformation.aspx" />
     <Content Include="AddModule.aspx" />
     <Content Include="EditStudentInformation.aspx" />
@@ -199,11 +199,11 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Account\Web.config" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
-    <Content Include="LecturerHomePage.aspx" />
-    <Content Include="LecturerModuleStatistics.aspx" />
-    <Content Include="LecturerStudentProgress.aspx" />
-    <Content Include="LecturerStudentView.aspx" />
-    <Content Include="LecturerViewAssessments.aspx" />
+    <Content Include="Lecturer\LecturerHomePage.aspx" />
+    <Content Include="Lecturer\LecturerModuleStatistics.aspx" />
+    <Content Include="Lecturer\LecturerStudentProgress.aspx" />
+    <Content Include="Lecturer\LecturerStudentView.aspx" />
+    <Content Include="Lecturer\LecturerViewAssessments.aspx" />
     <Content Include="MarkDetails.aspx" />
     <Content Include="ModuleAssessments.aspx" />
     <Content Include="ModuleHomePage.aspx" />
@@ -350,11 +350,11 @@
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AddAssessment.aspx.cs">
+    <Compile Include="Lecturer\AddAssessment.aspx.cs">
       <DependentUpon>AddAssessment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AddAssessment.aspx.designer.cs">
+    <Compile Include="Lecturer\AddAssessment.aspx.designer.cs">
       <DependentUpon>AddAssessment.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditModule.aspx.cs">
@@ -424,11 +424,11 @@
     <Compile Include="EditAdminInformation.aspx.designer.cs">
       <DependentUpon>EditAdminInformation.aspx</DependentUpon>
     </Compile>
-    <Compile Include="EditAssessment.aspx.cs">
+    <Compile Include="Lecturer\EditAssessment.aspx.cs">
       <DependentUpon>EditAssessment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="EditAssessment.aspx.designer.cs">
+    <Compile Include="Lecturer\EditAssessment.aspx.designer.cs">
       <DependentUpon>EditAssessment.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditLecturerInformation.aspx.cs">
@@ -455,39 +455,39 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="LecturerHomePage.aspx.cs">
+    <Compile Include="Lecturer\LecturerHomePage.aspx.cs">
       <DependentUpon>LecturerHomePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="LecturerHomePage.aspx.designer.cs">
+    <Compile Include="Lecturer\LecturerHomePage.aspx.designer.cs">
       <DependentUpon>LecturerHomePage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="LecturerModuleStatistics.aspx.cs">
+    <Compile Include="Lecturer\LecturerModuleStatistics.aspx.cs">
       <DependentUpon>LecturerModuleStatistics.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="LecturerModuleStatistics.aspx.designer.cs">
+    <Compile Include="Lecturer\LecturerModuleStatistics.aspx.designer.cs">
       <DependentUpon>LecturerModuleStatistics.aspx</DependentUpon>
     </Compile>
-    <Compile Include="LecturerStudentProgress.aspx.cs">
+    <Compile Include="Lecturer\LecturerStudentProgress.aspx.cs">
       <DependentUpon>LecturerStudentProgress.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="LecturerStudentProgress.aspx.designer.cs">
+    <Compile Include="Lecturer\LecturerStudentProgress.aspx.designer.cs">
       <DependentUpon>LecturerStudentProgress.aspx</DependentUpon>
     </Compile>
-    <Compile Include="LecturerStudentView.aspx.cs">
+    <Compile Include="Lecturer\LecturerStudentView.aspx.cs">
       <DependentUpon>LecturerStudentView.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="LecturerStudentView.aspx.designer.cs">
+    <Compile Include="Lecturer\LecturerStudentView.aspx.designer.cs">
       <DependentUpon>LecturerStudentView.aspx</DependentUpon>
     </Compile>
-    <Compile Include="LecturerViewAssessments.aspx.cs">
+    <Compile Include="Lecturer\LecturerViewAssessments.aspx.cs">
       <DependentUpon>LecturerViewAssessments.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="LecturerViewAssessments.aspx.designer.cs">
+    <Compile Include="Lecturer\LecturerViewAssessments.aspx.designer.cs">
       <DependentUpon>LecturerViewAssessments.aspx</DependentUpon>
     </Compile>
     <Compile Include="MarkDetails.aspx.cs">
