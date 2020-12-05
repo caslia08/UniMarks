@@ -70,8 +70,8 @@
           <Columns>
               <asp:BoundField DataField="assessmentID" HeaderText="Assessment ID" ReadOnly="True" SortExpression="assessmentID" />
               <asp:BoundField DataField="assessmentName" HeaderText="Name" SortExpression="assessmentName" />
-              <asp:BoundField DataField="assessmentDescription" HeaderText="Description" SortExpression="assessmentDescription" />
-              <asp:BoundField DataField="assessmentDate" HeaderText="Date" SortExpression="assessmentDate" />
+              <asp:BoundField DataField="assessmentType" HeaderText="assessmentType" SortExpression="assessmentType" />
+              <asp:BoundField DataField="assessmentDate" HeaderText="Date" SortExpression="assessmentDate" DataFormatString="{0:d}" HtmlEncode="False" />
               <asp:BoundField DataField="assessmentType" HeaderText="Assessment Type" SortExpression="assessmentType" />
               <asp:BoundField DataField="assessmentVenue" HeaderText="Venue" SortExpression="assessmentVenue" />
               <asp:BoundField DataField="assessmentWeightage" HeaderText="Weightage %" SortExpression="assessmentWeightage" />
@@ -96,7 +96,11 @@
 <HeaderStyle CssClass="table-primary"></HeaderStyle>
         </asp:GridView>
 
-      <asp:SqlDataSource ID="sqlAssessmentDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [Assessment Information]"></asp:SqlDataSource>
+      <asp:SqlDataSource ID="sqlAssessmentDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT [assessmentID], [assessmentName], [assessmentType], [assessmentDate], [assessmentDescription], [assessmentVenue], [classAverage], [assessmentWeightage] FROM [Assessment Information] WHERE ([moduleCode] = ?)">
+          <SelectParameters>
+              <asp:SessionParameter DefaultValue="MATT212" Name="moduleCode" SessionField="ModuleCode" Type="String" />
+          </SelectParameters>
+      </asp:SqlDataSource>
  
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
           <script src="https://code.jquery.com/jquery-3.5.1.jss"></script>
