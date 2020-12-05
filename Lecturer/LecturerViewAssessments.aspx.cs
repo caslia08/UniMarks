@@ -14,7 +14,7 @@ namespace WebApplication3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["ModuleCode"] = "WRCV202"; 
+            //Session["ModuleCode"] = "WRCV202"; 
             gridViewAssessments.HeaderRow.TableSection = TableRowSection.TableHeader;
             if (!this.IsPostBack)
             {
