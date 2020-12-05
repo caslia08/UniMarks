@@ -51,9 +51,8 @@
 
               <div class="form-group">
                 <label for="txtAssDate">Date</label>
-                <asp:TextBox ID="txtAssDate" runat="server" class="form-control" TextMode="Date"></asp:TextBox>
+                <asp:TextBox ID="txtAssDate"  runat="server" TextMode="Date" class="form-control" ></asp:TextBox>
                 <asp:RequiredFieldValidator ID="requiredDateVal" runat="server" ControlToValidate="txtAssDate" ErrorMessage="Date Required" class="text-danger"></asp:RequiredFieldValidator>
-
             </div>
 
              <div class="form-group">
