@@ -103,19 +103,19 @@
 					<table class="table table-hover">
 						<tr>
 							<td>Title:</td>
-							<td>Mrs</td>
+							<td><asp:Label ID="txtTitle" runat="server"></asp:Label> </td>
 						</tr>
 						<tr>
-							<td>Full name:</td>
-							<td>Jane Doe</td>
+							<td>Full Name:</td>
+							<td><asp:Label ID="txtFullName" runat="server"></asp:Label></td>
 						</tr>
 						<tr>
-							<td>Email address:</td>
-							<td>Jane.Doe@mandela.ac.za</td>
+							<td>Email Address:</td>
+							<td><asp:Label ID="txtEmail" runat="server"></asp:Label></td>
 						</tr>
 						<tr>
-							<td>Id number:</td>
-							<td>6502150022087</td>
+							<td>ID Number:</td>
+							<td><asp:Label ID="txtID" runat="server"></asp:Label></td>
 						</tr>
 
 					</table>
@@ -129,15 +129,15 @@
 					<table class="table table-hover">
 						<tr>
 							<td>Department:</td>
-							<td>FACULTY OF SCIENCE</td>
+							<td>FACULTY OF <asp:Label ID="txtFaculty" runat="server"></asp:Label></td>
 						</tr>
 						<tr>
 							<td>Staff number:</td>
-							<td>2133645692</td>
+							<td><asp:Label ID="txtStaffNum" runat="server"></asp:Label></td>
 						</tr>
 						<tr>
 							<td>Office number:</td>
-							<td>+27-4102356</td>
+							<td><asp:Label ID="txtTel" runat="server"></asp:Label></td>
 						</tr>
 					</table>
 				</div>
@@ -150,19 +150,19 @@
              <div class="grid-heading">
                  <h4>MAPV301-Partial Differential Equations</h4>
              </div>
-             <img src="Image/Math_logo.png" alt="module-image" class="module-img" />
+             <img src="~/Image/Math_logo.png" alt="module-image" class="module-img" />
          </div>
          <div class="module-grid-item">
              <div class="grid-heading">
                  <h4>MAP112-Mathematical Modelling</h4>
              </div>
-             <img src="Image/Business_logo.png" alt="module-image" class="module-img" />
+             <img src="~/Image/Business_logo.png" alt="module-image" class="module-img" />
          </div>
          <div class="module-grid-item">
              <div class="grid-heading">
                  <h4>MAPV101-Graph Theory</h4>
              </div>
-             <img src="Image/Math_logo.png" alt="module-image" class="module-img" />
+             <img src="~\Image\Math_logo.png" alt="module-image" class="module-img" />
          </div>
      </div>
 	<br />

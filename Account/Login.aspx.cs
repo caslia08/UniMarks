@@ -87,7 +87,6 @@ namespace WebApplication3.Account
                 Session["Email"] = txtEmail.Text;             
                 DataRow datarow = userSet.Tables[0].Rows[0];
                 int userType = int.Parse(datarow.Field<string>("userRoleCode"));
-               
                 switch (userType)
                 {
                     case 0:
