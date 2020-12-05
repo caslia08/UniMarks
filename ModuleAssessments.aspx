@@ -15,6 +15,9 @@
             color: grey;
             font-size:small;
         }
+        .auto-style1 {
+            margin-top: 0px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Login_LogoutButton" runat="server">
@@ -35,19 +38,24 @@
         <hr />
         <br />
        
-        <asp:GridView ID="assessmentsView" class="table table-responsive table-hover" HeaderStyle-CssClass="table-primary" autogeneratecolumns="false"  GridLines="none" BorderStyle="None" runat="server">
+        <asp:GridView ID="assessmentsView" class="table table-responsive table-hover" HeaderStyle-CssClass="table-primary" AutoGenerateColumns="false"  GridLines="none" BorderStyle="None" runat="server" OnRowCommand="assessmentsViewRowCommand" >
         <columns>
+             
             <asp:boundfield datafield="assessmentName" headertext="Assessment name"/>
             <asp:boundfield datafield="assessmentType" headertext="Type"/>
             <asp:boundfield datafield="assessmentDate" headertext="Date"/>
             <asp:boundfield datafield="assessmentDescription" headertext="Description"/>
             <asp:boundfield datafield="assessmentVenue" headertext="Venue"/>
-      
+       <asp:TemplateField>
+                   <ItemTemplate>
+                       <asp:Button ID="ViewMark" runat="server" Text="View mark" CommandName="ViewMark" CommandArgument="<%# Container.DataItemIndex %>"  class="btn btn-outline-primary btn-sm btn-rounded-border"/>
+                   </ItemTemplate>
+               </asp:TemplateField>
      </columns>
         </asp:GridView>
 
 
-        <table class="table table-hover custome-table-props marks-table" >
+      <%--  <table class="table table-hover custome-table-props marks-table" >
             <thead>
                 <tr>
                     <th>Name</th>
@@ -97,7 +105,7 @@
                     <td class="no-mark">Not available</td>
                 </tr>
             </tbody>
-        </table>
+        </table>--%>
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
           <script src="https://code.jquery.com/jquery-3.5.1.jss"></script>
         <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
