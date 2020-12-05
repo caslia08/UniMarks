@@ -80,19 +80,19 @@
                     <table class="table table-hover">
                         <tr>
                             <td>Title:</td>
-                            <td>Mr</td>
+                            <td><p id ="title" runat="server"></p></td>
                         </tr>
                         <tr>
                             <td>Full name:</td>
-                            <td>Commander Shepard</td>
+                            <td id ="fullName" runat="server"></td>
                         </tr>
                         <tr>
                             <td>Email address:</td>
-                            <td>INeedAJob@IhateWebProgramming.ac.za</td>
+                            <td id="emailAddress" runat="server"></td>
                         </tr>
                         <tr>
                             <td>Id number:</td>
-                            <td>1010101010101010</td>
+                            <td id="IDNumber" runat="server"></td>
                         </tr>
                     </table>
                 </div>
@@ -104,21 +104,21 @@
                     </h5>
                     <table class="table table-hover">
                         <tr>
-                            <td>Department:</td>
-                            <td>FACULTY OF SCIENCE</td>
+                            <td>Qualification Name:</td>
+                            <td id="qualificatinName" runat="server"></td>
                         </tr>
                         <tr>
                             <td>Student number:</td>
-                            <td>1010101010101010</td>
+                            <td id="studNum" runat="server"></td>
                         </tr>
                          <tr>
                             <td>Qualification code:</td>
-                            <td>xxxxx</td>
+                            <td id="qualificationCode" runat="server"></td>
                         </tr>
-                       <tr>
+                 <%--      <tr>
                             <td>Qualification name:</td>
-                            <td>Bsc General</td>
-                        </tr>
+                            <td id="qualificationName" runat="server">Bsc General</td>
+                        </tr>--%>
                     </table>
                 </div>
             </div>
@@ -126,13 +126,29 @@
     </div>
     
     <div class="grid-container">
-        <div class ="module-grid-item">
+   <%--     <asp:Literal ID="dashboardCards" runat="server"></asp:Literal>--%>
+        
+        <asp:Button ID="btnHiddenLinearAlgebra" runat="server" OnClick="redirectToLinearAlgebra" Style="display: none" />
+
+        <div class ="module-grid-item" onclick="javascript:DivClicked_LinearAlgebra(); return true;">
             <div class="grid-heading">
-                <h4>WRR301-Project</h4>
+                <h4>Linear Algebra</h4>
             </div>
-            <img src="Image/CS_logo.png" alt="module-image" class="module-img"/>
+            <img src="Image/Math_logo.png" alt="module-image"class="module-img" />
         </div>
-              <div class ="module-grid-item">
+        
+        <script>
+            function DivClicked_LinearAlgebra()
+            {
+                var btnHidden = $('#<%= btnHiddenLinearAlgebra.ClientID %>');
+                if(btnHidden != null)
+                {
+                    btnHidden.click();
+                }
+            }
+        </script>
+
+    <%--    <div class ="module-grid-item">
             <div class="grid-heading">
                 <h4>MSCV101-Generic Engineering</h4>
             </div>
@@ -174,7 +190,7 @@
                 <h4>BDSM102-Generic Business Module 2</h4>
             </div>
             <img src="Image/Business_logo.png" alt="module-image" class="module-img" />
-        </div>
+        </div>--%>
      </div>
     
 </asp:Content>
