@@ -126,7 +126,8 @@
     </div>
     
     <div class="grid-container">
-        <div class ="module-grid-item">
+        <asp:Literal ID="dashboardCards" runat="server"></asp:Literal>
+<%--        <div class ="module-grid-item">
             <div class="grid-heading">
                 <h4>WRR301-Project</h4>
             </div>
@@ -174,7 +175,7 @@
                 <h4>BDSM102-Generic Business Module 2</h4>
             </div>
             <img src="Image/Business_logo.png" alt="module-image" class="module-img" />
-        </div>
+        </div>--%>
      </div>
     
 </asp:Content>

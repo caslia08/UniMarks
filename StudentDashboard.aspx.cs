@@ -14,14 +14,14 @@ namespace WebApplication3
         long studentNumber = 335975982;
         protected void Page_Load(object sender, EventArgs e)
         {
-            populatePersonalDeatails();
 
+            populatePersonalDeatails();
+            setUpDashboardCards();
         }
 
         private void populatePersonalDeatails()
         {
             Object[] resData = new Object[20];
-            Object[] resData2 = new Object[1];
             Boolean read;
             String cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             OleDbConnection dbConn = new OleDbConnection(cs);
@@ -54,5 +54,12 @@ namespace WebApplication3
             studNum.InnerText = resData[0].ToString();
         }
 
+        private void setUpDashboardCards()
+        {
+
+            //dashboardCards.Text
+        }
+
     }
+
 }

@@ -14,122 +14,154 @@ namespace WebApplication3
 {
     public partial class MarkDetails : System.Web.UI.Page
     {
+        long studentNumber = 335975982;
+        long assessmentID = 98405;  //Change to get from whatever ID was selected from the modules selected page
         ArrayList allMakrs = new ArrayList();
         protected void Page_Load(object sender, EventArgs e)
         {
-            long studentNumber; //Change to get from who ever is logged in
-            long assessmentID; //Change to get from whatever ID was selected from the modules selected page
-            Object[] resData;
-            Object[] resData2;
-            Object[] resData3;
-            Object[] resData4;
-            Object[] resData5;
-            String cs;
-            Boolean read;
-            studentNumber = 335975982;
-            assessmentID = 98405;
-            resData = new Object[1];
-            resData2 = new Object[1];
-            resData3 = new Object[1]; //Probs perform count query on how many people are in db that took the assessement...
-            resData4 = new Object[1];
-            resData5 = new Object[1];
-
-            cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-            OleDbConnection dbConn = new OleDbConnection(cs);
-
-            String sqlCmd1 = "SELECT [markCaptured] FROM [ASSESSMENT RESULTS] WHERE (studentNumber = @studentNum AND assessmentID = @assessmentID)";
-            String sqlCmd2 = "SELECT MAX([markCaptured]) FROM [ASSESSMENT RESULTS] WHERE (assessmentID = @assessmentID)";
-            String sqlCmd3 = "SELECT AVG([markCaptured]) FROM [ASSESSMENT RESULTS] WHERE (assessmentID = @assessmentID)";
-            String sqlCmd4 = "SELECT MIN([markCaptured]) FROM [ASSESSMENT RESULTS] WHERE (assessmentID = @assessmentID)";
-            String sqlCmd5 = "SELECT [markCaptured] FROM [ASSESSMENT RESULTS] WHERE (assessmentID = @assessmentID)";
-
-            OleDbCommand cmd1 = new OleDbCommand(sqlCmd1, dbConn);
-
-            cmd1.Parameters.AddWithValue("@studentNum", studentNumber);
-            cmd1.Parameters.AddWithValue("@assessmentID", assessmentID);
-
-            dbConn.Open();
-            OleDbDataReader reader = cmd1.ExecuteReader();
-
-
-            if (reader.Read() == true)
+            if (!IsPostBack)
             {
-                do
+                Object[] resData;
+                Object[] resData2;
+                Object[] resData3;
+                Object[] resData4;
+                Object[] resData5;
+                Object[] resData6;
+                String cs;
+                Boolean read;
+                resData = new Object[1];
+                resData2 = new Object[1];
+                resData3 = new Object[1]; //Probs perform count query on how many people are in db that took the assessement...
+                resData4 = new Object[1];
+                resData5 = new Object[1];
+                resData6 = new Object[1];
+
+                cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+                OleDbConnection dbConn = new OleDbConnection(cs);
+
+                String sqlCmd1 = "SELECT [markCaptured] FROM [ASSESSMENT RESULTS] WHERE (studentNumber = @studentNum AND assessmentID = @assessmentID)";
+                String sqlCmd2 = "SELECT MAX([markCaptured]) FROM [ASSESSMENT RESULTS] WHERE (assessmentID = @assessmentID)";
+                String sqlCmd3 = "SELECT AVG([markCaptured]) FROM [ASSESSMENT RESULTS] WHERE (assessmentID = @assessmentID)";
+                String sqlCmd4 = "SELECT MIN([markCaptured]) FROM [ASSESSMENT RESULTS] WHERE (assessmentID = @assessmentID)";
+                String sqlCmd5 = "SELECT [markCaptured] FROM [ASSESSMENT RESULTS] WHERE (assessmentID = @assessmentID)";
+                String sqlCmd6 = "SELECT [FLAGGED] FROM [ASSESSMENT RESULTS] WHERE (studentNumber = @studentNum AND assessmentID = @assessmentID)";
+
+                OleDbCommand cmd1 = new OleDbCommand(sqlCmd1, dbConn);
+
+                cmd1.Parameters.AddWithValue("@studentNum", studentNumber);
+                cmd1.Parameters.AddWithValue("@assessmentID", assessmentID);
+
+                dbConn.Open();
+                OleDbDataReader reader = cmd1.ExecuteReader();
+
+
+                if (reader.Read() == true)
                 {
-                    reader.GetValues(resData);
-                    read = reader.Read();
-                } while (read == true);
-            }
-            reader.Close();
+                    do
+                    {
+                        reader.GetValues(resData);
+                        read = reader.Read();
+                    } while (read == true);
+                }
+                reader.Close();
 
-            cmd1 = new OleDbCommand(sqlCmd2, dbConn);
-            cmd1.Parameters.AddWithValue("@assessmentID", assessmentID);
-            reader = cmd1.ExecuteReader();
+                cmd1 = new OleDbCommand(sqlCmd2, dbConn);
+                cmd1.Parameters.AddWithValue("@assessmentID", assessmentID);
+                reader = cmd1.ExecuteReader();
 
-            if (reader.Read() == true)
-            {
-                do
+                if (reader.Read() == true)
                 {
-                    reader.GetValues(resData2);
-                    read = reader.Read();
-                } while (read == true);
-            }
-            reader.Close();
+                    do
+                    {
+                        reader.GetValues(resData2);
+                        read = reader.Read();
+                    } while (read == true);
+                }
+                reader.Close();
 
-            cmd1 = new OleDbCommand(sqlCmd3, dbConn);
-            cmd1.Parameters.AddWithValue("@assessmentID", assessmentID);
-            reader = cmd1.ExecuteReader();
+                cmd1 = new OleDbCommand(sqlCmd3, dbConn);
+                cmd1.Parameters.AddWithValue("@assessmentID", assessmentID);
+                reader = cmd1.ExecuteReader();
 
-            if (reader.Read() == true)
-            {
-                do
+                if (reader.Read() == true)
                 {
-                    reader.GetValues(resData3);
-                    read = reader.Read();
-                } while (read == true);
-            }
-            reader.Close();
+                    do
+                    {
+                        reader.GetValues(resData3);
+                        read = reader.Read();
+                    } while (read == true);
+                }
+                reader.Close();
 
 
-            cmd1 = new OleDbCommand(sqlCmd4, dbConn);
-            cmd1.Parameters.AddWithValue("@assessmentID", assessmentID);
-            reader = cmd1.ExecuteReader();
+                cmd1 = new OleDbCommand(sqlCmd4, dbConn);
+                cmd1.Parameters.AddWithValue("@assessmentID", assessmentID);
+                reader = cmd1.ExecuteReader();
 
-            if (reader.Read() == true)
-            {
-                do
+                if (reader.Read() == true)
                 {
-                    reader.GetValues(resData4);
-                    read = reader.Read();
-                } while (read == true);
-            }
-            reader.Close();
+                    do
+                    {
+                        reader.GetValues(resData4);
+                        read = reader.Read();
+                    } while (read == true);
+                }
+                reader.Close();
 
-            cmd1 = new OleDbCommand(sqlCmd5, dbConn);
-            cmd1.Parameters.AddWithValue("@assessmentID", assessmentID);
-            reader = cmd1.ExecuteReader();
+                cmd1 = new OleDbCommand(sqlCmd5, dbConn);
+                cmd1.Parameters.AddWithValue("@assessmentID", assessmentID);
+                reader = cmd1.ExecuteReader();
 
-            if (reader.Read() == true)
-            {
-                do
+                if (reader.Read() == true)
                 {
-                    reader.GetValues(resData5);
-                    allMakrs.Add(resData5[0]);
-                    read = reader.Read();
-                } while (read == true);
+                    do
+                    {
+                        reader.GetValues(resData5);
+                        allMakrs.Add(resData5[0]);
+                        read = reader.Read();
+                    } while (read == true);
+                }
+                reader.Close();
+
+                cmd1 = new OleDbCommand(sqlCmd6, dbConn);
+
+                cmd1.Parameters.AddWithValue("@studentNum", studentNumber);
+                cmd1.Parameters.AddWithValue("@assessmentID", assessmentID);
+
+        
+                reader = cmd1.ExecuteReader();
+                if (reader.Read() == true)
+                {
+                    do
+                    {
+                        reader.GetValues(resData6);
+                    
+                        read = reader.Read();
+                    } while (read == true);
+                }
+                reader.Close();
+
+                if ((Boolean)resData6[0])
+                {
+                    setBtnAsFlagged();
+                }
+
+
+                dbConn.Close();
+
+                studentMark.InnerText += resData[0].ToString() + "%";
+                maxMark.InnerText += resData2[0].ToString() + "%";
+                avgMark.InnerText += resData3[0].ToString() + "%";
+                minMark.InnerText += resData4[0].ToString() + "%";
+
+                getBarChart();
+                getPieChart();
+                getLineChart();
             }
-            reader.Close();
-            dbConn.Close();
-
-            studentMark.InnerText += resData[0].ToString() + "%";
-            maxMark.InnerText += resData2[0].ToString() + "%";
-            avgMark.InnerText += resData3[0].ToString() + "%";
-            minMark.InnerText += resData4[0].ToString() + "%";
-
-            getBarChart();
-            getPieChart();
-            getLineChart();
         }
+
+
+
 
         private String getRangeValues()
         {
@@ -187,6 +219,7 @@ namespace WebApplication3
             }
             return res += "],";
         }
+
         private void getBarChart()
         {
             StringBuilder sb = new StringBuilder();
@@ -277,30 +310,67 @@ namespace WebApplication3
 
         protected void submitFlagBtnClicked(object sender, EventArgs e)
         {
-            //Should probs remove that commenting
             try
             {
-                //String bodyHeading = reasonForFlag.SelectedItem.Value;
-                //String bodyMain = elaborationOnFlag.Text.ToString();
-                //MailMessage mailMessage = new MailMessage("josephjasson@outlook.com", "s21796234@mandela.ac.za");
+                String bodyHeading = reasonForFlag.SelectedItem.Value;
+                String bodyMain = elaborationOnFlag.Text.ToString();
+                MailMessage mailMessage = new MailMessage("s219473498@mandela.ac.za", "s219473498@mandela.ac.za"); //This needs to change
 
-                //mailMessage.Subject = "Flagged mark";
+                mailMessage.Subject = "Flagged mark";
 
-                //mailMessage.Body = bodyHeading + "\n" + bodyMain;
-                //SmtpClient smtp = new SmtpClient("smtp.office365.com", 587);
-                //smtp.Credentials = new System.Net.NetworkCredential()
-                //{
-                //    UserName = "hulu.com",
-                //    Password = "look away"
-
-                //};
-                //smtp.EnableSsl = true;
-                //smtp.Send(mailMessage);
+                mailMessage.Body = bodyHeading + "\n" + bodyMain;
+                SmtpClient smtp = new SmtpClient("smtp.office365.com", 587);
+                smtp.Credentials = new System.Net.NetworkCredential()
+                {
+                    UserName = "s219473498@mandela.ac.za",
+                    Password = emailPassword.Text
+                };
+                smtp.EnableSsl = true;
+                smtp.Send(mailMessage);
+                setMarkAsFlagged();
             }
             catch (Exception ex)
             {
-                //Add logic for pop-up to show here
+                Response.Write("<script>alert('Flag unccessfully captured, try again');</script>");
             }
+        }
+
+        private void setMarkAsFlagged()
+        {
+            string CS;
+            CS = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            OleDbConnection dbConnection = new OleDbConnection(CS);
+
+            string sql = "UPDATE [Assessment Results] " +
+                      "SET [Flagged] = true " +
+                      "WHERE (StudentNumber = @studNum AND assessmentID = @assessmentID)";
+                    
+
+            OleDbCommand dbCommand = new OleDbCommand(sql, dbConnection);
+            dbCommand.Parameters.AddWithValue("@studNum", studentNumber);
+            dbCommand.Parameters.AddWithValue("@assessmentID", assessmentID);
+
+            dbConnection.Open();
+
+            int ReturnCode = dbCommand.ExecuteNonQuery();
+
+            if (ReturnCode == 1)
+            {
+                Response.Write("<script>alert('Flagged Successfully');</script>");
+                setBtnAsFlagged();
+            }
+            else
+            {
+                Response.Write("<script>alert('Flag unccessfully captured, try again');</script>");
+            }
+        }
+
+        private void setBtnAsFlagged()
+        {
+            submitFlagBtn.Attributes.Remove("class");
+            submitFlagBtn.Attributes.Add("class", "btn btn-outline-success btn-lg btn-rounded-border");
+            submitFlagBtn.InnerText = "Mark flagged successfully";
+            submitFlagBtn.Disabled = true;
         }
     }
 }
