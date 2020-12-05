@@ -7,72 +7,74 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication3 {
-    
-    
-    public partial class EditModule {
-        
+namespace WebApplication3
+{
+
+
+    public partial class LecturerHomePage
+    {
+
         /// <summary>
-        /// mdCode control.
+        /// txtTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox mdCode;
-        
+        protected global::System.Web.UI.WebControls.Label txtTitle;
+
         /// <summary>
-        /// moduleName control.
+        /// txtFullName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox moduleName;
-        
+        protected global::System.Web.UI.WebControls.Label txtFullName;
+
         /// <summary>
-        /// lecutureDrop control.
+        /// txtEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList lecutureDrop;
-        
+        protected global::System.Web.UI.WebControls.Label txtEmail;
+
         /// <summary>
-        /// studentView control.
+        /// txtID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView studentView;
-        
+        protected global::System.Web.UI.WebControls.Label txtID;
+
         /// <summary>
-        /// moduleAssesmentView control.
+        /// txtFaculty control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView moduleAssesmentView;
-        
+        protected global::System.Web.UI.WebControls.Label txtFaculty;
+
         /// <summary>
-        /// saveBtn control.
+        /// txtStaffNum control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button saveBtn;
-        
+        protected global::System.Web.UI.WebControls.Label txtStaffNum;
+
         /// <summary>
-        /// cancelBtn control.
+        /// txtTel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button cancelBtn;
+        protected global::System.Web.UI.WebControls.Label txtTel;
     }
 }

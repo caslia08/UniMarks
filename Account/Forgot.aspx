@@ -24,7 +24,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
-                            <asp:Button runat="server" OnClick="Forgot" Text="Email Link" CssClass="btn btn-default" />
+                            <asp:Button ID="btnEmail" Text="Email Link" runat="server" CssClass="btn btn-lg btn-primary"/>
                         </div>
                     </div>
                 </div>

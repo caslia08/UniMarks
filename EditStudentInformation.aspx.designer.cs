@@ -67,15 +67,6 @@ namespace WebApplication3 {
         protected global::System.Web.UI.WebControls.TextBox title;
         
         /// <summary>
-        /// dateReg control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox dateReg;
-        
-        /// <summary>
         /// yearOfStudy control.
         /// </summary>
         /// <remarks>

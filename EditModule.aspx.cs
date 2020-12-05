@@ -140,19 +140,6 @@ namespace WebApplication3
                 mdCode.Text = (String)resData[0];
 
                 populateLectuture(moduleCode);
-
-                // @NOTE: Yes that's correct microsoft decided that microsoft's other version of null wasn't good enough, 
-                // @NOTE: so that deparment of mircosoft said "fuck you C# deparment" and made another version of null that now needs to 
-                // @NOTE: be INHERITEDED FROM !! just to be able to be a nullable type....
-                if (resData[3] is System.DBNull)
-                {
-                }
-                else
-                {
-                    moduleDsc.Text = (String)resData[3];
-                }
-
-
             }
         }
 
@@ -222,14 +209,12 @@ namespace WebApplication3
             OleDbConnection dbConnection = new OleDbConnection(CS);
 
             String sqlComm = "UPDATE [Module] SET " +
-                "moduleName = @Name , " +
-                "moduleDesc = @Desc " +
+                "moduleName = @Name " +
                 "WHERE moduleCode = @moduleCode";
 
             OleDbCommand dbCommand = new OleDbCommand(sqlComm, dbConnection);
 
             dbCommand.Parameters.AddWithValue("@Name", moduleName.Text);
-            dbCommand.Parameters.AddWithValue("@Desc", moduleDsc.Text);
             dbCommand.Parameters.AddWithValue("@moduleCode", moduleCodeInput);
 
             dbConnection.Open();
@@ -262,6 +247,11 @@ namespace WebApplication3
             {
                 UpdateModule();
                 UpdateModulePresented(moduleCodeInput);
+
+                ClientScriptManager CSM = Page.ClientScript;
+                string strconfirm = "<script>if(!window.confirm('Are you sure?')){window.location.href='Default.aspx'}</script>";
+                CSM.RegisterClientScriptBlock(this.GetType(), "Confirm", strconfirm, false);
+                Response.Redirect("SearchModule.aspx");
             }
             else
             {

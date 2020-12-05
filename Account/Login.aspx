@@ -30,7 +30,7 @@
                       <input type="checkbox" class="custom-control-input" id="customCheck1">
                       <label class="custom-control-label" for="customCheck1">Remember password</label>
                   </div>
-                <button id="btnLogin" class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" onclick="btnLogin_Click" >Sign in</button>
+                <asp:Button ID="btnSignIn" runat="server" Text="Sign In" CssClass="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" OnClick="btnSignIn_Click" />
                 <div class="text-center">
                   <a class="small" href="#">Forgot password?</a></div>
             </div>

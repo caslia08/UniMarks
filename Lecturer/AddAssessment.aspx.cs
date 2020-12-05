@@ -15,7 +15,9 @@ namespace WebApplication3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            DateTime date = DateTime.Today.Date;
+            String today = date.ToString("yyyy-MM-dd");
+            txtAssDate.Attributes["min"] = today;
         }
 
         protected void btnCreateAss_Click(object sender, EventArgs e)

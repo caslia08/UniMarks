@@ -62,21 +62,20 @@ namespace WebApplication3.Account
         //    }
         //}
 
-        protected void btnLogin_Click(object sender, EventArgs e)
+        protected void btnSignIn_Click(object sender, EventArgs e)
         {
 
             string CS;
             CS = ConfigurationManager.ConnectionStrings["Connectionstring"].ConnectionString;
             OleDbConnection dbconn = new OleDbConnection(CS);
 
-            string sqlcmd = "SELECT * FROM [Users]  WHERE [Username] = @name AND [Password] = @pass";
+            string sqlcmd = "SELECT * FROM [Users]  WHERE [emailAddress] = @email AND [password] = @pass";
 
             OleDbCommand cmd1 = new OleDbCommand(sqlcmd, dbconn);
 
-            cmd1.Parameters.AddWithValue("@name", txtEmail.Text );
+            cmd1.Parameters.AddWithValue("@email", txtEmail.Text);
             string pw = FormsAuthentication.HashPasswordForStoringInConfigFile(txtPassword.Text, "SHA1");
             cmd1.Parameters.AddWithValue("@pass", pw);
-
             OleDbDataAdapter info = new OleDbDataAdapter();
             info.SelectCommand = cmd1;
             DataSet userSet = new DataSet();
@@ -85,26 +84,24 @@ namespace WebApplication3.Account
             if ((userSet.Tables[0].Rows.Count) > 0)
             {
                 FormsAuthentication.RedirectFromLoginPage(txtEmail.Text, false);
-                if (txtEmail.Text == "")
-                    return;
-                Session["Email"] = txtEmail.Text;
-
-                //TODO get user type for record 
-                int userType = 0;
+                Session["Email"] = txtEmail.Text;             
+                DataRow datarow = userSet.Tables[0].Rows[0];
+                int userType = int.Parse(datarow.Field<string>("userRoleCode"));
                 switch (userType)
                 {
-                    case 0:Response.Redirect("AdminHomePage.aspx");
+                    case 0:
+                        Response.Redirect("~/AdminHomePage.aspx");
                         break;
-                    case 1:Response.Redirect("LecturerHomePage.aspx");
+                    case 1:
+                        Response.Redirect("~/Lecturer/LecturerHomePage.aspx");
                         break;
                     case 2:
-                        Response.Redirect("StudentDashboard.aspx");
+                        Response.Redirect("~/StudentDashboard.aspx");
                         break;
                 }
             }
             else
                 Response.Write("<script>alert('Incorrect Login information received');</script>");
-
         }
     }
 }
