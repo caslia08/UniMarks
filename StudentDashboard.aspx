@@ -104,8 +104,8 @@
                     </h5>
                     <table class="table table-hover">
                         <tr>
-                            <td>Faculty:</td>
-                            <td id="Faculty" runat="server"></td>
+                            <td>Qualification Name:</td>
+                            <td id="qualificatinName" runat="server"></td>
                         </tr>
                         <tr>
                             <td>Student number:</td>
@@ -126,14 +126,29 @@
     </div>
     
     <div class="grid-container">
-        <asp:Literal ID="dashboardCards" runat="server"></asp:Literal>
-<%--        <div class ="module-grid-item">
+   <%--     <asp:Literal ID="dashboardCards" runat="server"></asp:Literal>--%>
+        
+        <asp:Button ID="btnHiddenLinearAlgebra" runat="server" OnClick="redirectToLinearAlgebra" Style="display: none" />
+
+        <div class ="module-grid-item" onclick="javascript:DivClicked_LinearAlgebra(); return true;">
             <div class="grid-heading">
-                <h4>WRR301-Project</h4>
+                <h4>Linear Algebra</h4>
             </div>
-            <img src="Image/CS_logo.png" alt="module-image" class="module-img"/>
+            <img src="Image/Math_logo.png" alt="module-image"class="module-img" />
         </div>
-              <div class ="module-grid-item">
+        
+        <script>
+            function DivClicked_LinearAlgebra()
+            {
+                var btnHidden = $('#<%= btnHiddenLinearAlgebra.ClientID %>');
+                if(btnHidden != null)
+                {
+                    btnHidden.click();
+                }
+            }
+        </script>
+
+    <%--    <div class ="module-grid-item">
             <div class="grid-heading">
                 <h4>MSCV101-Generic Engineering</h4>
             </div>

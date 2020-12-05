@@ -14,13 +14,15 @@ namespace WebApplication3
 {
     public partial class MarkDetails : System.Web.UI.Page
     {
-        long studentNumber = 335975982;
-        long assessmentID = 98405;  //Change to get from whatever ID was selected from the modules selected page
+        long studentNumber;
+        long assessmentID;  //Change to get from whatever ID was selected from the modules selected page
         ArrayList allMakrs = new ArrayList();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+                studentNumber = (long)Session["studNum"];
+                assessmentID = (long)Session["assessmentID"];
                 Object[] resData;
                 Object[] resData2;
                 Object[] resData3;
@@ -44,7 +46,7 @@ namespace WebApplication3
                 String sqlCmd3 = "SELECT AVG([markCaptured]) FROM [ASSESSMENT RESULTS] WHERE (assessmentID = @assessmentID)";
                 String sqlCmd4 = "SELECT MIN([markCaptured]) FROM [ASSESSMENT RESULTS] WHERE (assessmentID = @assessmentID)";
                 String sqlCmd5 = "SELECT [markCaptured] FROM [ASSESSMENT RESULTS] WHERE (assessmentID = @assessmentID)";
-                String sqlCmd6 = "SELECT [FLAGGED] FROM [ASSESSMENT RESULTS] WHERE (studentNumber = @studentNum AND assessmentID = @assessmentID)";
+                String sqlCmd6 = "SELECT [Flagged] FROM [Assessment Results] WHERE (studentNumber = @studentNum AND assessmentID = @assessmentID)";
 
                 OleDbCommand cmd1 = new OleDbCommand(sqlCmd1, dbConn);
 
@@ -340,7 +342,8 @@ namespace WebApplication3
             string CS;
             CS = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             OleDbConnection dbConnection = new OleDbConnection(CS);
-
+            
+            //@TODO for db input dateOfFlag and reasonForChange
             string sql = "UPDATE [Assessment Results] " +
                       "SET [Flagged] = true " +
                       "WHERE (StudentNumber = @studNum AND assessmentID = @assessmentID)";

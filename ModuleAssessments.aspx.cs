@@ -11,10 +11,12 @@ namespace WebApplication3
 {
     public partial class ModuleAssessments : System.Web.UI.Page
     {
-        long studentNumber = 335975982;
-        String moduleCode = "LARA201";
+        long studentNumber;
+        String moduleCode;
         protected void Page_Load(object sender, EventArgs e)
         {
+            studentNumber = (long)Session["StudNum"];
+            moduleCode = (String)Session["ModuleCode"];
             if (!IsPostBack)
             {
                 String cs;
@@ -54,6 +56,7 @@ namespace WebApplication3
                     assessmentID = getAssessmentID(name, venue);
                     Session["assessmentID"] = assessmentID;
                     Session["assessmentName"] = name;
+                    Session["studNum"] = studentNumber;
                     Response.Redirect("MarkDetails.aspx");
                 }
                 catch(Exception ex)

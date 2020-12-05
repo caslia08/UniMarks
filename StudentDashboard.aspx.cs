@@ -11,7 +11,7 @@ namespace WebApplication3
 {
     public partial class StudentDashboard : System.Web.UI.Page
     {
-        long studentNumber = 335975982;
+        long studentNumber = 216081504;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -44,13 +44,12 @@ namespace WebApplication3
             }
             reader.Close();
             dbConn.Close();
-
+            qualificatinName.InnerText = (String)resData[8];
             title.InnerText = (String)resData[3];
             fullName.InnerText = (String)resData[1] + " " + (String)resData[2];
             emailAddress.InnerText = (String)resData[4];
             IDNumber.InnerText = resData[5].ToString();
-            Faculty.InnerText = (String)resData[9];
-            qualificationCode.InnerText = resData[8].ToString();
+            qualificationCode.InnerText = resData[7].ToString();
             studNum.InnerText = resData[0].ToString();
         }
 
@@ -58,6 +57,13 @@ namespace WebApplication3
         {
 
             //dashboardCards.Text
+        }
+
+        protected void redirectToLinearAlgebra(object sender, EventArgs e)
+        {
+            Session["StudNum"] = studentNumber;
+            Session["ModuleCode"] = "MATT212";
+            Response.Redirect("ModuleAssessments.aspx");
         }
 
     }

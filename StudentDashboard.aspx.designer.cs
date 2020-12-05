@@ -49,13 +49,13 @@ namespace WebApplication3 {
         protected global::System.Web.UI.HtmlControls.HtmlTableCell IDNumber;
         
         /// <summary>
-        /// Faculty control.
+        /// qualificatinName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell Faculty;
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell qualificatinName;
         
         /// <summary>
         /// studNum control.
@@ -76,12 +76,12 @@ namespace WebApplication3 {
         protected global::System.Web.UI.HtmlControls.HtmlTableCell qualificationCode;
         
         /// <summary>
-        /// dashboardCards control.
+        /// btnHiddenLinearAlgebra control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal dashboardCards;
+        protected global::System.Web.UI.WebControls.Button btnHiddenLinearAlgebra;
     }
 }

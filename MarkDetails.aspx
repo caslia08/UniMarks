@@ -103,14 +103,6 @@
             </div>
         </div>
 
-        
-      
-
-
-
-
-
-
         <br />
         <h3>View your peers progress</h3>
         <div class="form-group">
