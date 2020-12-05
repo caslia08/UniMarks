@@ -22,6 +22,15 @@ namespace WebApplication3 {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl tester;
         
         /// <summary>
+        /// mainHeadingP control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl mainHeadingP;
+        
+        /// <summary>
         /// studentMark control.
         /// </summary>
         /// <remarks>
@@ -58,15 +67,6 @@ namespace WebApplication3 {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl avgMark;
         
         /// <summary>
-        /// myModal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl myModal;
-        
-        /// <summary>
         /// reasonForFlag control.
         /// </summary>
         /// <remarks>
@@ -85,13 +85,40 @@ namespace WebApplication3 {
         protected global::System.Web.UI.WebControls.TextBox elaborationOnFlag;
         
         /// <summary>
-        /// submitBtn control.
+        /// RequiredFieldValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton submitBtn;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        
+        /// <summary>
+        /// emailPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox emailPassword;
+        
+        /// <summary>
+        /// RequiredFieldValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        
+        /// <summary>
+        /// submit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button submit;
         
         /// <summary>
         /// chartsBar control.
