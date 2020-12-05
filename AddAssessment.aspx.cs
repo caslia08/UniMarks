@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.OleDb;
 using System.Linq;
 using System.Reflection;
@@ -41,9 +42,12 @@ namespace WebApplication3
 
                 dbConnection.Open();
 
-                if (!checkID())
+                if (doesIDExist())
                 {
-
+                    Response.Write("<script>alert('Assessment ID already Exists');</script>");
+                }
+                else
+                {
                     int ReturnCode = dbCommand.ExecuteNonQuery();
 
                     if (ReturnCode == 1)
@@ -55,12 +59,6 @@ namespace WebApplication3
                         Response.Write("<script>alert('Assessment Could not be Added');</script>");
                     }
                 }
-                else
-                {
-
-                    Response.Write("<script>alert('Assessment ID already Exists');</script>");
-
-                }
             }
             else
             {
@@ -68,8 +66,9 @@ namespace WebApplication3
             }
         }
 
-        private Boolean checkID()
+        private Boolean doesIDExist()
         {
+            
             string CS;
             CS = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             OleDbConnection dbConnection = new OleDbConnection(CS);
@@ -80,18 +79,18 @@ namespace WebApplication3
 
             dbCommand.Parameters.AddWithValue("@ID", txtAssID.Text);
 
-            dbConnection.Open();
+            OleDbDataAdapter info = new OleDbDataAdapter();
+            info.SelectCommand = dbCommand;
+            DataSet userSet = new DataSet();
+            info.Fill(userSet);
 
-            int ReturnCode = dbCommand.ExecuteNonQuery();
-
-            if (ReturnCode == 1)
-            {
-                return false; 
-            }
-            else
+            if ((userSet.Tables[0].Rows.Count) > 0)
             {
                 return true;
             }
+            else
+                return false; 
+
         }
     }
 }

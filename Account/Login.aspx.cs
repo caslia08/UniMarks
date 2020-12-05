@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Configuration;
+using System.Data;
+using System.Data.OleDb;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
@@ -57,5 +61,50 @@ namespace WebApplication3.Account
         //        }
         //    }
         //}
+
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+
+            string CS;
+            CS = ConfigurationManager.ConnectionStrings["Connectionstring"].ConnectionString;
+            OleDbConnection dbconn = new OleDbConnection(CS);
+
+            string sqlcmd = "SELECT * FROM [Users]  WHERE [Username] = @name AND [Password] = @pass";
+
+            OleDbCommand cmd1 = new OleDbCommand(sqlcmd, dbconn);
+
+            cmd1.Parameters.AddWithValue("@name", txtEmail.Text );
+            string pw = FormsAuthentication.HashPasswordForStoringInConfigFile(txtPassword.Text, "SHA1");
+            cmd1.Parameters.AddWithValue("@pass", pw);
+
+            OleDbDataAdapter info = new OleDbDataAdapter();
+            info.SelectCommand = cmd1;
+            DataSet userSet = new DataSet();
+            info.Fill(userSet);
+
+            if ((userSet.Tables[0].Rows.Count) > 0)
+            {
+                FormsAuthentication.RedirectFromLoginPage(txtEmail.Text, false);
+                if (txtEmail.Text == "")
+                    return;
+                Session["Email"] = txtEmail.Text;
+
+                //TODO get user type for record 
+                int userType = 0;
+                switch (userType)
+                {
+                    case 0:Response.Redirect("AdminHomePage.aspx");
+                        break;
+                    case 1:Response.Redirect("LecturerHomePage.aspx");
+                        break;
+                    case 2:
+                        Response.Redirect("StudentDashboard.aspx");
+                        break;
+                }
+            }
+            else
+                Response.Write("<script>alert('Incorrect Login information received');</script>");
+
+        }
     }
 }
