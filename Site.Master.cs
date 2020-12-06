@@ -69,7 +69,34 @@ namespace WebApplication3
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["User"] != null)
+            {
+                int userType = (int)Session["User"];
 
+                switch (userType)
+                {
+                    case 0:
+                        DropDownList1.Visible = false;
+                        DropDownList1.Enabled = false;
+                        break;
+                    case 1:
+                        DropDownList1.Visible = false;
+                        DropDownList1.Enabled = false;
+                        break;
+                    case 2:
+                        DropDownList1.Items.Add(new ListItem("Modules", "Modules"));
+                        DropDownList1.Items.Add(new ListItem("ss", "fff"));
+
+                        break;
+                }
+            }
+            else
+            {
+                DropDownList1.Items.Add(new ListItem("Modules", "Modules"));
+                DropDownList1.Items.Add(new ListItem("ss", "fff"));
+                //DropDownList1.Visible = false;
+                //DropDownList1.Enabled = false;
+            }
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
@@ -107,6 +134,11 @@ namespace WebApplication3
                         break;
                 }
             }
+        }
+
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int a = 2;
         }
     }
 }

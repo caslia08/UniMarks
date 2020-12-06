@@ -28,6 +28,11 @@
 		#heading h1 {
 			padding: 10px 25px 25px 25px;
 		}
+
+		.ListBox {
+			background-color: #2780e3;
+			color: #fff;
+		}
 	</style>
 </head>
 <body>
@@ -60,15 +65,24 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarColor01">
 					<ul class="navbar-nav mr-auto">
+
 						<li class="nav-item active">
 							<asp:LinkButton class="nav-link" ID="LinkDash" Text="Dashboard" OnClick="LinkDash_Click" runat="server" />
+						</li>
+
+						<asp:DropDownList ID="DropDownList1" class="ListBox" runat="server" Enabled="true" Visible="true" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AutoPostBack="true" CausesValidation="false">
+						</asp:DropDownList>
+
 						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Modules</a>
+
+
+
+							<%--							<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Modules</a>
 							<div class="dropdown-menu">
 								<a class="dropdown-item" href="#">WRR301</a>
 								<a class="dropdown-item" href="#">MAPV311</a>
 								<a class="dropdown-item" href="#">MAPV301</a>
-							</div>
+							</div>--%>
 						</li>
 						<asp:ContentPlaceHolder ID="NavListElements" runat="server"></asp:ContentPlaceHolder>
 						<li class="nav-item">
