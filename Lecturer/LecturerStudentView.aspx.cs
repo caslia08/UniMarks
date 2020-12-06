@@ -12,9 +12,11 @@ namespace WebApplication3
 {
     public partial class LecturerStudentView : System.Web.UI.Page
     {
+        string moduleCode; 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            moduleCode = Session["moduleCode"].ToString(); 
+            Session["moduleCode"] = "WRCV202"; 
         }
 
         protected void txtSearch_TextChanged(object sender, EventArgs e)
@@ -79,18 +81,11 @@ namespace WebApplication3
 
         protected void gridViewStudents_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            String isCreated = "false";
-            if (e.CommandName == "EditStudents")
+            if (e.CommandName == "ViewProgress")
             {
-                String assessmentID = e.CommandArgument.ToString();
-                Response.Redirect("EditAssessment.aspx?AssessmentID=" + assessmentID + "&isCreate=" + isCreated);
+                String studentNumber = e.CommandArgument.ToString();
+                Response.Redirect("LecturerStudentProgress.aspx?StudentNumber=" + studentNumber + "&moduleCode=" + moduleCode);
             }
-            else if (e.CommandName == "AddMarks")
-            {
-                String assessmentID = e.CommandArgument.ToString();
-                Response.Redirect("AddEditMarks.aspx?AssessmentID=" + assessmentID);
-            }
-
         }
     }
 }

@@ -26,158 +26,73 @@ Student Progress
 Student Progress</asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="MainContent" runat="server">
     <div class="jumbotron">
-        <h2>Jane Doe Mark Breakdown</h2>
+        <h2><p id="studentFullname" runat="server"></p> Mark Breakdown</h2>
         <hr />
         <br />
 
          <table class="table table-hover">
             <tbody>
                 <tr>
-                    <td class="blue-element">Jane's average mark</td>
-                    <td>79%</td>
+                    <td class="blue-element"><p id="studentName" runat="server"></p> </td>
+                    <td><p id="studentMark" runat="server"></p></td>
                 </tr>
                 <tr>
                     <td class="blue-element">Class average</td>
-                    <td>55%</td>
-                </tr>
+                    <td><p id="classAverage" runat="server"></p></td>
                 <tr>
                     <td class="blue-element">Number of assessments complete</td>
-                    <td>5</td>
+                    <td><p id="numberAssComplete" runat="server"></p></td>
                 </tr>
                 <tr>
                     <td class="blue-element">Number of assessments missed</td>
-                    <td>0</td>
+                    <td><p id="missedAssessments" runat="server"></p></td>
                 </tr>
             </tbody>
         </table>
         <hr />
         <br />
-        <h3>Jane's module progress</h3>
-          <div class="form-group">
+        
+        <h3><p id="moduleProgressName" runat="server"></p></h3>
+         <div class="form-group">
             <label for="chart-to-show">Select graph:</label>
             <select class="form-control" id="chart-to-show">
-                <option>Line</option>
+                <option disabled selected>Chose a chart to display</option>
                 <option>Bar</option>
+                <option>Pie</option>
+                <option>Area</option>
             </select>
         </div>
-        <h4>Click on legend text to filter chart</h4>
-        <canvas id="my-Line-Chart" width="250" height="100"></canvas>
-        <canvas id="my-Bar-Chart" width="250" height="100" style="display:none"></canvas>
+        <canvas id="my-Bar-Chart" width="250" height="100" style="display: none"></canvas>
+        <canvas id="my-Pie-Chart" width="250" height="100" style="display: none"></canvas>
+        <canvas id="my-Line-Chart" width="250" height="100" style="display: none"></canvas>
     </div>
-
-     <script>
+    <script>
         $(document).ready(function () {
-            $('#chart-to-show').on('change', function() {
+
+            $('#chart-to-show').on('change', function () {
                 if (this.value == 'Bar') {
                     $('#my-Bar-Chart').show();
+                    $('#my-Pie-Chart').hide();
+                    $('#my-Line-Chart').hide();
+                }
+                else if (this.value == 'Pie') {
+                    $('#my-Bar-Chart').hide();
+                    $('#my-Pie-Chart').show();
                     $('#my-Line-Chart').hide();
                 }
                 else {
                     $('#my-Bar-Chart').hide();
+                    $('#my-Pie-Chart').hide();
                     $('#my-Line-Chart').show();
                 }
             });
         });
+
     </script>
-
-    <script>
-        let myLineChart = document.getElementById('my-Line-Chart').getContext('2d');
-
-        let averageLineCharts = new Chart(myLineChart, {
-            type: 'line',
-            data: {
-                labels: ['Tutorial test 1', 'Class quiz 1', 'Semester test 1', 'Tutorial test 2', 'Tutorial test 3'],
-                datasets: [{
-                    data: [50, 69, 88, 79, 64],
-                    label: 'Student marks',
-                    borderColor: 'rgba(0, 125, 255, 0.6)',
-                    fill: false
-                },
-                {
-                    data: [55, 50, 85, 64, 77],
-                    label: 'Class average marks (2020)',
-                    borderColor: 'rgba(204, 0, 0, 0.6)',
-                    fill: false
-                },
-                {
-                    data: [60, 55, 87, 65, 78],
-                    label: 'Class average marks (2019)',
-                    borderColor: 'rgba(255, 255, 0, 0.6)',
-                    fill: false
-                },
-                {
-                    data: [62, 65, 90, 45, 38],
-                    label: 'Class average marks (2018)',
-                    borderColor: 'rgba(0, 255, 0, 0.6)',
-                    fill: false
-                }]
-            },
-            options: {
-                legend: {
-                    display: true,
-                    position: 'right'
-                },
-                title: {
-                    display: true,
-                    text: 'Assessment marks',
-                    fontSize: 25
-                },
-                scales: {
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-
-        let myBarChart = document.getElementById('my-Bar-Chart').getContext('2d');
-
-        let averageBarCharts = new Chart(myBarChart, {
-            type: 'bar',
-            data: {
-                labels: ['Tutorial test 1', 'Class quiz 1', 'Semester test 1', 'Tutorial test 2', 'Tutorial test 3'],
-                datasets: [{
-                    data: [50, 69, 88, 79, 64],
-                    label: 'Student marks',
-                    backgroundColor: 'rgba(0, 125, 255, 0.6)',
-                    fill: false
-                },
-                {
-                    data: [55, 50, 85, 64, 77],
-                    label: 'Class average marks (2020)',
-                    backgroundColor: 'rgba(204, 0, 0, 0.6)',
-                    fill: false
-                },
-                {
-                    data: [60, 55, 87, 65, 78],
-                    label: 'Class average marks (2019)',
-                    backgroundColor: 'rgba(255, 255, 0, 0.6)',
-                    fill: false
-                },
-                {
-                    data: [62, 65, 90, 45, 38],
-                    label: 'Class average marks (2018)',
-                    backgroundColor: 'rgba(0, 255, 0, 0.6)',
-                    fill: false
-                }]
-            },
-            options: {
-                legend: {
-                    display: true,
-                    position: 'right'
-                },
-                title: {
-                    display: true,
-                    text: 'Assessment marks',
-                    fontSize: 25
-                },
-                scales: {
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-    </script>
+    <div>
+        <asp:Literal ID="chartsBar" runat="server"></asp:Literal>
+        <asp:Literal ID="chartsPie" runat="server"></asp:Literal>
+        <asp:Literal ID="chartsLine" runat="server"></asp:Literal>
+    </div>
 </asp:Content>
 

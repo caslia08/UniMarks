@@ -31,11 +31,11 @@
       <br />
       
       <asp:GridView ID="gridViewStudents" runat="server" AutoGenerateColumns="False" DataKeyNames="studentNumber" DataSourceID="sqlViewStudentSource"
-          AllowSorting="True"  AllowPaging="True" OnPageIndexChanging="OnPaging" class="table table-responsive table-hover" HeaderStyle-CssClass="table-primary" GridLines="Horizontal" BorderStyle="None" OnRowCommand="gridViewStudents_RowCommand">
+          AllowSorting="True"  AllowPaging="True" OnPageIndexChanging="OnPaging" class="table table-responsive table-hover"  HeaderStyle-CssClass="table-primary" GridLines="Horizontal" BorderStyle="None" OnRowCommand="gridViewStudents_RowCommand">
           <Columns>
-              <asp:BoundField DataField="studentNumber" HeaderText="Assessment ID" ReadOnly="True" SortExpression="studentNumber" />
-              <asp:BoundField DataField="firtsName" HeaderText="Name" SortExpression="firtsName" />
-              <asp:BoundField DataField="surname" HeaderText="Description" SortExpression="surname" />
+              <asp:BoundField DataField="studentNumber" HeaderText="Student Number" ReadOnly="True" SortExpression="studentNumber" />
+              <asp:BoundField DataField="firtsName" HeaderText="First Name" SortExpression="firtsName" />
+              <asp:BoundField DataField="surname" HeaderText="Last Name" SortExpression="surname" />
                <asp:TemplateField>
                    <ItemTemplate>
                        <asp:Button ID="btnViewProgress" runat="server" Text="View Progress" class="btn btn-outline-primary btn-sm btn-rounded-border"
