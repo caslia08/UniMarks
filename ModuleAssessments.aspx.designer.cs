@@ -13,6 +13,15 @@ namespace WebApplication3 {
     public partial class ModuleAssessments {
         
         /// <summary>
+        /// moduleNameHeading control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl moduleNameHeading;
+        
+        /// <summary>
         /// assessmentsView control.
         /// </summary>
         /// <remarks>

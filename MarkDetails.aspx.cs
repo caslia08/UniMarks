@@ -23,6 +23,7 @@ namespace WebApplication3
             {
                 studentNumber = (long)Session["studNum"];
                 assessmentID = (long)Session["assessmentID"];
+                assignmentHeading.InnerText = "Mark details, " + (String)Session["assessmentName"];
                 Object[] resData;
                 Object[] resData2;
                 Object[] resData3;
@@ -55,8 +56,7 @@ namespace WebApplication3
 
                 dbConn.Open();
                 OleDbDataReader reader = cmd1.ExecuteReader();
-
-
+           
                 if (reader.Read() == true)
                 {
                     do
@@ -154,7 +154,7 @@ namespace WebApplication3
                 studentMark.InnerText += resData[0].ToString() + "%";
                 maxMark.InnerText += resData2[0].ToString() + "%";
                 avgMark.InnerText += resData3[0].ToString() + "%";
-                minMark.InnerText += resData4[0].ToString() + "%";
+                minMark.InnerText +=  resData4[0].ToString() + "%";
 
                 getBarChart();
                 getPieChart();
@@ -167,7 +167,7 @@ namespace WebApplication3
 
         private String getRangeValues()
         {
-            int[] rangesArray = new int[10];
+            int[] rangesArray = new int[100];
             String ranges = "[";
             for (int i = 0; i < allMakrs.Count; i++)
             {

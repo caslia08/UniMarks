@@ -52,10 +52,46 @@ namespace WebApplication3
             }
 
 
-
+            setStudentName();
             populatePersonalDeatails();
             setUpDashboardCards();
         }
+
+        private void setStudentName()
+        {
+            Object[] resData = new Object[1];
+            Boolean read;
+            string CS;
+            CS = ConfigurationManager.ConnectionStrings["Connectionstring"].ConnectionString;
+            OleDbConnection dbconn = new OleDbConnection(CS);
+
+            string sqlcmd = "SELECT [firstName] FROM [Student]  WHERE [studentNumber] = @studNum";
+
+            OleDbCommand cmd1 = new OleDbCommand(sqlcmd, dbconn);
+
+            cmd1.Parameters.AddWithValue("@studNum", studentNumber);
+
+            dbconn.Open();
+            OleDbDataReader reader = cmd1.ExecuteReader();
+
+            if (reader.Read() == true)
+            {
+                do
+                {
+                    reader.GetValues(resData);
+                    read = reader.Read();
+                } while (read == true);
+            }
+            reader.Close();
+            dbconn.Close();
+
+            if (resData[0] != null)
+            {
+                firstNameHeading.InnerText ="Welcome, " + (String) resData[0];                
+            }
+        }
+
+
 
         private void populatePersonalDeatails()
         {
@@ -101,6 +137,31 @@ namespace WebApplication3
         {
             Session["StudNum"] = studentNumber;
             Session["ModuleCode"] = "MATT212";
+            Session["ModuleName"] = "Linear Algebra";
+            Response.Redirect("ModuleAssessments.aspx");
+        }
+
+        protected void redirectToRealAnalysis(object sender, EventArgs e)
+        {
+            Session["StudNum"] = studentNumber;
+            Session["ModuleCode"] = "MATT202";
+            Session["ModuleName"] = "Real Analysis";
+            Response.Redirect("ModuleAssessments.aspx");
+        }
+
+        protected void redirectToComputerArchitecture2(object sender, EventArgs e)
+        {
+            Session["StudNum"] = studentNumber;
+            Session["ModuleCode"] = "WRCV202";
+            Session["ModuleName"] = "Computer Architecture 2.2";
+            Response.Redirect("ModuleAssessments.aspx");
+        }
+
+        protected void redirectToAdvancedProgramming(object sender, EventArgs e)
+        {
+            Session["StudNum"] = studentNumber;
+            Session["ModuleCode"] = "WRPV301";
+            Session["ModuleName"] = "Advanced Programming 3.1";
             Response.Redirect("ModuleAssessments.aspx");
         }
 
