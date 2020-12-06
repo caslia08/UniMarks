@@ -222,6 +222,8 @@ namespace WebApplication3
 
                 doModuleAdd();
                 doModulePresnetedAdd();
+
+                Response.Redirect("SearchModule.aspx");
             }
             else
             {

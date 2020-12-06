@@ -22,10 +22,11 @@
         <li class="breadcrumb-item"><a href="#">Module home</a></li>
         <li class="breadcrumb-item"><a href="#">Module assessments</a></li>
         <h1 runat="server" id="tester"></h1>
-	</ol>
+	
+    </ol>
 </asp:Content>
 <asp:Content ID="mainHeading" ContentPlaceHolderID="mainHeading" runat="server">
-    <p runat="server" ID ="mainHeadingP">Assessment name, Mark statistics</p>
+    <p runat="server" ID ="assignmentHeading">Assessment name, Mark statistics</p>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="MainContent" runat="server">
     <div class="jumbotron">
@@ -59,7 +60,7 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         
-        <button type="button" class="btn btn-outline-primary btn-lg btn-rounded-border" data-toggle="modal" data-target="#myModal">
+        <button type="button" class="btn btn-outline-primary btn-lg btn-rounded-border" data-toggle="modal" data-target="#myModal" id="submitFlagBtn" runat="server">
             <i class="material-icons">flag</i>
             Flag mark
          </button>
@@ -96,20 +97,11 @@
                     </div>
                     <div class="modal-footer">
                         <asp:Button ID="submit" runat="server" Text="Send" OnClick="submitFlagBtnClicked"  class="btn btn-outline-primary "/>
-                       <%-- <button type="submit" runat="server" class="btn btn-outline-primary " id="submitBtn"  onserverclick="submitFlagBtnClicked" >Submit</button>--%>
                         <button type="button" class="btn btn-outline-danger " data-dismiss="modal">Cancel</button>
                     </div>
                 </div>
             </div>
         </div>
-
-        
-      
-
-
-
-
-
 
         <br />
         <h3>View your peers progress</h3>

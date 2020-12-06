@@ -22,13 +22,13 @@ namespace WebApplication3 {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl tester;
         
         /// <summary>
-        /// mainHeadingP control.
+        /// assignmentHeading control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl mainHeadingP;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl assignmentHeading;
         
         /// <summary>
         /// studentMark control.
@@ -65,6 +65,15 @@ namespace WebApplication3 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl avgMark;
+        
+        /// <summary>
+        /// submitFlagBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton submitFlagBtn;
         
         /// <summary>
         /// reasonForFlag control.

@@ -183,6 +183,8 @@ namespace WebApplication3
                 {
                     Response.Write("<script>alert('Student edited failed');</script>");
                 }
+
+                Response.Redirect("SearchStudent.aspx");
             }
             catch (Exception err)
             {
