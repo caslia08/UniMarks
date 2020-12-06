@@ -248,9 +248,7 @@ namespace WebApplication3
                 UpdateModule();
                 UpdateModulePresented(moduleCodeInput);
 
-                ClientScriptManager CSM = Page.ClientScript;
-                string strconfirm = "<script>if(!window.confirm('Are you sure?')){window.location.href='Default.aspx'}</script>";
-                CSM.RegisterClientScriptBlock(this.GetType(), "Confirm", strconfirm, false);
+
                 Response.Redirect("SearchModule.aspx");
             }
             else
