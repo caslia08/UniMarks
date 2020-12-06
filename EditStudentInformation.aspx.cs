@@ -13,7 +13,7 @@ namespace WebApplication3
     public partial class EditStudentInformation : System.Web.UI.Page
     {
         String sNum = "335975982";
-       public static bool created = false;
+        public static bool created = false;
 
         private void populateTable()
         {
@@ -28,7 +28,7 @@ namespace WebApplication3
             cmd1.Parameters.AddWithValue("@sNum", sNum);
             dbConn.Open();
             OleDbDataReader reader = cmd1.ExecuteReader();
-            
+
             moduleView.DataSource = reader;
             moduleView.DataBind();
             dbConn.Close();
@@ -73,9 +73,8 @@ namespace WebApplication3
                 title.Text = resData[3].ToString();
                 idNumber.Text = resData[5].ToString();
                 email.Text = resData[4].ToString();
-                dateReg.Text = resData[6].ToString();
 
-                String year = resData[7].ToString();
+                String year = resData[6].ToString();
                 if (year == "1")
                 {
                     yearOfStudy.SelectedValue = "One";
@@ -93,13 +92,13 @@ namespace WebApplication3
                     yearOfStudy.SelectedValue = "Four";
                 }
 
-                faculty.SelectedValue = (String)resData[9];
+                faculty.SelectedValue = (String)resData[8];
             }
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-                sNum = this.Request.QueryString["studentNumber"];
+            sNum = this.Request.QueryString["studentNumber"];
             if (!created)
             {
                 populateTable();
@@ -142,13 +141,6 @@ namespace WebApplication3
                 return;
             }
 
-            if (dateReg.Text.Length == 0)
-            {
-                dateReg.CssClass = "form-control is-invalid";
-                return;
-            }
-
-
             string CS;
             CS = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             OleDbConnection dbConnection = new OleDbConnection(CS);
@@ -159,7 +151,6 @@ namespace WebApplication3
                 "title = @title , " +
                 "emailAddress = @email , " +
                 "IDNumber = @id , " +
-                "dateOfRegistration = @date , " +
                 "yearOfStudy = @year , " +
                 "qualificationName = @qual " +
                 "WHERE studentNumber = @sNum";
@@ -173,7 +164,6 @@ namespace WebApplication3
             dbCommand.Parameters.AddWithValue("@title", title.Text);
             dbCommand.Parameters.AddWithValue("@emailAddress", email.Text);
             dbCommand.Parameters.AddWithValue("@IDNumber", idNumber.Text);
-            dbCommand.Parameters.AddWithValue("@dateOfRegistration", dateReg.Text);
             dbCommand.Parameters.AddWithValue("@yearOfStudy", yearOfStudy.SelectedIndex + 1);
             dbCommand.Parameters.AddWithValue("@qualificationName", faculty.SelectedValue);
 
@@ -198,7 +188,7 @@ namespace WebApplication3
             {
                 Response.Write("<script>alert('Student edited failed: " + err.Message + "');</script>");
             }
-            dbConnection.Close();            
+            dbConnection.Close();
         }
 
         protected void cancle_Click(object sender, EventArgs e)

@@ -60,11 +60,6 @@
 				</div>
 
 				<div class="form-group">
-					<label for="AssDate">Date Registered</label>
-					<asp:TextBox ID="dateReg" class="form-control is-valid" runat="server"></asp:TextBox>
-				</div>
-
-				<div class="form-group">
 					<label for="AssType">Year Of Study</label>
 					<asp:DropDownList ID="yearOfStudy" class="form-control" runat="server">
 						<asp:ListItem>One</asp:ListItem>

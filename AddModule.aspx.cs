@@ -16,7 +16,7 @@ namespace WebApplication3
         protected void Page_Load(object sender, EventArgs e)
         {
             getMaxId();
-            getAllLectures();                       
+            getAllLectures();
         }
 
         private void getMaxId()
@@ -102,18 +102,17 @@ namespace WebApplication3
             CS = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             OleDbConnection dbConnection = new OleDbConnection(CS);
 
-            String sqlComm = "INSERT into [Module]([moduleCode], [moduleName], [moduleMarks], [moduleDesc])" +
-                " VALUES (@ID, @name, @marks, @desc)";
+            String sqlComm = "INSERT into [Module]([moduleCode], [moduleName], [moduleMarks])" +
+                " VALUES (@ID, @name, @marks)";
 
             OleDbCommand dbCommand = new OleDbCommand(sqlComm, dbConnection);
 
             dbCommand.Parameters.AddWithValue("@ID", moduleCode.Text);
             dbCommand.Parameters.AddWithValue("@name", moduleName.Text);
             dbCommand.Parameters.AddWithValue("@marks", "0");
-            dbCommand.Parameters.AddWithValue("@desc", moduleDsc.Text);
 
             dbConnection.Open();
-            
+
             try
             {
                 int ReturnCode = dbCommand.ExecuteNonQuery();
@@ -175,7 +174,7 @@ namespace WebApplication3
         //    String sqlCmd1 = "SELECT [firstName] FROM [Lecturer] WHERE (staffNumber = @staffNum)";
 
         //    OleDbCommand cmd1 = new OleDbCommand(sqlCmd1, dbConnection);
-            
+
         //    cmd1.Parameters.AddWithValue("@staffNum", moduleLecture.Text);
 
         //    dbConnection.Open();
@@ -202,7 +201,7 @@ namespace WebApplication3
         //        Response.Write("<script>alert('Lecturer could not be found');</script>");
         //        return false;
         //    }           
-            
+
         //    return true;            
         //}
 
