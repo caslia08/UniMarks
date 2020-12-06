@@ -76,6 +76,37 @@ namespace WebApplication3
         {
             Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
         }
-    }
 
+        protected void LinkContact_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Contact.aspx");
+
+        }
+
+        protected void LinkAbout_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("About.aspx");
+        }
+
+        protected void LinkDash_Click(object sender, EventArgs e)
+        {
+            if (Session["User"] != null)
+            {
+                int userType = (int)Session["User"];
+
+                switch (userType)
+                {
+                    case 0:
+                        Response.Redirect("~/AdminHomePage.aspx");
+                        break;
+                    case 1:
+                        Response.Redirect("~/Lecturer/LecturerHomePage.aspx");
+                        break;
+                    case 2:
+                        Response.Redirect("~/StudentDashboard.aspx");
+                        break;
+                }
+            }
+        }
+    }
 }

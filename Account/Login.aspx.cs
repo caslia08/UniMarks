@@ -84,9 +84,10 @@ namespace WebApplication3.Account
             if ((userSet.Tables[0].Rows.Count) > 0)
             {
                 FormsAuthentication.RedirectFromLoginPage(txtEmail.Text, false);
-                Session["Email"] = txtEmail.Text;             
+                Session["Email"] = txtEmail.Text;
                 DataRow datarow = userSet.Tables[0].Rows[0];
                 int userType = int.Parse(datarow.Field<string>("userRoleCode"));
+                Session["User"] = userType;
                 switch (userType)
                 {
                     case 0:
