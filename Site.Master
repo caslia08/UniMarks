@@ -4,140 +4,157 @@
 
 <html lang="en">
 <head runat="server">
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><asp:ContentPlaceHolder ID="pageTitle" runat="server"></asp:ContentPlaceHolder></title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>
+		<asp:ContentPlaceHolder ID="pageTitle" runat="server"></asp:ContentPlaceHolder>
+	</title>
 
-    <asp:PlaceHolder runat="server">
-<%--       <%: Scripts.Render("~/bundles/modernizr") %>--%>
-    </asp:PlaceHolder>
-    <webopt:BundleReference runat="server" Path="~/Content/css" />
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.js">
+	<asp:PlaceHolder runat="server">
+		<%--       <%: Scripts.Render("~/bundles/modernizr") %>--%>
+	</asp:PlaceHolder>
+	<webopt:BundleReference runat="server" Path="~/Content/css" />
+	<link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.js">
 
-    </script>
+	</script>
 
-    <asp:ContentPlaceHolder ID="Custom_styles_placeholder" runat="server">
- 
-    </asp:ContentPlaceHolder>
-   <style>
-       #heading h1{
-           padding: 10px 25px 25px 25px;
-       }
+	<asp:ContentPlaceHolder ID="Custom_styles_placeholder" runat="server">
+	</asp:ContentPlaceHolder>
+	<style>
+		#heading h1 {
+			padding: 10px 25px 25px 25px;
+		}
 
-   </style>
+		.ListBox {
+			background-color: #2780e3;
+			color: #fff;
+		}
+	</style>
 </head>
 <body>
-    <form runat="server">
-        <asp:ScriptManager runat="server">
-            <Scripts>
-                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
-                <%--Framework Scripts--%>
-                <asp:ScriptReference Name="MsAjaxBundle" />
-                <asp:ScriptReference Name="jquery" />
-                <asp:ScriptReference Name="bootstrap" />
-                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
-                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
-                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
-                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
-                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
-                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
-                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
-                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
-                <asp:ScriptReference Name="WebFormsBundle" />
-                <%--Site Scripts--%>
-            </Scripts>
-        </asp:ScriptManager>
-        <header>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-                <img src="../Image/Logo.png"  />
-               
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarColor01">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" runat="server" href="~/">Dashboard</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Modules</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">WRR301</a>
-                                <a class="dropdown-item" href="#">MAPV311</a>
-                                <a class="dropdown-item" href="#">MAPV301</a>
-                            </div>
-                        </li>
-                        <asp:ContentPlaceHolder ID="NavListElements" runat="server"></asp:ContentPlaceHolder>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/About">About</a></li>   
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Contact">Contact</a></li>                     
+	<form runat="server">
+		<asp:ScriptManager runat="server">
+			<Scripts>
+				<%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+				<%--Framework Scripts--%>
+				<asp:ScriptReference Name="MsAjaxBundle" />
+				<asp:ScriptReference Name="jquery" />
+				<asp:ScriptReference Name="bootstrap" />
+				<asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+				<asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+				<asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+				<asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+				<asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+				<asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+				<asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+				<asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+				<asp:ScriptReference Name="WebFormsBundle" />
+				<%--Site Scripts--%>
+			</Scripts>
+		</asp:ScriptManager>
+		<header>
+			<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+				<img src="../Image/Logo.png" />
 
-                    </ul>
-                      <asp:ContentPlaceHolder ID="Login_LogoutButton" runat="server"></asp:ContentPlaceHolder>
-                </div>
-            </nav>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarColor01">
+					<ul class="navbar-nav mr-auto">
+
+						<li class="nav-item active">
+							<asp:LinkButton class="nav-link" ID="LinkDash" Text="Dashboard" OnClick="LinkDash_Click" runat="server" />
+						</li>
+
+						<asp:DropDownList ID="DropDownList1" class="ListBox" runat="server" Enabled="true" Visible="true"
+							OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AutoPostBack="true">
+						</asp:DropDownList>
+
+						<li class="nav-item dropdown">
 
 
 
-            <div id="breadCrumb">
-                <asp:ContentPlaceHolder ID="BreadCrumbs" runat="server">
+							<%--							<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Modules</a>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" href="#">WRR301</a>
+								<a class="dropdown-item" href="#">MAPV311</a>
+								<a class="dropdown-item" href="#">MAPV301</a>
+							</div>--%>
+						</li>
+						<asp:ContentPlaceHolder ID="NavListElements" runat="server"></asp:ContentPlaceHolder>
+						<li class="nav-item">
+							<asp:LinkButton class="nav-link" ID="LinkContact" Text="Contact" OnClick="LinkContact_Click" runat="server" />
+						</li>
+						<li class="nav-item">
+							<asp:LinkButton class="nav-link" ID="LinkAbout" Text="About" OnClick="LinkAbout_Click" runat="server" />
+						</li>
 
-                </asp:ContentPlaceHolder>            
-            </div>
-        
-            <div id="heading">
-                <h1>
-                    <asp:ContentPlaceHolder ID="mainHeading" runat="server">
+					</ul>
+					<asp:ContentPlaceHolder ID="Login_LogoutButton" runat="server"></asp:ContentPlaceHolder>
+				</div>
+			</nav>
 
-                    </asp:ContentPlaceHolder>
-                </h1>
-            </div>
-       
-        
-        
-        
-        </header>
 
-        
-        <br />
-        <br />
-        <div class="container body-content">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-            </asp:ContentPlaceHolder>
-            <button class="btn btn-primary btn-lg float-right" onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
-        </div>
-        <br />
-        <br />
-        <hr />
 
-        <footer>
-            <p>&copy; <%: DateTime.Now.Year %> SPARKS</p>
-        </footer>
-      
-</form>
-    <script>
-        mybutton = document.getElementById("myBtn");
+			<div id="breadCrumb">
+				<asp:ContentPlaceHolder ID="BreadCrumbs" runat="server">
+				</asp:ContentPlaceHolder>
+			</div>
 
-        // When the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function () { scrollFunction() };
+			<div id="heading">
+				<h1>
+					<asp:ContentPlaceHolder ID="mainHeading" runat="server">
+					</asp:ContentPlaceHolder>
+				</h1>
+			</div>
 
-        function scrollFunction() {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                mybutton.style.display = "block";
-            } else {
-                mybutton.style.display = "none";
-            }
-        }
 
-        // When the user clicks on the button, scroll to the top of the document
-        function topFunction() {
-            document.body.scrollTop = 0; // For Safari
-            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-        }
 
-    </script>
-    <asp:ContentPlaceHolder ID="Scripts" runat="server"></asp:ContentPlaceHolder>
+
+		</header>
+
+
+		<br />
+		<br />
+		<div class="container body-content">
+			<asp:ContentPlaceHolder ID="MainContent" runat="server">
+			</asp:ContentPlaceHolder>
+			<button class="btn btn-primary btn-lg float-right" onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+		</div>
+		<br />
+		<br />
+		<hr />
+
+		<footer>
+			<p>&copy; <%: DateTime.Now.Year %> SPARKS</p>
+		</footer>
+
+	</form>
+	<script>
+		mybutton = document.getElementById("myBtn");
+
+		// When the user scrolls down 20px from the top of the document, show the button
+		window.onscroll = function () { scrollFunction() };
+
+		function scrollFunction() {
+			if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+				mybutton.style.display = "block";
+			} else {
+				mybutton.style.display = "none";
+			}
+		}
+
+		// When the user clicks on the button, scroll to the top of the document
+		function topFunction() {
+			document.body.scrollTop = 0; // For Safari
+			document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+		}
+
+	</script>
+	<asp:ContentPlaceHolder ID="Scripts" runat="server"></asp:ContentPlaceHolder>
 </body>
 </html>

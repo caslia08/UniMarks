@@ -14,6 +14,7 @@ namespace WebApplication3
 {
     public partial class AdminHomePage : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Email"] != null)
@@ -37,16 +38,21 @@ namespace WebApplication3
                 if ((userSet.Tables[0].Rows.Count) > 0)
                 {
                     DataRow datarow = userSet.Tables[0].Rows[0];
-                    txtTitle.Text = datarow.Field<string>("title");
-                    txtFullName.Text = datarow.Field<string>("firstName") + " " + datarow.Field<string>("surname");
-                    txtEmail.Text = emailAddress;
-                    txtID.Text = datarow.Field<string>("IDNumber");
-                    txtStaffNum.Text = (datarow.Field<int>("staffNumber")).ToString();
-                    txtTel.Text = datarow.Field<string>("officeTelephoneNumber");
-                    txtDeparment.Text = datarow.Field<string>("department");
+
+                    if (txtTitle != null)
+                    {
+                        txtTitle.Text = datarow.Field<string>("title");
+                        txtFullName.Text = datarow.Field<string>("firstName") + " " + datarow.Field<string>("surname");
+                        txtEmail.Text = emailAddress;
+                        txtID.Text = datarow.Field<string>("IDNumber");
+                        txtStaffNum.Text = (datarow.Field<int>("staffNumber")).ToString();
+                        txtTel.Text = datarow.Field<string>("officeTelephoneNumber");
+                        txtDeparment.Text = datarow.Field<string>("department");
+                    }
                 }
 
                 dbconn.Close();
+
             }
         }
     }

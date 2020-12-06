@@ -150,7 +150,7 @@ namespace WebApplication3
             cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             OleDbConnection dbConn = new OleDbConnection(cs);
 
-            String ss = "SELECT Student.studentNumber, Student.firtsName, Student.surname, Student.emailAddress FROM Student INNER JOIN ModuleTaken ON Student.studentNumber = ModuleTaken.studentNumber WHERE (((ModuleTaken.moduleCode) = @moduleCode))";
+            String ss = "SELECT Student.studentNumber, Student.firstName, Student.surname, Student.emailAddress FROM Student INNER JOIN ModuleTaken ON Student.studentNumber = ModuleTaken.studentNumber WHERE (((ModuleTaken.moduleCode) = @moduleCode))";
 
             OleDbCommand cmd1 = new OleDbCommand(ss, dbConn);
             cmd1.Parameters.AddWithValue("@moduleCode", moduleCode);
@@ -169,8 +169,9 @@ namespace WebApplication3
             cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             OleDbConnection dbConn = new OleDbConnection(cs);
 
-            String ss = "SELECT [Assessment Results].assessmentID, [Assessment Information].assessmentName, [Assessment Information].assessmentType, [Assessment Results].moduleCode FROM [Assessment Information] INNER JOIN [Assessment Results] ON [Assessment Information].assessmentID = [Assessment Results].assessmentID WHERE ((([Assessment Results].moduleCode)= @moduleCode))";
+            //String ss = "SELECT [Assessment Results].assessmentID, [Assessment Information].assessmentName, [Assessment Information].assessmentType, [Assessment Results].moduleCode FROM [Assessment Information] INNER JOIN [Assessment Results] ON [Assessment Information].assessmentID = [Assessment Results].assessmentID WHERE ((([Assessment Results].moduleCode)= @moduleCode))";
 
+            String ss = "SELECT [Assessment Information].assessmentID, [Assessment Information].assessmentName, [Assessment Information].assessmentType, [Assessment Information].moduleCode FROM[Assessment Information] WHERE((([Assessment Information].moduleCode) = @moduleCode))";
 
             OleDbCommand cmd1 = new OleDbCommand(ss, dbConn);
             cmd1.Parameters.AddWithValue("@moduleCode", moduleCode);

@@ -11,7 +11,13 @@ namespace WebApplication3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            gridViewAssessments.HeaderRow.TableSection = TableRowSection.TableHeader;
+        }
 
+        protected void OnPaging(object sender, GridViewPageEventArgs e)
+        {
+            gridViewAssessments.PageIndex = e.NewPageIndex;
+            //this.searchStudents();
         }
 
         protected void gridViewAssessments_RowCommand(object sender, GridViewCommandEventArgs e)
