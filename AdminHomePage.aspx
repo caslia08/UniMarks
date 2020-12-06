@@ -69,19 +69,24 @@
 					<table class="table table-hover">
 						<tr>
 							<td>Title:</td>
-							<td>Mr</td>
+							<td>
+								<asp:Label ID="txtTitle" runat="server"></asp:Label>
+							</td>
 						</tr>
 						<tr>
 							<td>Full name:</td>
-							<td>Commander Shepard</td>
+							<td>
+								<asp:Label ID="txtFullName" runat="server"></asp:Label></td>
 						</tr>
 						<tr>
 							<td>Email address:</td>
-							<td>INeedAJob@IhateWebProgramming.ac.za</td>
+							<td>
+								<asp:Label ID="txtEmail" runat="server"></asp:Label></td>
 						</tr>
 						<tr>
 							<td>Id number:</td>
-							<td>1010101010101010</td>
+							<td>
+								<asp:Label ID="txtID" runat="server"></asp:Label></td>
 						</tr>
 
 					</table>
@@ -95,15 +100,18 @@
 					<table class="table table-hover">
 						<tr>
 							<td>Department:</td>
-							<td>FACULTY OF SCIENCE</td>
+							<td>
+								<asp:Label ID="txtDeparment" runat="server"></asp:Label></td>
 						</tr>
 						<tr>
 							<td>Staff number:</td>
-							<td>1010101010101010</td>
+							<td>
+								<asp:Label ID="txtStaffNum" runat="server"></asp:Label></td>
 						</tr>
 						<tr>
 							<td>Office number:</td>
-							<td>+27-000000000</td>
+							<td>
+								<asp:Label ID="txtTel" runat="server"></asp:Label></td>
 						</tr>
 					</table>
 				</div>
@@ -111,19 +119,19 @@
 
 
 		</div>
-	</div>	
+	</div>
 	<div id="links-to-stats-grid-container">
 		<div class="grid-button-container">
-			<a href="EditAdminInformation.aspx" class="btn btn-outline-primary btn-lg btn-rounded-border" role="button">View Modules </a>
+			<a href="SearchModule.aspx" class="btn btn-outline-primary btn-lg btn-rounded-border" role="button">View Modules </a>
 		</div>
 		<div class="grid-button-container">
-			<a href="EditAdminInformation.aspx" class="btn btn-outline-primary btn-lg btn-rounded-border" role="button">View Lecturer</a>
+			<a href="SearchLecturer.aspx" class="btn btn-outline-primary btn-lg btn-rounded-border" role="button">View Lecturers</a>
 		</div>
 	</div>
 	<br />
 	<div id="links-to-stats-grid-container">
 		<div class="grid-button-container">
-			<a href="EditAdminInformation.aspx" class="btn btn-outline-primary btn-lg btn-rounded-border" role="button">Add Module</a>
+			<a href="AddModule.aspx" class="btn btn-outline-primary btn-lg btn-rounded-border" role="button">Add Module</a>
 		</div>
 		<div class="grid-button-container">
 			<a href="EditAdminInformation.aspx" class="btn btn-outline-primary btn-lg btn-rounded-border" role="button">Edit Your Profile</a>

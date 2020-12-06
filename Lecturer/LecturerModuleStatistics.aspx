@@ -95,10 +95,10 @@
         <div id="container">
             <div class="row justify-content-around">
                 <div class="grid-button-container col-4">
-                    <a href="LecturerStudentView.aspx" class="btn btn-outline-primary btn-lg btn-rounded-border" role="button">View Student List</a>
+                    <asp:Button ID="btnViewStudents" runat="server" class="btn btn-outline-primary btn-lg btn-rounded-border" Text="View Student List" OnClick="btnViewStudents_Click" />
                 </div>
                 <div class="grid-button-container col-4">
-                    <a href="LecturerViewAssessments.aspx" class="btn btn-outline-primary btn-lg btn-rounded-border" role="button">View Assessments</a>
+                    <asp:Button ID="btnViewAssessments" runat="server" class="btn btn-outline-primary btn-lg btn-rounded-border" Text="View Assessments" OnClick="btnViewAssessments_Click" />
                 </div>
             </div>
 

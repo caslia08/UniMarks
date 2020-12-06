@@ -1,14 +1,53 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Configuration;
+using System.Data;
+using System.Data.OleDb;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
-using System.Web.UI.WebControls;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Owin;
+using WebApplication3.Models;
 
 namespace WebApplication3
 {
     public partial class AdminHomePage : System.Web.UI.Page
     {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (Session["Email"] != null)
+            {
+                String emailAddress = Session["Email"].ToString();
 
+                string CS;
+                CS = ConfigurationManager.ConnectionStrings["Connectionstring"].ConnectionString;
+                OleDbConnection dbconn = new OleDbConnection(CS);
+
+                string sqlcmd = "SELECT * FROM [Admin]  WHERE [emailAddress] = @email";
+
+                OleDbCommand cmd1 = new OleDbCommand(sqlcmd, dbconn);
+
+                cmd1.Parameters.AddWithValue("@email", emailAddress);
+                OleDbDataAdapter info = new OleDbDataAdapter();
+                info.SelectCommand = cmd1;
+                DataSet userSet = new DataSet();
+                info.Fill(userSet);
+
+                if ((userSet.Tables[0].Rows.Count) > 0)
+                {
+                    DataRow datarow = userSet.Tables[0].Rows[0];
+                    txtTitle.Text = datarow.Field<string>("title");
+                    txtFullName.Text = datarow.Field<string>("firstName") + " " + datarow.Field<string>("surname");
+                    txtEmail.Text = emailAddress;
+                    txtID.Text = datarow.Field<string>("IDNumber");
+                    txtStaffNum.Text = (datarow.Field<int>("staffNumber")).ToString();
+                    txtTel.Text = datarow.Field<string>("officeTelephoneNumber");
+                    txtDeparment.Text = datarow.Field<string>("department");
+                }
+
+                dbconn.Close();
+            }
+        }
     }
 }

@@ -57,7 +57,7 @@
       
 </asp:Content>
 <asp:Content ID="Content7" ContentPlaceHolderID="MainContent" runat="server">
-  <div class="jumbotron">
+    <div class="jumbotron">
         <h2>Module Assessments</h2>
         <hr />
         <br />
@@ -71,32 +71,21 @@
               <asp:BoundField DataField="assessmentID" HeaderText="Assessment ID" ReadOnly="True" SortExpression="assessmentID" />
               <asp:BoundField DataField="assessmentName" HeaderText="Name" SortExpression="assessmentName" />
               <asp:BoundField DataField="assessmentDescription" HeaderText="Description" SortExpression="assessmentDescription" />
-              <asp:BoundField DataField="assessmentDate" HeaderText="Date" SortExpression="assessmentDate" />
               <asp:BoundField DataField="assessmentType" HeaderText="Assessment Type" SortExpression="assessmentType" />
+              <asp:BoundField DataField="assessmentDate" HeaderText="Date" SortExpression="assessmentDate" DataFormatString="{0:d}" HtmlEncode="False" />
               <asp:BoundField DataField="assessmentVenue" HeaderText="Venue" SortExpression="assessmentVenue" />
-              <asp:BoundField DataField="assessmentWeightage" HeaderText="Weightage %" SortExpression="assessmentWeightage" />
               <asp:BoundField DataField="classAverage" HeaderText="Class Average" SortExpression="classAverage" />
-               <asp:TemplateField>
-                   <ItemTemplate>
-                       <asp:Button ID="btnEditAss" runat="server" Text="Edit Assessment" class="btn btn-outline-primary btn-sm btn-rounded-border"
-                           CommandName="EditStudents" CausesValidation="false" CommandArgument='<%# Eval("assessmentID") %>'
-                            />
-                   </ItemTemplate>
-               </asp:TemplateField>
-
-               <asp:TemplateField>
-                   <ItemTemplate>
-                       <asp:Button ID="btnAddMarks" runat="server" Text="View Marks" class="btn btn-outline-primary btn-sm btn-rounded-border"
-                           CommandName="AddMarks" CausesValidation="false" CommandArgument='<%# Eval("assessmentID") %>'
-                            />
-                   </ItemTemplate>
-               </asp:TemplateField>
+              <asp:BoundField DataField="assessmentWeightage" HeaderText="Weightage" SortExpression="assessmentWeightage" />
           </Columns>
 
 <HeaderStyle CssClass="table-primary"></HeaderStyle>
         </asp:GridView>
 
-      <asp:SqlDataSource ID="sqlAssessmentDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [Assessment Information]"></asp:SqlDataSource>
+      <asp:SqlDataSource ID="sqlAssessmentDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString1 %>" ProviderName="<%$ ConnectionStrings:ConnectionString1.ProviderName %>" SelectCommand="SELECT [assessmentID], [assessmentName], [assessmentType], [assessmentDescription], [assessmentDate], [assessmentVenue], [classAverage], [assessmentWeightage] FROM [Assessment Information] WHERE ([moduleCode] = ?)">
+          <SelectParameters>
+              <asp:SessionParameter DefaultValue="MATT212" Name="moduleCode" SessionField="ModuleCode" Type="String" />
+          </SelectParameters>
+      </asp:SqlDataSource>
  
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
           <script src="https://code.jquery.com/jquery-3.5.1.jss"></script>
