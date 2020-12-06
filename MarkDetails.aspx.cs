@@ -19,10 +19,11 @@ namespace WebApplication3
         ArrayList allMakrs = new ArrayList();
         protected void Page_Load(object sender, EventArgs e)
         {
+            studentNumber = (long)Session["studNum"];
+            assessmentID = (long)Session["assessmentID"];
             if (!IsPostBack)
             {
-                studentNumber = (long)Session["studNum"];
-                assessmentID = (long)Session["assessmentID"];
+               
                 assignmentHeading.InnerText = "Mark details, " + (String)Session["assessmentName"];
                 Object[] resData;
                 Object[] resData2;
@@ -329,7 +330,7 @@ namespace WebApplication3
                 };
                 smtp.EnableSsl = true;
                 smtp.Send(mailMessage);
-                setMarkAsFlagged();
+                setMarkAsFlagged(bodyHeading);
             }
             catch (Exception ex)
             {
@@ -337,19 +338,23 @@ namespace WebApplication3
             }
         }
 
-        private void setMarkAsFlagged()
+        private void setMarkAsFlagged(String reasonForChange)
         {
             string CS;
             CS = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             OleDbConnection dbConnection = new OleDbConnection(CS);
-            
+
             //@TODO for db input dateOfFlag and reasonForChange
             string sql = "UPDATE [Assessment Results] " +
-                      "SET [Flagged] = true " +
-                      "WHERE (StudentNumber = @studNum AND assessmentID = @assessmentID)";
-                    
+                      "SET [Flagged] = @flag, " +
+                       "[reasonForChange] = @reasonForChange " +
+                      "WHERE StudentNumber = @studNum AND assessmentID = @assessmentID";
+
 
             OleDbCommand dbCommand = new OleDbCommand(sql, dbConnection);
+
+            dbCommand.Parameters.AddWithValue("@flag", true);
+            dbCommand.Parameters.AddWithValue("@reasonForChange", reasonForChange);
             dbCommand.Parameters.AddWithValue("@studNum", studentNumber);
             dbCommand.Parameters.AddWithValue("@assessmentID", assessmentID);
 
@@ -364,7 +369,7 @@ namespace WebApplication3
             }
             else
             {
-                Response.Write("<script>alert('Flag unccessfully captured, try again');</script>");
+                Response.Write("<script>alert('Unable to find valid records, contact tech support!');</script>");
             }
         }
 

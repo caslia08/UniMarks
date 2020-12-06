@@ -36,11 +36,9 @@
             border-bottom-right-radius: 10px;
             opacity: 0.7;
         }
-
         .material-icons.md-68 {
             font-size: 68px;
         }
-
         .grid-icon {
             place-self: center;
         }
