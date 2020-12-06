@@ -74,8 +74,23 @@
               <asp:BoundField DataField="assessmentType" HeaderText="Assessment Type" SortExpression="assessmentType" />
               <asp:BoundField DataField="assessmentDate" HeaderText="Date" SortExpression="assessmentDate" DataFormatString="{0:d}" HtmlEncode="False" />
               <asp:BoundField DataField="assessmentVenue" HeaderText="Venue" SortExpression="assessmentVenue" />
-              <asp:BoundField DataField="classAverage" HeaderText="Class Average" SortExpression="classAverage" />
+              <asp:BoundField DataField="classAverage" HeaderText="Class Average" SortExpression="classAverage"  />
               <asp:BoundField DataField="assessmentWeightage" HeaderText="Weightage" SortExpression="assessmentWeightage" />
+               <asp:TemplateField>
+                   <ItemTemplate>
+                       <asp:Button ID="btnEditAss" runat="server" Text="Edit Assessment" class="btn btn-outline-primary btn-sm btn-rounded-border"
+                           CommandName="EditStudents" CausesValidation="false" CommandArgument='<%# Eval("assessmentID") %>'
+                            />
+                   </ItemTemplate>
+               </asp:TemplateField>
+
+               <asp:TemplateField>
+                   <ItemTemplate>
+                       <asp:Button ID="btnAddMarks" runat="server" Text="View Marks" class="btn btn-outline-primary btn-sm btn-rounded-border"
+                           CommandName="AddMarks" CausesValidation="false" CommandArgument='<%# Eval("assessmentID") %>'
+                            />
+                   </ItemTemplate>
+               </asp:TemplateField>
           </Columns>
 
 <HeaderStyle CssClass="table-primary"></HeaderStyle>

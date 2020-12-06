@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EditAssessment.aspx.cs" Inherits="WebApplication3.Edit_Assessment" %>
-<%@ PreviousPageType VirtualPath="~/LecturerViewAssessments.aspx" %>
+<%@ PreviousPageType VirtualPath="~/Lecturer/LecturerViewAssessments.aspx" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="pageTitle" runat="server">
     Edit Assessment

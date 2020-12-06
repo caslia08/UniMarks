@@ -17,9 +17,9 @@ namespace WebApplication3
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            DateTime date = DateTime.Today.Date;
-            String today = date.ToString("yyyy-MM-dd");
-            txtAssDate.Attributes["min"] = today;
+            //DateTime date = DateTime.Today.Date;
+            //String today = date.ToString("yyyy-MM-dd");
+            //txtAssDate.Attributes["min"] = today;
 
             String assID;
             if (isCreated)
@@ -52,6 +52,7 @@ namespace WebApplication3
                     txtAssName.Text = reader["assessmentName"].ToString();
                     dropAssType.SelectedValue = reader["assessmentType"].ToString();
                     txtAssDate.Text = reader["assessmentDate"].ToString();
+                    //DataFormatString = "{0:d}";
                     txtAssDesc.Text = reader["assessmentDescription"].ToString();
                     txtAssVenue.Text = reader["assessmentVenue"].ToString();
                     String placeHolder = reader["classAverage"].ToString();
