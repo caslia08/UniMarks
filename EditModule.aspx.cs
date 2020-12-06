@@ -150,7 +150,7 @@ namespace WebApplication3
             cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             OleDbConnection dbConn = new OleDbConnection(cs);
 
-            String ss = "SELECT Student.studentNumber, Student.firtsName, Student.surname, Student.emailAddress FROM Student INNER JOIN ModuleTaken ON Student.studentNumber = ModuleTaken.studentNumber WHERE (((ModuleTaken.moduleCode) = @moduleCode))";
+            String ss = "SELECT Student.studentNumber, Student.firstName, Student.surname, Student.emailAddress FROM Student INNER JOIN ModuleTaken ON Student.studentNumber = ModuleTaken.studentNumber WHERE (((ModuleTaken.moduleCode) = @moduleCode))";
 
             OleDbCommand cmd1 = new OleDbCommand(ss, dbConn);
             cmd1.Parameters.AddWithValue("@moduleCode", moduleCode);

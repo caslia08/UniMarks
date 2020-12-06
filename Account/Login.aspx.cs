@@ -84,9 +84,10 @@ namespace WebApplication3.Account
             if ((userSet.Tables[0].Rows.Count) > 0)
             {
                 FormsAuthentication.RedirectFromLoginPage(txtEmail.Text, false);
-                Session["Email"] = txtEmail.Text;             
+                Session["Email"] = txtEmail.Text;
                 DataRow datarow = userSet.Tables[0].Rows[0];
                 int userType = int.Parse(datarow.Field<string>("userRoleCode"));
+                Session["User"] = userType;
                 switch (userType)
                 {
                     case 0:
@@ -96,6 +97,10 @@ namespace WebApplication3.Account
                         Response.Redirect("~/Lecturer/LecturerHomePage.aspx");
                         break;
                     case 2:
+                        string ll = txtEmail.Text.Substring(1, txtEmail.Text.IndexOf("@") - 1);
+
+                        Session["StudNum"] = long.Parse(ll);
+
                         Response.Redirect("~/StudentDashboard.aspx");
                         break;
                 }

@@ -7,7 +7,12 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
-
+using System.Configuration;
+using System.Data;
+using System.Data.OleDb;
+using Microsoft.AspNet.Identity.Owin;
+using Owin;
+using WebApplication3.Models;
 namespace WebApplication3
 {
     public partial class SiteMaster : MasterPage
@@ -69,13 +74,105 @@ namespace WebApplication3
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            //  DropDownList1.Items.Clear();
 
+            if (Session["User"] != null)
+            {
+                int userType = (int)Session["User"];
+
+                switch (userType)
+                {
+                    case 0:
+                        DropDownList1.Visible = false;
+                        DropDownList1.Enabled = false;
+                        break;
+                    case 1:
+                        DropDownList1.Visible = false;
+                        DropDownList1.Enabled = false;
+                        break;
+                    case 2:
+                        DropDownList1.Items.Add(new ListItem("Modules", "Modules"));
+
+                        string CS;
+                        CS = ConfigurationManager.ConnectionStrings["Connectionstring"].ConnectionString;
+                        OleDbConnection dbconn = new OleDbConnection(CS);
+
+                        string studem = Session["StudNum"].ToString();
+
+                        string sqlcmd = "SELECT ModuleTaken.moduleCode FROM ModuleTaken WHERE(((ModuleTaken.studentNumber) = @studentNum))";
+
+                        OleDbCommand cmd1 = new OleDbCommand(sqlcmd, dbconn);
+                        cmd1.Parameters.AddWithValue("@studentNum", studem);
+
+                        OleDbDataAdapter info = new OleDbDataAdapter();
+                        info.SelectCommand = cmd1;
+                        DataSet userSet = new DataSet();
+                        info.Fill(userSet);
+
+                        for (int i = 0; i < userSet.Tables[0].Rows.Count; i++)
+                        {
+                            DataRow datarow = userSet.Tables[0].Rows[i];
+                            string str = datarow.Field<string>("moduleCode");
+                            DropDownList1.Items.Add(new ListItem(str, str));
+                        }
+
+                        dbconn.Close();
+
+                        break;
+                }
+            }
+            else
+            {
+                DropDownList1.Visible = false;
+                DropDownList1.Enabled = false;
+            }
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
         {
             Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
         }
-    }
 
+        protected void LinkContact_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Contact.aspx");
+
+        }
+
+        protected void LinkAbout_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("About.aspx");
+        }
+
+        protected void LinkDash_Click(object sender, EventArgs e)
+        {
+            if (Session["User"] != null)
+            {
+                int userType = (int)Session["User"];
+
+                switch (userType)
+                {
+                    case 0:
+                        Response.Redirect("~/AdminHomePage.aspx");
+                        break;
+                    case 1:
+                        Response.Redirect("~/Lecturer/LecturerHomePage.aspx");
+                        break;
+                    case 2:
+                        Response.Redirect("~/StudentDashboard.aspx");
+                        break;
+                }
+            }
+        }
+
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            String value = DropDownList1.SelectedValue;
+            String item = DropDownList1.SelectedItem.Text;
+
+            Session["StudNum"] = 216081504L;
+            Session["ModuleCode"] = value;
+            Response.Redirect("ModuleAssessments.aspx");
+        }
+    }
 }

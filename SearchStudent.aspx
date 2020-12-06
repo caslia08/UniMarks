@@ -47,10 +47,10 @@
 		<br />
 
 		<asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="studentNumber" DataSourceID="SqlDataSource1"
-			class="table table-responsive table-hover" HeaderStyle-CssClass="table-primary" OnRowCommand="GridView1_RowCommand">
+			class="table table-responsive table-hover" HeaderStyle-CssClass="table-primary" OnRowCommand="GridView1_RowCommand" GridLines="Horizontal" BorderStyle="None">
 			<Columns>
 				<asp:BoundField DataField="studentNumber" HeaderText="studentNumber" ReadOnly="True" SortExpression="studentNumber" />
-				<asp:BoundField DataField="firtsName" HeaderText="firtsName" SortExpression="firtsName" />
+				<asp:BoundField DataField="firstName" HeaderText="firstName" SortExpression="firstName" />
 				<asp:BoundField DataField="surname" HeaderText="surname" SortExpression="surname" />
 				<asp:BoundField DataField="title" HeaderText="title" SortExpression="title" />
 				<asp:BoundField DataField="emailAddress" HeaderText="emailAddress" SortExpression="emailAddress" />
