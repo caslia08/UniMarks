@@ -22,48 +22,37 @@
     Student List
 </asp:Content>
 <asp:Content ID="Content7" ContentPlaceHolderID="MainContent" runat="server">
-        <div class="jumbotron">
-            <h2>MAPV311 Student List</h2>
+       <div class="jumbotron">
+        <h2>Module Assessments</h2>
         <hr />
         <br />
+      <div><asp:Label ID="lblSearch" runat="server" Text="Search:"></asp:Label>
+      <asp:TextBox ID="txtSearch" runat="server" AutoPostBack="true" OnTextChanged="txtSearch_TextChanged"></asp:TextBox></div>
+      <br />
+      
+      <asp:GridView ID="gridViewStudents" runat="server" AutoGenerateColumns="False" DataKeyNames="studentNumber" DataSourceID="sqlViewStudentSource"
+          AllowSorting="True"  AllowPaging="True" OnPageIndexChanging="OnPaging" class="table table-responsive table-hover" HeaderStyle-CssClass="table-primary" GridLines="Horizontal" BorderStyle="None" OnRowCommand="gridViewStudents_RowCommand">
+          <Columns>
+              <asp:BoundField DataField="studentNumber" HeaderText="Assessment ID" ReadOnly="True" SortExpression="studentNumber" />
+              <asp:BoundField DataField="firtsName" HeaderText="Name" SortExpression="firtsName" />
+              <asp:BoundField DataField="surname" HeaderText="Description" SortExpression="surname" />
+               <asp:TemplateField>
+                   <ItemTemplate>
+                       <asp:Button ID="btnViewProgress" runat="server" Text="View Progress" class="btn btn-outline-primary btn-sm btn-rounded-border"
+                           CommandName="ViewProgress" CausesValidation="false" CommandArgument='<%# Eval("studentNumber") %>'
+                            />
+                   </ItemTemplate>
+               </asp:TemplateField>
+          </Columns>
 
-            
-        <table class="table table-hover custome-table-props marks-table" >
-            <thead>
-                <tr>
-                    <th>Student Number</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>215632236</td>
-                    <td>Jane</td>
-                    <td>Doe</td>
-                    <td><a href"#" class="btn btn-outline-primary btn-sm" role="button">View Profile</a></td>
-                </tr>
-                   <tr>
-                    <td>217965324</td>
-                    <td>John</td>
-                    <td>Doe</td>
-                    <td><a href"#" class="btn btn-outline-primary btn-sm" role="button">View Profile</a></td>
-                </tr>
-                   <tr>
-                    <td>214563323</td>
-                    <td>Mark</td>
-                    <td>Webber</td>
-                    <td><a href"#" class="btn btn-outline-primary btn-sm" role="button">View Profile</a></td>
-                </tr>
-                   <tr>
-                    <td>214563258</td>
-                    <td>Jonathan</td>
-                    <td>Strauss</td>
-                    <td><a href"#" class="btn btn-outline-primary btn-sm" role="button">View Profile</a></td>
-                </tr>
-            </tbody>
-        </table>
+<HeaderStyle CssClass="table-primary"></HeaderStyle>
+        </asp:GridView>
+
+     <asp:SqlDataSource ID="sqlViewStudentSource" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString1 %>" ProviderName="<%$ ConnectionStrings:ConnectionString1.ProviderName %>" SelectCommand="SELECT Student.studentNumber, Student.firtsName, Student.surname FROM Student INNER JOIN ModuleTaken ON Student.studentNumber = ModuleTaken.studentNumber WHERE (ModuleTaken.moduleCode = ?)">
+          <SelectParameters>
+              <asp:SessionParameter DefaultValue="MATT212" Name="moduleCode" SessionField="ModuleCode" Type="String" />
+          </SelectParameters>
+     </asp:SqlDataSource>
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
           <script src="https://code.jquery.com/jquery-3.5.1.jss"></script>
         <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
@@ -74,7 +63,18 @@
                 $('.marks-table').DataTable();
             });
         </script>
+      <br />
+      <hr />
+      <br />
+       <div id="container">
+            <div class="row justify-content-center">
+                <div class="grid-button-container col-4">
+                    <a href="AddAssessment.aspx" class="btn btn-outline-primary btn-lg btn-rounded-border" role="button">Add Assessment</a>
+                </div>
             </div>
+
+        </div>
+    </div>
 
 </asp:Content>
 <asp:Content ID="Content8" ContentPlaceHolderID="Scripts" runat="server">

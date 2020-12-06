@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.OleDb;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,6 +14,82 @@ namespace WebApplication3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+        }
+
+        protected void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            //this.searchStudents();
+
+        }
+
+        private void searchStudents()
+        {
+            String CS = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            using (OleDbConnection con = new OleDbConnection(CS))
+            {
+                using (OleDbCommand cmd = new OleDbCommand())
+                {
+                    string sql = "SELECT assessmentID, assessmentName, assessmentType, assessmentDate, assessmentDescription, assessmentVenue," +
+                        "classAverage, assessmentWeightage FROM Assessment Information";
+
+                    if (!string.IsNullOrEmpty(txtSearch.Text.Trim()))
+                    {
+                        sql += " WHERE assessmentName LIKE @AssName + '%'";
+                        cmd.Parameters.AddWithValue("@AssName", txtSearch.Text.Trim());
+                    }
+                    cmd.CommandText = sql;
+                    cmd.Connection = con;
+
+                    using (OleDbDataAdapter sda = new OleDbDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        sda.Fill(dt);
+                        gridViewStudents.DataSource = dt;
+                        gridViewStudents.DataBind();
+                    }
+                }
+            }
+
+
+        }
+
+        protected void OnPaging(object sender, GridViewPageEventArgs e)
+        {
+            gridViewStudents.PageIndex = e.NewPageIndex;
+            //this.searchStudents();
+        }
+
+        //protected void btnEditAss_Click(object sender, EventArgs e)
+        //{
+        //
+        //            
+        //    if (Page.IsValid)
+        //    {
+        //        int row = gridViewAssessments.PageIndex;
+        //        txtSearch.Text = row.ToString(); 
+        //        //Response.Redirect("EditAssessment.aspx?AssessmentID=" + assID);
+        //    }
+        //    else
+        //    { 
+        //        //TODO error
+        //    }
+        //
+        //}
+
+        protected void gridViewStudents_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            String isCreated = "false";
+            if (e.CommandName == "EditStudents")
+            {
+                String assessmentID = e.CommandArgument.ToString();
+                Response.Redirect("EditAssessment.aspx?AssessmentID=" + assessmentID + "&isCreate=" + isCreated);
+            }
+            else if (e.CommandName == "AddMarks")
+            {
+                String assessmentID = e.CommandArgument.ToString();
+                Response.Redirect("AddEditMarks.aspx?AssessmentID=" + assessmentID);
+            }
 
         }
     }

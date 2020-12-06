@@ -26,8 +26,8 @@ namespace WebApplication3
             Object[] resData5;
             String cs;
             Boolean read;
-            studentNumber = 335975982;
-            assessmentID = 98405;
+            studentNumber = 216081504;
+            assessmentID = 1008;
             resData = new Object[1];
             resData2 = new Object[1];
             resData3 = new Object[1]; //Probs perform count query on how many people are in db that took the assessement...
