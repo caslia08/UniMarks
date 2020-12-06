@@ -93,7 +93,7 @@ namespace WebApplication3
             else if (e.CommandName == "AddMarks")
             {
                 String assessmentID = e.CommandArgument.ToString();
-                Response.Redirect("AddMarksTester.aspx?AssessmentID=" + assessmentID);
+                Response.Redirect("AddEditMarks.aspx?AssessmentID=" + assessmentID);
             }
 
         }

@@ -7,45 +7,65 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication3 {
-    
-    
-    public partial class ButtonTestM {
-        
+namespace WebApplication3.Lecturer
+{
+
+
+    public partial class AddEditMarks
+    {
+
         /// <summary>
-        /// pageTitle control.
+        /// txtHeader control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder pageTitle;
-        
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtHeader;
+
         /// <summary>
-        /// Custom_styles_placeholder control.
+        /// gridViewMarks control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder Custom_styles_placeholder;
-        
+        protected global::System.Web.UI.WebControls.GridView gridViewMarks;
+
         /// <summary>
-        /// form1 control.
+        /// sqlMarksSource control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlMarksSource;
+
         /// <summary>
-        /// ContentPlaceHolder1 control.
+        /// Warning control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        protected global::System.Web.UI.WebControls.Label Warning;
+
+        /// <summary>
+        /// btnUpdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUpdate;
+
+        /// <summary>
+        /// btnCancel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancel;
     }
 }

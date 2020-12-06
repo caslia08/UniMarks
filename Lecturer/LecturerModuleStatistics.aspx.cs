@@ -18,7 +18,7 @@ namespace WebApplication3
         protected void btnViewStudents_Click(object sender, EventArgs e)
         {
             Session["ModuleCode"] = moduleName;
-            Response.Redirect("~/Lecturer/LecturerHomePage.aspx");
+            Response.Redirect("~/Lecturer/LecturerStudentView.aspx");
             //TODO add legit session variable
         }
 

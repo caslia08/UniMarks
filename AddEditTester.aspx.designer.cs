@@ -11,8 +11,17 @@ namespace WebApplication3
 {
 
 
-    public partial class AddMarksTester
+    public partial class AddEditTester
     {
+
+        /// <summary>
+        /// txtHeader control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtHeader;
 
         /// <summary>
         /// gridViewMarks control.
@@ -24,6 +33,15 @@ namespace WebApplication3
         protected global::System.Web.UI.WebControls.GridView gridViewMarks;
 
         /// <summary>
+        /// sqlMarksSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlMarksSource;
+
+        /// <summary>
         /// Warning control.
         /// </summary>
         /// <remarks>
@@ -33,13 +51,13 @@ namespace WebApplication3
         protected global::System.Web.UI.WebControls.Label Warning;
 
         /// <summary>
-        /// btnSubmit control.
+        /// btnUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSubmit;
+        protected global::System.Web.UI.WebControls.Button btnUpdate;
 
         /// <summary>
         /// btnCancel control.

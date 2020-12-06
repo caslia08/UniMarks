@@ -166,8 +166,10 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="AddEditTester.aspx" />
     <Content Include="Lecturer\AddAssessment.aspx" />
     <Content Include="EditModule.aspx" />
+    <Content Include="Lecturer\AddEditMarks.aspx" />
     <Content Include="SearchModule.aspx" />
     <Content Include="SearchLecturer.aspx" />
     <Content Include="SearchStudent.aspx" />
@@ -350,6 +352,13 @@
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AddEditTester.aspx.cs">
+      <DependentUpon>AddEditTester.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddEditTester.aspx.designer.cs">
+      <DependentUpon>AddEditTester.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Lecturer\AddAssessment.aspx.cs">
       <DependentUpon>AddAssessment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -363,6 +372,13 @@
     </Compile>
     <Compile Include="EditModule.aspx.designer.cs">
       <DependentUpon>EditModule.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Lecturer\AddEditMarks.aspx.cs">
+      <DependentUpon>AddEditMarks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Lecturer\AddEditMarks.aspx.designer.cs">
+      <DependentUpon>AddEditMarks.aspx</DependentUpon>
     </Compile>
     <Compile Include="SearchModule.aspx.cs">
       <DependentUpon>SearchModule.aspx</DependentUpon>
