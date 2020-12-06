@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AddEditMarks.aspx.cs" Inherits="WebApplication3.Lecturer.AddEditMarks" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AddEditTester.aspx.cs" Inherits="WebApplication3.AddEditTester" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="pageTitle" runat="server">
     View Marks
 </asp:Content>

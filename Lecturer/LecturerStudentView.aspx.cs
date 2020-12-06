@@ -15,8 +15,12 @@ namespace WebApplication3
         string moduleCode; 
         protected void Page_Load(object sender, EventArgs e)
         {
-            moduleCode = Session["moduleCode"].ToString(); 
+            if (Session["moduleCode"] != null)
+            {
+                moduleCode = Session["moduleCode"].ToString();
+            }
             Session["moduleCode"] = "WRCV202"; 
+            moduleCode = Session["moduleCode"].ToString();
         }
 
         protected void txtSearch_TextChanged(object sender, EventArgs e)

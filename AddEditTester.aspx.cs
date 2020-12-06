@@ -1,32 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.OleDb;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data;
-using System.Configuration;
-using System.Data.OleDb;
-using System.Data.Common;
-using System.Data.SqlClient;
-using System.Data.Entity;
 
-namespace WebApplication3.Lecturer
+namespace WebApplication3
 {
-    public partial class AddEditMarks : System.Web.UI.Page
+    public partial class AddEditTester : System.Web.UI.Page
     {
         public string assID = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            assID = this.Request.QueryString["AssessmentID"];
-            //assID = "1008";
-            Session["assessmentID"] = assID;
+            //assID = this.Request.QueryString["AssessmentID"];
+            assID = "1008";
+            Session["assessmentID"] = "1008";
 
             Object[] resData;
             Object[] resData2;
             Boolean read;
-
+            
             String cs;
 
             resData = new Object[1];
@@ -74,7 +71,7 @@ namespace WebApplication3.Lecturer
             String heading = "";
             heading += resData[0].ToString();
             heading += " " + resData2[0].ToString();
-            txtHeader.InnerText += heading;
+            txtHeader.InnerText += heading; 
         }
 
 
@@ -93,11 +90,11 @@ namespace WebApplication3.Lecturer
         {
             String cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             OleDbConnection dbConn = new OleDbConnection(cs);
-
+            
             String sqlCmd1 = "UPDATE[Assessment Results] SET markCaptured = @markCaptured WHERE([Assessment Results].studentNumber = @studentNumber AND[Assessment Results].assessmentID = @assID)";
             OleDbCommand cmd1 = new OleDbCommand(sqlCmd1, dbConn);
-
-
+            
+   
 
             foreach (GridViewRow row in gridViewMarks.Rows)
             {
@@ -118,10 +115,10 @@ namespace WebApplication3.Lecturer
                 }
                 else
                 {
-                    txt.CssClass += " is-invalid";
+                    txt.CssClass += " is-invalid"; 
                 }
 
-                dbConn.Close();
+                dbConn.Close(); 
 
             }
         }

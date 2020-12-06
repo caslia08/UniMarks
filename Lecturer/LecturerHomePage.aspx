@@ -80,8 +80,7 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="BreadCrumbs" runat="server">
 	<ol class="breadcrumb">
-		<li class="breadcrumb-item"><a href="#">DashBoard</a></li>
-		<li class="breadcrumb-item"><a href="#">Profile</a></li>
+		<li class="breadcrumb-item active"><a href="#">DashBoard</a></li>
 	</ol>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="mainHeading" runat="server">
@@ -162,7 +161,7 @@
              <div class="grid-heading">
                  <h4>MAPV101-Graph Theory</h4>
              </div>
-             <img src="~\Image\Math_logo.png" alt="module-image" class="module-img" />
+             <img src="~/Image/Math_logo.png" alt="module-image" class="module-img" />
          </div>
      </div>
 	<br />
