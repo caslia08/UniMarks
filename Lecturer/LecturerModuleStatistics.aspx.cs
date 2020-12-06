@@ -9,22 +9,27 @@ namespace WebApplication3
 {
     public partial class LecturerModuleStatistics : System.Web.UI.Page
     {
-        string moduleName = "MAPV212"; 
+        string moduleName;
+        string moduleCode;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            //TODO add session variable thing to load info
+            moduleName = Session["ModuleName"].ToString();
+            moduleCode = Session["ModuleCode"].ToString();
+
+            moduleHeading.InnerText += moduleCode + " " + moduleName; 
         }
 
         protected void btnViewStudents_Click(object sender, EventArgs e)
         {
-            Session["ModuleCode"] = moduleName;
+            Session["ModuleCode"] = moduleCode;
             Response.Redirect("~/Lecturer/LecturerStudentView.aspx");
             //TODO add legit session variable
         }
 
         protected void btnViewAssessments_Click(object sender, EventArgs e)
         {
-            Session["ModuleCode"] = moduleName;
+            Session["ModuleCode"] = moduleCode;
             Response.Redirect("~/Lecturer/LecturerViewAssessments.aspx");
         }
     }

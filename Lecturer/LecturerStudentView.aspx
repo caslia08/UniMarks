@@ -34,7 +34,7 @@
           AllowSorting="True"  AllowPaging="True" OnPageIndexChanging="OnPaging" class="table table-responsive table-hover"  HeaderStyle-CssClass="table-primary" GridLines="Horizontal" BorderStyle="None" OnRowCommand="gridViewStudents_RowCommand">
           <Columns>
               <asp:BoundField DataField="studentNumber" HeaderText="Student Number" ReadOnly="True" SortExpression="studentNumber" />
-              <asp:BoundField DataField="firtsName" HeaderText="First Name" SortExpression="firtsName" />
+              <asp:BoundField DataField="firstName" HeaderText="First Name" SortExpression="firstName" />
               <asp:BoundField DataField="surname" HeaderText="Last Name" SortExpression="surname" />
                <asp:TemplateField>
                    <ItemTemplate>
@@ -48,9 +48,10 @@
 <HeaderStyle CssClass="table-primary"></HeaderStyle>
         </asp:GridView>
 
-     <asp:SqlDataSource ID="sqlViewStudentSource" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString1 %>" ProviderName="<%$ ConnectionStrings:ConnectionString1.ProviderName %>" SelectCommand="SELECT Student.studentNumber, Student.firtsName, Student.surname FROM Student INNER JOIN ModuleTaken ON Student.studentNumber = ModuleTaken.studentNumber WHERE (ModuleTaken.moduleCode = ?)">
+     <asp:SqlDataSource ID="sqlViewStudentSource" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString1 %>" ProviderName="<%$ ConnectionStrings:ConnectionString1.ProviderName %>" 
+         SelectCommand="SELECT Student.studentNumber, Student.firstName, Student.surname FROM Student INNER JOIN ModuleTaken ON Student.studentNumber = ModuleTaken.studentNumber WHERE (ModuleTaken.moduleCode = ?)">
           <SelectParameters>
-              <asp:SessionParameter DefaultValue="MATT212" Name="moduleCode" SessionField="ModuleCode" Type="String" />
+              <asp:SessionParameter DefaultValue="MATT212" Name="ModuleCode" SessionField="ModuleCode" Type="String" />
           </SelectParameters>
      </asp:SqlDataSource>
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">

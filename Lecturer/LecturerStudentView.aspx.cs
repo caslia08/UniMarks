@@ -15,12 +15,12 @@ namespace WebApplication3
         string moduleCode; 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["moduleCode"] != null)
+            if (Session["ModuleCode"] != null)
             {
-                moduleCode = Session["moduleCode"].ToString();
+                moduleCode = Session["ModuleCode"].ToString();
             }
-            Session["moduleCode"] = "WRCV202"; 
-            moduleCode = Session["moduleCode"].ToString();
+            Session["ModuleCode"] = moduleCode; 
+            moduleCode = Session["ModuleCode"].ToString();
         }
 
         protected void txtSearch_TextChanged(object sender, EventArgs e)
@@ -65,29 +65,14 @@ namespace WebApplication3
             gridViewStudents.PageIndex = e.NewPageIndex;
             //this.searchStudents();
         }
-
-        //protected void btnEditAss_Click(object sender, EventArgs e)
-        //{
-        //
-        //            
-        //    if (Page.IsValid)
-        //    {
-        //        int row = gridViewAssessments.PageIndex;
-        //        txtSearch.Text = row.ToString(); 
-        //        //Response.Redirect("EditAssessment.aspx?AssessmentID=" + assID);
-        //    }
-        //    else
-        //    { 
-        //        //TODO error
-        //    }
-        //
-        //}
-
+  
         protected void gridViewStudents_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "ViewProgress")
             {
                 String studentNumber = e.CommandArgument.ToString();
+                Session["studentNumber"] = studentNumber;
+                Session["moduleCode"] = moduleCode;
                 Response.Redirect("LecturerStudentProgress.aspx?StudentNumber=" + studentNumber + "&moduleCode=" + moduleCode);
             }
         }

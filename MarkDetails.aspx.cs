@@ -240,7 +240,7 @@ namespace WebApplication3
             sb.Append(dataValues);
             sb.Append("backgroundColor: ['rgba(153, 0, 0, 0.6)', 'rgba(204, 0, 0, 0.6)','rgba(255, 0, 0, 0.6)','rgba(255, 48, 48, 0.6)','rgba(0, 0, 153, 0.6)','rgba(0, 125, 255, 0.6)','rgba(0, 204, 204, 0.6)','rgba(0,153 , 0, 0.6)','rgba(0, 255, 0, 0.6)','rgba(204, 255, 153, 0.6)'],");
             sb.Append("borderColor: ['rgba(153, 0, 0, 0.1)','rgba(204, 0, 0, 0.1)','rgba(255, 0, 0, 0.1)','rgba(255, 48, 48, 0.1)','rgba(0, 0, 153, 0.1)','rgba(0, 125, 255, 0.1)','rgba(0, 204, 204, 0.1)','rgba(0,153 , 0, 0.1)','rgba(0, 255, 0, 0.1)','rgba(204, 255, 153, 0.1)'],borderWidth: 1,hoverBorderWidth: 2, hoverBorderColor: '#000'}]},");
-            sb.Append("options:{title:{display: true,text: 'Marks distrabution',fontSize: 25},legend:{display: false}," +
+            sb.Append("options:{title:{display: true,text: 'Marks Distribution',fontSize: 25},legend:{display: false}," +
                 "scales:" +
                 "{xAxes: [{scaleLabel:{display: true,labelString: 'percentage range'}}]," +
                 "yAxes: [{scaleLabel:{display: true,labelString: 'Number of people'}" +
@@ -268,7 +268,7 @@ namespace WebApplication3
             sb.Append(dataValues);
             sb.Append("backgroundColor: ['rgba(0, 125, 255, 0.6)',],");
             sb.Append("borderColor: ['rgba(0, 125, 255, 0.6)',],borderWidth: 1,hoverBorderWidth: 2, hoverBorderColor: '#000'}]},");
-            sb.Append("options:{title:{display: true,text: 'Marks distrabution (Percentages optained)',fontSize: 25}," +
+            sb.Append("options:{title:{display: true,text: 'Marks Distribution (Percentages Obtained)',fontSize: 25}," +
                 "legend:{display: false" +
                 "}," +
                 "scales:" +
@@ -303,7 +303,7 @@ namespace WebApplication3
             sb.Append(dataValues);
             sb.Append("backgroundColor: ['rgba(153, 0, 0, 0.6)', 'rgba(204, 0, 0, 0.6)','rgba(255, 0, 0, 0.6)','rgba(255, 48, 48, 0.6)','rgba(0, 0, 153, 0.6)','rgba(0, 125, 255, 0.6)','rgba(0, 204, 204, 0.6)','rgba(0,153 , 0, 0.6)','rgba(0, 255, 0, 0.6)','rgba(204, 255, 153, 0.6)'],");
             sb.Append("borderColor: ['rgba(153, 0, 0, 0.1)','rgba(204, 0, 0, 0.1)','rgba(255, 0, 0, 0.1)','rgba(255, 48, 48, 0.1)','rgba(0, 0, 153, 0.1)','rgba(0, 125, 255, 0.1)','rgba(0, 204, 204, 0.1)','rgba(0,153 , 0, 0.1)','rgba(0, 255, 0, 0.1)','rgba(204, 255, 153, 0.1)'],borderWidth: 1,hoverBorderWidth: 2, hoverBorderColor: '#000'}]},");
-            sb.Append("options:{title:{display: true,text: 'Marks distrabution',fontSize: 25},legend:{display: true,position:'right'}," +
+            sb.Append("options:{title:{display: true,text: 'Marks Distribution',fontSize: 25},legend:{display: true,position:'right'}," +
                 "scales:" +
                 "{ticks:{beginAtZero: true}}}});");
             sb.Append("</script>");

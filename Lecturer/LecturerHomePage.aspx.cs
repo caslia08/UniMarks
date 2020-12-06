@@ -50,5 +50,30 @@ namespace WebApplication3
                 dbconn.Close();
             }
         }
+
+
+        protected void redirectToLinearAlgebra(object sender, EventArgs e)
+        {
+            //Session["StudNum"] = studentNumber;
+            Session["ModuleCode"] = "MATT212";
+            Session["ModuleName"] = "Linear Algebra";
+            Response.Redirect("LecturerModuleStatistics.aspx");
+        }
+
+        protected void redirectToRealAnalysis(object sender, EventArgs e)
+        {
+            //Session["StudNum"] = studentNumber;
+            Session["ModuleCode"] = "MATT202";
+            Session["ModuleName"] = "Real Analysis";
+            Response.Redirect("LecturerModuleStatistics.aspx");
+        }
+
+        protected void redirectToComplexFunctions(object sender, EventArgs e)
+        {
+            //Session["StudNum"] = studentNumber;
+            Session["ModuleCode"] = "MATT312";
+            Session["ModuleName"] = "Complex Analysis";
+            Response.Redirect("LecturerModuleStatistics.aspx");
+        }
     }
 }

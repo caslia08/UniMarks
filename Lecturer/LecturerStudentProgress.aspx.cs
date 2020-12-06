@@ -17,8 +17,7 @@ namespace WebApplication3
         ArrayList allMarks = new ArrayList();
       
         protected void Page_Load(object sender, EventArgs e)
-        {
-            //int studentNumber =  Convert.ToInt32(this.Request.QueryString["StudentNumber"]);
+        {          
             int studentNumber;
             string moduleCode;
             string fullname =""; 
@@ -34,8 +33,8 @@ namespace WebApplication3
 
             String cs;
             Boolean read;
-            studentNumber = 216081504;
-            moduleCode = "MATT212";
+            studentNumber = int.Parse(Session["studentNumber"].ToString()); ;
+            moduleCode = Session["moduleCode"].ToString();
             resData = new Object[1];
             resData2 = new Object[1];
             resData3 = new Object[1]; //Probs perform count query on how many people are in db that took the assessement...
@@ -51,8 +50,8 @@ namespace WebApplication3
             String sqlCmd2 = "SELECT AVG([markCaptured]) FROM [ASSESSMENT RESULTS] WHERE (moduleCode = @moduleCode)";
             String sqlCmd3 = "SELECT COUNT([markCaptured]) FROM [ASSESSMENT RESULTS] WHERE (studentNumber = @studentNum AND  moduleCode = @moduleCode AND markCaptured > @mark )";
             String sqlCmd4 = "SELECT COUNT([markCaptured]) FROM [ASSESSMENT RESULTS] WHERE (studentNumber = @studentNum AND  moduleCode = @moduleCode AND markCaptured = @mark )";
-            String sqlCmd5 = "SELECT [markCaptured] FROM [ASSESSMENT RESULTS] WHERE (moduleCode = @moduleCode)";
-            String sqlCmd6 = "SELECT [firtsName], [surname] FROM [STUDENT] WHERE (studentNumber = @studentNum)";
+            String sqlCmd5 = "SELECT [markCaptured] FROM [ASSESSMENT RESULTS] WHERE (moduleCode = @moduleCode AND studentNumber = @studentNum)";
+            String sqlCmd6 = "SELECT [firstName], [surname] FROM [STUDENT] WHERE (studentNumber = @studentNum)";
 
 
 
@@ -124,6 +123,7 @@ namespace WebApplication3
 
             cmd1 = new OleDbCommand(sqlCmd5, dbConn);
             cmd1.Parameters.AddWithValue("@moduleCode", moduleCode);
+            cmd1.Parameters.AddWithValue("@studentNum", studentNumber);
             reader = cmd1.ExecuteReader();
 
             if (reader.Read() == true)
@@ -154,8 +154,11 @@ namespace WebApplication3
             reader.Close();
             dbConn.Close();
 
-            studentMark.InnerText += resData[0].ToString() + "%";
-            classAverage.InnerText += resData2[0].ToString() + "%";
+            double studentAvg = Math.Round(double.Parse(resData[0].ToString()), 2);
+            double classAvg = Math.Round(double.Parse(resData2[0].ToString()), 2);
+
+            studentMark.InnerText += studentAvg.ToString() + "%";
+            classAverage.InnerText += classAvg.ToString() + "%";
             numberAssComplete.InnerText += resData3[0].ToString();
             missedAssessments.InnerText += resData4[0].ToString();
             studentFullname.InnerText += fullname; 
@@ -270,7 +273,7 @@ namespace WebApplication3
             sb.Append(dataValues);
             sb.Append("backgroundColor: ['rgba(0, 125, 255, 0.6)',],");
             sb.Append("borderColor: ['rgba(0, 125, 255, 0.6)',],borderWidth: 1,hoverBorderWidth: 2, hoverBorderColor: '#000'}]},");
-            sb.Append("options:{title:{display: true,text: 'Marks distrabution (Percentages optained)',fontSize: 25}," +
+            sb.Append("options:{title:{display: true,text: 'Marks Distribution (Percentages Obtained)',fontSize: 25}," +
                 "legend:{display: false" +
                 "}," +
                 "scales:" +
@@ -305,7 +308,7 @@ namespace WebApplication3
             sb.Append(dataValues);
             sb.Append("backgroundColor: ['rgba(153, 0, 0, 0.6)', 'rgba(204, 0, 0, 0.6)','rgba(255, 0, 0, 0.6)','rgba(255, 48, 48, 0.6)','rgba(0, 0, 153, 0.6)','rgba(0, 125, 255, 0.6)','rgba(0, 204, 204, 0.6)','rgba(0,153 , 0, 0.6)','rgba(0, 255, 0, 0.6)','rgba(204, 255, 153, 0.6)'],");
             sb.Append("borderColor: ['rgba(153, 0, 0, 0.1)','rgba(204, 0, 0, 0.1)','rgba(255, 0, 0, 0.1)','rgba(255, 48, 48, 0.1)','rgba(0, 0, 153, 0.1)','rgba(0, 125, 255, 0.1)','rgba(0, 204, 204, 0.1)','rgba(0,153 , 0, 0.1)','rgba(0, 255, 0, 0.1)','rgba(204, 255, 153, 0.1)'],borderWidth: 1,hoverBorderWidth: 2, hoverBorderColor: '#000'}]},");
-            sb.Append("options:{title:{display: true,text: 'Marks distrabution',fontSize: 25},legend:{display: true,position:'right'}," +
+            sb.Append("options:{title:{display: true,text: 'Marks Distribution',fontSize: 25},legend:{display: true,position:'right'}," +
                 "scales:" +
                 "{ticks:{beginAtZero: true}}}});");
             sb.Append("</script>");
