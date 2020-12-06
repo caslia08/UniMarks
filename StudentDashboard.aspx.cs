@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.OleDb;
 using System.Linq;
 using System.Web;
@@ -11,9 +12,46 @@ namespace WebApplication3
 {
     public partial class StudentDashboard : System.Web.UI.Page
     {
-        long studentNumber = 216081504;
+        long studentNumber;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Email"] != null)
+            {
+                String emailAddress = Session["Email"].ToString();
+                Object[] resData = new Object[1];
+                Boolean read;
+                string CS;
+                CS = ConfigurationManager.ConnectionStrings["Connectionstring"].ConnectionString;
+                OleDbConnection dbconn = new OleDbConnection(CS);
+
+                string sqlcmd = "SELECT [studentNumber] FROM [Student]  WHERE [emailAddress] = @email";
+
+                OleDbCommand cmd1 = new OleDbCommand(sqlcmd, dbconn);
+
+                cmd1.Parameters.AddWithValue("@email", emailAddress);
+
+                dbconn.Open();
+                OleDbDataReader reader = cmd1.ExecuteReader();
+
+                if (reader.Read() == true)
+                {
+                    do
+                    {
+                        reader.GetValues(resData);
+                        read = reader.Read();
+                    } while (read == true);
+                }
+                reader.Close();
+                dbconn.Close();
+
+                if(resData[0] != null)
+                {
+                    studentNumber = (int)resData[0];
+                }
+
+            }
+
+
 
             populatePersonalDeatails();
             setUpDashboardCards();
