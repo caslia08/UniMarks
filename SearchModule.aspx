@@ -49,7 +49,8 @@
 		<br />
 
 		<asp:GridView ID="gridViewAssessments" runat="server" AutoGenerateColumns="False" DataKeyNames="moduleCode" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True"
-			class="table table-responsive table-hover" HeaderStyle-CssClass="table-primary" OnRowCommand="gridViewAssessments_RowCommand">
+			class="table table-responsive table-hover" HeaderStyle-CssClass="table-primary" OnRowCommand="gridViewAssessments_RowCommand" Width="100%"
+			GridLines="Horizontal" BorderStyle="None">
 			<Columns>
 				<asp:BoundField DataField="moduleCode" HeaderText="moduleCode" ReadOnly="True" SortExpression="moduleCode" />
 				<asp:BoundField DataField="moduleName" HeaderText="moduleName" SortExpression="moduleName" />

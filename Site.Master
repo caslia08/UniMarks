@@ -70,7 +70,8 @@
 							<asp:LinkButton class="nav-link" ID="LinkDash" Text="Dashboard" OnClick="LinkDash_Click" runat="server" />
 						</li>
 
-						<asp:DropDownList ID="DropDownList1" class="ListBox" runat="server" Enabled="true" Visible="true" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AutoPostBack="true" CausesValidation="false">
+						<asp:DropDownList ID="DropDownList1" class="ListBox" runat="server" Enabled="true" Visible="true"
+							OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AutoPostBack="true">
 						</asp:DropDownList>
 
 						<li class="nav-item dropdown">

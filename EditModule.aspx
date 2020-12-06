@@ -62,13 +62,17 @@
 
 				<div class="form-group">
 					<label for="AssDesc">Module students</label>
-					<asp:GridView ID="studentView" class="table table-responsive table-hover" HeaderStyle-CssClass="table-primary" runat="server" AutoGenerateColumns="False">
+
+					<asp:GridView ID="studentView" runat="server" AutoGenerateColumns="False" AllowSorting="True"
+						class="table table-responsive table-hover" HeaderStyle-CssClass="table-primary" Width="100%"
+						GridLines="Horizontal" BorderStyle="None">
 						<Columns>
 							<asp:BoundField DataField="studentNumber" HeaderText="studentNumber" ReadOnly="True" SortExpression="studentNumber" />
-							<asp:BoundField DataField="firtsName" HeaderText="firtsName" SortExpression="firtsName" />
+							<asp:BoundField DataField="firstName" HeaderText="firtsName" SortExpression="firtsName" />
 							<asp:BoundField DataField="surname" HeaderText="surname" SortExpression="surname" />
 							<asp:BoundField DataField="emailAddress" HeaderText="emailAddress" SortExpression="emailAddress" />
 						</Columns>
+
 						<HeaderStyle CssClass="table-primary"></HeaderStyle>
 					</asp:GridView>
 

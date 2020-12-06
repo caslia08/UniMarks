@@ -146,7 +146,7 @@ namespace WebApplication3
             OleDbConnection dbConnection = new OleDbConnection(CS);
 
             String sqlComm = "UPDATE Student SET " +
-                "firtsName = @firstName , " +
+                "firstName = @firstName , " +
                 "surname = @lastName , " +
                 "title = @title , " +
                 "emailAddress = @email , " +
@@ -184,7 +184,7 @@ namespace WebApplication3
                     Response.Write("<script>alert('Student edited failed');</script>");
                 }
 
-                Response.Redirect("SearchStudent.aspx");
+                // Response.Redirect("SearchStudent.aspx");
             }
             catch (Exception err)
             {
