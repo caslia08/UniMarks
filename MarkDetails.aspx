@@ -26,7 +26,7 @@
     </ol>
 </asp:Content>
 <asp:Content ID="mainHeading" ContentPlaceHolderID="mainHeading" runat="server">
-    <p runat="server" ID ="mainHeadingP">Assessment name, Mark statistics</p>
+    <p runat="server" ID ="assignmentHeading">Assessment name, Mark statistics</p>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="MainContent" runat="server">
     <div class="jumbotron">

@@ -13,10 +13,12 @@ namespace WebApplication3
     {
         long studentNumber;
         String moduleCode;
+        String moduleName;
         protected void Page_Load(object sender, EventArgs e)
         {
             studentNumber = (long)Session["StudNum"];
             moduleCode = (String)Session["ModuleCode"];
+            moduleName = (String)Session["ModuleName"];
             if (!IsPostBack)
             {
                 String cs;
@@ -24,7 +26,7 @@ namespace WebApplication3
                 OleDbConnection dbConn = new OleDbConnection(cs);
 
                 String sqlCmd1 = "SELECT DISTINCT [assessmentName], [assessmentType], [assessmentDate], [assessmentDescription], [assessmentVenue] FROM ([ASSESSMENT RESULTS] INNER JOIN [Assessment Information] ON" +
-                    "`ASSESSMENT RESULTS`.assessmentID = `Assessment Information`.assessmentID) WHERE (moduleCode = @moduleCode)";
+                    "`ASSESSMENT RESULTS`.assessmentID = `Assessment Information`.assessmentID) WHERE (`ASSESSMENT Information`.moduleCode = @moduleCode)";
 
                 OleDbCommand cmd1 = new OleDbCommand(sqlCmd1, dbConn);
 
@@ -34,7 +36,7 @@ namespace WebApplication3
                 assessmentsView.DataSource = reader;
                 assessmentsView.DataBind();
                 dbConn.Close();
-
+                moduleNameHeading.InnerText = moduleCode + ", " + moduleName; 
             }
         }
 
@@ -44,25 +46,25 @@ namespace WebApplication3
             if (e.CommandName == "ViewMark")
             {
                 //Determine the RowIndex of the Row whose Button was clicked.
-                try
-                {
-                    int rowIndex = Convert.ToInt32(e.CommandArgument);
+                //try
+                //{
+                int rowIndex = Convert.ToInt32(e.CommandArgument);
 
-                    //Reference the GridView Row.
-                    GridViewRow row = assessmentsView.Rows[rowIndex];
+                //Reference the GridView Row.
+                GridViewRow row = assessmentsView.Rows[rowIndex];
 
-                    String name = row.Cells[0].Text;
-                    String venue = row.Cells[4].Text;
-                    assessmentID = getAssessmentID(name, venue);
-                    Session["assessmentID"] = assessmentID;
-                    Session["assessmentName"] = name;
-                    Session["studNum"] = studentNumber;
-                    Response.Redirect("MarkDetails.aspx");
-                }
-                catch(Exception ex)
-                {
-                    Response.Write("<script>alert('Could not load marks page. Try again or contact tech support');</script>");
-                }
+                String name = row.Cells[0].Text;
+                String venue = row.Cells[4].Text;
+                assessmentID = getAssessmentID(name, venue);
+                Session["assessmentID"] = assessmentID;
+                Session["assessmentName"] = name;
+                Session["studNum"] = studentNumber;
+                Response.Redirect("MarkDetails.aspx");
+           // }
+                //catch(Exception ex)
+                //{
+                //    Response.Write("<script>alert('Could not load marks page. Try again or contact tech support');</script>");
+                //}
             }
         }
 

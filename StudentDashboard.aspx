@@ -67,7 +67,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="jumbotron">
         <div class="container">
-            <h2>Welome, First Name</h2>
+            <h2 id="firstNameHeading" runat="server"></h2>
             <hr />
             <br />
             <div class="student-details-grid-container">
@@ -129,7 +129,6 @@
    <%--     <asp:Literal ID="dashboardCards" runat="server"></asp:Literal>--%>
         
         <asp:Button ID="btnHiddenLinearAlgebra" runat="server" OnClick="redirectToLinearAlgebra" Style="display: none" />
-
         <div class ="module-grid-item" onclick="javascript:DivClicked_LinearAlgebra(); return true;">
             <div class="grid-heading">
                 <h4>Linear Algebra</h4>
@@ -141,6 +140,64 @@
             function DivClicked_LinearAlgebra()
             {
                 var btnHidden = $('#<%= btnHiddenLinearAlgebra.ClientID %>');
+                if(btnHidden != null)
+                {
+                    btnHidden.click();
+                }
+            }
+        </script>
+
+
+        <asp:Button ID="Button1" runat="server" OnClick="redirectToRealAnalysis" Style="display: none" />
+        <div class ="module-grid-item" onclick="javascript:DivClicked_RealAnalysis(); return true;">
+            <div class="grid-heading">
+                <h4>Real Analysis</h4>
+            </div>
+            <img src="Image/Math_logo.png" alt="module-image"class="module-img" />
+        </div>
+        
+        <script>
+            function DivClicked_RealAnalysis()
+            {
+                var btnHidden = $('#<%= Button1.ClientID %>');
+                if(btnHidden != null)
+                {
+                    btnHidden.click();
+                }
+            }
+        </script>
+
+        <asp:Button ID="Button2" runat="server" OnClick="redirectToComputerArchitecture2" Style="display: none" />
+        <div class ="module-grid-item" onclick="javascript:DivClicked_ComputerArchitecture2(); return true;">
+            <div class="grid-heading">
+                <h4>Computer Architecture 2.2</h4>
+            </div>
+            <img src="Image/CS_logo.png" alt="module-image"class="module-img" />
+        </div>
+        
+        <script>
+            function DivClicked_ComputerArchitecture2()
+            {
+                var btnHidden = $('#<%= Button2.ClientID %>');
+                if(btnHidden != null)
+                {
+                    btnHidden.click();
+                }
+            }
+        </script>
+
+        <asp:Button ID="Button3" runat="server" OnClick="redirectToAdvancedProgramming" Style="display: none" />
+        <div class ="module-grid-item" onclick="javascript:DivClicked_AdvancedProgramming(); return true;">
+            <div class="grid-heading">
+                <h4>Advanced Programming 3.1</h4>
+            </div>
+            <img src="Image/CS_logo.png" alt="module-image"class="module-img" />
+        </div>
+        
+        <script>
+            function DivClicked_AdvancedProgramming()
+            {
+                var btnHidden = $('#<%= Button3.ClientID %>');
                 if(btnHidden != null)
                 {
                     btnHidden.click();

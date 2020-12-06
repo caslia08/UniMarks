@@ -30,7 +30,7 @@
 	</ol>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="mainHeading" runat="server">
-    WRR301-Project, Assessments
+    <p id="moduleNameHeading" runat="server"></p>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="MainContent" runat="server">
     <div class="jumbotron">
