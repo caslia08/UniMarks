@@ -150,19 +150,19 @@
              <div class="grid-heading">
                  <h4>MAPV301-Partial Differential Equations</h4>
              </div>
-             <img src="~/Image/Math_logo.png" alt="module-image" class="module-img" />
+            <img src="/Image/Math_logo.png" alt="module-image"class="module-img" />
          </div>
          <div class="module-grid-item">
              <div class="grid-heading">
                  <h4>MAP112-Mathematical Modelling</h4>
              </div>
-             <img src="~/Image/Business_logo.png" alt="module-image" class="module-img" />
+             <img src="Image/Business_logo.png" alt="module-image" class="module-img" />
          </div>
          <div class="module-grid-item">
              <div class="grid-heading">
                  <h4>MAPV101-Graph Theory</h4>
              </div>
-             <img src="~\Image\Math_logo.png" alt="module-image" class="module-img" />
+             <img src="Image/Math_logo.png" alt="module-image" class="module-img" />
          </div>
      </div>
 	<br />

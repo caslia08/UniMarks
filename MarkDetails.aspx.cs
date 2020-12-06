@@ -347,6 +347,7 @@ namespace WebApplication3
             //@TODO for db input dateOfFlag and reasonForChange
             string sql = "UPDATE [Assessment Results] " +
                       "SET [Flagged] = @flag, " +
+                      "[dateOfFlag] = @dateOfFlag, " +
                        "[reasonForChange] = @reasonForChange " +
                       "WHERE StudentNumber = @studNum AND assessmentID = @assessmentID";
 
@@ -354,6 +355,7 @@ namespace WebApplication3
             OleDbCommand dbCommand = new OleDbCommand(sql, dbConnection);
 
             dbCommand.Parameters.AddWithValue("@flag", true);
+            dbCommand.Parameters.AddWithValue("@dateOfFlag", DateTime.Now.ToString());
             dbCommand.Parameters.AddWithValue("@reasonForChange", reasonForChange);
             dbCommand.Parameters.AddWithValue("@studNum", studentNumber);
             dbCommand.Parameters.AddWithValue("@assessmentID", assessmentID);
