@@ -21,6 +21,7 @@ namespace WebApplication3
             }
             Session["ModuleCode"] = moduleCode; 
             moduleCode = Session["ModuleCode"].ToString();
+            txtModuleName.InnerText = moduleCode; 
         }
 
         protected void txtSearch_TextChanged(object sender, EventArgs e)

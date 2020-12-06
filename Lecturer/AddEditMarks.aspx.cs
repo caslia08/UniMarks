@@ -22,6 +22,7 @@ namespace WebApplication3.Lecturer
             assID = this.Request.QueryString["AssessmentID"];
             //assID = "1008";
             Session["assessmentID"] = assID;
+            txtModuleName.InnerText += Session["moduleCode"].ToString();
 
             Object[] resData;
             Object[] resData2;

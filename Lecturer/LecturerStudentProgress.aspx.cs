@@ -164,10 +164,12 @@ namespace WebApplication3
             studentFullname.InnerText += fullname; 
             studentName.InnerText += (resData6[0].ToString() + "'s Average Mark");
             moduleProgressName.InnerText += (resData6[0].ToString() + "'s module progress");
+            txtStudNamePrg.InnerText += fullname;
+            txtModuleName.InnerText += moduleCode;
 
-            getBarChart();
-            getPieChart();
-            getLineChart();
+            //getBarChart();
+            //getPieChart();
+            //getLineChart();
         }
 
         private String getRangeValues()

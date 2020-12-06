@@ -17,32 +17,25 @@ namespace WebApplication3
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //DateTime date = DateTime.Today.Date;
-            //String today = date.ToString("yyyy-MM-dd");
-            //txtAssDate.Attributes["min"] = today;
+                
 
-            String assID;
-            if (isCreated)
-            {
-                assID = txtAssID.Text;
-            }
-            else
-            {
-                assID = this.Request.QueryString["AssessmentID"];
-                txtAssID.Text = assID;
+                String assessmentID;
+                txtModuleName.InnerText += Session["moduleCode"].ToString();
+                assessmentID = Session["assessmentID"].ToString();
+                txtAssID.Text = assessmentID;
 
 
                 String CS = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
                 OleDbConnection con = new OleDbConnection(CS);
-
-                OleDbCommand cmd = new OleDbCommand();
-
+            
                 string sql = "SELECT assessmentID, assessmentName, assessmentType, assessmentDate, assessmentDescription, assessmentVenue," +
-                    "classAverage, assessmentWeightage FROM [Assessment Information] WHERE assessmentID = @AssID";
-
-                cmd.Parameters.AddWithValue("@AssID", assID.ToString());
-                cmd.CommandText = sql;
-                cmd.Connection = con;
+                    "classAverage, assessmentWeightage FROM [Assessment Information] WHERE assessmentID = @assessmentID";
+                //string sql = "SELECT assessmentID, assessmentName, assessmentType, Fix([assessmentDate]) As DateOnly, assessmentDescription, assessmentVenue," +
+                //   "classAverage, assessmentWeightage FROM [Assessment Information] WHERE assessmentID = @assessmentID";
+                OleDbCommand cmd = new OleDbCommand(sql,con);
+                cmd.Parameters.AddWithValue("@assessmentID", assessmentID.ToString());
+                //cmd.CommandText = sql;
+                //cmd.Connection = con;
                 con.Open();
                 OleDbDataReader reader = cmd.ExecuteReader();
 
@@ -51,9 +44,21 @@ namespace WebApplication3
                     txtAssID.Text = reader["assessmentID"].ToString();
                     txtAssName.Text = reader["assessmentName"].ToString();
                     dropAssType.SelectedValue = reader["assessmentType"].ToString();
-                    txtAssDate.Text = reader["assessmentDate"].ToString();
-                    //DataFormatString = "{0:d}";
-                    txtAssDesc.Text = reader["assessmentDescription"].ToString();
+                    
+                    string date = reader["assessmentDate"].ToString();
+                    DateTime dateTime = Convert.ToDateTime(date);
+                    txtAssDate.Text = dateTime.ToString("yyyy-MM-dd");
+                    DateTime curDate = DateTime.Today.Date;
+                    String today = curDate.ToString("yyyy-MM-dd");
+
+                    if (DateTime.Compare(curDate, dateTime) > 0)
+                    txtAssDate.Enabled = false;
+                    else
+                    {
+                        txtAssDate.Attributes["min"] = today;
+                    }
+
+                txtAssDesc.Text = reader["assessmentDescription"].ToString();
                     txtAssVenue.Text = reader["assessmentVenue"].ToString();
                     String placeHolder = reader["classAverage"].ToString();
                     dropAssWeight.SelectedValue = reader["assessmentWeightage"].ToString();
@@ -61,7 +66,7 @@ namespace WebApplication3
 
                 con.Close();
                 isCreated = true; 
-            }
+           
             txtAssID.Enabled = false;
         }
 
@@ -110,13 +115,13 @@ namespace WebApplication3
 
         protected void btnBack_Click(object sender, EventArgs e)
         {
-            isCreated = false;
             Response.Redirect("LecturerViewAssessments.aspx");
         }
 
         protected void btnCancelAss_Click(object sender, EventArgs e)
         {
-            isCreated = false;
+            DateTime dateTime = DateTime.Today.AddDays(-30); 
+            txtAssDate.Attributes["min"] = dateTime.ToString("yyyy-MM-dd");
             Response.Redirect("LecturerViewAssessments.aspx");
         }
     }

@@ -16,7 +16,7 @@ namespace WebApplication3
         {
             moduleName = Session["ModuleName"].ToString();
             moduleCode = Session["ModuleCode"].ToString();
-
+            txtModuleName.InnerText += moduleCode; 
             moduleHeading.InnerText += moduleCode + " " + moduleName; 
         }
 

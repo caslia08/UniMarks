@@ -15,11 +15,10 @@ Student Progress
 <asp:Content ID="Content4" ContentPlaceHolderID="BreadCrumbs" runat="server">
      <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="#">DashBoard</a></li>
-        <li class="breadcrumb-item"><a href="#">MAPV311</a></li>
-                 <li class="breadcrumb-item"><a href="#">Module Statistics</a></li>
+        <li class="breadcrumb-item"><a href="#"><p id="txtModuleName" runat="server"></p></a></li>
         <li class="breadcrumb-item"><a href="#">Student List</a></li>
+        <li class="breadcrumb-item active"><a href="#"><p id="txtStudNamePrg" runat="server"></p></a></li>
 
-        <li class="breadcrumb-item active">Student Progress</li>
     </ol>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="mainHeading" runat="server">

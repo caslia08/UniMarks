@@ -23,12 +23,12 @@
    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Logout</button>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="BreadCrumbs" runat="server">
-    <ol class="breadcrumb">
+       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="#">DashBoard</a></li>
-        <li class="breadcrumb-item"><a href="#">MAPV311</a></li>
-        <li class="breadcrumb-item active">View Assessments</li>
-        <li class="breadcrumb-item active">Add Marks</li>
-    </ol>
+        <li class="breadcrumb-item"><a href="#"><p id="txtModuleName" runat="server"></p></a></li>
+        <li class="breadcrumb-item"><a href="#">View Assessments</a></li>
+        <li class="breadcrumb-item active"><a href="#">Add/Edit Marks</a></li>
+    </ol> </ol>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="mainHeading" runat="server">
     View Marks
@@ -44,7 +44,7 @@
           AllowSorting="True"  AllowPaging="True" OnPageIndexChanging="OnPaging" AutoPostBack="True" class="table table-responsive table-hover"  HeaderStyle-CssClass="table-primary" GridLines="Horizontal" BorderStyle="None">
             <Columns>
                 <asp:BoundField DataField="studentNumber" HeaderText="Student Number" ReadOnly="True" SortExpression="studentNumber" />
-                <asp:BoundField DataField="firtsName" HeaderText="First Name" SortExpression="firtsName" />
+                <asp:BoundField DataField="firstName" HeaderText="First Name" SortExpression="firstName" />
                 <asp:BoundField DataField="surname" HeaderText="Last Name" SortExpression="surname" />
                 <asp:TemplateField HeaderText="Mark" SortExpression="markCaptured">
                        <ItemTemplate>
@@ -56,7 +56,7 @@
             </Columns> 
         </asp:GridView>
         <asp:SqlDataSource ID="sqlMarksSource" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString1 %>" ProviderName="<%$ ConnectionStrings:ConnectionString1.ProviderName %>"
-            SelectCommand="SELECT Student.studentNumber, Student.firtsName, Student.surname, [Assessment Results].markCaptured FROM (([Assessment Results] INNER JOIN Student ON [Assessment Results].studentNumber = Student.studentNumber) INNER JOIN Student Student_1 ON [Assessment Results].studentNumber = Student_1.studentNumber) WHERE ([Assessment Results].assessmentID = ?)">
+            SelectCommand="SELECT Student.studentNumber, Student.firstName, Student.surname, [Assessment Results].markCaptured FROM (([Assessment Results] INNER JOIN Student ON [Assessment Results].studentNumber = Student.studentNumber) INNER JOIN Student Student_1 ON [Assessment Results].studentNumber = Student_1.studentNumber) WHERE ([Assessment Results].assessmentID = ?)">
             <SelectParameters>
               <asp:SessionParameter DefaultValue="1008" Name="assessmentID" SessionField="AssessmentID" Type="String" />
           </SelectParameters>
