@@ -81,7 +81,9 @@
 				<div class="form-group">
 					<label for="AssDesc">Module assesments</label>
 
-					<asp:GridView ID="moduleAssesmentView" class="table table-responsive table-hover" HeaderStyle-CssClass="table-primary" runat="server" AutoGenerateColumns="False">
+					<asp:GridView ID="moduleAssesmentView" runat="server" AutoGenerateColumns="False" AllowSorting="True"
+						class="table table-responsive table-hover" HeaderStyle-CssClass="table-primary" Width="100%"
+						GridLines="Horizontal" BorderStyle="None">
 						<Columns>
 							<asp:BoundField DataField="assessmentID" HeaderText="assessmentID" SortExpression="assessmentID" />
 							<asp:BoundField DataField="assessmentName" HeaderText="assessmentName" SortExpression="assessmentName" />

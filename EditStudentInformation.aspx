@@ -88,7 +88,11 @@
 					<h2>Registered Modules</h2>
 					<hr />
 					<br />
-					<asp:GridView ID="moduleView" class="table table-responsive table-hover" HeaderStyle-CssClass="table-primary" runat="server" AutoGenerateColumns="False">
+					<%--<asp:GridView ID="moduleView" class="table table-responsive table-hover" HeaderStyle-CssClass="table-primary" runat="server" AutoGenerateColumns="False">--%>
+
+					<asp:GridView ID="moduleView" runat="server" AutoGenerateColumns="False" AllowSorting="True"
+						class="table table-responsive table-hover" HeaderStyle-CssClass="table-primary" Width="100%"
+						GridLines="Horizontal" BorderStyle="None">
 						<Columns>
 							<asp:BoundField DataField="moduleCode" HeaderText="moduleCode" SortExpression="moduleCode" />
 						</Columns>
