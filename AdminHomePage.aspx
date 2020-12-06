@@ -131,7 +131,7 @@
 	<br />
 	<div id="links-to-stats-grid-container">
 		<div class="grid-button-container">
-			<a href="AddModule.aspx" class="btn btn-outline-primary btn-lg btn-rounded-border" role="button">Add Module</a>
+			<a href="SearchStudent.aspx" class="btn btn-outline-primary btn-lg btn-rounded-border" role="button">View Students</a>
 		</div>
 		<div class="grid-button-container">
 			<a href="EditAdminInformation.aspx" class="btn btn-outline-primary btn-lg btn-rounded-border" role="button">Edit Your Profile</a>
