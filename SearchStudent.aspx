@@ -46,6 +46,10 @@
 		<hr />
 		<br />
 
+		<asp:Button ID="searchButton" runat="server" class="btn btn-outline-primary btn-sm btn-rounded-border" Text="Search" />
+		<br />
+		<asp:TextBox ID="searchBox" runat="server"></asp:TextBox>
+
 		<asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="studentNumber" DataSourceID="SqlDataSource1"
 			class="table table-responsive table-hover" HeaderStyle-CssClass="table-primary" OnRowCommand="GridView1_RowCommand" GridLines="Horizontal" BorderStyle="None">
 			<Columns>
@@ -62,7 +66,6 @@
 					<ItemTemplate>
 						<asp:Button ID="btnEditAss" runat="server" Text="Edit Student" class="btn btn-outline-primary btn-sm btn-rounded-border"
 							CommandName="EditStudent" CausesValidation="false" CommandArgument='<%# Eval("studentNumber") %>' />
-
 					</ItemTemplate>
 				</asp:TemplateField>
 			</Columns>
@@ -71,7 +74,13 @@
 		</asp:GridView>
 
 
-		<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [Student]"></asp:SqlDataSource>
+		<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
+			ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>"
+			SelectCommand="SELECT * FROM [Student]" FilterExpression="surname LIKE '{0}%'">
+			<FilterParameters>
+				<asp:ControlParameter Name="surname" ControlID="searchBox" PropertyName="Text" />
+			</FilterParameters>
+		</asp:SqlDataSource>
 
 
 		<link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
