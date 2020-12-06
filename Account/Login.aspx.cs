@@ -97,6 +97,10 @@ namespace WebApplication3.Account
                         Response.Redirect("~/Lecturer/LecturerHomePage.aspx");
                         break;
                     case 2:
+                        string ll = txtEmail.Text.Substring(1, txtEmail.Text.IndexOf("@") - 1);
+
+                        Session["StudNum"] = long.Parse(ll);
+
                         Response.Redirect("~/StudentDashboard.aspx");
                         break;
                 }
