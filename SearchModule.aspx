@@ -46,7 +46,10 @@
 	<div class="jumbotron">
 		<h2>Search Module</h2>
 		<hr />
+
+		<asp:Button ID="searchButton" runat="server" class="btn btn-outline-primary btn-sm btn-rounded-border" Text="Search" />
 		<br />
+		<asp:TextBox ID="searchBox" runat="server"></asp:TextBox>
 
 		<asp:GridView ID="gridViewAssessments" runat="server" AutoGenerateColumns="False" DataKeyNames="moduleCode" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True"
 			class="table table-responsive table-hover" HeaderStyle-CssClass="table-primary" OnRowCommand="gridViewAssessments_RowCommand" Width="100%"
@@ -67,7 +70,14 @@
 			<HeaderStyle CssClass="table-primary"></HeaderStyle>
 		</asp:GridView>
 
-		<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [Module]"></asp:SqlDataSource>
+		<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
+			ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>"
+			SelectCommand="SELECT * FROM [Module]" FilterExpression="moduleCode LIKE '{0}%'">
+			<FilterParameters>
+				<asp:ControlParameter Name="moduleCode" ControlID="searchBox" PropertyName="Text" />
+			</FilterParameters>
+
+		</asp:SqlDataSource>
 
 		<div id="container">
 			<div class="row justify-content-center">
