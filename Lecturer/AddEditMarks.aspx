@@ -73,6 +73,9 @@
                 <asp:SessionParameter DefaultValue="1008" Name="assessmentID" SessionField="AssessmentID" Type="String" />
             </SelectParameters>
         </asp:SqlDataSource>
+
+
+        <h2><p id="txtWarning" runat="server" class="text-warning" ></p></h2>
     </div>
     <asp:Button ID="btnUpdate" class="btn btn-outline-primary btn-lg btn-rounded-border" runat="server" Text="Update" OnClick="btnUpdate_Click" />
     <asp:Button ID="btnCancel" class="btn btn-outline-danger btn-lg btn-rounded-border" runat="server" Text="Cancel" OnClick="btnCancel_Click" />

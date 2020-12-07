@@ -102,19 +102,19 @@
 					<table class="table table-hover">
 						<tr>
 							<td>Title:</td>
-							<td><asp:Label ID="txtTitle" runat="server"></asp:Label> </td>
+							<td id="txtTitle" runat="server"> </td>
 						</tr>
 						<tr>
 							<td>Full Name:</td>
-							<td><asp:Label ID="txtFullName" runat="server"></asp:Label></td>
+							<td id="txtFullName" runat="server">></td>
 						</tr>
 						<tr>
 							<td>Email Address:</td>
-							<td><asp:Label ID="txtEmail" runat="server"></asp:Label></td>
+							<td id="txtEmail" runat="server"></td>
 						</tr>
 						<tr>
 							<td>ID Number:</td>
-							<td><asp:Label ID="txtID" runat="server"></asp:Label></td>
+							<td id="txtID" runat="server"></td>
 						</tr>
 
 					</table>
@@ -128,15 +128,15 @@
 					<table class="table table-hover">
 						<tr>
 							<td>Department:</td>
-							<td>FACULTY OF <asp:Label ID="txtFaculty" runat="server"></asp:Label></td>
+							<td  id="txtFaculty" runat="server"></td>
 						</tr>
 						<tr>
 							<td>Staff number:</td>
-							<td><asp:Label ID="txtStaffNum" runat="server"></asp:Label></td>
+							<td  id="txtStaffNum" runat="server"></td>
 						</tr>
 						<tr>
 							<td>Office number:</td>
-							<td><asp:Label ID="txtTel" runat="server"></asp:Label></td>
+							<td id="txtTel" runat="server"></td>
 						</tr>
 					</table>
 				</div>

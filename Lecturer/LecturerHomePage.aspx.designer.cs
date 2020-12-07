@@ -21,7 +21,7 @@ namespace WebApplication3
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtTitle;
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell txtTitle;
 
         /// <summary>
         /// txtFullName control.
@@ -30,7 +30,7 @@ namespace WebApplication3
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtFullName;
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell txtFullName;
 
         /// <summary>
         /// txtEmail control.
@@ -39,7 +39,7 @@ namespace WebApplication3
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtEmail;
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell txtEmail;
 
         /// <summary>
         /// txtID control.
@@ -48,7 +48,7 @@ namespace WebApplication3
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtID;
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell txtID;
 
         /// <summary>
         /// txtFaculty control.
@@ -57,7 +57,7 @@ namespace WebApplication3
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtFaculty;
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell txtFaculty;
 
         /// <summary>
         /// txtStaffNum control.
@@ -66,7 +66,7 @@ namespace WebApplication3
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtStaffNum;
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell txtStaffNum;
 
         /// <summary>
         /// txtTel control.
@@ -75,7 +75,7 @@ namespace WebApplication3
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtTel;
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell txtTel;
 
         /// <summary>
         /// btnHiddenLinearAlgebra control.

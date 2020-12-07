@@ -51,7 +51,7 @@ Student Progress</asp:Content>
         <hr />
         <br />
         
-        <h3><p id="moduleProgressName" runat="server"></p></h3>
+        <h3>Class's Progress</h3>
          <div class="form-group">
             <label for="chart-to-show">Select graph:</label>
             <select class="form-control" id="chart-to-show">

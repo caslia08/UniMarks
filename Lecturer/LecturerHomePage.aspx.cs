@@ -37,13 +37,13 @@ namespace WebApplication3
                 if ((userSet.Tables[0].Rows.Count) > 0)
                 {
                     DataRow datarow = userSet.Tables[0].Rows[0];
-                    txtTitle.Text = datarow.Field<string>("title");
-                    txtFullName.Text = datarow.Field<string>("firstName") + " " + datarow.Field<string>("surname");
-                    txtEmail.Text = emailAddress;
-                    txtID.Text = datarow.Field<string>("IDNumber");
-                    txtFaculty.Text = datarow.Field<string>("department");
-                    txtStaffNum.Text = (datarow.Field<int>("staffNumber")).ToString();
-                    txtTel.Text = datarow.Field<string>("officeTelephoneNumber");
+                    txtTitle.InnerText = datarow.Field<string>("title");
+                    txtFullName.InnerText = datarow.Field<string>("firstName") + " " + datarow.Field<string>("surname");
+                    txtEmail.InnerText = emailAddress;
+                    txtID.InnerText = datarow.Field<string>("IDNumber");
+                    txtFaculty.InnerText ="FACULTY OF "+ datarow.Field<string>("department");
+                    txtStaffNum.InnerText = (datarow.Field<int>("staffNumber")).ToString();
+                    txtTel.InnerText = datarow.Field<string>("officeTelephoneNumber");
                 }
 
 

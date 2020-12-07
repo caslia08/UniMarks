@@ -48,10 +48,15 @@
         </asp:GridView>
 
      <asp:SqlDataSource ID="sqlViewStudentSource" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString1 %>" ProviderName="<%$ ConnectionStrings:ConnectionString1.ProviderName %>" 
-         SelectCommand="SELECT Student.studentNumber, Student.firstName, Student.surname FROM Student INNER JOIN ModuleTaken ON Student.studentNumber = ModuleTaken.studentNumber WHERE (ModuleTaken.moduleCode = ?)">
+         SelectCommand="SELECT Student.studentNumber, Student.firstName, Student.surname FROM Student INNER JOIN ModuleTaken ON Student.studentNumber = ModuleTaken.studentNumber WHERE (ModuleTaken.moduleCode = ? AND ModuleTaken.studentNumber LIKE '{0}%')">
           <SelectParameters>
               <asp:SessionParameter DefaultValue="MATT212" Name="ModuleCode" SessionField="ModuleCode" Type="String" />
           </SelectParameters>
+
+         <FilterParameters>
+				<asp:ControlParameter Name="studName" ControlID="txtSearch" PropertyName="Text" />
+		 </FilterParameters>
+
      </asp:SqlDataSource>
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
           <script src="https://code.jquery.com/jquery-3.5.1.jss"></script>
