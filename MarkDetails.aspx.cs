@@ -15,12 +15,14 @@ namespace WebApplication3
     public partial class MarkDetails : System.Web.UI.Page
     {
         long studentNumber;
-        long assessmentID;  //Change to get from whatever ID was selected from the modules selected page
+        long assessmentID;
+        String moduleCode;
         ArrayList allMakrs = new ArrayList();
         protected void Page_Load(object sender, EventArgs e)
         {
             studentNumber = (long)Session["studNum"];
             assessmentID = (long)Session["assessmentID"];
+            moduleCode = (String)Session["ModuleCode"];
             if (!IsPostBack)
             {
                 try
@@ -36,7 +38,7 @@ namespace WebApplication3
                     Boolean read;
                     resData = new Object[1];
                     resData2 = new Object[1];
-                    resData3 = new Object[1]; //Probs perform count query on how many people are in db that took the assessement...
+                    resData3 = new Object[1];
                     resData4 = new Object[1];
                     resData5 = new Object[1];
                     resData6 = new Object[1];
@@ -153,7 +155,7 @@ namespace WebApplication3
 
                     studentMark.InnerText += resData[0].ToString() + "%";
                     maxMark.InnerText += resData2[0].ToString() + "%";
-                    avgMark.InnerText += resData3[0].ToString() + "%";
+                    avgMark.InnerText += Math.Round((double)resData3[0],2).ToString() + "%";
                     minMark.InnerText += resData4[0].ToString() + "%";
                 }
                 catch(Exception ex)
@@ -318,9 +320,11 @@ namespace WebApplication3
         {
             try
             {
+                String from = getStudEmail();
+                String to = getLectEmail();
                 String bodyHeading = reasonForFlag.SelectedItem.Value;
                 String bodyMain = elaborationOnFlag.Text.ToString();
-                MailMessage mailMessage = new MailMessage("s219473498@mandela.ac.za", "s219473498@mandela.ac.za"); //This needs to change
+                MailMessage mailMessage = new MailMessage(from, to); 
 
                 mailMessage.Subject = "Flagged mark";
 
@@ -328,7 +332,7 @@ namespace WebApplication3
                 SmtpClient smtp = new SmtpClient("smtp.office365.com", 587);
                 smtp.Credentials = new System.Net.NetworkCredential()
                 {
-                    UserName = "s219473498@mandela.ac.za",
+                    UserName = from,
                     Password = emailPassword.Text
                 };
                 smtp.EnableSsl = true;
@@ -339,6 +343,82 @@ namespace WebApplication3
             {
                 Response.Write("<script>alert('Flag unccessfully captured, try again');</script>");
             }
+        }
+
+        private String getStudEmail()
+        {
+
+            Object[] resData = new Object[1];
+            Boolean read;
+            String cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            OleDbConnection dbConn = new OleDbConnection(cs);
+
+            String sqlCmd1 = "SELECT [emailAddress] FROM [Student] WHERE (studentNumber = @studentNum)";
+            OleDbCommand cmd1 = new OleDbCommand(sqlCmd1, dbConn);
+
+            cmd1.Parameters.AddWithValue("@studentNum", studentNumber);
+            cmd1.Parameters.AddWithValue("@assessmentID", assessmentID);
+
+            dbConn.Open();
+            OleDbDataReader reader = cmd1.ExecuteReader();
+
+            if (reader.Read() == true)
+            {
+                do
+                {
+                    reader.GetValues(resData);
+                    read = reader.Read();
+                } while (read == true);
+            }
+            reader.Close();
+
+            try
+            {
+                return (String)resData[0];
+            }
+            catch (Exception ex)
+            {
+                return "";
+            }
+
+        }
+
+
+        private String getLectEmail()
+        {
+            Object[] resData = new Object[1];
+            Boolean read;
+            String cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            OleDbConnection dbConn = new OleDbConnection(cs);
+
+            String sqlCmd1 = "SELECT DISTINCT [emailAddress] FROM ([Lecturer] INNER JOIN [ModulePresented] ON" +
+                    "`Lecturer`.staffNumber = `ModulePresented`.staffNumber) WHERE (`ModulePresented`.moduleCode = @moduleCode)";
+            OleDbCommand cmd1 = new OleDbCommand(sqlCmd1, dbConn);
+
+            cmd1.Parameters.AddWithValue("@moduleCode", moduleCode);
+
+            dbConn.Open();
+            OleDbDataReader reader = cmd1.ExecuteReader();
+
+            if (reader.Read() == true)
+            {
+                do
+                {
+                    reader.GetValues(resData);
+                    read = reader.Read();
+                } while (read == true);
+            }
+            reader.Close();
+
+            try
+            {
+                return (String)resData[0];
+            }
+            catch (Exception ex)
+            {
+                return "";
+            }
+
         }
 
         private void setMarkAsFlagged(String reasonForChange)
