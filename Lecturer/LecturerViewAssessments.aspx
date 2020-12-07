@@ -66,7 +66,7 @@
       <br />
       
       <asp:GridView ID="gridViewAssessments" runat="server" AutoGenerateColumns="False" DataKeyNames="assessmentID" DataSourceID="sqlAssessmentDataSource"
-          AllowSorting="True" EnableViewState="false" OnPageIndexChanging="OnPaging" AutoPostBack="true" AllowPaging="True" class="table table-responsive table-hover" HeaderStyle-CssClass="table-primary" GridLines="Horizontal" BorderStyle="None" OnRowCommand="gridViewAssessments_RowCommand">
+          AllowSorting="True" OnPageIndexChanging="OnPaging" AllowPaging="True" class="table table-responsive table-hover" HeaderStyle-CssClass="table-primary" GridLines="Horizontal" BorderStyle="None" OnRowCommand="gridViewAssessments_RowCommand">
           <Columns>
               <asp:BoundField DataField="assessmentID" HeaderText="Assessment ID" ReadOnly="True" SortExpression="assessmentID" />
               <asp:BoundField DataField="assessmentName" HeaderText="Name" SortExpression="assessmentName" />

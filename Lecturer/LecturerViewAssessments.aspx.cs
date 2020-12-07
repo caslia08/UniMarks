@@ -17,7 +17,6 @@ namespace WebApplication3
         {
             moduleCode = Session["ModuleCode"].ToString();
             txtModuleName.InnerText += moduleCode;
-            gridViewAssessments.DataSourceID = "sqlAssessmentDataSource";
             gridViewAssessments.DataBind(); 
         }
 
