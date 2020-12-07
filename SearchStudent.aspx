@@ -47,7 +47,6 @@
 		<br />
 
 		<asp:Button ID="searchButton" runat="server" class="btn btn-outline-primary btn-sm btn-rounded-border" Text="Search on surname" />
-		<br />
 		<asp:TextBox ID="searchBox" runat="server"></asp:TextBox>
 
 		<asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="studentNumber" DataSourceID="SqlDataSource1"

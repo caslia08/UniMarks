@@ -48,7 +48,7 @@
 		<hr />
 
 		<asp:Button ID="searchButton" runat="server" class="btn btn-outline-primary btn-sm btn-rounded-border" Text="Search on module code" />
-		<br />
+
 		<asp:TextBox ID="searchBox" runat="server"></asp:TextBox>
 
 		<asp:GridView ID="gridViewAssessments" runat="server" AutoGenerateColumns="False" DataKeyNames="moduleCode" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True"
