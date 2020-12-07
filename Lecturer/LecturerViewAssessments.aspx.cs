@@ -12,13 +12,16 @@ namespace WebApplication3
 {
     public partial class LecturerViewAssessments : System.Web.UI.Page
     {
-        string moduleCode; 
+        string moduleCode;
         protected void Page_Load(object sender, EventArgs e)
         {
             moduleCode = Session["ModuleCode"].ToString();
-            txtModuleName.InnerText += moduleCode;
-            gridViewAssessments.DataSourceID = "sqlAssessmentDataSource";
-            gridViewAssessments.DataBind(); 
+            if (!IsPostBack)
+            {
+                txtModuleName.InnerText += moduleCode;
+                gridViewAssessments.DataSourceID = "sqlAssessmentDataSource";
+                gridViewAssessments.DataBind();
+            }
         }
 
         protected void txtSearch_TextChanged(object sender, EventArgs e)
@@ -34,7 +37,7 @@ namespace WebApplication3
                 {
                     string sql = "SELECT assessmentID, assessmentName, assessmentType, assessmentDate, assessmentDescription, assessmentVenue," +
                         "classAverage, assessmentWeightage FROM Assessment Information";
-             
+
                     if (!string.IsNullOrEmpty(txtSearch.Text.Trim()))
                     {
                         sql += " WHERE assessmentName LIKE @AssName + '%'";
@@ -42,7 +45,7 @@ namespace WebApplication3
                     }
                     cmd.CommandText = sql;
                     cmd.Connection = con;
-                    
+
                     using (OleDbDataAdapter sda = new OleDbDataAdapter(cmd))
                     {
                         DataTable dt = new DataTable();
@@ -71,7 +74,7 @@ namespace WebApplication3
                 String assessmentID = e.CommandArgument.ToString();
                 Session["assessmentID"] = assessmentID;
                 Session["moduleCode"] = moduleCode;
-                Session["isInitial"] = true; 
+                Session["isInitial"] = true;
                 Response.Redirect("EditAssessment.aspx?AssessmentID=" + assessmentID); //+ "&isCreate=" + isCreated);
             }
             else if (e.CommandName == "AddMarks")
