@@ -38,7 +38,7 @@
 	</ol>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="mainHeading" runat="server">
-	Search Module
+	Search Lecturer
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="MainContent" runat="server">
 	<div class="jumbotron">
@@ -46,42 +46,31 @@
 		<hr />
 		<br />
 
-		<table class="table table-hover custome-table-props marks-table">
-			<thead>
-				<tr>
-					<th>Module Code</th>
-					<th>Module Name</th>
-					<th>Module Lecturer</th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>00000000000</td>
-					<td>NAME</td>
-					<td>NAME</td>
-					<td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">Edit Module Details</a></td>
-				</tr>
-				<tr>
-					<td>00000000000</td>
-					<td>NAME</td>
-					<td>NAME</td>
-					<td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">Edit Module Details</a></td>
-				</tr>
-				<tr>
-					<td>00000000000</td>
-					<td>NAME</td>
-					<td>NAME</td>
-					<td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">Edit Module Details</a></td>
-				</tr>
-				<tr>
-					<td>00000000000</td>
-					<td>NAME</td>
-					<td>NAME</td>
-					<td><a href="#" class="btn btn-outline-primary btn-sm btn-rounded-border" role="button">Edit Module Details</a></td>
-				</tr>
-			</tbody>
-		</table>
+		<asp:Button ID="searchButton" runat="server" class="btn btn-outline-primary btn-sm btn-rounded-border" Text="Search on surname" />
+
+		<asp:TextBox ID="searchBox" runat="server"></asp:TextBox>
+
+		<asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="staffNumber" DataSourceID="SqlDataSource1"
+			class="table table-responsive table-hover" HeaderStyle-CssClass="table-primary" GridLines="Horizontal" BorderStyle="None">
+			<Columns>
+				<asp:BoundField DataField="staffNumber" HeaderText="staffNumber" ReadOnly="True" SortExpression="staffNumber" />
+				<asp:BoundField DataField="firstName" HeaderText="firstName" SortExpression="firstName" />
+				<asp:BoundField DataField="surname" HeaderText="surname" SortExpression="surname" />
+				<asp:BoundField DataField="title" HeaderText="title" SortExpression="title" />
+				<asp:BoundField DataField="emailAddress" HeaderText="emailAddress" SortExpression="emailAddress" />
+				<asp:BoundField DataField="IDNumber" HeaderText="IDNumber" SortExpression="IDNumber" />
+				<asp:BoundField DataField="officeNumber" HeaderText="officeNumber" SortExpression="officeNumber" />
+				<asp:BoundField DataField="officeTelephoneNumber" HeaderText="officeTelephoneNumber" SortExpression="officeTelephoneNumber" />
+				<asp:BoundField DataField="department" HeaderText="department" SortExpression="department" />
+			</Columns>
+		</asp:GridView>
+		<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
+			ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [Lecturer]" FilterExpression="surname LIKE '{0}%'">
+			<FilterParameters>
+				<asp:ControlParameter Name="surname" ControlID="searchBox" PropertyName="Text" />
+			</FilterParameters>
+		</asp:SqlDataSource>
+
 
 		<link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
 		<script src="https://code.jquery.com/jquery-3.5.1.jss"></script>
