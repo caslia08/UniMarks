@@ -16,64 +16,64 @@ namespace WebApplication3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["Email"] != null)
-            {
-                String emailAddress = Session["Email"].ToString();
-
-                string CS;
-                CS = ConfigurationManager.ConnectionStrings["Connectionstring"].ConnectionString;
-                OleDbConnection dbconn = new OleDbConnection(CS);
-
-                string sqlcmd = "SELECT * FROM [Lecturer]  WHERE [emailAddress] = @email";
-
-                OleDbCommand cmd1 = new OleDbCommand(sqlcmd, dbconn);
-
-                cmd1.Parameters.AddWithValue("@email", emailAddress);
-                OleDbDataAdapter info = new OleDbDataAdapter();
-                info.SelectCommand = cmd1;
-                DataSet userSet = new DataSet();
-                info.Fill(userSet);
-
-                if ((userSet.Tables[0].Rows.Count) > 0)
+             if (Session["Email"] != null)
                 {
-                    DataRow datarow = userSet.Tables[0].Rows[0];
-                    txtTitle.Text = datarow.Field<string>("title");
-                    txtFullName.Text = datarow.Field<string>("firstName") + " " + datarow.Field<string>("surname");
-                    txtEmail.Text = emailAddress;
-                    txtID.Text = datarow.Field<string>("IDNumber");
-                    txtFaculty.Text = datarow.Field<string>("department");
-                    txtStaffNum.Text = (datarow.Field<int>("staffNumber")).ToString();
-                    txtTel.Text = datarow.Field<string>("officeTelephoneNumber");
+                    String emailAddress = Session["Email"].ToString();
+
+                    string CS;
+                    CS = ConfigurationManager.ConnectionStrings["Connectionstring"].ConnectionString;
+                    OleDbConnection dbconn = new OleDbConnection(CS);
+
+                    string sqlcmd = "SELECT * FROM [Lecturer]  WHERE [emailAddress] = @email";
+
+                    OleDbCommand cmd1 = new OleDbCommand(sqlcmd, dbconn);
+
+                    cmd1.Parameters.AddWithValue("@email", emailAddress);
+                    OleDbDataAdapter info = new OleDbDataAdapter();
+                    info.SelectCommand = cmd1;
+                    DataSet userSet = new DataSet();
+                    info.Fill(userSet);
+
+                    if ((userSet.Tables[0].Rows.Count) > 0)
+                    {
+                        DataRow datarow = userSet.Tables[0].Rows[0];
+                        txtTitle.Text = datarow.Field<string>("title");
+                        txtFullName.Text = datarow.Field<string>("firstName") + " " + datarow.Field<string>("surname");
+                        txtEmail.Text = emailAddress;
+                        txtID.Text = datarow.Field<string>("IDNumber");
+                        txtFaculty.Text = datarow.Field<string>("department");
+                        txtStaffNum.Text = (datarow.Field<int>("staffNumber")).ToString();
+                        txtTel.Text = datarow.Field<string>("officeTelephoneNumber");
+                    }
+
+
+                    dbconn.Close();
                 }
+            }
 
 
-                dbconn.Close();
+            protected void redirectToLinearAlgebra(object sender, EventArgs e)
+            {
+                //Session["StudNum"] = studentNumber;
+                Session["ModuleCode"] = "MATT212";
+                Session["ModuleName"] = "Linear Algebra";
+                Response.Redirect("LecturerModuleStatistics.aspx");
+            }
+
+            protected void redirectToRealAnalysis(object sender, EventArgs e)
+            {
+                //Session["StudNum"] = studentNumber;
+                Session["ModuleCode"] = "MATT202";
+                Session["ModuleName"] = "Real Analysis";
+                Response.Redirect("LecturerModuleStatistics.aspx");
+            }
+
+            protected void redirectToComplexFunctions(object sender, EventArgs e)
+            {
+                //Session["StudNum"] = studentNumber;
+                Session["ModuleCode"] = "MATT312";
+                Session["ModuleName"] = "Complex Analysis";
+                Response.Redirect("LecturerModuleStatistics.aspx");
             }
         }
-
-
-        protected void redirectToLinearAlgebra(object sender, EventArgs e)
-        {
-            //Session["StudNum"] = studentNumber;
-            Session["ModuleCode"] = "MATT212";
-            Session["ModuleName"] = "Linear Algebra";
-            Response.Redirect("LecturerModuleStatistics.aspx");
-        }
-
-        protected void redirectToRealAnalysis(object sender, EventArgs e)
-        {
-            //Session["StudNum"] = studentNumber;
-            Session["ModuleCode"] = "MATT202";
-            Session["ModuleName"] = "Real Analysis";
-            Response.Redirect("LecturerModuleStatistics.aspx");
-        }
-
-        protected void redirectToComplexFunctions(object sender, EventArgs e)
-        {
-            //Session["StudNum"] = studentNumber;
-            Session["ModuleCode"] = "MATT312";
-            Session["ModuleName"] = "Complex Analysis";
-            Response.Redirect("LecturerModuleStatistics.aspx");
-        }
     }
-}
