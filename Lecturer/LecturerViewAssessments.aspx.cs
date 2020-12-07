@@ -16,17 +16,13 @@ namespace WebApplication3
         protected void Page_Load(object sender, EventArgs e)
         {
             moduleCode = Session["ModuleCode"].ToString();
-            txtModuleName.InnerText += moduleCode; 
-            if (!this.IsPostBack)
-            {
-                //this.searchStudents();
-            }
+            txtModuleName.InnerText += moduleCode;
+            gridViewAssessments.DataSourceID = "sqlAssessmentDataSource";
+            gridViewAssessments.DataBind(); 
         }
 
         protected void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            //this.searchStudents();
-
         }
 
         private void searchStudents()
@@ -75,6 +71,7 @@ namespace WebApplication3
                 String assessmentID = e.CommandArgument.ToString();
                 Session["assessmentID"] = assessmentID;
                 Session["moduleCode"] = moduleCode;
+                Session["isInitial"] = true; 
                 Response.Redirect("EditAssessment.aspx?AssessmentID=" + assessmentID); //+ "&isCreate=" + isCreated);
             }
             else if (e.CommandName == "AddMarks")

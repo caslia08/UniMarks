@@ -75,7 +75,7 @@ namespace WebApplication3.Lecturer
             String heading = "";
             heading += resData[0].ToString();
             heading += " " + resData2[0].ToString();
-            txtHeader.InnerText += heading;
+            txtHeader.InnerText = heading;
         }
 
 

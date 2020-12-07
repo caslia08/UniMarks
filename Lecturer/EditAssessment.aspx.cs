@@ -13,26 +13,28 @@ namespace WebApplication3
 {
     public partial class Edit_Assessment : System.Web.UI.Page
     {
-        static Boolean isCreated = false; 
+
+        Boolean isInitial = false; 
 
         protected void Page_Load(object sender, EventArgs e)
         {
-                
+            String assessmentID;
+            txtModuleName.InnerText += Session["moduleCode"].ToString();
+            assessmentID = Session["assessmentID"].ToString();
 
-                String assessmentID;
-                txtModuleName.InnerText += Session["moduleCode"].ToString();
-                assessmentID = Session["assessmentID"].ToString();
+            isInitial = (Boolean)Session["isInitial"]; 
+
+            if (isInitial)
+            { 
                 txtAssID.Text = assessmentID;
-
-
                 String CS = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
                 OleDbConnection con = new OleDbConnection(CS);
-            
+
                 string sql = "SELECT assessmentID, assessmentName, assessmentType, assessmentDate, assessmentDescription, assessmentVenue," +
                     "classAverage, assessmentWeightage FROM [Assessment Information] WHERE assessmentID = @assessmentID";
-                //string sql = "SELECT assessmentID, assessmentName, assessmentType, Fix([assessmentDate]) As DateOnly, assessmentDescription, assessmentVenue," +
-                //   "classAverage, assessmentWeightage FROM [Assessment Information] WHERE assessmentID = @assessmentID";
-                OleDbCommand cmd = new OleDbCommand(sql,con);
+
+
+                OleDbCommand cmd = new OleDbCommand(sql, con);
                 cmd.Parameters.AddWithValue("@assessmentID", assessmentID.ToString());
                 //cmd.CommandText = sql;
                 //cmd.Connection = con;
@@ -44,7 +46,7 @@ namespace WebApplication3
                     txtAssID.Text = reader["assessmentID"].ToString();
                     txtAssName.Text = reader["assessmentName"].ToString();
                     dropAssType.SelectedValue = reader["assessmentType"].ToString();
-                    
+
                     string date = reader["assessmentDate"].ToString();
                     DateTime dateTime = Convert.ToDateTime(date);
                     txtAssDate.Text = dateTime.ToString("yyyy-MM-dd");
@@ -52,21 +54,22 @@ namespace WebApplication3
                     String today = curDate.ToString("yyyy-MM-dd");
 
                     if (DateTime.Compare(curDate, dateTime) > 0)
-                    txtAssDate.Enabled = false;
+                        txtAssDate.Enabled = false;
                     else
                     {
                         txtAssDate.Attributes["min"] = today;
                     }
 
-                txtAssDesc.Text = reader["assessmentDescription"].ToString();
+                    txtAssDesc.Text = reader["assessmentDescription"].ToString();
                     txtAssVenue.Text = reader["assessmentVenue"].ToString();
                     String placeHolder = reader["classAverage"].ToString();
                     dropAssWeight.SelectedValue = reader["assessmentWeightage"].ToString();
                 }
 
                 con.Close();
-                isCreated = true; 
-           
+                isInitial = false;
+                Session["isInitial"] = isInitial; 
+            }
             txtAssID.Enabled = false;
         }
 
@@ -79,25 +82,21 @@ namespace WebApplication3
 
             string sql ="UPDATE [Assessment Information] " +
                         "SET [assessmentName] = @name, " +
-                        "[assessmentType] =@type, " +
-                        "[assessmentDate] = @date, " +
+                        "[assessmentType] =@type, " +                       
                         "[assessmentDescription] = @desc, " +
                         "[assessmentVenue] =  @venue, " +
-                        "[classAverage] = @ave, " +
                         "[assessmentWeightage] =  @weight " +
-                        "WHERE assessmentID = @AssID";
-
+                        "WHERE assessmentID = @assessmentID";
+            
 
             OleDbCommand dbCommand = new OleDbCommand(sql, dbConnection);
 
-            dbCommand.Parameters.AddWithValue("@name", txtAssName.Text);
-            dbCommand.Parameters.AddWithValue("@type", dropAssType.SelectedValue);
-            dbCommand.Parameters.AddWithValue("@date", txtAssDate.Text);
-            dbCommand.Parameters.AddWithValue("@desc", txtAssDesc.Text);
+            dbCommand.Parameters.AddWithValue("@name",  txtAssName.Text);
+            dbCommand.Parameters.AddWithValue("@type",  dropAssType.SelectedValue);          
+            dbCommand.Parameters.AddWithValue("@desc",  txtAssDesc.Text);
             dbCommand.Parameters.AddWithValue("@venue", txtAssVenue.Text);
-            dbCommand.Parameters.AddWithValue("@ave", 0);
             dbCommand.Parameters.AddWithValue("@weight", dropAssWeight.SelectedValue);
-            dbCommand.Parameters.AddWithValue("@AssID", txtAssID.Text);
+            dbCommand.Parameters.AddWithValue("@assessmentID", txtAssID.Text);
 
             dbConnection.Open();
 
@@ -113,13 +112,10 @@ namespace WebApplication3
             }
         }
 
-        protected void btnBack_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("LecturerViewAssessments.aspx");
-        }
-
         protected void btnCancelAss_Click(object sender, EventArgs e)
         {
+            isInitial = false;
+            Session["isInitial"] = false; 
             DateTime dateTime = DateTime.Today.AddDays(-30); 
             txtAssDate.Attributes["min"] = dateTime.ToString("yyyy-MM-dd");
             Response.Redirect("LecturerViewAssessments.aspx");
