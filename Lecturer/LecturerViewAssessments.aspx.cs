@@ -66,22 +66,6 @@ namespace WebApplication3
             //this.searchStudents();
         }
 
-        //protected void btnEditAss_Click(object sender, EventArgs e)
-        //{
-        //
-        //            
-        //    if (Page.IsValid)
-        //    {
-        //        int row = gridViewAssessments.PageIndex;
-        //        txtSearch.Text = row.ToString(); 
-        //        //Response.Redirect("EditAssessment.aspx?AssessmentID=" + assID);
-        //    }
-        //    else
-        //    { 
-        //        //TODO error
-        //    }
-        //
-        //}
 
         protected void gridViewAssessments_RowCommand(object sender, GridViewCommandEventArgs e)
         {
@@ -97,6 +81,7 @@ namespace WebApplication3
             {
                 String assessmentID = e.CommandArgument.ToString();
                 Session["assessmentID"] = assessmentID;
+                Session["moduleCode"] = moduleCode;
                 Response.Redirect("AddEditMarks.aspx?AssessmentID=" + assessmentID);
             }
 

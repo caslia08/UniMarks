@@ -13,11 +13,14 @@ namespace WebApplication3
 {
     public partial class AddAssessment : System.Web.UI.Page
     {
+        string moduleCode; 
         protected void Page_Load(object sender, EventArgs e)
         {
             DateTime date = DateTime.Today.Date;
             String today = date.ToString("yyyy-MM-dd");
             txtAssDate.Attributes["min"] = today;
+            moduleCode = Session["moduleCode"].ToString(); 
+
         }
 
         protected void btnCreateAss_Click(object sender, EventArgs e)
@@ -28,12 +31,13 @@ namespace WebApplication3
                 CS = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
                 OleDbConnection dbConnection = new OleDbConnection(CS); 
                 
-                String sqlInsert = "INSERT into [Assessment Information]([assessmentID], [assessmentName],[assessmentType],[assessmentDate],[assessmentDescription]," +
-                    "[assessmentVenue],[classAverage],[assessmentWeightage] ) VALUES (@ID, @name, @type, @date, @desc, @venue, @average, @weight)";
+                String sqlInsert = "INSERT into [Assessment Information]([assessmentID], [moduleCode], [assessmentName],[assessmentType],[assessmentDate],[assessmentDescription]," +
+                    "[assessmentVenue],[classAverage],[assessmentWeightage] ) VALUES (@ID, @moduleCode, @name, @type, @date, @desc, @venue, @average, @weight)";
 
                 OleDbCommand dbCommand = new OleDbCommand(sqlInsert, dbConnection);
 
                 dbCommand.Parameters.AddWithValue("@ID", txtAssID.Text);
+                dbCommand.Parameters.AddWithValue("@moduleCode", moduleCode);
                 dbCommand.Parameters.AddWithValue("@name", txtAssName.Text);
                 dbCommand.Parameters.AddWithValue("@type", dropAssType.SelectedValue);
                 dbCommand.Parameters.AddWithValue("@date", txtAssDate.Text);
@@ -55,6 +59,8 @@ namespace WebApplication3
                     if (ReturnCode == 1)
                     {
                         Response.Write("<script>alert('Assessment Added Successfully');</script>");
+                        Session["moduleCode"] = moduleCode; 
+                        Response.Redirect("LecturerViewAssessments.aspx");
                     }
                     else
                     {
@@ -93,6 +99,12 @@ namespace WebApplication3
             else
                 return false; 
 
+        }
+
+        protected void btnCancelAss_Click(object sender, EventArgs e)
+        {
+            //TODO Modal
+            Response.Redirect("LecturerViewAssessments.aspx");
         }
     }
 }

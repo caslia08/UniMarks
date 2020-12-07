@@ -33,30 +33,38 @@ namespace WebApplication3
         private void searchStudents()
         {
             String CS = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-            using (OleDbConnection con = new OleDbConnection(CS))
+            OleDbConnection dbConn = new OleDbConnection(CS);
+                
+           //string sql = "SELECT assessmentID, assessmentName, assessmentType, assessmentDate, assessmentDescription, assessmentVenue," +
+           //    "classAverage, assessmentWeightage FROM Assessment Information";
+
+           string sqlCmd1 = "SELECT Student.studentNumber, Student.firstName, Student.surname " +
+               "FROM Student INNER JOIN ModuleTaken ON Student.studentNumber = ModuleTaken.studentNumber " +
+               "WHERE (ModuleTaken.moduleCode = @moduleCode AND Student.studentNumber = @studentNumber )";
+
+            OleDbCommand cmd1 = new OleDbCommand(sqlCmd1, dbConn);
+
+            if (!string.IsNullOrEmpty(txtSearch.Text.Trim()))
             {
-                using (OleDbCommand cmd = new OleDbCommand())
-                {
-                    string sql = "SELECT assessmentID, assessmentName, assessmentType, assessmentDate, assessmentDescription, assessmentVenue," +
-                        "classAverage, assessmentWeightage FROM Assessment Information";
-
-                    if (!string.IsNullOrEmpty(txtSearch.Text.Trim()))
-                    {
-                        sql += " WHERE assessmentName LIKE @AssName + '%'";
-                        cmd.Parameters.AddWithValue("@AssName", txtSearch.Text.Trim());
-                    }
-                    cmd.CommandText = sql;
-                    cmd.Connection = con;
-
-                    using (OleDbDataAdapter sda = new OleDbDataAdapter(cmd))
-                    {
-                        DataTable dt = new DataTable();
-                        sda.Fill(dt);
-                        gridViewStudents.DataSource = dt;
-                        gridViewStudents.DataBind();
-                    }
-                }
+                cmd1.Parameters.AddWithValue("@moduleCode", moduleCode);
+                cmd1.Parameters.AddWithValue("@studentNumber", txtSearch.Text.Trim());
             }
+
+            dbConn.Open();
+
+            OleDbDataReader reader = cmd1.ExecuteReader();
+            gridViewStudents.DataSource = null; 
+            gridViewStudents.DataSource = reader;
+            gridViewStudents.DataBind();
+            //OleDbDataAdapter sda = new OleDbDataAdapter(cmd1);
+            //DataTable dt = new DataTable();
+            //sda.Fill(dt);
+            //gridViewStudents.DataSource = dt;
+            //gridViewStudents.DataBind();
+
+            dbConn.Close(); 
+                    
+                   
 
 
         }

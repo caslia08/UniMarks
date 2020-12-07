@@ -62,10 +62,6 @@
           </SelectParameters>
         </asp:SqlDataSource>
     </div>
-    <div class ="jumbotron text-danger">
-          <asp:Label ID ="Warning" Text=" " class="text-danger" runat="server" ></asp:Label>
-      </div>
-
     <asp:Button ID="btnUpdate" class="btn btn-outline-primary btn-lg btn-rounded-border" runat="server" Text="Update" OnClick="btnUpdate_Click"/>
     <asp:Button ID="btnCancel" class="btn btn-outline-danger btn-lg btn-rounded-border" runat="server" Text="Cancel" OnClick="btnCancel_Click"/>
      

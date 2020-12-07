@@ -22,10 +22,10 @@
 </asp:Content>
 <asp:Content ID="Content7" ContentPlaceHolderID="MainContent" runat="server">
        <div class="jumbotron">
-        <h2>Module Assessments</h2>
+        <h2>View Students</h2>
         <hr />
         <br />
-      <div><asp:Label ID="lblSearch" runat="server" Text="Search:"></asp:Label>
+      <div><asp:Label ID="lblSearch" runat="server" Text="Search Student Number :"></asp:Label>
       <asp:TextBox ID="txtSearch" runat="server" AutoPostBack="true" OnTextChanged="txtSearch_TextChanged"></asp:TextBox></div>
       <br />
       
@@ -56,24 +56,7 @@
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
           <script src="https://code.jquery.com/jquery-3.5.1.jss"></script>
         <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-        <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
-       
-        <script>
-            $(document).ready(function () {
-                $('.marks-table').DataTable();
-            });
-        </script>
-      <br />
-      <hr />
-      <br />
-       <div id="container">
-            <div class="row justify-content-center">
-                <div class="grid-button-container col-4">
-                    <a href="AddAssessment.aspx" class="btn btn-outline-primary btn-lg btn-rounded-border" role="button">Add Assessment</a>
-                </div>
-            </div>
-
-        </div>
+        <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>     
     </div>
 
 </asp:Content>
