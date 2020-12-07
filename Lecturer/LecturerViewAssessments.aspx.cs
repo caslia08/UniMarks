@@ -16,9 +16,13 @@ namespace WebApplication3
         protected void Page_Load(object sender, EventArgs e)
         {
             moduleCode = Session["ModuleCode"].ToString();
-            txtModuleName.InnerText += moduleCode;
-            gridViewAssessments.DataSourceID = "sqlAssessmentDataSource";
-            gridViewAssessments.DataBind(); 
+
+            if (!IsPostBack)
+            {
+                txtModuleName.InnerText += moduleCode;
+                gridViewAssessments.DataSourceID = "sqlAssessmentDataSource";
+                gridViewAssessments.DataBind();
+            }
         }
 
         protected void txtSearch_TextChanged(object sender, EventArgs e)
