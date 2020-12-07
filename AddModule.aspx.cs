@@ -96,7 +96,7 @@ namespace WebApplication3
             }
         }
 
-        private void doModuleAdd()
+        private bool doModuleAdd()
         {
             string CS;
             CS = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
@@ -120,19 +120,23 @@ namespace WebApplication3
                 if (ReturnCode == 1)
                 {
                     Response.Write("<script>alert('Module Added Successfully');</script>");
+                    dbConnection.Close();
+                    return true;
                 }
                 else
                 {
                     Response.Write("<script>alert('Module cannot be added');</script>");
+                    dbConnection.Close();
+                    return false;
                 }
 
             }
             catch (Exception e)
             {
                 Response.Write("<script>alert('Module cannot be added: " + e.Message + "');</script>");
+                dbConnection.Close();
+                return false;
             }
-
-            dbConnection.Close();
         }
 
         private void doModulePresnetedAdd()
@@ -220,10 +224,13 @@ namespace WebApplication3
                     return;
                 }
 
-                doModuleAdd();
-                doModulePresnetedAdd();
+                if (doModuleAdd())
+                {
+                    doModulePresnetedAdd();
+                }
 
-                Response.Redirect("SearchModule.aspx");
+
+                //Response.Redirect("SearchModule.aspx");
             }
             else
             {

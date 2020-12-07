@@ -46,9 +46,9 @@ namespace WebApplication3
             if (e.CommandName == "ViewMark")
             {
                 //Determine the RowIndex of the Row whose Button was clicked.
-                //try
-                //{
-                int rowIndex = Convert.ToInt32(e.CommandArgument);
+                try
+                {
+                    int rowIndex = Convert.ToInt32(e.CommandArgument);
 
                 //Reference the GridView Row.
                 GridViewRow row = assessmentsView.Rows[rowIndex];
@@ -58,13 +58,14 @@ namespace WebApplication3
                 assessmentID = getAssessmentID(name, venue);
                 Session["assessmentID"] = assessmentID;
                 Session["assessmentName"] = name;
+                Session["ModuleCode"] = moduleCode;
                 Session["studNum"] = studentNumber;
                 Response.Redirect("MarkDetails.aspx");
-           // }
-                //catch(Exception ex)
-                //{
-                //    Response.Write("<script>alert('Could not load marks page. Try again or contact tech support');</script>");
-                //}
+                }
+                catch (Exception ex)
+                {
+                    Response.Write("<script>alert('Could not load marks page. Try again or contact tech support');</script>");
+                }
             }
         }
 
@@ -76,7 +77,7 @@ namespace WebApplication3
             cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             OleDbConnection dbConn = new OleDbConnection(cs);
 
-            String sqlCmd1 = "SELECT [assessmentID] FROM [Assessment Information] WHERE (assessmentName = @assessmentName AND assessmentVenue = @assessmentVenue)"; //UHHHMMMMMMMMMM
+            String sqlCmd1 = "SELECT [assessmentID] FROM [Assessment Information] WHERE (assessmentName = @assessmentName AND assessmentVenue = @assessmentVenue)"; 
 
             OleDbCommand cmd1 = new OleDbCommand(sqlCmd1, dbConn);
 
