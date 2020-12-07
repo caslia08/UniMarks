@@ -80,7 +80,8 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="BreadCrumbs" runat="server">
 	<ol class="breadcrumb">
-		<li class="breadcrumb-item active"><a href="#">DashBoard</a></li>
+		<li class="breadcrumb-item"><a href="#">DashBoard</a></li>
+		<li class="breadcrumb-item"><a href="#">Profile</a></li>
 	</ol>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="mainHeading" runat="server">
@@ -143,67 +144,26 @@
 			</div>
 		</div>
 	</div>
-	
 	<h2 class="text-center">Modules Taught </h2>
-	 
-	<div class="grid-container">    
-        <asp:Button ID="btnHiddenLinearAlgebra" runat="server" OnClick="redirectToLinearAlgebra" Style="display: none" />
-        <div class ="module-grid-item" onclick="javascript:DivClicked_LinearAlgebra(); return true;">
-            <div class="grid-heading">
-                <h4>Linear Algebra</h4>
-            </div>
-            <img src="/Image/Math_logo.png"  alt="module-image"class="module-img" />
-        </div>
-        
-        <script>
-            function DivClicked_LinearAlgebra()
-            {
-                var btnHidden = $('#<%= btnHiddenLinearAlgebra.ClientID %>');
-                if(btnHidden != null)
-                {
-                    btnHidden.click();
-                }
-            }
-        </script>
-
-
-        <asp:Button ID="Button1" runat="server" OnClick="redirectToRealAnalysis" Style="display: none" />
-        <div class ="module-grid-item" onclick="javascript:DivClicked_RealAnalysis(); return true;">
-            <div class="grid-heading">
-                <h4>Real Analysis</h4>
-            </div>
+	 <div class="grid-container">
+         <div class="module-grid-item">
+             <div class="grid-heading">
+                 <h4>MAPV301-Partial Differential Equations</h4>
+             </div>
             <img src="/Image/Math_logo.png" alt="module-image"class="module-img" />
-        </div>
-        
-        <script>
-            function DivClicked_RealAnalysis()
-            {
-                var btnHidden = $('#<%= Button1.ClientID %>');
-                if(btnHidden != null)
-                {
-                    btnHidden.click();
-                }
-            }
-        </script>
-
-        <asp:Button ID="Button2" runat="server" OnClick="redirectToComplexFunctions" Style="display: none" />
-        <div class ="module-grid-item" onclick="javascript:DivClicked_ComplexFunctions(); return true;">
-            <div class="grid-heading">
-                <h4>Complex Functions</h4>
-            </div>
-            <img src="/Image/Math_logo.png" alt="module-image"class="module-img" />
-        </div>
-        
-        <script>
-            function DivClicked_ComplexFunctions()
-            {
-                var btnHidden = $('#<%= Button2.ClientID %>');
-                if(btnHidden != null)
-                {
-                    btnHidden.click();
-                }
-            }
-        </script>
+         </div>
+         <div class="module-grid-item">
+             <div class="grid-heading">
+                 <h4>MAP112-Mathematical Modelling</h4>
+             </div>
+             <img src="Image/Business_logo.png" alt="module-image" class="module-img" />
+         </div>
+         <div class="module-grid-item">
+             <div class="grid-heading">
+                 <h4>MAPV101-Graph Theory</h4>
+             </div>
+             <img src="Image/Math_logo.png" alt="module-image" class="module-img" />
+         </div>
      </div>
 	<br />
 </asp:Content>
