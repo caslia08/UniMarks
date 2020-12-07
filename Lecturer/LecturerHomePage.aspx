@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="LecturerHomePage.aspx.cs" Inherits="WebApplication3.LecturerHomePage" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="pageTitle" runat="server">
 	Lecturer Profile
 </asp:Content>
@@ -39,40 +40,44 @@
 			margin-top: 10px;
 		}
 
-		 .grid-container{
-            display: grid;
-            grid-gap: 50px;
-            grid-template-columns: 1fr 1fr 1fr;
-            grid-template-rows:300px;
-            margin-top: 50px;
-        }
-        .module-grid-item{
-            background-color: rgba(148, 148, 147, 0.80);
-            border-radius: 10px; 
-        }
-        .module-grid-item:hover{
-            box-shadow: 15px 10px 20px 0px rgb(19, 80, 177)
-        }
-        .grid-heading{
-            padding: 10px;
-            background-color: rgb(238, 203, 11);
-            text-align: center;
-            color: rgb(19, 80, 177);
-            height: 70px;
-            font-weight: bold;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-            border-bottom: solid;
-            border-bottom-color:rgb(19, 80, 177);
-            border-bottom-width: 4px;
-        }
-        .module-img{
-            width: 100%;
-            height: 230px;
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-            opacity: 0.7;
-        }
+		.grid-container {
+			display: grid;
+			grid-gap: 50px;
+			grid-template-columns: 1fr 1fr 1fr;
+			grid-template-rows: 300px;
+			margin-top: 50px;
+		}
+
+		.module-grid-item {
+			background-color: rgba(148, 148, 147, 0.80);
+			border-radius: 10px;
+		}
+
+			.module-grid-item:hover {
+				box-shadow: 15px 10px 20px 0px rgb(19, 80, 177)
+			}
+
+		.grid-heading {
+			padding: 10px;
+			background-color: rgb(238, 203, 11);
+			text-align: center;
+			color: rgb(19, 80, 177);
+			height: 70px;
+			font-weight: bold;
+			border-top-left-radius: 10px;
+			border-top-right-radius: 10px;
+			border-bottom: solid;
+			border-bottom-color: rgb(19, 80, 177);
+			border-bottom-width: 4px;
+		}
+
+		.module-img {
+			width: 100%;
+			height: 230px;
+			border-bottom-left-radius: 10px;
+			border-bottom-right-radius: 10px;
+			opacity: 0.7;
+		}
 	</style>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Login_LogoutButton" runat="server">
@@ -103,19 +108,24 @@
 					<table class="table table-hover">
 						<tr>
 							<td>Title:</td>
-							<td><asp:Label ID="txtTitle" runat="server"></asp:Label> </td>
+							<td>
+								<asp:Label ID="txtTitle" runat="server"></asp:Label>
+							</td>
 						</tr>
 						<tr>
 							<td>Full Name:</td>
-							<td><asp:Label ID="txtFullName" runat="server"></asp:Label></td>
+							<td>
+								<asp:Label ID="txtFullName" runat="server"></asp:Label></td>
 						</tr>
 						<tr>
 							<td>Email Address:</td>
-							<td><asp:Label ID="txtEmail" runat="server"></asp:Label></td>
+							<td>
+								<asp:Label ID="txtEmail" runat="server"></asp:Label></td>
 						</tr>
 						<tr>
 							<td>ID Number:</td>
-							<td><asp:Label ID="txtID" runat="server"></asp:Label></td>
+							<td>
+								<asp:Label ID="txtID" runat="server"></asp:Label></td>
 						</tr>
 
 					</table>
@@ -129,15 +139,18 @@
 					<table class="table table-hover">
 						<tr>
 							<td>Department:</td>
-							<td>FACULTY OF <asp:Label ID="txtFaculty" runat="server"></asp:Label></td>
+							<td>FACULTY OF
+								<asp:Label ID="txtFaculty" runat="server"></asp:Label></td>
 						</tr>
 						<tr>
 							<td>Staff number:</td>
-							<td><asp:Label ID="txtStaffNum" runat="server"></asp:Label></td>
+							<td>
+								<asp:Label ID="txtStaffNum" runat="server"></asp:Label></td>
 						</tr>
 						<tr>
 							<td>Office number:</td>
-							<td><asp:Label ID="txtTel" runat="server"></asp:Label></td>
+							<td>
+								<asp:Label ID="txtTel" runat="server"></asp:Label></td>
 						</tr>
 					</table>
 				</div>
@@ -145,25 +158,25 @@
 		</div>
 	</div>
 	<h2 class="text-center">Modules Taught </h2>
-	 <div class="grid-container">
-         <div class="module-grid-item">
-             <div class="grid-heading">
-                 <h4>MAPV301-Partial Differential Equations</h4>
-             </div>
-            <img src="/Image/Math_logo.png" alt="module-image"class="module-img" />
-         </div>
-         <div class="module-grid-item">
-             <div class="grid-heading">
-                 <h4>MAP112-Mathematical Modelling</h4>
-             </div>
-             <img src="Image/Business_logo.png" alt="module-image" class="module-img" />
-         </div>
-         <div class="module-grid-item">
-             <div class="grid-heading">
-                 <h4>MAPV101-Graph Theory</h4>
-             </div>
-             <img src="Image/Math_logo.png" alt="module-image" class="module-img" />
-         </div>
-     </div>
+	<div class="grid-container">
+		<div class="module-grid-item">
+			<div class="grid-heading">
+				<h4>MAPV301-Partial Differential Equations</h4>
+			</div>
+			<img src="/Image/Math_logo.png" alt="module-image" class="module-img" />
+		</div>
+		<div class="module-grid-item">
+			<div class="grid-heading">
+				<h4>MAP112-Mathematical Modelling</h4>
+			</div>
+			<img src="Image/Business_logo.png" alt="module-image" class="module-img" />
+		</div>
+		<div class="module-grid-item">
+			<div class="grid-heading">
+				<h4>MAPV101-Graph Theory</h4>
+			</div>
+			<img src="Image/Math_logo.png" alt="module-image" class="module-img" />
+		</div>
+	</div>
 	<br />
 </asp:Content>
