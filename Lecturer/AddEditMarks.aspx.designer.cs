@@ -15,6 +15,15 @@ namespace WebApplication3.Lecturer
     {
 
         /// <summary>
+        /// txtModuleName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtModuleName;
+
+        /// <summary>
         /// txtHeader control.
         /// </summary>
         /// <remarks>
@@ -22,6 +31,24 @@ namespace WebApplication3.Lecturer
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtHeader;
+
+        /// <summary>
+        /// lblSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSearch;
+
+        /// <summary>
+        /// txtSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSearch;
 
         /// <summary>
         /// gridViewMarks control.
@@ -40,15 +67,6 @@ namespace WebApplication3.Lecturer
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource sqlMarksSource;
-
-        /// <summary>
-        /// Warning control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Warning;
 
         /// <summary>
         /// btnUpdate control.

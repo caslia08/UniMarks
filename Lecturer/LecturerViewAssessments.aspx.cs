@@ -12,20 +12,17 @@ namespace WebApplication3
 {
     public partial class LecturerViewAssessments : System.Web.UI.Page
     {
+        string moduleCode; 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Session["ModuleCode"] = "WRCV202"; 
-            gridViewAssessments.HeaderRow.TableSection = TableRowSection.TableHeader;
-            if (!this.IsPostBack)
-            {
-                //this.searchStudents();
-            }
+            moduleCode = Session["ModuleCode"].ToString();
+            txtModuleName.InnerText += moduleCode;
+            gridViewAssessments.DataSourceID = "sqlAssessmentDataSource";
+            gridViewAssessments.DataBind(); 
         }
 
         protected void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            //this.searchStudents();
-
         }
 
         private void searchStudents()
@@ -65,34 +62,23 @@ namespace WebApplication3
             //this.searchStudents();
         }
 
-        //protected void btnEditAss_Click(object sender, EventArgs e)
-        //{
-        //
-        //            
-        //    if (Page.IsValid)
-        //    {
-        //        int row = gridViewAssessments.PageIndex;
-        //        txtSearch.Text = row.ToString(); 
-        //        //Response.Redirect("EditAssessment.aspx?AssessmentID=" + assID);
-        //    }
-        //    else
-        //    { 
-        //        //TODO error
-        //    }
-        //
-        //}
 
         protected void gridViewAssessments_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            String isCreated = "false"; 
+            //String isCreated = "false"; 
             if (e.CommandName == "EditStudents")
             {
                 String assessmentID = e.CommandArgument.ToString();
-                Response.Redirect("EditAssessment.aspx?AssessmentID=" + assessmentID + "&isCreate=" + isCreated);
+                Session["assessmentID"] = assessmentID;
+                Session["moduleCode"] = moduleCode;
+                Session["isInitial"] = true; 
+                Response.Redirect("EditAssessment.aspx?AssessmentID=" + assessmentID); //+ "&isCreate=" + isCreated);
             }
             else if (e.CommandName == "AddMarks")
             {
                 String assessmentID = e.CommandArgument.ToString();
+                Session["assessmentID"] = assessmentID;
+                Session["moduleCode"] = moduleCode;
                 Response.Redirect("AddEditMarks.aspx?AssessmentID=" + assessmentID);
             }
 

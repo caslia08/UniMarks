@@ -49,8 +49,8 @@
 <asp:Content ID="Content5" ContentPlaceHolderID="BreadCrumbs" runat="server">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="#">DashBoard</a></li>
-        <li class="breadcrumb-item"><a href="#">MAPV311</a></li>
-        <li class="breadcrumb-item active">View Assessments</li>
+        <li class="breadcrumb-item"><a href="#"><p id="txtModuleName" runat="server"></p></a></li>
+        <li class="breadcrumb-item active"><a href="#">View Assessments</a></li>
     </ol>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="mainHeading" runat="server">
@@ -61,12 +61,12 @@
         <h2>Module Assessments</h2>
         <hr />
         <br />
-      <div><asp:Label ID="lblSearch" runat="server" Text="Search:"></asp:Label>
+      <div><asp:Label ID="lblSearch" runat="server" Text="Search Assessment ID:"></asp:Label>
       <asp:TextBox ID="txtSearch" runat="server" AutoPostBack="true" OnTextChanged="txtSearch_TextChanged"></asp:TextBox></div>
       <br />
       
       <asp:GridView ID="gridViewAssessments" runat="server" AutoGenerateColumns="False" DataKeyNames="assessmentID" DataSourceID="sqlAssessmentDataSource"
-          AllowSorting="True" OnPageIndexChanging="OnPaging" AllowPaging="True" class="table table-responsive table-hover" HeaderStyle-CssClass="table-primary" GridLines="Horizontal" BorderStyle="None" OnRowCommand="gridViewAssessments_RowCommand">
+          AllowSorting="True" EnableViewState="false" OnPageIndexChanging="OnPaging" AutoPostBack="true" AllowPaging="True" class="table table-responsive table-hover" HeaderStyle-CssClass="table-primary" GridLines="Horizontal" BorderStyle="None" OnRowCommand="gridViewAssessments_RowCommand">
           <Columns>
               <asp:BoundField DataField="assessmentID" HeaderText="Assessment ID" ReadOnly="True" SortExpression="assessmentID" />
               <asp:BoundField DataField="assessmentName" HeaderText="Name" SortExpression="assessmentName" />

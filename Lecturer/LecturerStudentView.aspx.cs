@@ -15,12 +15,13 @@ namespace WebApplication3
         string moduleCode; 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["moduleCode"] != null)
+            if (Session["ModuleCode"] != null)
             {
-                moduleCode = Session["moduleCode"].ToString();
+                moduleCode = Session["ModuleCode"].ToString();
             }
-            Session["moduleCode"] = "WRCV202"; 
-            moduleCode = Session["moduleCode"].ToString();
+            Session["ModuleCode"] = moduleCode; 
+            moduleCode = Session["ModuleCode"].ToString();
+            txtModuleName.InnerText = moduleCode; 
         }
 
         protected void txtSearch_TextChanged(object sender, EventArgs e)
@@ -32,30 +33,38 @@ namespace WebApplication3
         private void searchStudents()
         {
             String CS = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-            using (OleDbConnection con = new OleDbConnection(CS))
+            OleDbConnection dbConn = new OleDbConnection(CS);
+                
+           //string sql = "SELECT assessmentID, assessmentName, assessmentType, assessmentDate, assessmentDescription, assessmentVenue," +
+           //    "classAverage, assessmentWeightage FROM Assessment Information";
+
+           string sqlCmd1 = "SELECT Student.studentNumber, Student.firstName, Student.surname " +
+               "FROM Student INNER JOIN ModuleTaken ON Student.studentNumber = ModuleTaken.studentNumber " +
+               "WHERE (ModuleTaken.moduleCode = @moduleCode AND Student.studentNumber = @studentNumber )";
+
+            OleDbCommand cmd1 = new OleDbCommand(sqlCmd1, dbConn);
+
+            if (!string.IsNullOrEmpty(txtSearch.Text.Trim()))
             {
-                using (OleDbCommand cmd = new OleDbCommand())
-                {
-                    string sql = "SELECT assessmentID, assessmentName, assessmentType, assessmentDate, assessmentDescription, assessmentVenue," +
-                        "classAverage, assessmentWeightage FROM Assessment Information";
-
-                    if (!string.IsNullOrEmpty(txtSearch.Text.Trim()))
-                    {
-                        sql += " WHERE assessmentName LIKE @AssName + '%'";
-                        cmd.Parameters.AddWithValue("@AssName", txtSearch.Text.Trim());
-                    }
-                    cmd.CommandText = sql;
-                    cmd.Connection = con;
-
-                    using (OleDbDataAdapter sda = new OleDbDataAdapter(cmd))
-                    {
-                        DataTable dt = new DataTable();
-                        sda.Fill(dt);
-                        gridViewStudents.DataSource = dt;
-                        gridViewStudents.DataBind();
-                    }
-                }
+                cmd1.Parameters.AddWithValue("@moduleCode", moduleCode);
+                cmd1.Parameters.AddWithValue("@studentNumber", txtSearch.Text.Trim());
             }
+
+            dbConn.Open();
+
+            OleDbDataReader reader = cmd1.ExecuteReader();
+            gridViewStudents.DataSource = null; 
+            gridViewStudents.DataSource = reader;
+            gridViewStudents.DataBind();
+            //OleDbDataAdapter sda = new OleDbDataAdapter(cmd1);
+            //DataTable dt = new DataTable();
+            //sda.Fill(dt);
+            //gridViewStudents.DataSource = dt;
+            //gridViewStudents.DataBind();
+
+            dbConn.Close(); 
+                    
+                   
 
 
         }
@@ -65,29 +74,14 @@ namespace WebApplication3
             gridViewStudents.PageIndex = e.NewPageIndex;
             //this.searchStudents();
         }
-
-        //protected void btnEditAss_Click(object sender, EventArgs e)
-        //{
-        //
-        //            
-        //    if (Page.IsValid)
-        //    {
-        //        int row = gridViewAssessments.PageIndex;
-        //        txtSearch.Text = row.ToString(); 
-        //        //Response.Redirect("EditAssessment.aspx?AssessmentID=" + assID);
-        //    }
-        //    else
-        //    { 
-        //        //TODO error
-        //    }
-        //
-        //}
-
+  
         protected void gridViewStudents_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "ViewProgress")
             {
                 String studentNumber = e.CommandArgument.ToString();
+                Session["studentNumber"] = studentNumber;
+                Session["moduleCode"] = moduleCode;
                 Response.Redirect("LecturerStudentProgress.aspx?StudentNumber=" + studentNumber + "&moduleCode=" + moduleCode);
             }
         }

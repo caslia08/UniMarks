@@ -15,9 +15,9 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="BreadCrumbs" runat="server">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="#">DashBoard</a></li>
-        <li class="breadcrumb-item"><a href="#">MAPV311</a></li>
-        <li class="breadcrumb-item active">View Assessments</li>
-          <li class="breadcrumb-item active">Edit Assessment</li>
+        <li class="breadcrumb-item"><a href="#"><p id="txtModuleName" runat="server"></p></a></li>
+        <li class="breadcrumb-item"><a href="#">View Assessments</a></li>
+        <li class="breadcrumb-item active"><a href="#">Edit Assessments</a></li>
     </ol>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="mainHeading" runat="server">
@@ -88,8 +88,7 @@
             <hr />
             <br />
        <asp:Button ID="btnSaveChanges"  class="btn btn-outline-primary btn-lg btn-rounded-border" runat="server" Text="Save Changes" OnClick="btnSaveChanges_Click" />
-       <asp:Button ID="btnCancelAss" class="btn btn-outline-danger btn-lg btn-rounded-border" runat="server" Text="Cancel" OnClick="btnCancelAss_Click" />
-       <asp:Button ID="btnBack" class="btn btn-outline-primary btn-lg btn-rounded-border" runat="server" Text="Back" OnClick="btnBack_Click" />
+       <asp:Button ID="btnCancelAss" class="btn btn-outline-danger btn-lg btn-rounded-border" runat="server" CausesValidation="false" Text="Cancel" OnClick="btnCancelAss_Click" />
    </div>
 
 </asp:Content>
