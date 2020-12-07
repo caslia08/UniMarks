@@ -46,7 +46,7 @@
 		<hr />
 		<br />
 
-		<asp:Button ID="searchButton" runat="server" class="btn btn-outline-primary btn-sm btn-rounded-border" Text="Search" />
+		<asp:Button ID="searchButton" runat="server" class="btn btn-outline-primary btn-sm btn-rounded-border" Text="Search on surname" />
 		<br />
 		<asp:TextBox ID="searchBox" runat="server"></asp:TextBox>
 
