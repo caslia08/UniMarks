@@ -12,8 +12,9 @@
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="BreadCrumbs" runat="server">
     <ol class="breadcrumb">
-       <li class="breadcrumb-item"><a href="#">DashBoard</a></li>
-        <li class="breadcrumb-item"><a href="#"><p id="txtModuleName" runat="server"></p></a></li>
+       
+        <li class="breadcrumb-item"><a href="LecturerHomePage.aspx">DashBoard</a></li>
+        <li class="breadcrumb-item"><a href="LecturerModuleStatistics.aspx"><p id="txtModuleName" runat="server"></p></a></li>
         <li class="breadcrumb-item active"><a href="#">Student List</a></li>
     </ol>
 </asp:Content>
@@ -52,6 +53,7 @@
           <SelectParameters>
               <asp:SessionParameter DefaultValue="MATT212" Name="ModuleCode" SessionField="ModuleCode" Type="String" />
           </SelectParameters>
+
      </asp:SqlDataSource>
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
           <script src="https://code.jquery.com/jquery-3.5.1.jss"></script>

@@ -50,7 +50,7 @@ namespace WebApplication3
             String sqlCmd2 = "SELECT AVG([markCaptured]) FROM [ASSESSMENT RESULTS] WHERE (moduleCode = @moduleCode)";
             String sqlCmd3 = "SELECT COUNT([markCaptured]) FROM [ASSESSMENT RESULTS] WHERE (studentNumber = @studentNum AND  moduleCode = @moduleCode AND markCaptured > @mark )";
             String sqlCmd4 = "SELECT COUNT([markCaptured]) FROM [ASSESSMENT RESULTS] WHERE (studentNumber = @studentNum AND  moduleCode = @moduleCode AND markCaptured = @mark )";
-            String sqlCmd5 = "SELECT [markCaptured] FROM [ASSESSMENT RESULTS] WHERE (moduleCode = @moduleCode AND studentNumber = @studentNum)";
+            String sqlCmd5 = "SELECT [markCaptured] FROM [ASSESSMENT RESULTS] WHERE (moduleCode = @moduleCode)";
             String sqlCmd6 = "SELECT [firstName], [surname] FROM [STUDENT] WHERE (studentNumber = @studentNum)";
 
 
@@ -123,7 +123,6 @@ namespace WebApplication3
 
             cmd1 = new OleDbCommand(sqlCmd5, dbConn);
             cmd1.Parameters.AddWithValue("@moduleCode", moduleCode);
-            cmd1.Parameters.AddWithValue("@studentNum", studentNumber);
             reader = cmd1.ExecuteReader();
 
             if (reader.Read() == true)
@@ -163,13 +162,12 @@ namespace WebApplication3
             missedAssessments.InnerText += resData4[0].ToString();
             studentFullname.InnerText += fullname; 
             studentName.InnerText += (resData6[0].ToString() + "'s Average Mark");
-            moduleProgressName.InnerText += (resData6[0].ToString() + "'s module progress");
             txtStudNamePrg.InnerText += fullname;
             txtModuleName.InnerText += moduleCode;
 
-            //getBarChart();
-            //getPieChart();
-            //getLineChart();
+            getBarChart();
+            getPieChart();
+            getLineChart();
         }
 
         private String getRangeValues()

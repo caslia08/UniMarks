@@ -14,9 +14,9 @@ Student Progress
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="BreadCrumbs" runat="server">
      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="#">DashBoard</a></li>
-        <li class="breadcrumb-item"><a href="#"><p id="txtModuleName" runat="server"></p></a></li>
-        <li class="breadcrumb-item"><a href="#">Student List</a></li>
+          <li class="breadcrumb-item"><a href="LecturerHomePage.aspx">DashBoard</a></li>
+        <li class="breadcrumb-item"><a href="LecturerModuleStatistics.aspx"><p id="txtModuleName" runat="server"></p></a></li>
+        <li class="breadcrumb-item active"><a href="#">Student List</a></li>
         <li class="breadcrumb-item active"><a href="#"><p id="txtStudNamePrg" runat="server"></p></a></li>
 
     </ol>
@@ -51,7 +51,7 @@ Student Progress</asp:Content>
         <hr />
         <br />
         
-        <h3><p id="moduleProgressName" runat="server"></p></h3>
+        <h3>Class's Progress</h3>
          <div class="form-group">
             <label for="chart-to-show">Select graph:</label>
             <select class="form-control" id="chart-to-show">

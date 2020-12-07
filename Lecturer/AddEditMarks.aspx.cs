@@ -19,6 +19,8 @@ namespace WebApplication3.Lecturer
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            btnUpdate.Enabled = true;
+
             assID = this.Request.QueryString["AssessmentID"];
             //assID = "1008";
             Session["assessmentID"] = assID;
@@ -69,8 +71,13 @@ namespace WebApplication3.Lecturer
                 } while (read == true);
             }
             reader.Close();
-
             dbConn.Close();
+
+            if (gridViewMarks.Rows.Count == 0)
+            {
+                txtWarning.InnerText = "There are no student records for this assessment";
+                btnUpdate.Enabled = false; 
+            }
 
             String heading = "";
             heading += resData[0].ToString();
