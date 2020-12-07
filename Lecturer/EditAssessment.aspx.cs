@@ -31,7 +31,7 @@ namespace WebApplication3
                 OleDbConnection con = new OleDbConnection(CS);
 
                 string sql = "SELECT assessmentID, assessmentName, assessmentType, assessmentDate, assessmentDescription, assessmentVenue," +
-                    "classAverage, assessmentWeightage FROM [Assessment Information] WHERE assessmentID = @assessmentID";
+                    "assessmentWeightage FROM [Assessment Information] WHERE assessmentID = @assessmentID";
 
 
                 OleDbCommand cmd = new OleDbCommand(sql, con);
@@ -62,7 +62,6 @@ namespace WebApplication3
 
                     txtAssDesc.Text = reader["assessmentDescription"].ToString();
                     txtAssVenue.Text = reader["assessmentVenue"].ToString();
-                    String placeHolder = reader["classAverage"].ToString();
                     dropAssWeight.SelectedValue = reader["assessmentWeightage"].ToString();
                 }
 

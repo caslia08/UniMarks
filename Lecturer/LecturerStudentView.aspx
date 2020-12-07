@@ -12,8 +12,9 @@
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="BreadCrumbs" runat="server">
     <ol class="breadcrumb">
-       <li class="breadcrumb-item"><a href="#">DashBoard</a></li>
-        <li class="breadcrumb-item"><a href="#"><p id="txtModuleName" runat="server"></p></a></li>
+       
+        <li class="breadcrumb-item"><a href="LecturerHomePage.aspx">DashBoard</a></li>
+        <li class="breadcrumb-item"><a href="LecturerModuleStatistics.aspx"><p id="txtModuleName" runat="server"></p></a></li>
         <li class="breadcrumb-item active"><a href="#">Student List</a></li>
     </ol>
 </asp:Content>
@@ -48,14 +49,10 @@
         </asp:GridView>
 
      <asp:SqlDataSource ID="sqlViewStudentSource" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString1 %>" ProviderName="<%$ ConnectionStrings:ConnectionString1.ProviderName %>" 
-         SelectCommand="SELECT Student.studentNumber, Student.firstName, Student.surname FROM Student INNER JOIN ModuleTaken ON Student.studentNumber = ModuleTaken.studentNumber WHERE (ModuleTaken.moduleCode = ? AND ModuleTaken.studentNumber LIKE '{0}%')">
+         SelectCommand="SELECT Student.studentNumber, Student.firstName, Student.surname FROM Student INNER JOIN ModuleTaken ON Student.studentNumber = ModuleTaken.studentNumber WHERE (ModuleTaken.moduleCode = ?)">
           <SelectParameters>
               <asp:SessionParameter DefaultValue="MATT212" Name="ModuleCode" SessionField="ModuleCode" Type="String" />
           </SelectParameters>
-
-         <FilterParameters>
-				<asp:ControlParameter Name="studName" ControlID="txtSearch" PropertyName="Text" />
-		 </FilterParameters>
 
      </asp:SqlDataSource>
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">

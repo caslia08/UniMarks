@@ -48,8 +48,8 @@
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="BreadCrumbs" runat="server">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="#">DashBoard</a></li>
-        <li class="breadcrumb-item"><a href="#"><p id="txtModuleName" runat="server"></p></a></li>
+        <li class="breadcrumb-item"><a href="LecturerHomePage.aspx">DashBoard</a></li>
+        <li class="breadcrumb-item"><a href="LecturerModuleStatistics.aspx"><p id="txtModuleName" runat="server"></p></a></li>
         <li class="breadcrumb-item active"><a href="#">View Assessments</a></li>
     </ol>
 </asp:Content>
@@ -74,7 +74,6 @@
               <asp:BoundField DataField="assessmentType" HeaderText="Assessment Type" SortExpression="assessmentType" />
               <asp:BoundField DataField="assessmentDate" HeaderText="Date" SortExpression="assessmentDate" DataFormatString="{0:d}" HtmlEncode="False" />
               <asp:BoundField DataField="assessmentVenue" HeaderText="Venue" SortExpression="assessmentVenue" />
-              <asp:BoundField DataField="classAverage" HeaderText="Class Average" SortExpression="classAverage"  />
               <asp:BoundField DataField="assessmentWeightage" HeaderText="Weightage" SortExpression="assessmentWeightage" />
                <asp:TemplateField>
                    <ItemTemplate>
@@ -96,7 +95,7 @@
 <HeaderStyle CssClass="table-primary"></HeaderStyle>
         </asp:GridView>
 
-      <asp:SqlDataSource ID="sqlAssessmentDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString1 %>" ProviderName="<%$ ConnectionStrings:ConnectionString1.ProviderName %>" SelectCommand="SELECT [assessmentID], [assessmentName], [assessmentType], [assessmentDescription], [assessmentDate], [assessmentVenue], [classAverage], [assessmentWeightage] FROM [Assessment Information] WHERE ([moduleCode] = ?)">
+      <asp:SqlDataSource ID="sqlAssessmentDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString1 %>" ProviderName="<%$ ConnectionStrings:ConnectionString1.ProviderName %>" SelectCommand="SELECT [assessmentID], [assessmentName], [assessmentType], [assessmentDescription], [assessmentDate], [assessmentVenue], [assessmentWeightage] FROM [Assessment Information] WHERE ([moduleCode] = ?)">
           <SelectParameters>
               <asp:SessionParameter DefaultValue="MATT212" Name="moduleCode" SessionField="ModuleCode" Type="String" />
           </SelectParameters>

@@ -15,8 +15,9 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="BreadCrumbs" runat="server">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="#">DashBoard</a></li>
-        <li class="breadcrumb-item"><a href="#">MAPV311</a></li>
+       <li class="breadcrumb-item"><a href="LecturerHomePage.aspx">DashBoard</a></li>
+        <li class="breadcrumb-item"><a href="LecturerModuleStatistics.aspx"><p id="P1" runat="server"></p></a></li>
+        <li class="breadcrumb-item"><a href="LecturerViewAssessments.aspx">View Assessments</a></li>
         <li class="breadcrumb-item active">Add Assessment</li>
     </ol>
 </asp:Content>
